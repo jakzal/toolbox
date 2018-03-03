@@ -613,6 +613,18 @@
       "test": "psecio-parse --version"
     },
     {
+      "name": "rector",
+      "summary": "Tool for instant code upgrades and refactoring",
+      "website": "https://github.com/rectorphp/rector",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "rector/rector",
+          "namespace": "tools"
+        }
+      },
+      "test": "rector --version"
+    },
+    {
       "name": "roave-backward-compatibility-check",
       "summary": "Tool to compare two revisions of a class API to check for BC breaks",
       "website": "https://github.com/Roave/BackwardCompatibilityCheck",

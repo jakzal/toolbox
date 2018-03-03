@@ -65,6 +65,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * phpunit-7 - [The PHP testing framework (7.x version)](https://phpunit.de/)
 * psalm - [Finds errors in PHP applications](https://getpsalm.org/)
 * psecio-parse - [Scans code for potential security-related issues](https://github.com/psecio/parse)
+* rector - [Tool for instant code upgrades and refactoring](https://github.com/rectorphp/rector)
 * roave-backward-compatibility-check - [Tool to compare two revisions of a class API to check for BC breaks](https://github.com/Roave/BackwardCompatibilityCheck)
 * security-checker - [Checks composer dependencies for known security vulnerabilities](https://github.com/sensiolabs/security-checker)
 * simple-phpunit - [Provides utilities to report legacy tests and usage of deprecated code](https://symfony.com/doc/current/components/phpunit_bridge.html)

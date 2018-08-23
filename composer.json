@@ -1,0 +1,35 @@
+{
+    "name": "zalas/toolbox",
+    "description": "Helps to discover and install tools",
+    "type": "project",
+    "require": {
+        "php": "^7.1",
+        "symfony/console": "^4.1",
+        "psr/container": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zalas\\Toolbox\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zalas\\Toolbox\\Tests\\": "tests"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jakub Zalas",
+            "email": "jakub@zalas.pl"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}

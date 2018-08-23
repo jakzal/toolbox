@@ -1,0 +1,48 @@
+inherit: true
+
+build:
+  environment:
+    php:
+      version: 7.2
+  tests:
+    override:
+    - make test
+  project_setup:
+  nodes:
+    coverage:
+      tests:
+        override:
+        - command: make phpunit-coverage
+          coverage:
+            file: build/coverage.xml
+            format: clover
+filter:
+  paths: [src/*]
+
+build_failure_conditions:
+- 'elements.rating(<= B).new.exists'
+- 'issues.label("coding-style").new.exists'
+- 'issues.severity(>= MAJOR).new.exists'
+
+checks:
+  php: true
+
+tools:
+  php_code_sniffer: { config: { standard: psr2 } }
+  php_cs_fixer: { config: { level: psr2 } }
+  external_code_coverage: false
+  php_code_coverage: true
+  php_changetracking: true
+  php_sim: true
+  php_mess_detector: true
+  php_pdepend: true
+  php_analyzer: true
+  sensiolabs_security_checker: true
+
+coding_style:
+  php:
+    spaces:
+      within:
+        brackets: false
+      before_parentheses:
+        closure_definition: true

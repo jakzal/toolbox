@@ -11,7 +11,7 @@ final class Assert
         });
 
         if (!empty($missingFields)) {
-            throw new \InvalidArgumentException(\sprintf('Missing fields "%s" in the %s: `%s`.', \implode($missingFields, ', '), $type, \json_encode($data)));
+            throw new \InvalidArgumentException(\sprintf('Missing fields "%s" in the %s: `%s`.', \implode(', ', $missingFields), $type, \json_encode($data)));
         }
     }
 }

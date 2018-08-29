@@ -14,7 +14,7 @@ It has been extracted as a separate project to make maintenance easier and open 
 
 ## Installation
 
-Get the `phar` from the [latest release](https://github.com/jakzal/toolbox/releases/latest).
+Get the `toolbox.phar` from the [latest release](https://github.com/jakzal/toolbox/releases/latest).
 The command below should do the job:
 
 ```bash

@@ -65,6 +65,22 @@ package: tools/box
 	@rm -rf build/phar
 .PHONY: package
 
+package-devkit: tools/box
+	$(eval VERSION=$(shell (git describe --abbrev=0 --tags 2>/dev/null || echo "0.1-dev") | sed -e 's/^v//'))
+	@rm -rf build/devkit-phar && mkdir -p build/devkit-phar build/devkit-phar/bin
+
+	cp -r src resources LICENSE composer.json scoper.inc.php build/devkit-phar
+	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
+
+	cd build/devkit-phar && \
+	  composer config platform.php 7.1.3 && \
+	  composer update --no-dev -o -a
+
+	tools/box compile -c box-devkit.json.dist
+
+	@rm -rf build/devkit-phar
+.PHONY: package-devkit
+
 tools: tools/php-cs-fixer tools/deptrac tools/infection tools/box
 .PHONY: tools
 

@@ -1,0 +1,18 @@
+{
+    "base-path": "build/devkit-phar",
+    "output": "../devkit.phar",
+    "compression": "GZ",
+    "directories": ["."],
+    "dump-autoload": true,
+    "exclude-composer-files": true,
+    "check-requirements": false,
+    "main": "bin/devkit.php",
+    "compactors": [
+        "KevinGH\\Box\\Compactor\\PhpScoper"
+    ],
+    "banner": [
+        "This file is part of the zalas/toolbox project.",
+        "",
+        "(c) Jakub Zalas <jakub@zalas.pl>"
+    ]
+}

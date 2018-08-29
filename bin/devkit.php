@@ -28,8 +28,8 @@ $application->add(
 
         protected function execute(InputInterface $input, OutputInterface $output)
         {
-            $jsonPath = realpath($input->getOption('tools'));
-            $readmePath = realpath($input->getOption('readme'));
+            $jsonPath = $input->getOption('tools');
+            $readmePath = $input->getOption('readme');
             $tools = (new Tools($jsonPath))->all();
             $toolsList = $tools->reduce('', function ($acc, Tool $tool) {
                 return $acc . sprintf('* %s - [%s](%s)', $tool->name(), $tool->summary(), $tool->website()) . PHP_EOL;
@@ -56,7 +56,7 @@ $application->add(
 
         protected function execute(InputInterface $input, OutputInterface $output)
         {
-            $jsonPath = realpath($input->getOption('tools'));
+            $jsonPath = $input->getOption('tools');
 
             $phars = $this->findLatestPhars($jsonPath);
 

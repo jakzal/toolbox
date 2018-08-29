@@ -11,7 +11,7 @@ final class BoxBuildCommand implements Command
     private $bin;
     private $version;
     
-    private function __construct(string $repository, string $phar, string $bin, ?string $version = null)
+    public function __construct(string $repository, string $phar, string $bin, ?string $version = null)
     {
         $this->repository = $repository;
         $this->phar = $phar;
@@ -31,13 +31,6 @@ final class BoxBuildCommand implements Command
             $this->bin,
             $this->targetDir()
         );
-    }
-
-    public static function import(array $definition): Command
-    {
-        Assert::requireFields(['repository', 'phar', 'bin'], $definition, 'BoxBuildCommand');
-
-        return new self($definition['repository'], $definition['phar'], $definition['bin'], $definition['version'] ?? null);
     }
 
     private function targetDir(): string

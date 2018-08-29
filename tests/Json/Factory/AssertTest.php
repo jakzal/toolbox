@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Zalas\Toolbox\Tests\Tool\Command;
+namespace Zalas\Toolbox\Tests\Json\Factory;
 
 use PHPUnit\Framework\TestCase;
-use Zalas\Toolbox\Tool\Command\Assert;
+use Zalas\Toolbox\Json\Factory\Assert;
 
 class AssertTest extends TestCase
 {

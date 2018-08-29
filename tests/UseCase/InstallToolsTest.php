@@ -47,8 +47,8 @@ class InstallToolsTest extends TestCase
     public function test_it_groups_composer_global_install_commands()
     {
         $this->tools->all()->willReturn(Collection::create([
-            $this->tool(ComposerGlobalInstallCommand::import(['package' => 'phpstan/phpstan'])),
-            $this->tool(ComposerGlobalInstallCommand::import(['package' => 'phan/phan'])),
+            $this->tool(new ComposerGlobalInstallCommand('phpstan/phpstan')),
+            $this->tool(new ComposerGlobalInstallCommand('phan/phan')),
         ]));
 
         $command = $this->useCase->__invoke();
@@ -59,8 +59,8 @@ class InstallToolsTest extends TestCase
     public function test_it_groups_composer_bin_plugin_commands()
     {
         $this->tools->all()->willReturn(Collection::create([
-            $this->tool(ComposerBinPluginCommand::import(['package' => 'phpstan/phpstan', 'namespace' => 'tools'])),
-            $this->tool(ComposerBinPluginCommand::import(['package' => 'phan/phan', 'namespace' => 'tools'])),
+            $this->tool(new ComposerBinPluginCommand('phpstan/phpstan', 'tools')),
+            $this->tool(new ComposerBinPluginCommand('phan/phan', 'tools')),
         ]));
 
         $command = $this->useCase->__invoke();
@@ -96,7 +96,7 @@ class InstallToolsTest extends TestCase
     public function test_it_includes_composer_install_commands()
     {
         $this->tools->all()->willReturn(Collection::create([
-            $this->tool(ComposerInstallCommand::import(['repository' => 'git@github.com:phpspec/phpspec.git'])),
+            $this->tool(new ComposerInstallCommand('git@github.com:phpspec/phpspec.git')),
         ]));
 
         $command = $this->useCase->__invoke();
@@ -107,7 +107,7 @@ class InstallToolsTest extends TestCase
     public function test_it_includes_box_build_commands()
     {
         $this->tools->all()->willReturn(Collection::create([
-            $this->tool(BoxBuildCommand::import(['repository' => 'https://github.com/behat/behat.git', 'phar' => 'behat.phar', 'bin' => '/tools/behat'])),
+            $this->tool(new BoxBuildCommand('https://github.com/behat/behat.git', 'behat.phar', '/tools/behat')),
         ]));
 
         $command = $this->useCase->__invoke();
@@ -118,7 +118,7 @@ class InstallToolsTest extends TestCase
     public function test_it_includes_phar_download_commands()
     {
         $this->tools->all()->willReturn(Collection::create([
-            $this->tool(PharDownloadCommand::import(['phar' => 'https://github.com/sensiolabs-de/deptrac/releases/download/0.2.0/deptrac-0.2.0.phar', 'bin' => '/tools/phar'])),
+            $this->tool(new PharDownloadCommand('https://github.com/sensiolabs-de/deptrac/releases/download/0.2.0/deptrac-0.2.0.phar', '/tools/phar')),
         ]));
 
         $command = $this->useCase->__invoke();

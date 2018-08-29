@@ -9,6 +9,7 @@ use RuntimeException;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\Command\TestCommand;
+use Zalas\Toolbox\Json\JsonTools;
 use Zalas\Toolbox\Tool\Tools;
 use Zalas\Toolbox\UseCase\InstallTools;
 use Zalas\Toolbox\UseCase\ListTools;
@@ -102,6 +103,6 @@ class ServiceContainer implements ContainerInterface
 
     private function createTools(): Tools
     {
-        return new Tools($this->getParameter('toolbox_json'));
+        return new JsonTools($this->getParameter('toolbox_json'));
     }
 }

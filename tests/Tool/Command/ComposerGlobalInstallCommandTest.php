@@ -8,7 +8,7 @@ use Zalas\Toolbox\Tool\Command\ComposerGlobalInstallCommand;
 
 class ComposerGlobalInstallCommandTest extends TestCase
 {
-    const PACKAGE = 'phan/phan';
+    private const PACKAGE = 'phan/phan';
 
     /**
      * @var ComposerGlobalInstallCommand
@@ -17,9 +17,7 @@ class ComposerGlobalInstallCommandTest extends TestCase
 
     protected function setUp()
     {
-        $this->command = ComposerGlobalInstallCommand::import([
-            'package' => self::PACKAGE,
-        ]);
+        $this->command = new ComposerGlobalInstallCommand(self::PACKAGE);
     }
 
     public function test_it_is_a_command()
@@ -27,20 +25,13 @@ class ComposerGlobalInstallCommandTest extends TestCase
         $this->assertInstanceOf(Command::class, $this->command);
     }
 
-    public function test_it_generates_the_installation_command()
-    {
-        $this->assertRegExp('#composer global require .*? phan/phan#', (string) $this->command);
-    }
-
-    public function test_it_complains_if_package_is_missing()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-
-        ComposerGlobalInstallCommand::import([]);
-    }
-
     public function test_it_exposes_the_package_name()
     {
         $this->assertSame(self::PACKAGE, $this->command->package());
+    }
+
+    public function test_it_generates_the_installation_command()
+    {
+        $this->assertRegExp('#composer global require .*? phan/phan#', (string) $this->command);
     }
 }

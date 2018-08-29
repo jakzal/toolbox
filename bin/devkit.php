@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Runner;
+use Zalas\Toolbox\Json\JsonTools;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\ShCommand;
 use Zalas\Toolbox\Tool\Tool;
@@ -30,7 +31,7 @@ $application->add(
         {
             $jsonPath = $input->getOption('tools');
             $readmePath = $input->getOption('readme');
-            $tools = (new Tools($jsonPath))->all();
+            $tools = (new JsonTools($jsonPath))->all();
             $toolsList = $tools->reduce('', function ($acc, Tool $tool) {
                 return $acc . sprintf('* %s - [%s](%s)', $tool->name(), $tool->summary(), $tool->website()) . PHP_EOL;
             });

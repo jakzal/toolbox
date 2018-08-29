@@ -20,13 +20,6 @@ final class ComposerBinPluginCommand implements Command
         return \sprintf('composer global bin %s require --no-suggest --prefer-dist --update-no-dev -n %s', $this->namespace, $this->package);
     }
 
-    public static function import(array $command): Command
-    {
-        Assert::requireFields(['package', 'namespace'], $command, 'ComposerBinPluginCommand');
-
-        return new self($command['package'], $command['namespace']);
-    }
-
     public function package(): string
     {
         return $this->package;

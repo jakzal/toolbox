@@ -19,7 +19,7 @@ The command below should do the job:
 
 ```bash
 curl -s https://api.github.com/repos/jakzal/toolbox/releases/latest \
-  | grep "browser_download_url.*phar" \
+  | grep "browser_download_url.*toolbox.phar" \
   | cut -d '"' -f 4 \
   | xargs curl -Ls -o toolbox \
   && chmod +x toolbox

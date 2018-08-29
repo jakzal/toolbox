@@ -4,18 +4,19 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Command\Command as CliCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Runner;
+use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\ShCommand;
 use Zalas\Toolbox\Tool\Tool;
 use Zalas\Toolbox\Tool\Tools;
 
 $application = new Application('Toolbox DevKit', 'dev');
 $application->add(
-    new class extends Command
+    new class extends CliCommand
     {
         protected function configure()
         {
@@ -44,7 +45,7 @@ $application->add(
     }
 );
 $application->add(
-    new class extends Command
+    new class extends CliCommand
     {
         protected function configure()
         {
@@ -83,7 +84,7 @@ $application->add(
             $command = <<<'CMD'
             grep -e 'github\.com.*releases.*\.phar"' %TOOLBOX_JSON% |
             sed -e 's@.*github.com/\(.*\)/releases.*@\1@' |
-            xargs -I"{}" sh -c "curl -s -XGET 'https://api.github.com/repos/{}/releases' -H 'Accept:application/json' | grep browser_download_url | head -n 1" |
+            xargs -I"{}" sh -c "curl -s -XGET 'https://api.github.com/repos/{}/releases/latest' -H 'Accept:application/json' | grep browser_download_url | head -n 1" |
             sed -e 's/^[^:]*: "\([^"]*\)"/\1/'
 CMD;
             $command = strtr($command, ['%TOOLBOX_JSON%' => $jsonPath]);

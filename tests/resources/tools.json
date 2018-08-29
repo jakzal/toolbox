@@ -1,0 +1,68 @@
+{
+  "tools": [
+    {
+      "name": "analyze",
+      "summary": "Visualizes metrics and source code",
+      "website": "https://github.com/Qafoo/QualityAnalyzer",
+      "command": {
+        "composer-install": {
+          "repository": "https://github.com/Qafoo/QualityAnalyzer.git"
+        }
+      },
+      "test": "analyze list"
+    },
+    {
+      "name": "behat",
+      "summary": "Helps to test business expectations",
+      "website": "http://behat.org/",
+      "command": {
+        "box-build": {
+          "repository": "https://github.com/behat/behat.git",
+          "phar": "behat.phar",
+          "bin": "/usr/local/bin/behat"
+        }
+      },
+      "test": "behat --version"
+    },
+    {
+      "name": "deptrac",
+      "summary": "Enforces dependency rules",
+      "website": "https://github.com/sensiolabs-de/deptrac",
+      "command": {
+        "phar-download": {
+          "phar": "http://get.sensiolabs.de/deptrac.phar",
+          "bin": "/usr/local/bin/deptrac"
+        }
+      },
+      "test": "deptrac list"
+    },
+    {
+      "name": "infection",
+      "summary": "AST based PHP Mutation Testing Framework",
+      "website": "https://infection.github.io/",
+      "command": {
+        "file-download": {
+          "url": "https://github.com/infection/infection/releases/download/0.10.0/infection.phar.asc",
+          "file": "/usr/local/bin/infection.phar.asc"
+        },
+        "phar-download": {
+          "phar": "https://github.com/infection/infection/releases/download/0.10.0/infection.phar",
+          "bin": "/usr/local/bin/infection"
+        }
+      },
+      "test": "infection --version"
+    },
+    {
+      "name": "phpstan",
+      "summary": "Static Analysis Tool",
+      "website": "https://github.com/phpstan/phpstan",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "phpstan/phpstan",
+          "namespace": "phpstan"
+        }
+      },
+      "test": "phpstan --version"
+    }
+  ]
+}

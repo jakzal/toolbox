@@ -1,20 +1,26 @@
 <?php declare(strict_types=1);
 
-namespace Zalas\Toolbox\Tests\Tool;
+namespace Zalas\Toolbox\Tests\Json;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
+use Zalas\Toolbox\Json\JsonTools;
 use Zalas\Toolbox\Tool\Tools;
 
-class ToolsTest extends TestCase
+class JsonToolsTest extends TestCase
 {
+    public function test_it_is_a_tools_repository()
+    {
+        $this->assertInstanceOf(Tools::class, new JsonTools(__DIR__.'/../resources/tools.json'));
+    }
+
     public function test_it_throws_an_exception_if_resource_is_missing()
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageRegExp('/Could not read the file/');
 
-        new Tools('/foo/tools.json');
+        new JsonTools('/foo/tools.json');
     }
 
     public function test_it_throws_an_exception_if_resource_contains_invalid_json()
@@ -22,7 +28,7 @@ class ToolsTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessageRegExp('/Failed to parse json/');
 
-        $tools = new Tools(__DIR__.'/../resources/invalid.json');
+        $tools = new JsonTools(__DIR__.'/../resources/invalid.json');
         $tools->all();
     }
 
@@ -31,7 +37,7 @@ class ToolsTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessageRegExp('/Failed to find any tools/');
 
-        $tools = new Tools(__DIR__.'/../resources/no-tools.json');
+        $tools = new JsonTools(__DIR__.'/../resources/no-tools.json');
         $tools->all();
     }
 
@@ -40,14 +46,14 @@ class ToolsTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessageRegExp('/Failed to find any tools/');
 
-        $tools = new Tools(__DIR__.'/../resources/invalid-tools.json');
+        $tools = new JsonTools(__DIR__.'/../resources/invalid-tools.json');
         $tools->all();
     }
 
     public function test_it_loads_tools_from_the_resource_with_default_ones_prepended()
     {
         $tools = \iterator_to_array(
-            (new Tools(__DIR__.'/../resources/tools.json'))->all()
+            (new JsonTools(__DIR__.'/../resources/tools.json'))->all()
         );
 
         $this->assertCount(8, $tools);

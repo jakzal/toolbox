@@ -8,56 +8,36 @@ use Zalas\Toolbox\Tool\Command\ComposerInstallCommand;
 
 class ComposerInstallCommandTest extends TestCase
 {
-    const REPOSITORY = 'https://github.com/behat/behat.git';
-    const VERSION = 'v3.4.0';
-
-    /**
-     * @var ComposerInstallCommand
-     */
-    private $command;
-
-    protected function setUp()
-    {
-        $this->command = ComposerInstallCommand::import([
-            'repository' => self::REPOSITORY,
-            'version' => self::VERSION,
-        ]);
-    }
+    private const REPOSITORY = 'https://github.com/behat/behat.git';
+    private const VERSION = 'v3.4.0';
 
     public function test_it_is_a_command()
     {
-        $this->assertInstanceOf(Command::class, $this->command);
+        $command = new ComposerInstallCommand(self::REPOSITORY, self::VERSION);
+
+        $this->assertInstanceOf(Command::class, $command);
     }
 
     public function test_it_generates_the_installation_command()
     {
-        $this->assertRegExp('#git clone '.self::REPOSITORY.'#', (string) $this->command);
-        $this->assertRegExp('#git checkout '.self::VERSION.'#', (string) $this->command);
-        $this->assertRegExp('#composer install --no-dev --no-suggest --prefer-dist -n#', (string) $this->command);
+        $command = new ComposerInstallCommand(self::REPOSITORY, self::VERSION);
+
+        $this->assertRegExp('#git clone '.self::REPOSITORY.'#', (string) $command);
+        $this->assertRegExp('#git checkout '.self::VERSION.'#', (string) $command);
+        $this->assertRegExp('#composer install --no-dev --no-suggest --prefer-dist -n#', (string) $command);
     }
 
     public function test_it_tries_to_guess_version_number_if_not_given_one()
     {
-        $command = ComposerInstallCommand::import([
-            'repository' => self::REPOSITORY,
-        ]);
+        $command = new ComposerInstallCommand(self::REPOSITORY);
 
         $this->assertRegExp('#git checkout \$\(git describe --tags .*?\)#', (string) $command);
     }
 
     public function test_it_uses_a_generic_directory_if_name_cannot_be_guessed_from_the_repository()
     {
-        $command = ComposerInstallCommand::import([
-            'repository' => 'example.com:foo.git',
-        ]);
+        $command = new ComposerInstallCommand('example.com:foo.git');
 
         $this->assertRegExp('#cd /tools/tmp#', (string) $command);
-    }
-
-    public function test_it_complains_if_repository_property_is_missing()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-
-        ComposerInstallCommand::import([]);
     }
 }

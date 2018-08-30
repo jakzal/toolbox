@@ -18,13 +18,6 @@ final class ComposerGlobalInstallCommand implements Command
         return \sprintf('composer global require --no-suggest --prefer-dist --update-no-dev -n %s', $this->package);
     }
 
-    public static function import(array $command): Command
-    {
-        Assert::requireFields(['package'], $command, 'ComposerGlobalInstallCommand');
-
-        return new self($command['package']);
-    }
-
     public function package(): string
     {
         return $this->package;

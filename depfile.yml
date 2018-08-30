@@ -6,6 +6,10 @@ layers:
     collectors:
       - type: className
         regex: ^Zalas\\Toolbox\\Cli\\.*
+  - name: Json
+    collectors:
+      - type: className
+        regex: ^Zalas\\Toolbox\\Json\\.*
   - name: Tool
     collectors:
       - type: className
@@ -32,11 +36,7 @@ layers:
         must_not:
           # must not be one of the known vendors
           - type: className
-            regex: ^Zalas\\Toolbox\\Cli\\.*
-          - type: className
-            regex: ^Zalas\\Toolbox\\Tool\\.*
-          - type: className
-            regex: ^Zalas\\Toolbox\\UseCase\\.*
+            regex: ^Zalas\\Toolbox\\(Cli|Json|Tool|UseCase)\\.*
           - type: className
             regex: ^Psr\\Container\\.*
           - type: className
@@ -44,9 +44,12 @@ layers:
 ruleset:
   Cli:
     - Tool
+    - Json
     - UseCase
     - Symfony Console
     - Psr Container
+  Json:
+    - Tool
   Tool:
   UseCase:
     - Tool

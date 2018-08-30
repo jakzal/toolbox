@@ -13,8 +13,8 @@ class ComposerGlobalMultiInstallCommandTest extends TestCase
     public function test_it_is_a_command()
     {
         $command = new ComposerGlobalMultiInstallCommand(Collection::create([
-            ComposerGlobalInstallCommand::import(['package' => 'phan/phan']),
-            ComposerGlobalInstallCommand::import(['package' => 'phpstan/phpstan']),
+            new ComposerGlobalInstallCommand('phan/phan'),
+            new ComposerGlobalInstallCommand('phpstan/phpstan'),
         ]));
 
         $this->assertInstanceOf(Command::class, $command);
@@ -23,8 +23,8 @@ class ComposerGlobalMultiInstallCommandTest extends TestCase
     public function test_it_generates_a_single_installation_command()
     {
         $command = new ComposerGlobalMultiInstallCommand(Collection::create([
-            ComposerGlobalInstallCommand::import(['package' => 'phan/phan']),
-            ComposerGlobalInstallCommand::import(['package' => 'phpstan/phpstan']),
+            new ComposerGlobalInstallCommand('phan/phan'),
+            new ComposerGlobalInstallCommand('phpstan/phpstan'),
         ]));
 
         $this->assertRegExp('#composer global require .*? phan/phan phpstan/phpstan#', (string) $command);

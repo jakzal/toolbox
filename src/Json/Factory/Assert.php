@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Zalas\Toolbox\Tool\Command;
+namespace Zalas\Toolbox\Json\Factory;
 
 final class Assert
 {

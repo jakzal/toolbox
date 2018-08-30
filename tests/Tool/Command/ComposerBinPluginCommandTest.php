@@ -8,8 +8,8 @@ use Zalas\Toolbox\Tool\Command\ComposerBinPluginCommand;
 
 class ComposerBinPluginCommandTest extends TestCase
 {
-    const PACKAGE = 'phpstan/phpstan';
-    const NAMESPACE = 'tools';
+    private const PACKAGE = 'phpstan/phpstan';
+    private const NAMESPACE = 'tools';
 
     /**
      * @var ComposerBinPluginCommand
@@ -18,10 +18,7 @@ class ComposerBinPluginCommandTest extends TestCase
 
     protected function setUp()
     {
-        $this->command = ComposerBinPluginCommand::import([
-            'package' => self::PACKAGE,
-            'namespace' => self::NAMESPACE,
-        ]);
+        $this->command = new ComposerBinPluginCommand(self::PACKAGE, self::NAMESPACE);
     }
 
     public function test_it_is_a_command()
@@ -38,28 +35,5 @@ class ComposerBinPluginCommandTest extends TestCase
     {
         $this->assertSame(self::PACKAGE, $this->command->package());
         $this->assertSame(self::NAMESPACE, $this->command->namespace());
-    }
-
-    /**
-     * @dataProvider provideRequiredProperties
-     */
-    public function test_it_complains_if_any_of_required_properties_is_missing(string $property)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-
-        $properties = [
-            'package' => self::PACKAGE,
-            'namespace' => self::NAMESPACE,
-        ];
-
-        unset($properties[$property]);
-
-        ComposerBinPluginCommand::import($properties);
-    }
-
-    public function provideRequiredProperties(): \Generator
-    {
-        yield ['package'];
-        yield ['namespace'];
     }
 }

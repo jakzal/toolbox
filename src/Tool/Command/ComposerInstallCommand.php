@@ -25,13 +25,6 @@ final class ComposerInstallCommand implements Command
         );
     }
 
-    public static function import(array $command): Command
-    {
-        Assert::requireFields(['repository'], $command, 'ComposerInstallCommand');
-
-        return new self($command['repository'], $command['version'] ?? null);
-    }
-
     private function targetDir(): string
     {
         $targetDir = \preg_replace('#^.*/(.*?)(.git)?$#', '$1', $this->repository);

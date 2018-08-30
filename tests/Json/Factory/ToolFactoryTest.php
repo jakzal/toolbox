@@ -29,11 +29,13 @@ class ToolFactoryTest extends TestCase
                 ]
             ],
             'test' => '/usr/bin/true',
+            'tags' => ['qa', 'static-analysis'],
         ]);
 
         $this->assertSame('phpstan', $tool->name());
         $this->assertSame('Static analysis tool', $tool->summary());
         $this->assertSame('https://github.com/phpstan/phpstan', $tool->website());
+        $this->assertSame(['qa', 'static-analysis'], $tool->tags());
         $this->assertInstanceOf(Command::class, $tool->command());
         $this->assertInstanceOf(TestCommand::class, $tool->testCommand());
     }

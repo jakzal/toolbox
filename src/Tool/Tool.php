@@ -9,12 +9,16 @@ class Tool
     private $website;
     private $command;
     private $testCommand;
+    private $tags;
 
-    public function __construct(string $name, string $summary, string $website, Command $command, Command $testCommand)
+    public function __construct(string $name, string $summary, string $website, array $tags, Command $command, Command $testCommand)
     {
         $this->name = $name;
         $this->summary = $summary;
         $this->website = $website;
+        $this->tags = \array_map(function (string $tag) {
+            return $tag;
+        }, $tags);
         $this->command = $command;
         $this->testCommand = $testCommand;
     }
@@ -42,5 +46,13 @@ class Tool
     public function testCommand(): Command
     {
         return $this->testCommand;
+    }
+
+    /**
+     * @return array|string[]
+     */
+    public function tags(): array
+    {
+        return $this->tags;
     }
 }

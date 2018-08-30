@@ -60,6 +60,7 @@ final class JsonTools implements Tools
                 'composer',
                 'Dependency Manager for PHP',
                 'https://getcomposer.org/',
+                [],
                 new ShCommand('composer self-update'),
                 new TestCommand('composer list', 'composer')
             ),
@@ -67,6 +68,7 @@ final class JsonTools implements Tools
                 'composer-bin-plugin',
                 'Composer plugin to install bin vendors in isolated locations',
                 'https://github.com/bamarni/composer-bin-plugin',
+                [],
                 new ShCommand('composer global require bamarni/composer-bin-plugin'),
                 new TestCommand('composer global show bamarni/composer-bin-plugin', 'composer-bin-plugin')
             ),
@@ -74,6 +76,7 @@ final class JsonTools implements Tools
                 'box',
                 'An application for building and managing Phars',
                 'https://box-project.github.io/box2/',
+                [],
                 new ShCommand('curl -Ls https://box-project.github.io/box2/installer.php | php && mv box.phar /usr/local/bin/box && chmod +x /usr/local/bin/box'),
                 new TestCommand('box list', 'box')
             ),

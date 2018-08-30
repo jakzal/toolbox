@@ -12,7 +12,7 @@ class JsonToolsTest extends TestCase
 {
     public function test_it_is_a_tools_repository()
     {
-        $this->assertInstanceOf(Tools::class, new JsonTools(__DIR__.'/../resources/tools.json'));
+        $this->assertInstanceOf(Tools::class, new JsonTools($this->locator([__DIR__.'/../resources/tools.json'])));
     }
 
     public function test_it_throws_an_exception_if_resource_is_missing()
@@ -20,7 +20,8 @@ class JsonToolsTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageRegExp('/Could not read the file/');
 
-        new JsonTools('/foo/tools.json');
+        $tools = new JsonTools($this->locator(['/foo/tools.json']));
+        $tools->all();
     }
 
     public function test_it_throws_an_exception_if_resource_contains_invalid_json()
@@ -28,7 +29,7 @@ class JsonToolsTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessageRegExp('/Failed to parse json/');
 
-        $tools = new JsonTools(__DIR__.'/../resources/invalid.json');
+        $tools = new JsonTools($this->locator([__DIR__.'/../resources/invalid.json']));
         $tools->all();
     }
 
@@ -37,7 +38,7 @@ class JsonToolsTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessageRegExp('/Failed to find any tools/');
 
-        $tools = new JsonTools(__DIR__.'/../resources/no-tools.json');
+        $tools = new JsonTools($this->locator([__DIR__.'/../resources/no-tools.json']));
         $tools->all();
     }
 
@@ -46,14 +47,17 @@ class JsonToolsTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessageRegExp('/Failed to find any tools/');
 
-        $tools = new JsonTools(__DIR__.'/../resources/invalid-tools.json');
+        $tools = new JsonTools($this->locator([__DIR__.'/../resources/invalid-tools.json']));
         $tools->all();
     }
 
-    public function test_it_loads_tools_from_the_resource_with_default_ones_prepended()
+    public function test_it_loads_tools_from_multiple_resources()
     {
         $tools = \iterator_to_array(
-            (new JsonTools(__DIR__.'/../resources/tools.json'))->all()
+            (new JsonTools($this->locator([
+                __DIR__.'/../resources/pre-installation.json',
+                __DIR__.'/../resources/tools.json',
+            ])))->all()
         );
 
         $this->assertCount(8, $tools);
@@ -65,5 +69,12 @@ class JsonToolsTest extends TestCase
         $this->assertSame('deptrac', $tools[5]->name());
         $this->assertSame('infection', $tools[6]->name());
         $this->assertSame('phpstan', $tools[7]->name());
+    }
+
+    private function locator(array $resources): callable
+    {
+        return function () use ($resources): array {
+            return $resources;
+        };
     }
 }

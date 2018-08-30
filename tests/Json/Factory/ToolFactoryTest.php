@@ -12,6 +12,7 @@ use Zalas\Toolbox\Tool\Command\ComposerInstallCommand;
 use Zalas\Toolbox\Tool\Command\FileDownloadCommand;
 use Zalas\Toolbox\Tool\Command\MultiStepCommand;
 use Zalas\Toolbox\Tool\Command\PharDownloadCommand;
+use Zalas\Toolbox\Tool\Command\ShCommand;
 use Zalas\Toolbox\Tool\Command\TestCommand;
 
 class ToolFactoryTest extends TestCase
@@ -125,6 +126,20 @@ class ToolFactoryTest extends TestCase
 
         $this->assertInstanceOf(ComposerGlobalInstallCommand::class, $tool->command());
     }
+
+    public function test_it_imports_the_sh_command()
+    {
+        $tool = ToolFactory::import($this->definition([
+            'command' => [
+                'sh' => [
+                    'command' => 'echo "42"',
+                ]
+            ]
+        ]));
+
+        $this->assertInstanceOf(ShCommand::class, $tool->command());
+    }
+
     public function test_it_imports_multiple_commands()
     {
         $tool = ToolFactory::import($this->definition([

@@ -21,7 +21,9 @@ class ServiceContainerTest extends TestCase
     protected function setUp()
     {
         $this->container = new ServiceContainer();
-        $this->container->setParameter('toolbox_json', __DIR__.'/../resources/tools.json');
+        $this->container->setParameter('toolbox_json', function () {
+            return [__DIR__.'/../resources/tools.json'];
+        });
     }
 
     public function test_it_is_a_psr_container()

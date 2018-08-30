@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Tool\Command;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
@@ -28,5 +29,12 @@ class ComposerGlobalMultiInstallCommandTest extends TestCase
         ]));
 
         $this->assertRegExp('#composer global require .*? phan/phan phpstan/phpstan#', (string) $command);
+    }
+
+    public function test_it_throws_an_exception_if_there_is_no_commands()
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new ComposerGlobalMultiInstallCommand(Collection::create([]));
     }
 }

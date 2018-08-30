@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Tool\Command;
 
+use InvalidArgumentException;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
 
@@ -11,6 +12,10 @@ final class OptimisedComposerBinPluginCommand implements Command
 
     public function __construct(Collection $commands)
     {
+        if ($commands->empty()) {
+            throw new InvalidArgumentException('Collection of composer bin plugin commands cannot be empty.');
+        }
+
         $this->commands = $commands->filter(function (ComposerBinPluginCommand $command) {
             return $command;
         });

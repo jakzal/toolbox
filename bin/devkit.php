@@ -23,7 +23,7 @@ $application->add(
         {
             $this->setName('update:readme');
             $this->setDescription('Updates README.md with latest list of available tools');
-            $this->addOption('tools', null, InputOption::VALUE_REQUIRED, 'Path to the list of tools', getenv('TOOLBOX_JSON') ? getenv('TOOLBOX_JSON') : __DIR__ . '/../resources/tools.json');
+            $this->addOption('tools', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Path(s) to the list of tools. Can also be set with TOOLBOX_JSON environment variable.', $this->toolsJsonDefault());
             $this->addOption('readme', null, InputOption::VALUE_REQUIRED, 'Path to the readme file', __DIR__.'/../README.md');
         }
 
@@ -31,7 +31,7 @@ $application->add(
         {
             $jsonPath = $input->getOption('tools');
             $readmePath = $input->getOption('readme');
-            $tools = (new JsonTools($jsonPath))->all();
+            $tools = (new JsonTools(function () use ($jsonPath) { return $jsonPath; }))->all();
             $toolsList = $tools->reduce('', function ($acc, Tool $tool) {
                 return $acc . sprintf('* %s - [%s](%s)', $tool->name(), $tool->summary(), $tool->website()) . PHP_EOL;
             });
@@ -41,7 +41,14 @@ $application->add(
 
             file_put_contents($readmePath, $readme);
 
-            $output->writeln(sprintf('The <info>%s</info> was updated with latest tools found in <info>%s</info>.', $readmePath, $jsonPath));
+            $output->writeln(sprintf('The <info>%s</info> was updated with latest tools found in <info>%s</info>.', $readmePath, implode(', ', $jsonPath)));
+        }
+
+        private function toolsJsonDefault(): array
+        {
+            return \getenv('TOOLBOX_JSON')
+                ? \array_map('trim', \explode(',', \getenv('TOOLBOX_JSON')))
+                : [__DIR__.'/../resources/pre-installation.json', __DIR__.'/../resources/tools.json'];
         }
     }
 );
@@ -52,19 +59,28 @@ $application->add(
         {
             $this->setName('update:phars');
             $this->setDescription('Attempts to update phar links to latest versions');
-            $this->addOption('tools', null, InputOption::VALUE_REQUIRED, 'Path to the list of tools', getenv('TOOLBOX_JSON') ? getenv('TOOLBOX_JSON') : __DIR__ . '/../resources/tools.json');
+            $this->addOption('tools', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Path(s) to the list of tools. Can also be set with TOOLBOX_JSON environment variable.', $this->toolsJsonDefault());
         }
 
         protected function execute(InputInterface $input, OutputInterface $output)
         {
-            $jsonPath = $input->getOption('tools');
+            foreach ($input->getOption('tools') as $jsonPath) {
+                $result = $this->updatePhars($jsonPath, $output);
 
+                if ($result !== 0) {
+                    return $result;
+                }
+            }
+
+            return 0;
+        }
+
+        private function updatePhars(string $jsonPath, OutputInterface $output)
+        {
             $phars = $this->findLatestPhars($jsonPath);
 
             if (empty($phars)) {
-                $output->writeln('<error>Could not find any phars to update.</error>');
-
-                return 1;
+                return 0;
             }
 
             $output->writeln('Found phars:');
@@ -75,9 +91,7 @@ $application->add(
 
             $output->writeln(sprintf('Updated <info>%s</info>.', $jsonPath));
 
-            return (new Runner())
-                ->run($this->updatePharsCommand($jsonPath, $phars));
-
+            return (new Runner())->run($this->updatePharsCommand($jsonPath, $phars));
         }
 
         private function findLatestPharsCommand(string $jsonPath): Command
@@ -117,6 +131,13 @@ CMD;
             ));
 
             return new ShCommand(sprintf('sed -i.bak %s %s', $replacements, $jsonPath));
+        }
+
+        private function toolsJsonDefault(): array
+        {
+            return \getenv('TOOLBOX_JSON')
+                ? \array_map('trim', \explode(',', \getenv('TOOLBOX_JSON')))
+                : [__DIR__.'/../resources/pre-installation.json', __DIR__.'/../resources/tools.json'];
         }
     }
 );

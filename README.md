@@ -30,17 +30,32 @@ curl -s https://api.github.com/repos/jakzal/toolbox/releases/latest \
 ### List available tools
 
 ```
-toolbox list-tools
+./toolbox list-tools
 ```
 
 ### Install tools
 
 ```
-toolbox install
+./toolbox install
 ```
 
 ### Test if installed tools are usable
 
 ```
-toolbox test
+./toolbox test
+```
+
+### Tools definitions
+
+By default `resources/pre-installation.json` and `resources/tools.json` are used to load tool definitions.
+Definitions can be loaded from customised files by passing the `--tools` option(s):
+
+```
+./toolbox list-tools --tools path/to/file1.json --tools path/to/file2.json
+```
+
+Tool definition location(s) can be also specified with the `TOOLBOX_JSON` environment variable:
+
+```
+TOOLBOX_JSON='path/to/file1.json,path/to/file2.json' ./toolbox list-tools
 ```

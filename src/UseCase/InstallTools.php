@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\UseCase;
 
+use Closure;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\BoxBuildCommand;
@@ -18,6 +19,8 @@ use Zalas\Toolbox\Tool\Tools;
 
 class InstallTools
 {
+    public const PRE_INSTALLATION_TAG = 'pre-installation';
+
     private $tools;
 
     public function __construct(Tools $tools)
@@ -27,32 +30,60 @@ class InstallTools
 
     public function __invoke(): Command
     {
-        $commandFilter = $this->commandFilter();
+        $tools = $this->tools->all();
+        $installationCommands = $this->installationCommands($tools);
+        $commandFilter = $this->commandFilter($this->toolCommands($tools));
 
         return new MultiStepCommand(
-            $commandFilter(ShCommand::class)
+            $installationCommands
+                ->merge($commandFilter(ShCommand::class))
                 ->merge($commandFilter(PharDownloadCommand::class))
                 ->merge($commandFilter(MultiStepCommand::class))
-                ->merge(Collection::create([new ComposerGlobalMultiInstallCommand($commandFilter(ComposerGlobalInstallCommand::class))]))
-                ->merge(Collection::create([new OptimisedComposerBinPluginCommand($commandFilter(ComposerBinPluginCommand::class))]))
+                ->merge($this->groupComposerGlobalInstallCommands($commandFilter(ComposerGlobalInstallCommand::class)))
+                ->merge($this->groupComposerBinPluginCommands($commandFilter(ComposerBinPluginCommand::class)))
                 ->merge($commandFilter(ComposerInstallCommand::class))
                 ->merge($commandFilter(BoxBuildCommand::class))
         );
     }
 
-    private function commandFilter(): \Closure
+    private function commandFilter(Collection $commands): Closure
     {
-        return function ($type) {
-            return $this->commands()->filter(function (Command $command) use ($type) {
+        return function ($type) use ($commands) {
+            return $commands->filter(function (Command $command) use ($type) {
                 return $command instanceof $type;
             });
         };
     }
 
-    private function commands(): Collection
+    private function installationCommands(Collection $tools)
     {
-        return $this->tools->all()->map(function (Tool $tool) {
+        return $tools->filter(function (Tool $tool) {
+            return \in_array(self::PRE_INSTALLATION_TAG, $tool->tags());
+        })->map(function (Tool $tool) {
             return $tool->command();
         });
+    }
+
+    private function toolCommands(Collection $tools)
+    {
+        return $tools->filter(function (Tool $tool) {
+            return !\in_array(self::PRE_INSTALLATION_TAG, $tool->tags());
+        })->map(function (Tool $tool) {
+            return $tool->command();
+        });
+    }
+
+    private function groupComposerGlobalInstallCommands(Collection $commands): Collection
+    {
+        $commands = $commands->empty() ? [] : [new ComposerGlobalMultiInstallCommand($commands)];
+
+        return Collection::create($commands);
+    }
+
+    private function groupComposerBinPluginCommands(Collection $commands): Collection
+    {
+        $commands = $commands->empty() ? [] : [new OptimisedComposerBinPluginCommand($commands)];
+
+        return Collection::create($commands);
     }
 }

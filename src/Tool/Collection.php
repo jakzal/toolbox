@@ -57,4 +57,9 @@ class Collection implements IteratorAggregate, Countable
     {
         return \count($this->elements);
     }
+
+    public function empty(): bool
+    {
+        return empty($this->elements);
+    }
 }

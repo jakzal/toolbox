@@ -97,7 +97,7 @@
     },
     {
       "name": "ecs",
-      "summary": "EasyCodingStandard sets up and runs coding standard checks with 0-knowledge of PHP-CS-Fixer and PHP_CodeSniffer",
+      "summary": "Sets up and runs coding standard checks",
       "website": "https://github.com/Symplify/EasyCodingStandard",
       "command": {
         "composer-install": {
@@ -363,7 +363,7 @@
     },
     {
       "name": "phplint",
-      "summary": "A tool that can speed up linting of php files by running several lint processes at once",
+      "summary": "Lints php files in parallel",
       "website": "https://github.com/overtrue/phplint",
       "command": {
         "composer-bin-plugin": {
@@ -447,7 +447,7 @@
     },
     {
       "name": "phpstan-deprecation-rules",
-      "summary": "PHPStan rules for detecting usage of deprecated classes, methods, properties, constants and traits",
+      "summary": "PHPStan rules for detecting deprecated code",
       "website": "https://github.com/phpstan/phpstan-deprecation-rules",
       "command": {
         "composer-bin-plugin": {
@@ -571,7 +571,7 @@
     },
     {
       "name": "psecio-parse",
-      "summary": "Parse scanner is a static scanning tool to review your PHP code for potential security-related issues",
+      "summary": "Scans code for potential security-related issues",
       "website": "https://github.com/psecio/parse",
       "command": {
         "composer-bin-plugin": {

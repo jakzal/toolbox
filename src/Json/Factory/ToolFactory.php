@@ -48,6 +48,7 @@ final class ToolFactory
             'composer-install' => \sprintf('%s::import', ComposerInstallCommandFactory::class),
             'composer-global-install' => \sprintf('%s::import', ComposerGlobalInstallCommandFactory::class),
             'composer-bin-plugin' => \sprintf('%s::import', ComposerBinPluginCommandFactory::class),
+            'sh' => \sprintf('%s::import', ShCommandFactory::class),
         ];
 
         if (!isset($factories[$type])) {

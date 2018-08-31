@@ -27,7 +27,9 @@ final class Application extends CliApplication
 
     public function doRun(InputInterface $input, OutputInterface $output)
     {
-        $this->serviceContainer->setParameter('toolbox_json', $input->getParameterOption(['--tools'], $this->toolsJsonDefault()));
+        $this->serviceContainer->setParameter('toolbox_json', function () use ($input): array {
+            return $input->getOption('tools');
+        });
 
         return parent::doRun($input, $output);
     }
@@ -35,14 +37,16 @@ final class Application extends CliApplication
     protected function getDefaultInputDefinition()
     {
         $definition = parent::getDefaultInputDefinition();
-        $definition->addOption(new InputOption('tools', null, InputOption::VALUE_REQUIRED, 'Path to the list of tools. Can also be set with TOOLBOX_JSON environment variable.', $this->toolsJsonDefault()));
+        $definition->addOption(new InputOption('tools', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Path(s) to the list of tools. Can also be set with TOOLBOX_JSON environment variable.', $this->toolsJsonDefault()));
 
         return $definition;
     }
 
-    private function toolsJsonDefault(): string
+    private function toolsJsonDefault(): array
     {
-        return \getenv('TOOLBOX_JSON') ? \getenv('TOOLBOX_JSON') : __DIR__.'/../../resources/tools.json';
+        return \getenv('TOOLBOX_JSON')
+            ? \array_map('trim', \explode(',', \getenv('TOOLBOX_JSON')))
+            : [__DIR__.'/../../resources/pre-installation.json', __DIR__.'/../../resources/tools.json'];
     }
 
     private function createCommandLoader(): CommandLoaderInterface

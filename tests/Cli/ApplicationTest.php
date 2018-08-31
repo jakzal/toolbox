@@ -58,7 +58,7 @@ class ApplicationTest extends TestCase
         $result = $app->doRun(
             new ArrayInput([
                 'command' => ListCommand::NAME,
-                '--tools' => __DIR__.'/../resources/tools.json',
+                '--tools' => [__DIR__.'/../resources/tools.json'],
                 '--no-interaction' => true,
             ]),
             new NullOutput()

@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Tool\Command;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
@@ -11,32 +12,43 @@ class MultiStepCommandTest extends TestCase
 {
     public function test_it_is_a_command()
     {
-        $this->assertInstanceOf(Command::class, new MultiStepCommand(Collection::create([])));
+        $command = new MultiStepCommand(Collection::create([$this->command('echo "A"')]));
+
+        $this->assertInstanceOf(Command::class, $command);
     }
 
     public function test_it_glues_all_its_subcommands()
     {
-        $command1 = $this->prophesize(Command::class);
-        $command2 = $this->prophesize(Command::class);
+        $command1 = $this->command('echo "A"');
+        $command2 = $this->command('echo "B"');
 
-        $command1->__toString()->willReturn('echo "A"');
-        $command2->__toString()->willReturn('echo "B"');
-
-        $command = new MultiStepCommand(Collection::create([$command1->reveal(), $command2->reveal()]));
+        $command = new MultiStepCommand(Collection::create([$command1, $command2]));
 
         $this->assertSame('echo "A" && echo "B"', (string) $command);
     }
 
     public function test_it_glues_all_its_subcommands_with_a_custom_glue()
     {
-        $command1 = $this->prophesize(Command::class);
-        $command2 = $this->prophesize(Command::class);
+        $command1 = $this->command('echo "A"');
+        $command2 = $this->command('echo "B"');
 
-        $command1->__toString()->willReturn('echo "A"');
-        $command2->__toString()->willReturn('echo "B"');
-
-        $command = new MultiStepCommand(Collection::create([$command1->reveal(), $command2->reveal()]), ' ; ');
+        $command = new MultiStepCommand(Collection::create([$command1, $command2]), ' ; ');
 
         $this->assertSame('echo "A" ; echo "B"', (string) $command);
+    }
+
+    public function test_it_throws_an_exception_if_there_is_no_steps()
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new MultiStepCommand(Collection::create([]));
+    }
+
+    private function command(string $commandString): Command
+    {
+        $command = $this->prophesize(Command::class);
+        $command->__toString()->willReturn($commandString);
+
+        return $command->reveal();
     }
 }

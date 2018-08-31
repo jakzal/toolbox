@@ -75,6 +75,12 @@ class CollectionTest extends TestCase
         $this->assertSame(3, \count(Collection::create(['a', 'b', 'c'])));
     }
 
+    public function test_it_checks_if_collection_is_empty()
+    {
+        $this->assertFalse(Collection::create(['a', 'b', 'c'])->empty());
+        $this->assertTrue(Collection::create([])->empty());
+    }
+
     private function assertIterates(array $elements, Collection $c)
     {
         $this->assertSame($elements, \iterator_to_array($c));

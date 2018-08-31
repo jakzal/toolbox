@@ -112,11 +112,11 @@
       "website": "https://infection.github.io/",
       "command": {
         "file-download": {
-          "url": "https://github.com/infection/infection/releases/download/0.10.1/infection.phar.asc",
+          "url": "https://github.com/infection/infection/releases/download/0.10.3/infection.phar.asc",
           "file": "/usr/local/bin/infection.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/infection/infection/releases/download/0.10.1/infection.phar",
+          "phar": "https://github.com/infection/infection/releases/download/0.10.3/infection.phar",
           "bin": "/usr/local/bin/infection"
         }
       },

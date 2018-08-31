@@ -14,7 +14,14 @@ final class ToolFactory
     {
         Assert::requireFields(['name', 'summary', 'website', 'command', 'test'], $tool, 'tool');
 
-        return new Tool($tool['name'], $tool['summary'], $tool['website'], self::importCommand($tool), new TestCommand($tool['test'], $tool['name']));
+        return new Tool(
+            $tool['name'],
+            $tool['summary'],
+            $tool['website'],
+            $tool['tags'] ?? [],
+            self::importCommand($tool),
+            new TestCommand($tool['test'], $tool['name'])
+        );
     }
 
     private static function importCommand(array $tool): Command

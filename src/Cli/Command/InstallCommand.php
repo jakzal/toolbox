@@ -5,7 +5,7 @@ namespace Zalas\Toolbox\Cli\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Zalas\Toolbox\Cli\Runner;
+use Zalas\Toolbox\Runner\Runner;
 use Zalas\Toolbox\UseCase\InstallTools;
 
 final class InstallCommand extends Command

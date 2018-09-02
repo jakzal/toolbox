@@ -8,7 +8,7 @@ use Symfony\Component\Console\Command\Command as CliCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Zalas\Toolbox\Cli\Runner;
+use Zalas\Toolbox\Runner\PassthruRunner;
 use Zalas\Toolbox\Json\JsonTools;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\ShCommand;
@@ -91,7 +91,7 @@ $application->add(
 
             $output->writeln(sprintf('Updated <info>%s</info>.', $jsonPath));
 
-            return (new Runner())->run($this->updatePharsCommand($jsonPath, $phars));
+            return (new PassthruRunner())->run($this->updatePharsCommand($jsonPath, $phars));
         }
 
         private function findLatestPharsCommand(string $jsonPath): Command

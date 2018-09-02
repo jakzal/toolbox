@@ -10,6 +10,8 @@ use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\Command\TestCommand;
 use Zalas\Toolbox\Json\JsonTools;
+use Zalas\Toolbox\Runner\PassthruRunner;
+use Zalas\Toolbox\Runner\Runner;
 use Zalas\Toolbox\Tool\Tools;
 use Zalas\Toolbox\UseCase\InstallTools;
 use Zalas\Toolbox\UseCase\ListTools;
@@ -83,7 +85,7 @@ class ServiceContainer implements ContainerInterface
 
     private function createRunner(): Runner
     {
-        return new Runner();
+        return new PassthruRunner();
     }
 
     private function createInstallToolsUseCase(): InstallTools

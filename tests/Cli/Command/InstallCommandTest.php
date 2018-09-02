@@ -5,7 +5,7 @@ namespace Zalas\Toolbox\Tests\Cli\Command;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
-use Zalas\Toolbox\Cli\Runner;
+use Zalas\Toolbox\Runner\Runner;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\UseCase\InstallTools;
 

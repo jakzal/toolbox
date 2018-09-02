@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Zalas\Toolbox\Cli;
+namespace Zalas\Toolbox\Runner;
 
 use Zalas\Toolbox\Tool\Command;
 
-class Runner
+final class PassthruRunner implements Runner
 {
     public function run(Command $command): int
     {

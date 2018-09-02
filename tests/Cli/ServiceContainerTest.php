@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Symfony\Component\Console\Input\InputInterface;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\Command\TestCommand;
@@ -21,9 +22,6 @@ class ServiceContainerTest extends TestCase
     protected function setUp()
     {
         $this->container = new ServiceContainer();
-        $this->container->setParameter('toolbox_json', function () {
-            return [__DIR__.'/../resources/tools.json'];
-        });
     }
 
     public function test_it_is_a_psr_container()
@@ -44,15 +42,6 @@ class ServiceContainerTest extends TestCase
         $this->container->get('foo');
     }
 
-    public function test_it_throws_an_exception_if_toolbox_json_parameter_is_missing()
-    {
-        $this->expectException(ContainerExceptionInterface::class);
-        $this->expectExceptionMessage('The "toolbox_json" parameter is not defined.');
-
-        $this->container = new ServiceContainer();
-        $this->container->get(InstallCommand::class);
-    }
-
     public function test_it_creates_the_install_command()
     {
         $this->assertTrue($this->container->has(InstallCommand::class));
@@ -69,5 +58,35 @@ class ServiceContainerTest extends TestCase
     {
         $this->assertTrue($this->container->has(TestCommand::class));
         $this->assertInstanceOf(TestCommand::class, $this->container->get(TestCommand::class));
+    }
+
+    public function test_it_registers_a_runtime_service()
+    {
+        $service = $this->prophesize(InputInterface::class)->reveal();
+
+        $this->container->set(InputInterface::class, $service);
+
+        $this->assertTrue($this->container->has(InputInterface::class));
+        $this->assertSame($service, $this->container->get(InputInterface::class));
+    }
+
+    public function test_it_returns_false_if_runtime_service_has_not_been_defined()
+    {
+        $this->assertFalse($this->container->has(InputInterface::class));
+    }
+
+    public function test_it_throws_an_exception_if_missing_runtime_service_is_accessed()
+    {
+        $this->expectException(NotFoundExceptionInterface::class);
+
+        $this->container->get(InputInterface::class);
+    }
+
+    public function test_it_throws_an_exception_if_unknown_runtime_service_is_provided()
+    {
+        $this->expectException(ContainerExceptionInterface::class);
+        $this->expectExceptionMessage('The "foo" runtime service is not expected.');
+
+        $this->container->set('foo', new \stdClass());
     }
 }

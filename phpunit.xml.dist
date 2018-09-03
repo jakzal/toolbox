@@ -19,6 +19,10 @@
         </whitelist>
     </filter>
 
+    <listeners>
+        <listener class="Zalas\PHPUnit\Globals\AnnotationListener" />
+    </listeners>
+
     <logging>
         <log type="coverage-html" target="build/coverage" lowUpperBound="50" highLowerBound="95"/>
         <log type="coverage-clover" target="build/coverage.xml"/>

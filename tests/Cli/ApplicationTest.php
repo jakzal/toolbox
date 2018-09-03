@@ -48,6 +48,14 @@ class ApplicationTest extends TestCase
     }
 
     /**
+     * @putenv TOOLBOX_JSON=resources/pre.json,resources/tools.json
+     */
+    public function test_it_takes_the_tools_option_default_from_environment_if_present()
+    {
+        $this->assertSame(['resources/pre.json', 'resources/tools.json'], $this->app->getDefinition()->getOption('tools')->getDefault());
+    }
+
+    /**
      * @group integration
      */
     public function test_it_allows_to_override_tools_location()

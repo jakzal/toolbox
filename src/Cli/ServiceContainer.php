@@ -7,9 +7,12 @@ use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\Command\TestCommand;
+use Zalas\Toolbox\Cli\Runner\DryRunner;
+use Zalas\Toolbox\Cli\Runner\LazyRunner;
 use Zalas\Toolbox\Json\JsonTools;
 use Zalas\Toolbox\Runner\PassthruRunner;
 use Zalas\Toolbox\Runner\Runner;
@@ -25,6 +28,8 @@ class ServiceContainer implements ContainerInterface
         ListCommand::class => 'createListCommand',
         TestCommand::class => 'createTestCommand',
         Runner::class => 'createRunner',
+        DryRunner::class => 'createDryRunner',
+        PassthruRunner::class => 'createPassthruRunner',
         InstallTools::class => 'createInstallToolsUseCase',
         ListTools::class => 'createListToolsUseCase',
         TestTools::class => 'createTestToolsUseCase',
@@ -33,6 +38,7 @@ class ServiceContainer implements ContainerInterface
 
     private $runtimeServices = [
         InputInterface::class => null,
+        OutputInterface::class => null,
     ];
 
     public function set(string $id, /*object */$service): void
@@ -87,7 +93,17 @@ class ServiceContainer implements ContainerInterface
 
     private function createRunner(): Runner
     {
+        return new LazyRunner($this);
+    }
+
+    private function createPassthruRunner(): Runner
+    {
         return new PassthruRunner();
+    }
+
+    private function createDryRunner(): Runner
+    {
+        return new DryRunner($this->get(OutputInterface::class));
     }
 
     private function createInstallToolsUseCase(): InstallTools

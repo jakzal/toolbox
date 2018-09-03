@@ -3,11 +3,14 @@
 namespace Zalas\Toolbox\Tests\Cli;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Console\Application as CliApplication;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
+use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Application;
+use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\ServiceContainer;
 
@@ -60,9 +63,7 @@ class ApplicationTest extends TestCase
      */
     public function test_it_allows_to_override_tools_location()
     {
-        $container = new ServiceContainer();
-
-        $app = new Application(self::VERSION, $container);
+        $app = new Application(self::VERSION, new ServiceContainer());
         $result = $app->doRun(
             new ArrayInput([
                 'command' => ListCommand::NAME,
@@ -73,5 +74,29 @@ class ApplicationTest extends TestCase
         );
 
         $this->assertSame(0, $result);
+    }
+
+    /**
+     * @group integration
+     */
+    public function test_it_runs_the_command_in_dry_run_mode()
+    {
+        $output = $this->prophesize(OutputInterface::class);
+
+        $app = new Application(self::VERSION, new ServiceContainer());
+        $app->doRun(
+            new ArrayInput([
+                'command' => InstallCommand::NAME,
+                '--dry-run' => true,
+                '--tools' => [__DIR__.'/../resources/tools.json'],
+                '--no-interaction' => true,
+            ]),
+            $output->reveal()
+        );
+
+        $output->writeln(Argument::allOf(
+            Argument::type('string'),
+            Argument::containingString('composer global bin phpstan require')
+        ))->shouldHaveBeenCalled();
     }
 }

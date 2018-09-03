@@ -24,7 +24,7 @@ abstract class ToolboxCommandTestCase extends TestCase
 
     public function test_it_provides_help()
     {
-        $this->assertNotEmpty($this->findCliCommand()->getDescription());
+        $this->assertNotEmpty($this->cliCommand()->getDescription());
     }
 
     protected function getContainerTestDoubles(): array
@@ -34,13 +34,13 @@ abstract class ToolboxCommandTestCase extends TestCase
 
     protected function executeCliCommand(array $input = []): CommandTester
     {
-        $tester = new CommandTester($this->findCliCommand());
+        $tester = new CommandTester($this->cliCommand());
         $tester->execute($input);
 
         return $tester;
     }
 
-    private function findCliCommand(): Command
+    protected function cliCommand(): Command
     {
         return $this->app->find(static::CLI_COMMAND_NAME);
     }

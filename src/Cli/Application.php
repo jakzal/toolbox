@@ -29,6 +29,7 @@ final class Application extends CliApplication
     public function doRun(InputInterface $input, OutputInterface $output)
     {
         $this->serviceContainer->set(InputInterface::class, $input);
+        $this->serviceContainer->set(OutputInterface::class, $output);
 
         return parent::doRun($input, $output);
     }

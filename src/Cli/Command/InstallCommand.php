@@ -28,6 +28,7 @@ final class InstallCommand extends Command
     {
         $this->setDescription('Installs tools');
         $this->addOption('dry-run', null, InputOption::VALUE_NONE, 'Output the command without executing it');
+        $this->addOption('target-dir', null, InputOption::VALUE_REQUIRED, 'The target installation directory', '/usr/local/bin');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

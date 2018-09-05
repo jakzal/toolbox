@@ -59,6 +59,11 @@ class TestCommandTest extends ToolboxCommandTestCase
         $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('dry-run'));
     }
 
+    public function test_it_defines_target_dir_option()
+    {
+        $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('target-dir'));
+    }
+
     protected function getContainerTestDoubles(): array
     {
         return [

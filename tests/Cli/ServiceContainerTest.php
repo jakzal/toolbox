@@ -6,10 +6,16 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\Command\TestCommand;
+use Zalas\Toolbox\Cli\Runner\DryRunner;
+use Zalas\Toolbox\Cli\Runner\LazyRunner;
 use Zalas\Toolbox\Cli\ServiceContainer;
+use Zalas\Toolbox\Runner\PassthruRunner;
+use Zalas\Toolbox\Runner\Runner;
 
 class ServiceContainerTest extends TestCase
 {
@@ -21,9 +27,8 @@ class ServiceContainerTest extends TestCase
     protected function setUp()
     {
         $this->container = new ServiceContainer();
-        $this->container->setParameter('toolbox_json', function () {
-            return [__DIR__.'/../resources/tools.json'];
-        });
+        $this->container->set(InputInterface::class, $this->prophesize(InputInterface::class)->reveal());
+        $this->container->set(OutputInterface::class, $this->prophesize(OutputInterface::class)->reveal());
     }
 
     public function test_it_is_a_psr_container()
@@ -36,6 +41,25 @@ class ServiceContainerTest extends TestCase
         $this->assertFalse($this->container->has('foo'));
     }
 
+    /**
+     * @dataProvider provideApplicationServices
+     */
+    public function test_it_creates_application_services(string $serviceId, string $expectedType)
+    {
+        $this->assertTrue($this->container->has($serviceId));
+        $this->assertInstanceOf($expectedType, $this->container->get($serviceId));
+    }
+
+    public function provideApplicationServices()
+    {
+        yield [InstallCommand::class, InstallCommand::class];
+        yield [ListCommand::class, ListCommand::class];
+        yield [TestCommand::class, TestCommand::class];
+        yield [Runner::class, LazyRunner::class];
+        yield [DryRunner::class, DryRunner::class];
+        yield [PassthruRunner::class, PassthruRunner::class];
+    }
+
     public function test_it_throws_an_exception_if_unregistered_service_is_accessed()
     {
         $this->expectException(NotFoundExceptionInterface::class);
@@ -44,30 +68,36 @@ class ServiceContainerTest extends TestCase
         $this->container->get('foo');
     }
 
-    public function test_it_throws_an_exception_if_toolbox_json_parameter_is_missing()
+    public function test_it_registers_a_runtime_service()
     {
-        $this->expectException(ContainerExceptionInterface::class);
-        $this->expectExceptionMessage('The "toolbox_json" parameter is not defined.');
+        $service = $this->prophesize(InputInterface::class)->reveal();
+
+        $this->container->set(InputInterface::class, $service);
+
+        $this->assertTrue($this->container->has(InputInterface::class));
+        $this->assertSame($service, $this->container->get(InputInterface::class));
+    }
+
+    public function test_it_returns_false_if_runtime_service_has_not_been_defined()
+    {
+        $this->container = new ServiceContainer();
+
+        $this->assertFalse($this->container->has(InputInterface::class));
+    }
+
+    public function test_it_throws_an_exception_if_missing_runtime_service_is_accessed()
+    {
+        $this->expectException(NotFoundExceptionInterface::class);
 
         $this->container = new ServiceContainer();
-        $this->container->get(InstallCommand::class);
+        $this->container->get(InputInterface::class);
     }
 
-    public function test_it_creates_the_install_command()
+    public function test_it_throws_an_exception_if_unknown_runtime_service_is_provided()
     {
-        $this->assertTrue($this->container->has(InstallCommand::class));
-        $this->assertInstanceOf(InstallCommand::class, $this->container->get(InstallCommand::class));
-    }
+        $this->expectException(ContainerExceptionInterface::class);
+        $this->expectExceptionMessage('The "foo" runtime service is not expected.');
 
-    public function test_it_creates_the_list_command()
-    {
-        $this->assertTrue($this->container->has(ListCommand::class));
-        $this->assertInstanceOf(ListCommand::class, $this->container->get(ListCommand::class));
-    }
-
-    public function test_it_creates_the_test_command()
-    {
-        $this->assertTrue($this->container->has(TestCommand::class));
-        $this->assertInstanceOf(TestCommand::class, $this->container->get(TestCommand::class));
+        $this->container->set('foo', new \stdClass());
     }
 }

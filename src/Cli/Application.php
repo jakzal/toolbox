@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Cli;
 
+use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Application as CliApplication;
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
@@ -22,14 +23,13 @@ final class Application extends CliApplication
 
         $this->serviceContainer = $serviceContainer;
 
-        $this->setCommandLoader($this->createCommandLoader());
+        $this->setCommandLoader($this->createCommandLoader($serviceContainer));
     }
 
     public function doRun(InputInterface $input, OutputInterface $output)
     {
-        $this->serviceContainer->setParameter('toolbox_json', function () use ($input): array {
-            return $input->getOption('tools');
-        });
+        $this->serviceContainer->set(InputInterface::class, $input);
+        $this->serviceContainer->set(OutputInterface::class, $output);
 
         return parent::doRun($input, $output);
     }
@@ -49,10 +49,10 @@ final class Application extends CliApplication
             : [__DIR__.'/../../resources/pre-installation.json', __DIR__.'/../../resources/tools.json'];
     }
 
-    private function createCommandLoader(): CommandLoaderInterface
+    private function createCommandLoader(ContainerInterface $container): CommandLoaderInterface
     {
         return new ContainerCommandLoader(
-            $this->serviceContainer,
+            $container,
             [
                 InstallCommand::NAME => InstallCommand::class,
                 ListCommand::NAME => ListCommand::class,

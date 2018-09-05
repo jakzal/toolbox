@@ -6,9 +6,13 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use RuntimeException;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\Command\TestCommand;
+use Zalas\Toolbox\Cli\Runner\DryRunner;
+use Zalas\Toolbox\Cli\Runner\LazyRunner;
 use Zalas\Toolbox\Json\JsonTools;
 use Zalas\Toolbox\Runner\PassthruRunner;
 use Zalas\Toolbox\Runner\Runner;
@@ -19,30 +23,49 @@ use Zalas\Toolbox\UseCase\TestTools;
 
 class ServiceContainer implements ContainerInterface
 {
-    private $parameters;
-
     private $services = [
         InstallCommand::class => 'createInstallCommand',
         ListCommand::class => 'createListCommand',
         TestCommand::class => 'createTestCommand',
         Runner::class => 'createRunner',
+        DryRunner::class => 'createDryRunner',
+        PassthruRunner::class => 'createPassthruRunner',
         InstallTools::class => 'createInstallToolsUseCase',
         ListTools::class => 'createListToolsUseCase',
         TestTools::class => 'createTestToolsUseCase',
         Tools::class => 'createTools',
     ];
 
+    private $runtimeServices = [
+        InputInterface::class => null,
+        OutputInterface::class => null,
+    ];
+
+    public function set(string $id, /*object */$service): void
+    {
+        if (!\array_key_exists($id, $this->runtimeServices)) {
+            throw new class(\sprintf('The "%s" runtime service is not expected.', $id)) extends RuntimeException implements ContainerExceptionInterface {
+            };
+        }
+
+        $this->runtimeServices[$id] = $service;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function get($id)
     {
-        if (!$this->has($id)) {
-            throw new class(\sprintf('The "%s" service is not registered in the service container.', $id)) extends \RuntimeException implements NotFoundExceptionInterface {
-            };
+        if (isset($this->runtimeServices[$id])) {
+            return $this->runtimeServices[$id];
         }
 
-        return \call_user_func([$this, $this->services[$id]]);
+        if (isset($this->services[$id])) {
+            return \call_user_func([$this, $this->services[$id]]);
+        }
+
+        throw new class(\sprintf('The "%s" service is not registered in the service container.', $id)) extends RuntimeException implements NotFoundExceptionInterface {
+        };
     }
 
     /**
@@ -50,22 +73,7 @@ class ServiceContainer implements ContainerInterface
      */
     public function has($id)
     {
-        return \in_array($id, \array_keys($this->services));
-    }
-
-    public function setParameter(string $name, $value): void
-    {
-        $this->parameters[$name] = $value;
-    }
-
-    private function getParameter(string $name)
-    {
-        if (!isset($this->parameters[$name])) {
-            throw new class(\sprintf('The "%s" parameter is not defined.', $name)) extends RuntimeException implements ContainerExceptionInterface {
-            };
-        }
-
-        return $this->parameters[$name];
+        return isset($this->services[$id]) || isset($this->runtimeServices[$id]);
     }
 
     private function createInstallCommand(): InstallCommand
@@ -85,7 +93,17 @@ class ServiceContainer implements ContainerInterface
 
     private function createRunner(): Runner
     {
+        return new LazyRunner($this);
+    }
+
+    private function createPassthruRunner(): Runner
+    {
         return new PassthruRunner();
+    }
+
+    private function createDryRunner(): Runner
+    {
+        return new DryRunner($this->get(OutputInterface::class));
     }
 
     private function createInstallToolsUseCase(): InstallTools
@@ -105,6 +123,8 @@ class ServiceContainer implements ContainerInterface
 
     private function createTools(): Tools
     {
-        return new JsonTools($this->getParameter('toolbox_json'));
+        return new JsonTools(function (): array {
+            return $this->get(InputInterface::class)->getOption('tools');
+        });
     }
 }

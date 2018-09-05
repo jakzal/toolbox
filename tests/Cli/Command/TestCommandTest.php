@@ -54,6 +54,11 @@ class TestCommandTest extends ToolboxCommandTestCase
         $this->assertSame(1, $tester->getStatusCode());
     }
 
+    public function test_it_defines_dry_run_option()
+    {
+        $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('dry-run'));
+    }
+
     protected function getContainerTestDoubles(): array
     {
         return [

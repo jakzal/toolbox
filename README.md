@@ -39,10 +39,26 @@ curl -s https://api.github.com/repos/jakzal/toolbox/releases/latest \
 ./toolbox install
 ```
 
+#### Dry run
+
+To only see what commands would be executed, use the dry run mode:
+
+```
+./toolbox install --dry-run
+```
+
 ### Test if installed tools are usable
 
 ```
 ./toolbox test
+```
+
+#### Dry run
+
+To only see what commands would be executed, use the dry run mode:
+
+```
+./toolbox test --dry-run
 ```
 
 ### Tools definitions

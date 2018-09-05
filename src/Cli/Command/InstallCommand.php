@@ -4,6 +4,7 @@ namespace Zalas\Toolbox\Cli\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Runner\Runner;
 use Zalas\Toolbox\UseCase\InstallTools;
@@ -26,6 +27,7 @@ final class InstallCommand extends Command
     protected function configure()
     {
         $this->setDescription('Installs tools');
+        $this->addOption('dry-run', null, InputOption::VALUE_NONE, 'Output the command without executing it');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

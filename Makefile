@@ -67,9 +67,10 @@ package: tools/box
 
 package-devkit: tools/box
 	$(eval VERSION=$(shell (git describe --abbrev=0 --tags 2>/dev/null || echo "0.1-dev") | sed -e 's/^v//'))
-	@rm -rf build/devkit-phar && mkdir -p build/devkit-phar build/devkit-phar/bin
+	@rm -rf build/devkit-phar && mkdir -p build/devkit-phar build/devkit-phar/bin build/devkit-phar/src
 
-	cp -r src resources LICENSE composer.json scoper.inc.php build/devkit-phar
+	cp -r resources LICENSE composer.json scoper.inc.php build/devkit-phar
+	cp -r src/{Json,Runner,Tool} build/devkit-phar/src
 	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
 
 	cd build/devkit-phar && \

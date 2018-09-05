@@ -13,7 +13,6 @@ use Zalas\Toolbox\Json\JsonTools;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\ShCommand;
 use Zalas\Toolbox\Tool\Tool;
-use Zalas\Toolbox\Tool\Tools;
 
 $application = new Application('Toolbox DevKit', 'dev');
 $application->add(

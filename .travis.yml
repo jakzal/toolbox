@@ -12,7 +12,7 @@ install:
 - if [[ $deps = low ]]; then make update-min; else make install; fi
 script:
 - if [[ $deps = low ]]; then make test-min; else make test; fi
-- make package package-devkit
+- make package package-devkit test-integration
 deploy:
   provider: releases
   api_key:

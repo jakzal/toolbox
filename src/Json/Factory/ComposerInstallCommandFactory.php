@@ -9,8 +9,8 @@ final class ComposerInstallCommandFactory
 {
     public static function import(array $command): Command
     {
-        Assert::requireFields(['repository'], $command, 'ComposerInstallCommand');
+        Assert::requireFields(['repository', 'target-dir'], $command, 'ComposerInstallCommand');
 
-        return new ComposerInstallCommand($command['repository'], $command['version'] ?? null);
+        return new ComposerInstallCommand($command['repository'], $command['target-dir'], $command['version'] ?? null);
     }
 }

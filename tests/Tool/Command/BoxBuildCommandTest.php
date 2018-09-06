@@ -14,6 +14,8 @@ class BoxBuildCommandTest extends TestCase
 
     private const BIN = '/usr/local/bin/behat';
 
+    private const TMP_DIR = '/tools';
+
     private const VERSION = 'v3.4.0';
 
     public function test_it_is_a_command()
@@ -22,6 +24,7 @@ class BoxBuildCommandTest extends TestCase
             self::REPOSITORY,
             self::PHAR,
             self::BIN,
+            self::TMP_DIR,
             self::VERSION
         );
         
@@ -34,6 +37,7 @@ class BoxBuildCommandTest extends TestCase
             self::REPOSITORY,
             self::PHAR,
             self::BIN,
+            self::TMP_DIR,
             self::VERSION
         );
         
@@ -49,7 +53,8 @@ class BoxBuildCommandTest extends TestCase
         $command = new BoxBuildCommand(
             self::REPOSITORY,
             self::PHAR,
-            self::BIN
+            self::BIN,
+            self::TMP_DIR
         );
 
         $this->assertRegExp('#git checkout \$\(git describe --tags .*?\)#', (string) $command);
@@ -60,7 +65,8 @@ class BoxBuildCommandTest extends TestCase
         $command = new BoxBuildCommand(
             'example.com:foo.git',
             self::PHAR,
-            self::BIN
+            self::BIN,
+            self::TMP_DIR
         );
 
         $this->assertRegExp('#cd /tools/tmp#', (string) $command);

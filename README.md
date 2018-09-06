@@ -94,6 +94,18 @@ curl -s https://api.github.com/repos/jakzal/toolbox/releases/latest \
 ./toolbox install
 ```
 
+#### Install tools in a custom directory
+
+By default tools are installed in the `/usr/local/bin` directory. To perform an installation in another location,
+pass the `--target-dir` option to the `install` command. Also, to change the location composer packages are installed in,
+export the `COMPOSER_HOME` environment variable.
+
+```
+mkdir local
+export PATH="$(pwd)/local:$PATH"
+COMPOSER_HOME=$(pwd)/local/.composer bin/toolbox.php inst --target-dir $(pwd)/local
+```
+
 #### Dry run
 
 To only see what commands would be executed, use the dry run mode:

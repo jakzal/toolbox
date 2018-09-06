@@ -9,8 +9,8 @@ final class BoxBuildCommandFactory
 {
     public static function import(array $definition): Command
     {
-        Assert::requireFields(['repository', 'phar', 'bin'], $definition, 'BoxBuildCommand');
+        Assert::requireFields(['repository', 'phar', 'bin', 'work-dir'], $definition, 'BoxBuildCommand');
 
-        return new BoxBuildCommand($definition['repository'], $definition['phar'], $definition['bin'], $definition['version'] ?? null);
+        return new BoxBuildCommand($definition['repository'], $definition['phar'], $definition['bin'], $definition['work-dir'], $definition['version'] ?? null);
     }
 }

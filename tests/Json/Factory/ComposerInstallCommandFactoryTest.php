@@ -9,12 +9,14 @@ use Zalas\Toolbox\Tool\Command\ComposerInstallCommand;
 class ComposerInstallCommandFactoryTest extends TestCase
 {
     private const REPOSITORY = 'https://github.com/behat/behat.git';
+    private const LOCATION = '/tools';
     private const VERSION = 'v3.4.0';
 
     public function test_it_creates_a_command()
     {
         $command = ComposerInstallCommandFactory::import([
             'repository' => self::REPOSITORY,
+            'target-dir' => self::LOCATION,
             'version' => self::VERSION,
         ]);
 
@@ -22,10 +24,26 @@ class ComposerInstallCommandFactoryTest extends TestCase
         $this->assertRegExp('#git checkout '.self::VERSION.'#', (string) $command);
     }
 
-    public function test_it_complains_if_repository_property_is_missing()
+    /**
+     * @dataProvider provideRequiredProperties
+     */
+    public function test_it_complains_if_a_required_property_is_missing(string $property)
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        ComposerInstallCommandFactory::import([]);
+        $properties = [
+            'repository' => self::REPOSITORY,
+            'target-dir' => self::LOCATION,
+            'version' => self::VERSION,
+        ];
+        unset($properties[$property]);
+
+        ComposerInstallCommandFactory::import($properties);
+    }
+
+    public function provideRequiredProperties()
+    {
+        yield ['repository'];
+        yield ['target-dir'];
     }
 }

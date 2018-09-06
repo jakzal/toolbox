@@ -91,6 +91,7 @@ class ToolFactoryTest extends TestCase
                     'repository' => 'https://github.com/behat/behat.git',
                     'phar' => 'behat.phar',
                     'bin' => '/usr/local/bin/behat',
+                    'work-dir' => '/tmp',
                     'version' => 'v3.4.0',
                 ]
             ]
@@ -105,6 +106,7 @@ class ToolFactoryTest extends TestCase
             'command' => [
                 'composer-install' => [
                     'repository' => 'https://github.com/behat/behat.git',
+                    'target-dir' => '/usr/local/bin',
                     'version' => 'v3.4.0',
                 ]
             ]

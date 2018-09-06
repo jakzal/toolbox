@@ -121,7 +121,7 @@ class InstallToolsTest extends TestCase
     public function test_it_includes_composer_install_commands()
     {
         $this->tools->all()->willReturn(Collection::create([
-            $this->tool(new ComposerInstallCommand('git@github.com:phpspec/phpspec.git')),
+            $this->tool(new ComposerInstallCommand('git@github.com:phpspec/phpspec.git', '/usr/local/bin')),
         ]));
 
         $command = $this->useCase->__invoke();
@@ -132,7 +132,7 @@ class InstallToolsTest extends TestCase
     public function test_it_includes_box_build_commands()
     {
         $this->tools->all()->willReturn(Collection::create([
-            $this->tool(new BoxBuildCommand('https://github.com/behat/behat.git', 'behat.phar', '/tools/behat')),
+            $this->tool(new BoxBuildCommand('https://github.com/behat/behat.git', 'behat.phar', '/tools/behat', '/tmp')),
         ]));
 
         $command = $this->useCase->__invoke();

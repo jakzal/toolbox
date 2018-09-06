@@ -17,8 +17,8 @@
       "summary": "Composer plugin to install bin vendors in isolated locations",
       "website": "https://github.com/bamarni/composer-bin-plugin",
       "command": {
-        "sh": {
-          "command": "composer global require bamarni/composer-bin-plugin"
+        "composer-global-install": {
+          "package": "bamarni/composer-bin-plugin"
         }
       },
       "test": "composer global show bamarni/composer-bin-plugin",
@@ -30,7 +30,7 @@
       "website": "https://box-project.github.io/box2/",
       "command": {
         "sh": {
-          "command": "curl -Ls https://box-project.github.io/box2/installer.php | php && mv box.phar /usr/local/bin/box && chmod +x /usr/local/bin/box"
+          "command": "curl -Ls https://box-project.github.io/box2/installer.php | php && mv box.phar %target-dir%/box && chmod +x %target-dir%/box"
         }
       },
       "test": "box list",

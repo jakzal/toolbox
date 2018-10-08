@@ -26,13 +26,13 @@ test-min: update-min cs deptrac phpunit infection
 .PHONY: test-min
 
 test-integration: package
-	export PATH="$(shell pwd)/local:$(shell pwd)/local/.composer/vendor/bin:$(shell pwd)/local/QualityAnalyzer/bin:$(shell pwd)/local/DesignPatternDetector/bin:$(shell pwd)/local/EasyCodingStandard/bin:$$PATH" && \
-	  export COMPOSER_HOME=$(shell pwd)/local/.composer && \
+	rm -rf ./build/tools && \
+	  export PATH="$(shell pwd)/build/tools:$(shell pwd)/build/tools/.composer/vendor/bin:$(shell pwd)/build/tools/QualityAnalyzer/bin:$(shell pwd)/build/tools/DesignPatternDetector/bin:$(shell pwd)/build/tools/EasyCodingStandard/bin:$$PATH" && \
+	  export COMPOSER_HOME=$(shell pwd)/build/tools/.composer && \
 	  chmod +x build/toolbox.phar && \
-	  mkdir ./local && \
-	  build/toolbox.phar install --target-dir ./local && \
-	  build/toolbox.phar test --target-dir ./local && \
-	  rm -rf ./local
+	  mkdir -p ./build/tools && \
+	  build/toolbox.phar install --target-dir ./build/tools && \
+	  build/toolbox.phar test --target-dir ./build/tools
 .PHONY: test-integration
 
 cs: tools/php-cs-fixer

@@ -20,8 +20,7 @@
         "box-build": {
           "repository": "https://github.com/behat/behat.git",
           "phar": "behat.phar",
-          "bin": "%target-dir%/behat",
-          "work-dir": "%target-dir%/workdir"
+          "bin": "%target-dir%/behat"
         }
       },
       "test": "behat --version"
@@ -134,8 +133,7 @@
         "box-build": {
           "repository": "https://github.com/JakubOnderka/PHP-Parallel-Lint.git",
           "phar": "parallel-lint.phar",
-          "bin": "%target-dir%/parallel-lint",
-          "work-dir": "%target-dir%/workdir"
+          "bin": "%target-dir%/parallel-lint"
         }
       },
       "test": "parallel-lint -h"
@@ -197,7 +195,6 @@
           "repository": "https://github.com/mmoreram/php-formatter.git",
           "phar": "build/php-formatter.phar",
           "bin": "%target-dir%/php-formatter",
-          "work-dir": "%target-dir%/workdir",
           "version": "1fa3d9a3e1c67654f3fe2511bd28fa7c33b59d7e"
         }
       },

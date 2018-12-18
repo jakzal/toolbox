@@ -20,8 +20,7 @@
         "box-build": {
           "repository": "https://github.com/behat/behat.git",
           "phar": "behat.phar",
-          "bin": "/usr/local/bin/behat",
-          "work-dir": "/tmp"
+          "bin": "/usr/local/bin/behat"
         }
       },
       "test": "behat --version"

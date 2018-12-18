@@ -107,6 +107,8 @@ export PATH="/tools/local:$COMPOSER_HOME/vendor/bin:$PATH"
 bin/toolbox.php inst --target-dir /tools
 ```
 
+The target dir can also be configured with the `TOOLBOX_TARGET_DIR` environment variable.
+
 #### Dry run
 
 To only see what commands would be executed, use the dry run mode:

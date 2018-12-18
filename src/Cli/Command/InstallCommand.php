@@ -11,6 +11,8 @@ use Zalas\Toolbox\UseCase\InstallTools;
 
 final class InstallCommand extends Command
 {
+    use DefaultTargetDir;
+
     public const NAME = 'install';
 
     private $useCase;
@@ -28,6 +30,7 @@ final class InstallCommand extends Command
     {
         $this->setDescription('Installs tools');
         $this->addOption('dry-run', null, InputOption::VALUE_NONE, 'Output the command without executing it');
+        $this->addOption('target-dir', null, InputOption::VALUE_REQUIRED, 'The target installation directory', $this->defaultTargetDir());
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

@@ -11,10 +11,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\Command\TestCommand;
-use Zalas\Toolbox\Cli\Runner\DryRunner;
-use Zalas\Toolbox\Cli\Runner\LazyRunner;
 use Zalas\Toolbox\Cli\ServiceContainer;
-use Zalas\Toolbox\Runner\PassthruRunner;
+use Zalas\Toolbox\Cli\ServiceContainer\LazyRunner;
 use Zalas\Toolbox\Runner\Runner;
 
 class ServiceContainerTest extends TestCase
@@ -56,8 +54,6 @@ class ServiceContainerTest extends TestCase
         yield [ListCommand::class, ListCommand::class];
         yield [TestCommand::class, TestCommand::class];
         yield [Runner::class, LazyRunner::class];
-        yield [DryRunner::class, DryRunner::class];
-        yield [PassthruRunner::class, PassthruRunner::class];
     }
 
     public function test_it_throws_an_exception_if_unregistered_service_is_accessed()

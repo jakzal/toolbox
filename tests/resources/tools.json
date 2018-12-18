@@ -6,7 +6,8 @@
       "website": "https://github.com/Qafoo/QualityAnalyzer",
       "command": {
         "composer-install": {
-          "repository": "https://github.com/Qafoo/QualityAnalyzer.git"
+          "repository": "https://github.com/Qafoo/QualityAnalyzer.git",
+          "target-dir": "/usr/local/bin/QualityAnalyzer"
         }
       },
       "test": "analyze list"

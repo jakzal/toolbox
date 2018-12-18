@@ -45,7 +45,7 @@ Each tool should have the following properties specified:
 Once you added a new tool to the list, update the list in `README.md` by running the following command:
 
 ```bash
-php bin/toolsbox update:readme
+php bin/devkit.php update:readme
 ```
 
 ### Commands

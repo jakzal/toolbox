@@ -25,6 +25,16 @@ test: vendor cs deptrac phpunit infection
 test-min: update-min cs deptrac phpunit infection
 .PHONY: test-min
 
+test-integration: package
+	rm -rf ./build/tools && \
+	  export PATH="$(shell pwd)/build/tools:$(shell pwd)/build/tools/.composer/vendor/bin:$(shell pwd)/build/tools/QualityAnalyzer/bin:$(shell pwd)/build/tools/DesignPatternDetector/bin:$(shell pwd)/build/tools/EasyCodingStandard/bin:$$PATH" && \
+	  export COMPOSER_HOME=$(shell pwd)/build/tools/.composer && \
+	  chmod +x build/toolbox.phar && \
+	  mkdir -p ./build/tools && \
+	  build/toolbox.phar install --target-dir ./build/tools && \
+	  build/toolbox.phar test --target-dir ./build/tools
+.PHONY: test-integration
+
 cs: tools/php-cs-fixer
 	tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
 .PHONY: cs

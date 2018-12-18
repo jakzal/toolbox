@@ -11,10 +11,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\Command\TestCommand;
-use Zalas\Toolbox\Cli\Runner\DryRunner;
-use Zalas\Toolbox\Cli\Runner\LazyRunner;
+use Zalas\Toolbox\Cli\ServiceContainer\LazyRunner;
+use Zalas\Toolbox\Cli\ServiceContainer\RunnerFactory;
 use Zalas\Toolbox\Json\JsonTools;
-use Zalas\Toolbox\Runner\PassthruRunner;
 use Zalas\Toolbox\Runner\Runner;
 use Zalas\Toolbox\Tool\Tools;
 use Zalas\Toolbox\UseCase\InstallTools;
@@ -28,8 +27,6 @@ class ServiceContainer implements ContainerInterface
         ListCommand::class => 'createListCommand',
         TestCommand::class => 'createTestCommand',
         Runner::class => 'createRunner',
-        DryRunner::class => 'createDryRunner',
-        PassthruRunner::class => 'createPassthruRunner',
         InstallTools::class => 'createInstallToolsUseCase',
         ListTools::class => 'createListToolsUseCase',
         TestTools::class => 'createTestToolsUseCase',
@@ -93,17 +90,7 @@ class ServiceContainer implements ContainerInterface
 
     private function createRunner(): Runner
     {
-        return new LazyRunner($this);
-    }
-
-    private function createPassthruRunner(): Runner
-    {
-        return new PassthruRunner();
-    }
-
-    private function createDryRunner(): Runner
-    {
-        return new DryRunner($this->get(OutputInterface::class));
+        return new LazyRunner(new RunnerFactory($this));
     }
 
     private function createInstallToolsUseCase(): InstallTools

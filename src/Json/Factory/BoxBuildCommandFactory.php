@@ -11,6 +11,6 @@ final class BoxBuildCommandFactory
     {
         Assert::requireFields(['repository', 'phar', 'bin'], $definition, 'BoxBuildCommand');
 
-        return new BoxBuildCommand($definition['repository'], $definition['phar'], $definition['bin'], $definition['version'] ?? null);
+        return new BoxBuildCommand($definition['repository'], $definition['phar'], $definition['bin'], \sys_get_temp_dir(), $definition['version'] ?? null);
     }
 }

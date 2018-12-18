@@ -59,6 +59,20 @@ class TestCommandTest extends ToolboxCommandTestCase
         $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('dry-run'));
     }
 
+    public function test_it_defines_target_dir_option()
+    {
+        $this->assertSame('/usr/local/bin', $this->cliCommand()->getDefinition()->getOption('target-dir')->getDefault());
+        $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('target-dir'));
+    }
+
+    /**
+     * @putenv TOOLBOX_TARGET_DIR=/tmp
+     */
+    public function test_it_takes_the_target_dir_option_default_from_environment_if_present()
+    {
+        $this->assertSame('/tmp', $this->cliCommand()->getDefinition()->getOption('target-dir')->getDefault());
+    }
+
     protected function getContainerTestDoubles(): array
     {
         return [

@@ -11,6 +11,8 @@ use Zalas\Toolbox\UseCase\TestTools;
 
 final class TestCommand extends Command
 {
+    use DefaultTargetDir;
+
     public const NAME = 'test';
 
     private $useCase;
@@ -28,7 +30,7 @@ final class TestCommand extends Command
     {
         $this->setDescription('Runs basic tests to verify tools are installed');
         $this->addOption('dry-run', null, InputOption::VALUE_NONE, 'Output the command without executing it');
-        $this->addOption('target-dir', null, InputOption::VALUE_REQUIRED, 'The target installation directory', '/usr/local/bin');
+        $this->addOption('target-dir', null, InputOption::VALUE_REQUIRED, 'The target installation directory', $this->defaultTargetDir());
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

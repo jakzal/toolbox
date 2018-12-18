@@ -103,7 +103,7 @@ export the `COMPOSER_HOME` environment variable.
 ```
 mkdir local
 export COMPOSER_HOME=/tools/.composer
-export PATH="/tools/local:$COMPOSER_HOME/vendor/bin:$PATH"
+export PATH="/tools:$COMPOSER_HOME/vendor/bin:$PATH"
 bin/toolbox.php inst --target-dir /tools
 ```
 

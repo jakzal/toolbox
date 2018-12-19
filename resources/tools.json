@@ -184,7 +184,8 @@
           "bin": "%target-dir%/php-cs-fixer"
         }
       },
-      "test": "php-cs-fixer list"
+      "test": "php-cs-fixer list",
+      "tags": ["~php7.3"]
     },
     {
       "name": "php-formatter",

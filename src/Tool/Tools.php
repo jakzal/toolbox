@@ -10,5 +10,5 @@ interface Tools
      * @return Collection|Tool[]
      * @throws RuntimeException in case tools cannot be loaded
      */
-    public function all(): Collection;
+    public function all(Filter $filter): Collection;
 }

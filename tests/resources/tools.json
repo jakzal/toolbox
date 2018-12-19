@@ -10,7 +10,8 @@
           "target-dir": "/usr/local/bin/QualityAnalyzer"
         }
       },
-      "test": "analyze list"
+      "test": "analyze list",
+      "tags": ["static-analysis"]
     },
     {
       "name": "behat",
@@ -23,7 +24,8 @@
           "bin": "/usr/local/bin/behat"
         }
       },
-      "test": "behat --version"
+      "test": "behat --version",
+      "tags": ["testing"]
     },
     {
       "name": "deptrac",
@@ -35,7 +37,8 @@
           "bin": "/usr/local/bin/deptrac"
         }
       },
-      "test": "deptrac list"
+      "test": "deptrac list",
+      "tags": ["static-analysis"]
     },
     {
       "name": "infection",
@@ -51,7 +54,8 @@
           "bin": "/usr/local/bin/infection"
         }
       },
-      "test": "infection --version"
+      "test": "infection --version",
+      "tags": ["testing"]
     },
     {
       "name": "phpstan",
@@ -63,7 +67,8 @@
           "namespace": "phpstan"
         }
       },
-      "test": "phpstan --version"
+      "test": "phpstan --version",
+      "tags": ["phpstan"]
     }
   ]
 }

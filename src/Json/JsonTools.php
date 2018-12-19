@@ -6,6 +6,7 @@ use InvalidArgumentException;
 use RuntimeException;
 use Zalas\Toolbox\Json\Factory\ToolFactory;
 use Zalas\Toolbox\Tool\Collection;
+use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
 use Zalas\Toolbox\Tool\Tools;
 
@@ -24,7 +25,12 @@ final class JsonTools implements Tools
     /**
      * @return Collection|Tool[]
      */
-    public function all(): Collection
+    public function all(Filter $filter): Collection
+    {
+        return $this->loadTools()->filter($filter);
+    }
+
+    private function loadTools(): Collection
     {
         return \array_reduce($this->resources(), function (Collection $tools, string $resource): Collection {
             return $tools->merge(Collection::create(

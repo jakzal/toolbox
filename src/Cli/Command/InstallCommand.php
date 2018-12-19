@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Runner\Runner;
+use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\UseCase\InstallTools;
 
 final class InstallCommand extends Command
@@ -31,10 +32,11 @@ final class InstallCommand extends Command
         $this->setDescription('Installs tools');
         $this->addOption('dry-run', null, InputOption::VALUE_NONE, 'Output the command without executing it');
         $this->addOption('target-dir', null, InputOption::VALUE_REQUIRED, 'The target installation directory', $this->defaultTargetDir());
+        $this->addOption('exclude-tag', 'e', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to exclude');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        return $this->runner->run(\call_user_func($this->useCase));
+        return $this->runner->run(\call_user_func($this->useCase, new Filter($input->getOption('exclude-tag'))));
     }
 }

@@ -14,6 +14,7 @@ use Zalas\Toolbox\Tool\Command\MultiStepCommand;
 use Zalas\Toolbox\Tool\Command\OptimisedComposerBinPluginCommand;
 use Zalas\Toolbox\Tool\Command\PharDownloadCommand;
 use Zalas\Toolbox\Tool\Command\ShCommand;
+use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
 use Zalas\Toolbox\Tool\Tools;
 
@@ -28,9 +29,9 @@ class InstallTools
         $this->tools = $tools;
     }
 
-    public function __invoke(): Command
+    public function __invoke(Filter $filter): Command
     {
-        $tools = $this->tools->all();
+        $tools = $this->tools->all($filter);
         $installationCommands = $this->installationCommands($tools);
         $commandFilter = $this->commandFilter($this->toolCommands($tools));
 

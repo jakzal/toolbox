@@ -7,6 +7,7 @@ use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Cli\Command\TestCommand;
 use Zalas\Toolbox\Runner\Runner;
 use Zalas\Toolbox\Tool\Command;
+use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\UseCase\TestTools;
 
 class TestCommandTest extends ToolboxCommandTestCase
@@ -34,7 +35,7 @@ class TestCommandTest extends ToolboxCommandTestCase
     public function test_it_runs_the_test_tools_use_case()
     {
         $command = $this->createCommand();
-        $this->useCase->__invoke()->willReturn($command);
+        $this->useCase->__invoke(Argument::type(Filter::class))->willReturn($command);
         $this->runner->run($command)->willReturn(0);
 
         $tester = $this->executeCliCommand();
@@ -46,12 +47,22 @@ class TestCommandTest extends ToolboxCommandTestCase
 
     public function test_it_returns_the_status_code_of_the_run()
     {
-        $this->useCase->__invoke()->willReturn($this->createCommand());
+        $this->useCase->__invoke(Argument::type(Filter::class))->willReturn($this->createCommand());
         $this->runner->run(Argument::any())->willReturn(1);
 
         $tester = $this->executeCliCommand();
 
         $this->assertSame(1, $tester->getStatusCode());
+    }
+
+    public function test_it_excludes_tags()
+    {
+        $this->useCase->__invoke(Argument::type(Filter::class))->willReturn($this->createCommand());
+        $this->runner->run(Argument::any())->willReturn(0);
+
+        $this->executeCliCommand(['--exclude-tag' => ['foo']]);
+
+        $this->useCase->__invoke(new Filter(['foo']))->shouldBeCalled();
     }
 
     public function test_it_defines_dry_run_option()
@@ -71,6 +82,11 @@ class TestCommandTest extends ToolboxCommandTestCase
     public function test_it_takes_the_target_dir_option_default_from_environment_if_present()
     {
         $this->assertSame('/tmp', $this->cliCommand()->getDefinition()->getOption('target-dir')->getDefault());
+    }
+
+    public function test_it_defines_exclude_tags_option()
+    {
+        $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('exclude-tag'));
     }
 
     protected function getContainerTestDoubles(): array

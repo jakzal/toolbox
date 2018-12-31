@@ -6,6 +6,7 @@ use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use Zalas\Toolbox\Json\JsonTools;
+use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tools;
 
 class JsonToolsTest extends TestCase
@@ -21,7 +22,7 @@ class JsonToolsTest extends TestCase
         $this->expectExceptionMessageRegExp('/Could not read the file/');
 
         $tools = new JsonTools($this->locator(['/foo/tools.json']));
-        $tools->all();
+        $tools->all($this->filter());
     }
 
     public function test_it_throws_an_exception_if_resource_contains_invalid_json()
@@ -30,7 +31,7 @@ class JsonToolsTest extends TestCase
         $this->expectExceptionMessageRegExp('/Failed to parse json/');
 
         $tools = new JsonTools($this->locator([__DIR__.'/../resources/invalid.json']));
-        $tools->all();
+        $tools->all($this->filter());
     }
 
     public function test_it_throws_an_exception_if_tools_are_not_present_in_the_resource()
@@ -39,7 +40,7 @@ class JsonToolsTest extends TestCase
         $this->expectExceptionMessageRegExp('/Failed to find any tools/');
 
         $tools = new JsonTools($this->locator([__DIR__.'/../resources/no-tools.json']));
-        $tools->all();
+        $tools->all($this->filter());
     }
 
     public function test_it_throws_an_exception_if_tools_is_not_a_collection()
@@ -48,7 +49,7 @@ class JsonToolsTest extends TestCase
         $this->expectExceptionMessageRegExp('/Failed to find any tools/');
 
         $tools = new JsonTools($this->locator([__DIR__.'/../resources/invalid-tools.json']));
-        $tools->all();
+        $tools->all($this->filter());
     }
 
     public function test_it_loads_tools_from_multiple_resources()
@@ -57,7 +58,7 @@ class JsonToolsTest extends TestCase
             (new JsonTools($this->locator([
                 __DIR__.'/../resources/pre-installation.json',
                 __DIR__.'/../resources/tools.json',
-            ])))->all()
+            ])))->all($this->filter())
         );
 
         $this->assertCount(8, $tools);
@@ -71,10 +72,25 @@ class JsonToolsTest extends TestCase
         $this->assertSame('phpstan', $tools[7]->name());
     }
 
+    public function test_it_filters_out_tools()
+    {
+        $tools = \iterator_to_array(
+            (new JsonTools($this->locator([__DIR__.'/../resources/tools.json'])))->all($this->filter(['static-analysis', 'testing']))
+        );
+
+        $this->assertCount(1, $tools);
+        $this->assertSame('phpstan', $tools[0]->name());
+    }
+
     private function locator(array $resources): callable
     {
         return function () use ($resources): array {
             return $resources;
         };
+    }
+
+    private function filter(array $excludedTags = []): Filter
+    {
+        return new Filter($excludedTags, []);
     }
 }

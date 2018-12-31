@@ -4,6 +4,7 @@ namespace Zalas\Toolbox\UseCase;
 
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\MultiStepCommand;
+use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
 use Zalas\Toolbox\Tool\Tools;
 
@@ -16,10 +17,10 @@ class TestTools
         $this->tools = $tools;
     }
 
-    public function __invoke(): Command
+    public function __invoke(Filter $filter): Command
     {
         return new MultiStepCommand(
-            $this->tools->all()->map(function (Tool $tool) {
+            $this->tools->all($filter)->map(function (Tool $tool) {
                 return $tool->testCommand();
             })
         );

@@ -88,6 +88,15 @@ curl -s https://api.github.com/repos/jakzal/toolbox/releases/latest \
 ./toolbox list-tools
 ```
 
+#### Filter tools by tags
+
+To exclude some tools from the listing multiple `--exclude-tag` options can be added.
+The `--tag` option can be used to filter tools by tags.
+
+```
+bin/toolbox.php list-tools --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
+```
+
 ### Install tools
 
 ```
@@ -117,6 +126,15 @@ To only see what commands would be executed, use the dry run mode:
 ./toolbox install --dry-run
 ```
 
+#### Filter tools by tags
+
+To exclude some tools from the installation multiple `--exclude-tag` options can be added.
+The `--tag` option can be used to filter tools by tags.
+
+```
+bin/toolbox.php install --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
+```
+
 ### Test if installed tools are usable
 
 ```
@@ -129,6 +147,15 @@ To only see what commands would be executed, use the dry run mode:
 
 ```
 ./toolbox test --dry-run
+```
+
+#### Filter tools by tags
+
+To exclude some tools from the generated test command multiple `--exclude-tag` options can be added.
+The `--tag` option can be used to filter tools by tags.
+
+```
+bin/toolbox.php test --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
 ```
 
 ### Tools definitions
@@ -145,3 +172,12 @@ Tool definition location(s) can be also specified with the `TOOLBOX_JSON` enviro
 ```
 TOOLBOX_JSON='path/to/file1.json,path/to/file2.json' ./toolbox list-tools
 ```
+
+### Tool tags
+
+Tools can be tagged in order to enable grouping and filtering them.
+
+The tags below have a special meaning:
+
+* `pre-installation` - these tools will be installed before any other tools.
+* `exclude-php:7.3`, `exclude-php:7.1` etc - used to exclude installation on the specified php version.

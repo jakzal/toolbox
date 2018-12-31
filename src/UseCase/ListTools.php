@@ -3,6 +3,7 @@
 namespace Zalas\Toolbox\UseCase;
 
 use Zalas\Toolbox\Tool\Collection;
+use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
 use Zalas\Toolbox\Tool\Tools;
 
@@ -21,8 +22,8 @@ class ListTools
     /**
      * @return Collection|Tool[]
      */
-    public function __invoke(): Collection
+    public function __invoke(Filter $filter): Collection
     {
-        return $this->tools->all();
+        return $this->tools->all($filter);
     }
 }

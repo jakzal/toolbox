@@ -29,11 +29,12 @@ final class ListCommand extends Command
     {
         $this->setDescription('Lists available tools');
         $this->addOption('exclude-tag', 'e', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to exclude');
+        $this->addOption('tag', 't', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to filter by');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $tools = \call_user_func($this->listTools, new Filter($input->getOption('exclude-tag')));
+        $tools = \call_user_func($this->listTools, new Filter($input->getOption('exclude-tag'), $input->getOption('tag')));
 
         $style = $this->createStyle($input, $output);
         $style->title('Available tools');

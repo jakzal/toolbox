@@ -39,20 +39,25 @@ class ListCommandTest extends ToolboxCommandTestCase
         $this->assertRegExp('#Behat.*?Tests business expectations.*?http://behat.org#smi', $tester->getDisplay());
     }
 
-    public function test_it_excludes_tags()
+    public function test_it_filters_by_tags()
     {
         $this->useCase->__invoke(Argument::type(Filter::class))->willReturn(Collection::create([
             $this->createTool('Behat', 'Tests business expectations', 'http://behat.org'),
         ]));
 
-        $this->executeCliCommand(['--exclude-tag' => ['foo']]);
+        $this->executeCliCommand(['--exclude-tag' => ['foo'], '--tag' => ['bar']]);
 
-        $this->useCase->__invoke(new Filter(['foo']))->shouldHaveBeenCalled();
+        $this->useCase->__invoke(new Filter(['foo'], ['bar']))->shouldHaveBeenCalled();
     }
 
-    public function test_it_defines_exclude_tags_option()
+    public function test_it_defines_exclude_tag_option()
     {
         $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('exclude-tag'));
+    }
+
+    public function test_it_defines_tag_option()
+    {
+        $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('tag'));
     }
 
     protected function getContainerTestDoubles(): array

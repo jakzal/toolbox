@@ -10,15 +10,23 @@ class Filter
     private $excludedTags;
 
     /**
-     * @param string[] $excludedTags
+     * @var string[]
      */
-    public function __construct(array $excludedTags)
+    private $tags;
+
+    /**
+     * @param string[] $excludedTags
+     * @param string[] $tags
+     */
+    public function __construct(array $excludedTags, array $tags)
     {
         $this->excludedTags = $excludedTags;
+        $this->tags = $tags;
     }
 
     public function __invoke(Tool $tool): bool
     {
-        return $this->excludedTags === \array_diff($this->excludedTags, $tool->tags());
+        return $this->excludedTags === \array_diff($this->excludedTags, $tool->tags())
+            && (empty($this->tags) || \array_intersect($this->tags, $tool->tags()));
     }
 }

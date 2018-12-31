@@ -55,14 +55,14 @@ class TestCommandTest extends ToolboxCommandTestCase
         $this->assertSame(1, $tester->getStatusCode());
     }
 
-    public function test_it_excludes_tags()
+    public function test_it_filters_by_tags()
     {
         $this->useCase->__invoke(Argument::type(Filter::class))->willReturn($this->createCommand());
         $this->runner->run(Argument::any())->willReturn(0);
 
-        $this->executeCliCommand(['--exclude-tag' => ['foo']]);
+        $this->executeCliCommand(['--exclude-tag' => ['foo'], '--tag' => ['bar']]);
 
-        $this->useCase->__invoke(new Filter(['foo']))->shouldBeCalled();
+        $this->useCase->__invoke(new Filter(['foo'], ['bar']))->shouldBeCalled();
     }
 
     public function test_it_defines_dry_run_option()
@@ -84,9 +84,14 @@ class TestCommandTest extends ToolboxCommandTestCase
         $this->assertSame('/tmp', $this->cliCommand()->getDefinition()->getOption('target-dir')->getDefault());
     }
 
-    public function test_it_defines_exclude_tags_option()
+    public function test_it_defines_exclude_tag_option()
     {
         $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('exclude-tag'));
+    }
+
+    public function test_it_defines_tag_option()
+    {
+        $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('tag'));
     }
 
     protected function getContainerTestDoubles(): array

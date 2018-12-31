@@ -91,6 +91,6 @@ class JsonToolsTest extends TestCase
 
     private function filter(array $excludedTags = []): Filter
     {
-        return new Filter($excludedTags);
+        return new Filter($excludedTags, []);
     }
 }

@@ -56,6 +56,6 @@ class TestToolsTest extends TestCase
 
     private function filter(): Filter
     {
-        return new Filter([]);
+        return new Filter([], []);
     }
 }

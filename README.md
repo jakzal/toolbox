@@ -88,12 +88,13 @@ curl -s https://api.github.com/repos/jakzal/toolbox/releases/latest \
 ./toolbox list-tools
 ```
 
-#### Exclude tools by tags
+#### Filter tools by tags
 
-To exclude some tools from the listing, multiple `--exclude-tag` options can be added:
+To exclude some tools from the listing multiple `--exclude-tag` options can be added.
+The `--tag` option can be used to filter tools by tags.
 
 ```
-bin/toolbox.php list-tools --exclude-tag ~php7.3 --exclude-tag foo
+bin/toolbox.php list-tools --exclude-tag ~php7.3 --exclude-tag foo --tag bar
 ```
 
 ### Install tools
@@ -125,12 +126,13 @@ To only see what commands would be executed, use the dry run mode:
 ./toolbox install --dry-run
 ```
 
-#### Exclude tools by tags
+#### Filter tools by tags
 
-To exclude some tools from installation, multiple `--exclude-tag` options can be added:
+To exclude some tools from the installation multiple `--exclude-tag` options can be added.
+The `--tag` option can be used to filter tools by tags.
 
 ```
-bin/toolbox.php install --exclude-tag ~php7.3 --exclude-tag foo
+bin/toolbox.php install --exclude-tag ~php7.3 --exclude-tag foo --tag bar
 ```
 
 ### Test if installed tools are usable
@@ -147,12 +149,13 @@ To only see what commands would be executed, use the dry run mode:
 ./toolbox test --dry-run
 ```
 
-#### Exclude tools by tags
+#### Filter tools by tags
 
-To exclude some tools from the generated test command, multiple `--exclude-tag` options can be added:
+To exclude some tools from the generated test command multiple `--exclude-tag` options can be added.
+The `--tag` option can be used to filter tools by tags.
 
 ```
-bin/toolbox.php test --exclude-tag ~php7.3 --exclude-tag foo
+bin/toolbox.php test --exclude-tag ~php7.3 --exclude-tag foo --tag bar
 ```
 
 ### Tools definitions

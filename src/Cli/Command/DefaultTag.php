@@ -6,7 +6,7 @@ trait DefaultTag
 {
     private function defaultExcludeTag(): array
     {
-        return \getenv('TOOLBOX_EXCLUDED_TAGS') ? \explode(',', \getenv('TOOLBOX_EXCLUDED_TAGS')) : [\sprintf('exclude-php:%s.%s', PHP_MAJOR_VERSION, PHP_MINOR_VERSION)];
+        return \getenv('TOOLBOX_EXCLUDED_TAGS') ? \explode(',', \getenv('TOOLBOX_EXCLUDED_TAGS')) : [];
     }
 
     private function defaultTag(): array

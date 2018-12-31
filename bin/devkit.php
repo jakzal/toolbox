@@ -37,7 +37,7 @@ $application->add(
             });
 
             $readme = file_get_contents($readmePath);
-            $readme = preg_replace('/(## Available tools\n\n).*?(\n## Installation)/smi', '$1' . $toolsList . '$2', $readme);
+            $readme = preg_replace('/(## Available tools\n\n).*?(\n## )/smi', '$1' . $toolsList . '$2', $readme);
 
             file_put_contents($readmePath, $readme);
 

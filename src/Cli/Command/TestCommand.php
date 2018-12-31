@@ -12,6 +12,7 @@ use Zalas\Toolbox\UseCase\TestTools;
 
 final class TestCommand extends Command
 {
+    use DefaultTag;
     use DefaultTargetDir;
 
     public const NAME = 'test';
@@ -32,8 +33,8 @@ final class TestCommand extends Command
         $this->setDescription('Runs basic tests to verify tools are installed');
         $this->addOption('dry-run', null, InputOption::VALUE_NONE, 'Output the command without executing it');
         $this->addOption('target-dir', null, InputOption::VALUE_REQUIRED, 'The target installation directory', $this->defaultTargetDir());
-        $this->addOption('exclude-tag', 'e', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to exclude');
-        $this->addOption('tag', 't', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to filter by');
+        $this->addOption('exclude-tag', 'e', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to exclude', $this->defaultExcludeTag());
+        $this->addOption('tag', 't', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to filter by', $this->defaultTag());
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

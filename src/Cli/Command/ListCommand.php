@@ -14,6 +14,8 @@ use Zalas\Toolbox\UseCase\ListTools;
 
 final class ListCommand extends Command
 {
+    use DefaultTag;
+
     public const NAME = 'list-tools';
 
     private $listTools;
@@ -28,8 +30,8 @@ final class ListCommand extends Command
     protected function configure()
     {
         $this->setDescription('Lists available tools');
-        $this->addOption('exclude-tag', 'e', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to exclude');
-        $this->addOption('tag', 't', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to filter by');
+        $this->addOption('exclude-tag', 'e', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to exclude', $this->defaultExcludeTag());
+        $this->addOption('tag', 't', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to filter by', $this->defaultTag());
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

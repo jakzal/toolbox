@@ -10,7 +10,7 @@ Helps to discover and install tools.
 Toolbox [started its life](https://github.com/jakzal/phpqa/blob/49482ae447d4b6341cf77aac9d51390fe1176e8c/tools.php)
 as a simple script in the [phpqa docker image](https://github.com/jakzal/phpqa).
 Its purpose was to install set of tools while building the docker image and it's still its main goal.
-It has been extracted as a separate project to make maintenance easier and open itself for new use cases.
+It has been extracted as a separate project to make maintenance easier and enable new use cases.
 
 ## Available tools
 
@@ -181,3 +181,9 @@ The tags below have a special meaning:
 
 * `pre-installation` - these tools will be installed before any other tools.
 * `exclude-php:7.3`, `exclude-php:7.1` etc - used to exclude installation on the specified php version.
+
+## Contributing
+
+Please read the [Contributing guide](CONTRIBUTING.md) to learn about contributing to this project.
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+By participating in this project you agree to abide by its terms.

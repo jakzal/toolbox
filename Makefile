@@ -1,5 +1,7 @@
 default: build
 
+PHP_VERSION:=$(shell php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
+
 build: install test
 .PHONY: build
 
@@ -31,16 +33,16 @@ test-integration: package
 	  export COMPOSER_HOME=$(shell pwd)/build/tools/.composer && \
 	  chmod +x build/toolbox.phar && \
 	  mkdir -p ./build/tools && \
-	  build/toolbox.phar install --target-dir ./build/tools && \
-	  build/toolbox.phar test --target-dir ./build/tools
+	  build/toolbox.phar install --target-dir ./build/tools --exclude-tag exclude-php:$(PHP_VERSION) && \
+	  build/toolbox.phar test --target-dir ./build/tools --exclude-tag exclude-php:$(PHP_VERSION)
 .PHONY: test-integration
 
 cs: tools/php-cs-fixer
-	tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
+	PHP_CS_FIXER_IGNORE_ENV=1 tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
 .PHONY: cs
 
 cs-fix: tools/php-cs-fixer
-	tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
+	PHP_CS_FIXER_IGNORE_ENV=1 tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
 .PHONY: cs-fix
 
 deptrac: tools/deptrac

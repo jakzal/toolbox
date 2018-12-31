@@ -17,14 +17,14 @@ class FilterTest extends TestCase
 
     public function test_it_returns_true_if_no_excluded_tags_match()
     {
-        $filter = new Filter(['~php:7.3'], []);
+        $filter = new Filter(['exclude-php:7.3'], []);
 
         $this->assertTrue($filter($this->tool(['phpspec', 'phpstan'])));
     }
 
     public function test_it_returns_true_if_tool_has_no_tags()
     {
-        $filter = new Filter(['~php:7.3'], []);
+        $filter = new Filter(['exclude-php:7.3'], []);
 
         $this->assertTrue($filter($this->tool([])));
     }
@@ -38,23 +38,23 @@ class FilterTest extends TestCase
 
     public function test_it_returns_false_if_one_excluded_tag_matches()
     {
-        $filter = new Filter(['~php:7.3'], []);
+        $filter = new Filter(['exclude-php:7.3'], []);
 
-        $this->assertFalse($filter($this->tool(['phpspec', 'phpstan', '~php:7.3'])));
+        $this->assertFalse($filter($this->tool(['phpspec', 'phpstan', 'exclude-php:7.3'])));
     }
 
     public function test_it_returns_false_if_multiple_excluded_tags_match()
     {
-        $filter = new Filter(['~php:7.3', 'phpstan'], []);
+        $filter = new Filter(['exclude-php:7.3', 'phpstan'], []);
 
-        $this->assertFalse($filter($this->tool(['phpspec', 'phpstan', '~php:7.3'])));
+        $this->assertFalse($filter($this->tool(['phpspec', 'phpstan', 'exclude-php:7.3'])));
     }
 
     public function test_it_returns_false_if_all_excluded_tags_match()
     {
-        $filter = new Filter(['~php:7.3', 'phpspec', 'phpstan'], []);
+        $filter = new Filter(['exclude-php:7.3', 'phpspec', 'phpstan'], []);
 
-        $this->assertFalse($filter($this->tool(['phpspec', 'phpstan', '~php:7.3'])));
+        $this->assertFalse($filter($this->tool(['phpspec', 'phpstan', 'exclude-php:7.3'])));
     }
 
     public function test_it_returns_true_if_a_tag_matches()

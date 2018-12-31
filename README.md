@@ -94,7 +94,7 @@ To exclude some tools from the listing multiple `--exclude-tag` options can be a
 The `--tag` option can be used to filter tools by tags.
 
 ```
-bin/toolbox.php list-tools --exclude-tag ~php7.3 --exclude-tag foo --tag bar
+bin/toolbox.php list-tools --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
 ```
 
 ### Install tools
@@ -132,7 +132,7 @@ To exclude some tools from the installation multiple `--exclude-tag` options can
 The `--tag` option can be used to filter tools by tags.
 
 ```
-bin/toolbox.php install --exclude-tag ~php7.3 --exclude-tag foo --tag bar
+bin/toolbox.php install --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
 ```
 
 ### Test if installed tools are usable
@@ -155,7 +155,7 @@ To exclude some tools from the generated test command multiple `--exclude-tag` o
 The `--tag` option can be used to filter tools by tags.
 
 ```
-bin/toolbox.php test --exclude-tag ~php7.3 --exclude-tag foo --tag bar
+bin/toolbox.php test --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
 ```
 
 ### Tools definitions
@@ -180,4 +180,4 @@ Tools can be tagged in order to enable grouping and filtering them.
 The tags below have a special meaning:
 
 * `pre-installation` - these tools will be installed before any other tools.
-* `~php7.3`, `~php7.1` etc - used to exclude installation on the specified php version.
+* `exclude-php:7.3`, `exclude-php:7.1` etc - used to exclude installation on the specified php version.

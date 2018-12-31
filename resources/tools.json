@@ -185,7 +185,7 @@
         }
       },
       "test": "php-cs-fixer list",
-      "tags": ["~php7.3"]
+      "tags": ["exclude-php:7.3"]
     },
     {
       "name": "php-formatter",

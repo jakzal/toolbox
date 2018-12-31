@@ -12,6 +12,7 @@ use Zalas\Toolbox\Runner\PassthruRunner;
 use Zalas\Toolbox\Json\JsonTools;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\ShCommand;
+use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
 
 $application = new Application('Toolbox DevKit', 'dev');
@@ -30,7 +31,7 @@ $application->add(
         {
             $jsonPath = $input->getOption('tools');
             $readmePath = $input->getOption('readme');
-            $tools = (new JsonTools(function () use ($jsonPath) { return $jsonPath; }))->all();
+            $tools = (new JsonTools(function () use ($jsonPath) { return $jsonPath; }))->all(new Filter([], []));
             $toolsList = $tools->reduce('', function ($acc, Tool $tool) {
                 return $acc . sprintf('* %s - [%s](%s)', $tool->name(), $tool->summary(), $tool->website()) . PHP_EOL;
             });

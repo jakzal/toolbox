@@ -87,11 +87,29 @@ class InstallCommandTest extends ToolboxCommandTestCase
     public function test_it_defines_exclude_tag_option()
     {
         $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('exclude-tag'));
+        $this->assertSame([\sprintf('exclude-php:%s.%s', PHP_MAJOR_VERSION, PHP_MINOR_VERSION)], $this->cliCommand()->getDefinition()->getOption('exclude-tag')->getDefault());
+    }
+
+    /**
+     * @putenv TOOLBOX_EXCLUDED_TAGS=foo,bar,baz
+     */
+    public function test_it_takes_the_excluded_tag_option_default_from_environment_if_present()
+    {
+        $this->assertSame(['foo', 'bar', 'baz'], $this->cliCommand()->getDefinition()->getOption('exclude-tag')->getDefault());
     }
 
     public function test_it_defines_tag_option()
     {
         $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('tag'));
+        $this->assertSame([], $this->cliCommand()->getDefinition()->getOption('tag')->getDefault());
+    }
+
+    /**
+     * @putenv TOOLBOX_TAGS=foo,bar,baz
+     */
+    public function test_it_takes_the_tag_option_default_from_environment_if_present()
+    {
+        $this->assertSame(['foo', 'bar', 'baz'], $this->cliCommand()->getDefinition()->getOption('tag')->getDefault());
     }
 
     protected function getContainerTestDoubles(): array

@@ -12,12 +12,12 @@ Please note we have a [code of conduct](CODE_OF_CONDUCT.md). Please follow it in
 * Provide tests for any code you write.
 * Make sure all tests are passing.
 * Prefer `phar` downloads or `composer-bin-plugin` installation over `composer global` installations to avoid dependency conflicts.
-* Update the `tools.json` with any new tools'd like to add.
+* Update the `resources/*.json` files with any new tools'd like to add.
 * Update `README.md` with any new tools you added (`php bin/devkit.php update:readme`).
 
 ## Adding a new tool
 
-To add support for a new tool, add it to the list in `resources/tools.json`:
+To add support for a new tool, add it to the list in one of the `json` files in the `resources/` folder:
 
 ```json
 {
@@ -30,7 +30,8 @@ To add support for a new tool, add it to the list in `resources/tools.json`:
       "namespace": "behat"
     }
   },
-  "test": "behat --version"
+  "test": "behat --version",
+  "tags": ["testing", "test", "bdd"]
 }
 ```
 

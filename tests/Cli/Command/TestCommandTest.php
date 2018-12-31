@@ -87,7 +87,7 @@ class TestCommandTest extends ToolboxCommandTestCase
     public function test_it_defines_exclude_tag_option()
     {
         $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('exclude-tag'));
-        $this->assertSame([\sprintf('exclude-php:%s.%s', PHP_MAJOR_VERSION, PHP_MINOR_VERSION)], $this->cliCommand()->getDefinition()->getOption('exclude-tag')->getDefault());
+        $this->assertSame([], $this->cliCommand()->getDefinition()->getOption('exclude-tag')->getDefault());
     }
 
     /**

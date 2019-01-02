@@ -13,6 +13,12 @@
         </testsuite>
     </testsuites>
 
+    <php>
+        <env name="TOOLBOX_TARGET_DIR" value="" force="true" />
+        <env name="TOOLBOX_TAGS" value="" force="true" />
+        <env name="TOOLBOX_EXCLUDED_TAGS" value="" force="true" />
+    </php>
+
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">src</directory>

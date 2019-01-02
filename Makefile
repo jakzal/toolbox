@@ -93,6 +93,10 @@ package-devkit: tools/box
 	@rm -rf build/devkit-phar
 .PHONY: package-devkit
 
+website:
+	php bin/devkit.php generate:html > build/index.html
+.PHONY: website
+
 tools: tools/php-cs-fixer tools/deptrac tools/infection tools/box
 .PHONY: tools
 

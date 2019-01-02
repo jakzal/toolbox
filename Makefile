@@ -1,6 +1,7 @@
 default: build
 
 PHP_VERSION:=$(shell php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
+TOOLBOX_VERSION?=dev
 
 build: install test
 .PHONY: build
@@ -62,11 +63,10 @@ phpunit-coverage: tools/phpunit
 .PHONY: phpunit
 
 package: tools/box
-	$(eval VERSION=$(shell (git describe --abbrev=0 --tags 2>/dev/null || echo "0.1-dev") | sed -e 's/^v//'))
 	@rm -rf build/phar && mkdir -p build/phar build/phar/bin
 
 	cp -r resources src LICENSE composer.json scoper.inc.php build/phar
-	sed -e 's/Application('"'"'dev/Application('"'"'$(VERSION)/g' bin/toolbox.php > build/phar/bin/toolbox.php
+	sed -e 's/Application('"'"'dev/Application('"'"'$(TOOLBOX_VERSION)/g' bin/toolbox.php > build/phar/bin/toolbox.php
 
 	cd build/phar && \
 	  composer config platform.php 7.1.3 && \
@@ -78,12 +78,11 @@ package: tools/box
 .PHONY: package
 
 package-devkit: tools/box
-	$(eval VERSION=$(shell (git describe --abbrev=0 --tags 2>/dev/null || echo "0.1-dev") | sed -e 's/^v//'))
 	@rm -rf build/devkit-phar && mkdir -p build/devkit-phar build/devkit-phar/bin build/devkit-phar/src
 
 	cp -r resources LICENSE composer.json scoper.inc.php build/devkit-phar
 	cp -r src/Json src/Runner src/Tool build/devkit-phar/src
-	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
+	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(TOOLBOX_VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
 
 	cd build/devkit-phar && \
 	  composer config platform.php 7.1.3 && \

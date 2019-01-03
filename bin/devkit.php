@@ -247,6 +247,9 @@ TEMPLATE;
 
     %TOOLS%
 
+    <hr class="my-4"/>
+
+    <div class="text-center">Generated on %GENERATED_ON%.</div>
 </body>
 </html>
 TEMPLATE;
@@ -258,6 +261,7 @@ TEMPLATE;
                     },
                     \array_chunk($toolsHtml->toArray(), 4)
                 )),
+                '%GENERATED_ON%' => (new \DateTime('now', new \DateTimeZone('UTC')))->format('r'),
             ]);
         }
     }

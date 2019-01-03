@@ -218,7 +218,7 @@ TEMPLATE;
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>Static and Quality Analysis Tools for PHP | Toolbox | PHPQA</title>
+    <title>Quality Assurance Tools for PHP | Toolbox | PHPQA</title>
     <style>
         .tool-summary {
             font-size: 0.8em;
@@ -234,7 +234,7 @@ TEMPLATE;
 <div class="container-fluid p-5">
 
     <div class="jumbotron">
-        <h1 class="display-4">Static and Quality Analysis Tools for PHP</h1>
+        <h1 class="display-4">Quality Assurance Tools for PHP</h1>
         <p class="lead">
           The below list of tools is provided by the <a href="https://hub.docker.com/r/jakzal/phpqa/">phpqa</a> docker image.
           <a href="https://github.com/jakzal/toolbox">Toolbox</a> is used to install them in the image.

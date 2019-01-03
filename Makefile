@@ -94,7 +94,20 @@ package-devkit: tools/box
 .PHONY: package-devkit
 
 website:
-	php bin/devkit.php generate:html > build/index.html
+	rm -rf build/website
+	mkdir -p build/website
+	php bin/devkit.php generate:html > build/website/index.html
+	touch build/website/.nojekyll
+.PHONY: website
+
+publish-website: website
+	cd build/website
+	git init .
+	git config user.email 'jakub@zalas.pl'
+	git config user.name 'Jakub Zalas'
+	git add .
+	git commit -m "Build the website"
+	git push --force --quiet "https://github.com/jakzal/toolbox.git" master:gh-pages
 .PHONY: website
 
 tools: tools/php-cs-fixer tools/deptrac tools/infection tools/box

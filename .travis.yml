@@ -8,6 +8,7 @@ matrix:
     env: deps=low
   fast_finish: true
 before_install:
+- echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
 - phpenv config-rm xdebug.ini || echo "XDebug is not enabled"
 - export TOOLBOX_VERSION=$(echo ${TRAVIS_TAG:-"dev"} | sed -e 's/^v//')
 install:
@@ -15,15 +16,20 @@ install:
 script:
 - if [[ $deps = low ]]; then make test-min; else make test; fi
 - make package package-devkit test-integration
+after_success:
+- test $TRAVIS_PULL_REQUEST == "false" && test $EXECUTE_DEPLOYMENT == "true" && make website publish-website
 deploy:
   provider: releases
   api_key:
     secure: U0BP6+CaAYKAPC5pNIzgIpITLIL5lc0fPRSRW2SBdCh5u55NuHoHL22LldK+309t0L8mxLybq6yh4pUksBdkKB/gKLEI4Vrc5hZeR1y49kIClDIAllrQeCAn+XgDZlZls/Q/Op8DPkAouJrj0Y2qBTWrhAG1Fhn9SLsIcVG0x4JhbKd4I0IN+G4YgxSpzcdYEc6uszqZrPSGKjK+ygrnZ2IJZ+roUTJIQXCK0KEOGHx7sKS4mtqvd5hEx9P+FUZcs3Pp7nNp/gJBWd80ZNbVj7iiOulc7Fl2BxqLqVKGqyv7ekqyeg2vaDz2GpbBiYGbDXiGQlJ0kGlENCuTyqS0ZQ/j9O0htaO57C1m0HVFu+gX34cnL6vP6dkwqjPRDQA8BQ1YNeKQcCP7LDYY/OXvYwaEhB2iw7/e6PjYhQTv41kStGGyTqrFbGNWpV/JM+7oCjr977C8lfDU9I1A/MHRHQHuMKPLA2jygCIVzibmxElsfDaHkIbrbgKZ4ukRYr9fyDVfjv9L2TNWp19++JdDbwBDutuho9E23AFgqEQJjTGTG4mf9pX3tFlfGv+3VDe7LhNm69Wkat1lMjFnL4qjI+uY2K9JdHqPZPw0SOaUpbh9BSuv7+n3Wp/j59Dva136BOK/KUEleD2PBf2oufO+ETLDEofpKQ8HA0R/8K1HN2w=
   file:
-    - build/toolbox.phar
-    - build/devkit.phar
+  - build/toolbox.phar
+  - build/devkit.phar
   skip_cleanup: true
   on:
     tags: true
     repo: jakzal/toolbox
     condition: "$EXECUTE_DEPLOYMENT"
+env:
+  global:
+    secure: hA1V01Ojy1uZG8W6ln0TgP1gZbFVg7UTtBwcfYq6WEj8uaCi6x4Em3IeXMNEr9ykTETC579/xmpoRS9uaGtaguovrn4TC34VQ2sOvumfkrd52RDTlmkCE3uuwmmNRoCxw12n9He6G8mF8H/0m7gS+NdwJ9nrH0Q3mJcheh3VugiBaZPgO+qNxY2KxqgftPjVRN6R4DtoMLuR4h/BQLHXO2SKBdgxVDzm5gz6TDHpBBfWlJa28DypVuga8XX9/+ifugK7fyRE49PQU8qxOBFFnmdMaiaGRflqgRWZN5yD8icOoyGlI44F/75kCLt+kDoT/Ygu4kVUM7JjrvrWL8cGyrJCidDl2yHeXwadYbolUW3oVax/wRXBZepi48orNDAmetbA8hhQruV4/pIR7sAcu0HKgnkSOGpcjoFw35tUSKS829fHPXxckj6zQu81DPmD0k3D+FsUG/f0G1NXP34Zif3/duxHSzeId0CWYoSK+QXgtxonPJTBA5SsSPhhiWdYQPl+D7GThLLXL7N1kf/wbVwvhm7TsdT/tNA3In3AnYf+GxyXrnOQDpCjmebMfAJC1q/kPn9NQJjrm9jbzfqHMD8zjRZWtEDPOpw+Butdcj0ZVVNwxrvo1EY1AMy0q3KXopVmhZP/AeDTgqi0QFpdvHSUZQyYMjzsKEoEd3NjQoA=

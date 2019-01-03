@@ -23,7 +23,8 @@
           "bin": "%target-dir%/behat"
         }
       },
-      "test": "behat --version"
+      "test": "behat --version",
+      "tags": ["featured"]
     },
     {
       "name": "churn",
@@ -35,7 +36,8 @@
           "namespace": "tools"
         }
       },
-      "test": "churn list"
+      "test": "churn list",
+      "tags": ["featured"]
     },
     {
       "name": "dephpend",
@@ -71,7 +73,8 @@
           "bin": "%target-dir%/deptrac"
         }
       },
-      "test": "deptrac list"
+      "test": "deptrac list",
+      "tags": ["featured"]
     },
     {
       "name": "design-pattern",
@@ -124,7 +127,8 @@
           "bin": "%target-dir%/infection"
         }
       },
-       "test": "infection --version"
+       "test": "infection --version",
+       "tags": ["featured"]
     },
     {
       "name": "parallel-lint",
@@ -149,7 +153,8 @@
           "bin": "%target-dir%/pdepend"
         }
       },
-      "test": "pdepend --version"
+      "test": "pdepend --version",
+      "tags": ["featured"]
     },
     {
       "name": "phan",
@@ -161,7 +166,8 @@
           "bin": "%target-dir%/phan"
         }
       },
-      "test": "phan -v"
+      "test": "phan -v",
+      "tags": ["featured"]
     },
     {
       "name": "php-coupling-detector",
@@ -187,7 +193,7 @@
         }
       },
       "test": "php-cs-fixer list",
-      "tags": ["exclude-php:7.3"]
+      "tags": ["featured", "exclude-php:7.3"]
     },
     {
       "name": "php-formatter",
@@ -226,7 +232,8 @@
           "bin": "%target-dir%/phpDocumentor"
         }
       },
-      "test": "phpDocumentor list"
+      "test": "phpDocumentor list",
+      "tags": ["featured"]
     },
     {
       "name": "phpbench",
@@ -326,7 +333,8 @@
           "bin": "%target-dir%/phpcpd"
         }
       },
-      "test": "phpcpd -V"
+      "test": "phpcpd -V",
+      "tags": ["featured"]
     },
     {
       "name": "phpcs",
@@ -354,7 +362,8 @@
           "bin": "%target-dir%/phpda"
         }
       },
-      "test": "phpda list"
+      "test": "phpda list",
+      "tags": ["featured"]
     },
     {
       "name": "phpdoc-to-typehint",
@@ -414,7 +423,8 @@
           "bin": "%target-dir%/phpmetrics"
         }
       },
-      "test": "phpmetrics --version"
+      "test": "phpmetrics --version",
+      "tags": ["featured"]
     },
     {
       "name": "phpmnd",
@@ -438,7 +448,8 @@
           "bin": "%target-dir%/phpspec"
         }
       },
-      "test": "phpspec --version"
+      "test": "phpspec --version",
+      "tags": ["featured"]
     },
     {
       "name": "phpstan",
@@ -450,7 +461,8 @@
           "namespace": "phpstan"
         }
       },
-      "test": "phpstan --version"
+      "test": "phpstan --version",
+      "tags": ["featured"]
     },
     {
       "name": "phpstan-deprecation-rules",
@@ -558,7 +570,8 @@
           "bin": "%target-dir%/phpunit"
         }
       },
-      "test": "phpunit --version"
+      "test": "phpunit --version",
+      "tags": ["featured"]
     },
     {
       "name": "psalm",
@@ -574,7 +587,8 @@
           "bin": "%target-dir%/psalm"
         }
       },
-      "test": "psalm -h"
+      "test": "psalm -h",
+      "tags": ["featured"]
     },
     {
       "name": "psecio-parse",
@@ -598,7 +612,8 @@
           "bin": "%target-dir%/security-checker"
         }
       },
-      "test": "security-checker"
+      "test": "security-checker",
+      "tags": ["featured"]
     },
     {
       "name": "testability",

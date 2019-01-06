@@ -178,8 +178,7 @@
           "namespace": "php-coupling-detector"
         }
       },
-      "test": "php-coupling-detector list",
-      "tags": ["exclude-php:7.3"]
+      "test": "php-coupling-detector list"
     },
     {
       "name": "php-cs-fixer",

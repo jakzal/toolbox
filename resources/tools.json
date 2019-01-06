@@ -193,7 +193,7 @@
         }
       },
       "test": "php-cs-fixer list",
-      "tags": ["featured", "exclude-php:7.3"]
+      "tags": ["featured"]
     },
     {
       "name": "php-formatter",

@@ -207,8 +207,7 @@
           "version": "1fa3d9a3e1c67654f3fe2511bd28fa7c33b59d7e"
         }
       },
-      "test": "php-formatter list",
-      "tags": ["exclude-php:7.3"]
+      "test": "php-formatter list"
     },
     {
       "name": "php-semver-checker",

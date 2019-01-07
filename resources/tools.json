@@ -110,8 +110,7 @@
           "target-dir": "%target-dir%/EasyCodingStandard"
         }
       },
-      "test": "ecs -h",
-      "tags": ["exclude-php:7.3"]
+      "test": "ecs -h"
     },
     {
       "name": "infection",
@@ -179,8 +178,7 @@
           "namespace": "php-coupling-detector"
         }
       },
-      "test": "php-coupling-detector list",
-      "tags": ["exclude-php:7.3"]
+      "test": "php-coupling-detector list"
     },
     {
       "name": "php-cs-fixer",
@@ -193,7 +191,7 @@
         }
       },
       "test": "php-cs-fixer list",
-      "tags": ["featured", "exclude-php:7.3"]
+      "tags": ["featured"]
     },
     {
       "name": "php-formatter",
@@ -207,8 +205,7 @@
           "version": "1fa3d9a3e1c67654f3fe2511bd28fa7c33b59d7e"
         }
       },
-      "test": "php-formatter list",
-      "tags": ["exclude-php:7.3"]
+      "test": "php-formatter list"
     },
     {
       "name": "php-semver-checker",

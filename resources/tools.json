@@ -622,7 +622,7 @@
           "namespace": "symfony"
         }
       },
-      "test": "simple-phpunit --version"
+      "test": "type simple-phpunit"
     },
     {
       "name": "testability",

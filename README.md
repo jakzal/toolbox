@@ -65,7 +65,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * psalm - [Finds errors in PHP applications](https://getpsalm.org/)
 * psecio-parse - [Scans code for potential security-related issues](https://github.com/psecio/parse)
 * security-checker - [Checks composer dependencies for known security vulnerabilities](https://github.com/sensiolabs/security-checker)
-* simple-phpunit - [The PHPUnit Bridge provides utilities to report legacy tests and usage of deprecated code and a helper for time-sensitive tests.](https://symfony.com/doc/current/components/phpunit_bridge.html)
+* simple-phpunit - [Provides utilities to report legacy tests and usage of deprecated code](https://symfony.com/doc/current/components/phpunit_bridge.html)
 * testability - [Analyses and reports testability issues of a php codebase](https://github.com/edsonmedina/php_testability)
 
 ## Installation

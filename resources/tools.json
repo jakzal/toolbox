@@ -620,9 +620,12 @@
         "composer-bin-plugin": {
           "package": "symfony/phpunit-bridge",
           "namespace": "symfony"
+        },
+        "sh": {
+          "command": "simple-phpunit install"
         }
       },
-      "test": "type simple-phpunit"
+      "test": "simple-phpunit --version"
     },
     {
       "name": "testability",

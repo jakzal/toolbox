@@ -613,6 +613,21 @@
       "tags": ["featured"]
     },
     {
+      "name": "simple-phpunit",
+      "summary": "The PHPUnit Bridge provides utilities to report legacy tests and usage of deprecated code and a helper for time-sensitive tests.",
+      "website": "https://symfony.com/doc/current/components/phpunit_bridge.html",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "symfony/phpunit-bridge",
+          "namespace": "symfony"
+        },
+        "sh": {
+          "command": "simple-phpunit install"
+        }
+      },
+      "test": "simple-phpunit --version"
+    },
+    {
       "name": "testability",
       "summary": "Analyses and reports testability issues of a php codebase",
       "website": "https://github.com/edsonmedina/php_testability",

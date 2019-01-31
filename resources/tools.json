@@ -255,10 +255,11 @@
       "command": {
         "composer-bin-plugin": {
           "package": "rskuipers/php-assumptions",
-          "namespace": "tools"
+          "namespace": "php-assumptions"
         }
       },
-      "test": "phpa --version"
+      "test": "phpa --version",
+      "tags": ["not-maintained"]
     },
     {
       "name": "phpca",

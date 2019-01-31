@@ -556,8 +556,7 @@
           "namespace": "phpstan"
         }
       },
-      "test": "true",
-      "tags": ["exclude-php:7.1", "exclude-php:7.2", "exclude-php:7.3"]
+      "test": "true"
     },
     {
       "name": "phpunit",

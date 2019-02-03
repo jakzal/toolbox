@@ -563,9 +563,8 @@
       "summary": "The PHP testing framework",
       "website": "https://phpunit.de/",
       "command": {
-        "phar-download": {
-          "phar": "https://phar.phpunit.de/phpunit.phar",
-          "bin": "%target-dir%/phpunit"
+        "sh": {
+            "command": "[[ \"1\" == $(php -r 'echo version_compare(PHP_VERSION, \"7.2.0\", \">=\");') ]] && (curl -Ls https://phar.phpunit.de/phpunit.phar > %target-dir%/phpunit && chmod +x %target-dir%/phpunit) || (curl -Ls https://phar.phpunit.de/phpunit-7.phar > %target-dir%/phpunit && chmod +x %target-dir%/phpunit)"
         }
       },
       "test": "phpunit --version",

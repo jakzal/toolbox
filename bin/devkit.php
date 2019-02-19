@@ -141,14 +141,16 @@ CMD;
                     $project = preg_replace('@https://[^/]*/([^/]*/[^/]*).*@', '$1', $phar);
 
                     return strtr(
-                        '-e "s@\"phar\": \"\([^\"]*%PROJECT%[^\"]*\)\"@\"phar\": \"%PHAR%\"@"',
+                        '-e "s@\"phar\": \"([^\"]*%PROJECT%[^\"]*)\"@\"phar\": \"%PHAR%\"@g"'.
+                        ' '.
+                        '-e "s@\"url\": \"([^\"]*%PROJECT%[^\"]*\.phar(\.asc|\.pubkey))\"@\"url\": \"%PHAR%\\2\"@g"',
                         ['%PROJECT%' => $project, '%PHAR%' => $phar]
                     );
                 },
                 $phars
             ));
 
-            return new ShCommand(sprintf('sed -i.bak %s %s', $replacements, $jsonPath));
+            return new ShCommand(sprintf('sed -i.bak -E %s %s', $replacements, $jsonPath));
         }
     }
 );

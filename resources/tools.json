@@ -1,7 +1,7 @@
 {
   "tools": [
     {
-      "name": "analyze",
+      "name": "aaa",
       "summary": "Visualizes metrics and source code",
       "website": "https://github.com/Qafoo/QualityAnalyzer",
       "command": {

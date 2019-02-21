@@ -108,7 +108,20 @@ publish-website: website
 	  git add . && \
 	  git commit -m "Build the website" && \
 	  git push --force --quiet "https://github.com/jakzal/toolbox.git" master:gh-pages
-.PHONY: website
+.PHONY: publish-website
+
+update-phars:
+	git diff --exit-code resources/ || \
+	  ( \
+	    (git config user.email || git config user.email 'jakub@zalas.pl') && \
+	    (git config user.name || git config user.name 'Jakub Zalas') && \
+	    git checkout -b tools-update && \
+	    git add resources/ && \
+	    git commit -m "Update tools" && \
+	    git push origin tools-update && \
+	    hub pull-request -h tools-update -a jakzal -m 'Update tools' \
+	  )
+.PHONY: update-phars
 
 tools: tools/php-cs-fixer tools/deptrac tools/infection tools/box
 .PHONY: tools

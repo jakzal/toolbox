@@ -1,3 +1,4 @@
+dist: xenial
 language: php
 matrix:
   include:
@@ -5,7 +6,7 @@ matrix:
     env: EXECUTE_DEPLOYMENT=true
   - php: 7.2
   - php: 7.3
-    env: deps=low
+    env: deps=low UPDATE_TOOLS=true
   fast_finish: true
 before_install:
 - echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
@@ -17,7 +18,8 @@ script:
 - if [[ $deps = low ]]; then make test-min; else make test; fi
 - make package package-devkit test-integration
 after_success:
-- test $TRAVIS_PULL_REQUEST == "false" && test $EXECUTE_DEPLOYMENT == "true" && make website publish-website
+- test "$TRAVIS_PULL_REQUEST" == "false" && test "$EXECUTE_DEPLOYMENT" == "true" && make website publish-website
+- test "$TRAVIS_EVENT_TYPE" == "cron" && test "$UPDATE_TOOLS" == "true" && GITHUB_TOKEN=$GH_TOKEN make update-phars
 deploy:
   provider: releases
   api_key:
@@ -33,3 +35,7 @@ deploy:
 env:
   global:
     secure: "kIsYjPUzSaCVII5DGE3zNi88fg+L3PMANyMZnrYom+zym5HwAVVzwM/dnsP+XFiqkeuuAqttNolR2D4XyY172F+jfpL3YVEC2P/zGRK2TlHu2TXCqsYx8V/bSPFCmBoWvZrx6qsuocrASaN3EmtZUg4jOnfanYBvEnw+pkLOCzJONaz0xgZVxogpUS+fk2wgXI2vHdHCEZxGcz5YIiyS/v8gWP5iUL6+CADlY9ES+DBSbaz8pP82oSQ8OZmGKRD14dK2dzMksy9MdRyfIHtTvIdo8dqchTjRh6TeXTSc+Xz6LnyQiWJOOBgnVwScILPiYze+ElW5x68fNiyVcbfSuT67fePDEGv8pCO0m0YqctsLrlCuasCx91CgPID3regyXDXeb6Xiz66/+ZzsK0QYCkUzmlkWSHlWASjrDf1703oPQIzXxx5+69ksXLmX+KmPSLsKjsirmfAaCZDPVrsxPxEjUN2Sr6anvL8BWcV36v0h29ingi3dhIBfg4wgJqBG/axiZiK63WfKqwFyFBN7F/lxrdCJZgzVOyCdjDBdcXdTNjESvUC9A3nPJR8keZ3oMlUS4kCVyFpWgB0eBF88TS8aUnWKELXndmGxvQh9NQEW4dj1FjtMHi1ZgLUosixKx7d1MBDBBp9Vg2qYCMbs3g/d6rO8is4aFR8Uc9DjUpY="
+addons:
+  snaps:
+  - name: hub
+    classic: true

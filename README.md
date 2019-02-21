@@ -112,10 +112,10 @@ pass the `--target-dir` option to the `install` command. Also, to change the loc
 export the `COMPOSER_HOME` environment variable.
 
 ```
-mkdir local
+mkdir /tools
 export COMPOSER_HOME=/tools/.composer
 export PATH="/tools:$COMPOSER_HOME/vendor/bin:$PATH"
-bin/toolbox.php inst --target-dir /tools
+bin/toolbox.php install --target-dir /tools
 ```
 
 The target dir can also be configured with the `TOOLBOX_TARGET_DIR` environment variable.

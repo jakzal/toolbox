@@ -613,6 +613,19 @@
       "test": "psecio-parse --version"
     },
     {
+      "name": "roave-backward-compatibility-check",
+      "summary": "Tool to compare two revisions of a class API to check for BC breaks",
+      "website": "https://github.com/Roave/BackwardCompatibilityCheck",
+      "command": {
+        "phar-download": {
+          "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/2.1.0/roave-backward-compatibility-check.phar",
+          "bin": "%target-dir%/roave-backward-compatibility-check"
+        }
+      },
+      "test": "roave-backward-compatibility-check --version",
+      "tags": ["exclude-php:7.1"]
+    },
+    {
       "name": "security-checker",
       "summary": "Checks composer dependencies for known security vulnerabilities",
       "website": "https://github.com/sensiolabs/security-checker",

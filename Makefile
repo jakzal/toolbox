@@ -120,7 +120,7 @@ update-phars:
 	    git add resources/*.json && \
 	    git commit -m "Update tools" && \
 	    git push origin tools-update && \
-	    hub pull-request -h tools-update -a jakzal -m 'Update tools' -m '' -m ':robot: This pull request was automagically sent from [Travis CI]('$TRAVIS_BUILD_WEB_URL').' \
+	    hub pull-request -h tools-update -a jakzal -m 'Update tools' -m '' -m ':robot: This pull request was automagically sent from [Travis CI]('$(TRAVIS_BUILD_WEB_URL)').' \
 	  )
 .PHONY: update-phars
 

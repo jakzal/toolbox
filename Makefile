@@ -111,6 +111,7 @@ publish-website: website
 .PHONY: publish-website
 
 update-phars:
+	php bin/devkit.php update:phars
 	git diff --exit-code resources/ || \
 	  ( \
 	    (git config user.email || git config user.email 'jakub@zalas.pl') && \

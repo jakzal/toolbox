@@ -117,7 +117,7 @@ update-phars:
 	    (git config user.email || git config user.email 'jakub@zalas.pl') && \
 	    (git config user.name || git config user.name 'Jakub Zalas') && \
 	    git checkout -b tools-update && \
-	    git add resources/ && \
+	    git add resources/*.json && \
 	    git commit -m "Update tools" && \
 	    git push origin tools-update && \
 	    hub pull-request -h tools-update -a jakzal -m 'Update tools' \

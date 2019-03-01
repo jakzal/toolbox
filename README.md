@@ -97,7 +97,7 @@ To exclude some tools from the listing multiple `--exclude-tag` options can be a
 The `--tag` option can be used to filter tools by tags.
 
 ```
-bin/toolbox.php list-tools --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
+./toolbox list-tools --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
 ```
 
 ### Install tools
@@ -116,7 +116,7 @@ export the `COMPOSER_HOME` environment variable.
 mkdir /tools
 export COMPOSER_HOME=/tools/.composer
 export PATH="/tools:$COMPOSER_HOME/vendor/bin:$PATH"
-bin/toolbox.php install --target-dir /tools
+./toolbox install --target-dir /tools
 ```
 
 The target dir can also be configured with the `TOOLBOX_TARGET_DIR` environment variable.
@@ -135,7 +135,7 @@ To exclude some tools from the installation multiple `--exclude-tag` options can
 The `--tag` option can be used to filter tools by tags.
 
 ```
-bin/toolbox.php install --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
+./toolbox install --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
 ```
 
 ### Test if installed tools are usable
@@ -158,7 +158,7 @@ To exclude some tools from the generated test command multiple `--exclude-tag` o
 The `--tag` option can be used to filter tools by tags.
 
 ```
-bin/toolbox.php test --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
+./toolbox test --exclude-tag exclude-php:7.3 --exclude-tag foo --tag bar
 ```
 
 ### Tools definitions

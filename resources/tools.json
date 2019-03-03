@@ -143,6 +143,18 @@
       "test": "parallel-lint -h"
     },
     {
+      "name": "paratest",
+      "summary": "Parallel testing for PHPUnit",
+      "website": "https://github.com/paratestphp/paratest",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "brianium/paratest",
+          "namespace": "tools"
+        }
+      },
+      "test": "paratest --version"
+    },
+    {
       "name": "pdepend",
       "summary": "Static Analysis Tool",
       "website": "https://pdepend.org/",

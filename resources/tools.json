@@ -475,6 +475,18 @@
       "test": "true"
     },
     {
+      "name": "phpstan-localheinz-rules",
+      "summary": "Additional rules for PHPstan",
+      "website": "https://github.com/localheinz/phpstan-rules",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "localheinz/phpstan-rules",
+          "namespace": "phpstan"
+        }
+      },
+      "test": "composer global bin phpstan show localheinz/phpstan-rules"
+    },
+    {
       "name": "phpstan-strict-rules",
       "summary": "Extra strict and opinionated rules for PHPStan",
       "website": "https://github.com/phpstan/phpstan-strict-rules",

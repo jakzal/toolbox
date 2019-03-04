@@ -12,6 +12,7 @@ before_install:
 - echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
 - phpenv config-rm xdebug.ini || echo "XDebug is not enabled"
 - export TOOLBOX_VERSION=$(echo ${TRAVIS_TAG:-"dev"} | sed -e 's/^v//')
+- git config user.email 'jakub@zalas.pl' && git config user.name 'Jakub Zalas'
 install:
 - if [[ $deps = low ]]; then make update-min; else make install; fi
 script:

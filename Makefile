@@ -103,8 +103,6 @@ website:
 publish-website: website
 	cd build/website && \
 	  git init . && \
-	  git config user.email 'jakub@zalas.pl' && \
-	  git config user.name 'Jakub Zalas' && \
 	  git add . && \
 	  git commit -m "Build the website" && \
 	  git push --force --quiet "https://github.com/jakzal/toolbox.git" master:gh-pages
@@ -114,8 +112,6 @@ update-phars:
 	php bin/devkit.php update:phars
 	git diff --exit-code resources/ || \
 	  ( \
-	    (git config user.email || git config user.email 'jakub@zalas.pl') && \
-	    (git config user.name || git config user.name 'Jakub Zalas') && \
 	    git checkout -b tools-update && \
 	    git add resources/*.json && \
 	    git commit -m "Update tools" && \

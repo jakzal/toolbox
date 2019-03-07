@@ -40,6 +40,17 @@
       "tags": ["featured"]
     },
     {
+      "name": "composer-normalize",
+      "summary": "Composer plugin to normalize composer.json files",
+      "website": "https://github.com/localheinz/composer-normalize",
+      "command": {
+        "composer-global-install": {
+          "package": "localheinz/composer-normalize"
+        }
+      },
+      "test": "composer global show localheinz/composer-normalize"
+    },
+    {
       "name": "dephpend",
       "summary": "Detect flaws in your architecture",
       "website": "https://dephpend.com/",

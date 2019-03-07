@@ -56,6 +56,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * phpspec - [SpecBDD Framework](http://www.phpspec.net/)
 * phpstan - [Static Analysis Tool](https://github.com/phpstan/phpstan)
 * phpstan-deprecation-rules - [PHPStan rules for detecting deprecated code](https://github.com/phpstan/phpstan-deprecation-rules)
+* phpstan-localheinz-rules - [Additional rules for PHPstan](https://github.com/localheinz/phpstan-rules)
 * phpstan-strict-rules - [Extra strict and opinionated rules for PHPStan](https://github.com/phpstan/phpstan-strict-rules)
 * phpstan-doctrine - [Doctrine extensions for PHPStan](https://github.com/phpstan/phpstan-doctrine)
 * phpstan-phpunit - [PHPUnit extensions and rules for PHPStan](https://github.com/phpstan/phpstan-phpunit)

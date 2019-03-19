@@ -452,7 +452,7 @@
     {
       "name": "phpstan",
       "summary": "Static Analysis Tool",
-      "website": "https://github.com/phpstan/phpstan",
+      "website": "https://github.com/phpstan/phpstan-shim",
       "command": {
         "composer-bin-plugin": {
           "package": "phpstan/phpstan",

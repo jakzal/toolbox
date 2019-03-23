@@ -75,8 +75,8 @@ class InstallToolsTest extends TestCase
     public function test_it_groups_composer_bin_plugin_commands()
     {
         $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
-            $this->tool(new ComposerBinPluginCommand('phpstan/phpstan', 'tools')),
-            $this->tool(new ComposerBinPluginCommand('phan/phan', 'tools')),
+            $this->tool(new ComposerBinPluginCommand('phpstan/phpstan', 'tools', Collection::create([]))),
+            $this->tool(new ComposerBinPluginCommand('phan/phan', 'tools', Collection::create([]))),
         ]));
 
         $command = $this->useCase->__invoke($this->filter());

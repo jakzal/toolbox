@@ -65,11 +65,14 @@ Thanks to the isolation we're less likely to run into problem with conflicting d
   "command": {
     "composer-bin-plugin": {
       "package": "behat/behat",
-      "namespace": "behat"
+      "namespace": "behat",
+      "links": {"/tools/behat": "behat"}
     }
   }
 }
 ```
+
+The `links` attribute is optional, but it's recommended for packages that provide commands.
 
 #### phar-download
 

@@ -19,6 +19,9 @@
       "command": {
         "composer-global-install": {
           "package": "bamarni/composer-bin-plugin"
+        },
+        "sh": {
+          "command": "composer global config extra.bamarni-bin.bin-links false"
         }
       },
       "test": "composer global show bamarni/composer-bin-plugin",

@@ -33,7 +33,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "bmitch/churn-php",
-          "namespace": "tools"
+          "namespace": "tools",
+          "links": {"%target-dir%/churn": "churn"}
         }
       },
       "test": "churn list",
@@ -106,7 +107,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "exussum12/coverage-checker",
-          "namespace": "tools"
+          "namespace": "tools",
+          "links": {"%target-dir%/diffFilter": "diffFilter"}
         }
       },
       "test": "diffFilter -v"
@@ -160,7 +162,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "brianium/paratest",
-          "namespace": "tools"
+          "namespace": "tools",
+          "links": {"%target-dir%/paratest": "paratest"}
         }
       },
       "test": "paratest --version"
@@ -198,7 +201,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "akeneo/php-coupling-detector",
-          "namespace": "php-coupling-detector"
+          "namespace": "php-coupling-detector",
+          "links": {"%target-dir%/php-coupling-detector": "php-coupling-detector"}
         }
       },
       "test": "php-coupling-detector list"
@@ -278,7 +282,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "rskuipers/php-assumptions",
-          "namespace": "php-assumptions"
+          "namespace": "php-assumptions",
+          "links": {"%target-dir%/phpa": "phpa"}
         }
       },
       "test": "phpa --version",
@@ -291,7 +296,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "wapmorgan/php-code-analyzer",
-          "namespace": "tools"
+          "namespace": "tools",
+          "links": {"%target-dir%/phpca": "phpca"}
         }
       },
       "test": "phpca -h"
@@ -327,7 +333,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "wapmorgan/php-code-fixer",
-          "namespace": "tools"
+          "namespace": "tools",
+          "links": {"%target-dir%/phpcf": "phpcf"}
         }
       },
       "test": "phpcf -h"
@@ -405,7 +412,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "overtrue/phplint",
-          "namespace": "tools"
+          "namespace": "tools",
+          "links": {"%target-dir%/phplint": "phplint"}
         }
       },
       "test": "phplint -V"
@@ -454,7 +462,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "povils/phpmnd",
-          "namespace": "tools"
+          "namespace": "tools",
+          "links": {"%target-dir%/phpmnd": "phpmnd"}
         }
       },
       "test": "phpmnd -V"
@@ -479,7 +488,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "phpstan/phpstan",
-          "namespace": "phpstan"
+          "namespace": "phpstan",
+          "links": {"%target-dir%/phpstan": "phpstan"}
         }
       },
       "test": "phpstan --version",
@@ -642,7 +652,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "psecio/parse:dev-master",
-          "namespace": "psecio-parse"
+          "namespace": "psecio-parse",
+          "links": {"%target-dir%/psecio-parse": "psecio-parse"}
         }
       },
       "test": "psecio-parse --version"
@@ -654,7 +665,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "rector/rector",
-          "namespace": "tools"
+          "namespace": "tools",
+          "links": {"%target-dir%/rector": "rector"}
         }
       },
       "test": "rector --version"
@@ -692,7 +704,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "symfony/phpunit-bridge",
-          "namespace": "symfony"
+          "namespace": "symfony",
+          "links": {"%target-dir%/simple-phpunit": "simple-phpunit"}
         },
         "sh": {
           "command": "simple-phpunit install"
@@ -707,7 +720,8 @@
       "command": {
         "composer-bin-plugin": {
           "package": "edsonmedina/php_testability:dev-master",
-          "namespace": "tools"
+          "namespace": "tools",
+          "links": {"%target-dir%/testability": "testability"}
         }
       },
       "test": "testability --help"

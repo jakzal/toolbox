@@ -23,7 +23,7 @@ final class OptimisedComposerBinPluginCommand implements Command
 
     public function __toString(): string
     {
-        return \implode(' && ', $this->commandsToRun($this->packagesGroupedByNamespace()));
+        return \implode(' && ', \array_merge($this->commandsToRun($this->packagesGroupedByNamespace()), $this->linksToCreate()));
     }
 
     private function packagesGroupedByNamespace(): array
@@ -43,5 +43,19 @@ final class OptimisedComposerBinPluginCommand implements Command
     private function commandsToRun(array $packagesGrouped): array
     {
         return \array_map([$this, 'commandToRun'], \array_keys($packagesGrouped), $packagesGrouped);
+    }
+
+    private function linksToCreate(): array
+    {
+        return $this->commands
+            ->filter(function (ComposerBinPluginCommand $command) {
+                return !$command->links()->empty();
+            })
+            ->map(function (ComposerBinPluginCommand $command) {
+                return $command->links()->reduce('', function (string $command, ComposerBinPluginLinkCommand $link) {
+                    return !empty($command) ? $command.' && '.$link : $link;
+                });
+            })
+            ->toArray();
     }
 }

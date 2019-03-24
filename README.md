@@ -20,6 +20,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * analyze - [Visualizes metrics and source code](https://github.com/Qafoo/QualityAnalyzer)
 * behat - [Helps to test business expectations](http://behat.org/)
 * churn - [Discovers good candidates for refactoring](https://github.com/bmitch/churn-php)
+* composer-link - [Composer plugin to link dependencies](https://github.com/ro0NL/composer-link)
 * composer-normalize - [Composer plugin to normalize composer.json files](https://github.com/localheinz/composer-normalize)
 * dephpend - [Detect flaws in your architecture](https://dephpend.com/)
 * deprecation-detector - [Finds usages of deprecated code](https://github.com/sensiolabs-de/deprecation-detector)

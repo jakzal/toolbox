@@ -41,6 +41,17 @@
       "tags": ["featured"]
     },
     {
+      "name": "composer-link",
+      "summary": "Composer plugin to link dependencies",
+      "website": "https://github.com/ro0NL/composer-link",
+      "command": {
+        "composer-global-install": {
+          "package": "ro0nl/link"
+        }
+      },
+      "test": "composer global show ro0nl/link"
+    },
+    {
       "name": "composer-normalize",
       "summary": "Composer plugin to normalize composer.json files",
       "website": "https://github.com/localheinz/composer-normalize",

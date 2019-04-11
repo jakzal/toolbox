@@ -383,7 +383,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "mamuz/php-dependency-analysis",
-          "namespace": "tools",
+          "namespace": "legacy-php-parser",
           "links": {"%target-dir%/phpda": "phpda"}
         }
       },
@@ -649,7 +649,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "psecio/parse:dev-master",
-          "namespace": "psecio-parse",
+          "namespace": "legacy-php-parser",
           "links": {"%target-dir%/psecio-parse": "psecio-parse"}
         }
       },

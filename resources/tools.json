@@ -201,7 +201,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "akeneo/php-coupling-detector",
-          "namespace": "php-coupling-detector",
+          "namespace": "tools",
           "links": {"%target-dir%/php-coupling-detector": "php-coupling-detector"}
         }
       },
@@ -282,7 +282,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "rskuipers/php-assumptions",
-          "namespace": "php-assumptions",
+          "namespace": "tools",
           "links": {"%target-dir%/phpa": "phpa"}
         }
       },
@@ -381,13 +381,10 @@
       "summary": "Generates dependency graphs",
       "website": "https://mamuz.github.io/PhpDependencyAnalysis/",
       "command": {
-        "file-download": {
-          "url": "https://raw.github.com/mamuz/PhpDependencyAnalysis/master/download/phpda.pubkey",
-          "file": "%target-dir%/phpda.pubkey"
-        },
-        "phar-download": {
-          "phar": "https://raw.github.com/mamuz/PhpDependencyAnalysis/master/download/phpda",
-          "bin": "%target-dir%/phpda"
+        "composer-bin-plugin": {
+          "package": "mamuz/php-dependency-analysis",
+          "namespace": "legacy-php-parser",
+          "links": {"%target-dir%/phpda": "phpda"}
         }
       },
       "test": "phpda list",
@@ -652,7 +649,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "psecio/parse:dev-master",
-          "namespace": "psecio-parse",
+          "namespace": "legacy-php-parser",
           "links": {"%target-dir%/psecio-parse": "psecio-parse"}
         }
       },

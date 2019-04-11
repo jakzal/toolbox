@@ -201,7 +201,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "akeneo/php-coupling-detector",
-          "namespace": "php-coupling-detector",
+          "namespace": "tools",
           "links": {"%target-dir%/php-coupling-detector": "php-coupling-detector"}
         }
       },
@@ -282,7 +282,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "rskuipers/php-assumptions",
-          "namespace": "php-assumptions",
+          "namespace": "tools",
           "links": {"%target-dir%/phpa": "phpa"}
         }
       },

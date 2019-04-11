@@ -381,13 +381,10 @@
       "summary": "Generates dependency graphs",
       "website": "https://mamuz.github.io/PhpDependencyAnalysis/",
       "command": {
-        "file-download": {
-          "url": "https://raw.github.com/mamuz/PhpDependencyAnalysis/master/download/phpda.pubkey",
-          "file": "%target-dir%/phpda.pubkey"
-        },
-        "phar-download": {
-          "phar": "https://raw.github.com/mamuz/PhpDependencyAnalysis/master/download/phpda",
-          "bin": "%target-dir%/phpda"
+        "composer-bin-plugin": {
+          "package": "mamuz/php-dependency-analysis",
+          "namespace": "tools",
+          "links": {"%target-dir%/phpda": "phpda"}
         }
       },
       "test": "phpda list",

@@ -3,8 +3,6 @@
     "output": "../devkit.phar",
     "compression": "GZ",
     "directories": ["."],
-    "dump-autoload": true,
-    "exclude-composer-files": true,
     "check-requirements": false,
     "main": "bin/devkit.php",
     "compactors": [

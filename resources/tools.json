@@ -383,12 +383,12 @@
       "command": {
         "composer-bin-plugin": {
           "package": "mamuz/php-dependency-analysis",
-          "namespace": "legacy-php-parser",
+          "namespace": "tools",
           "links": {"%target-dir%/phpda": "phpda"}
         }
       },
       "test": "phpda list",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:7.1", "exclude-php:7.2"]
     },
     {
       "name": "phpdoc-to-typehint",

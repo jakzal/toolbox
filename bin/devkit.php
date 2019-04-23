@@ -65,6 +65,8 @@ $application->add(
             file_put_contents($readmePath, $readme);
 
             $output->writeln(sprintf('The <info>%s</info> was updated with latest tools found in <info>%s</info>.', $readmePath, implode(', ', $jsonPath)));
+
+            return 0;
         }
     }
 );

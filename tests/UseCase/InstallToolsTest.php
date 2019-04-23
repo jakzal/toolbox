@@ -141,7 +141,7 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertRegExp('#box build#', (string)$command);
+        $this->assertRegExp('#box-legacy build#', (string)$command);
     }
 
     public function test_it_includes_phar_download_commands()

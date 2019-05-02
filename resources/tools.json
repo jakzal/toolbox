@@ -174,7 +174,7 @@
       "website": "https://pdepend.org/",
       "command": {
         "phar-download": {
-          "phar": "http://static.pdepend.org/php/latest/pdepend.phar",
+          "phar": "https://github.com/jakzal/pdepend/releases/download/2.5.2-jakzal-0/pdepend.phar",
           "bin": "%target-dir%/pdepend"
         }
       },

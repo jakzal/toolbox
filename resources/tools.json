@@ -174,7 +174,7 @@
       "website": "https://pdepend.org/",
       "command": {
         "phar-download": {
-          "phar": "http://static.pdepend.org/php/latest/pdepend.phar",
+          "phar": "https://github.com/jakzal/pdepend/releases/download/2.5.2-jakzal-0/pdepend.phar",
           "bin": "%target-dir%/pdepend"
         }
       },
@@ -433,7 +433,7 @@
       "website": "https://phpmd.org/",
       "command": {
         "phar-download": {
-          "phar": "http://static.phpmd.org/php/latest/phpmd.phar",
+          "phar": "https://github.com/jakzal/phpmd/releases/download/2.6.0-jakzal-2/phpmd.phar",
           "bin": "%target-dir%/phpmd"
         }
       },

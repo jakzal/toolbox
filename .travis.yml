@@ -8,6 +8,9 @@ matrix:
   - php: 7.3
     env: deps=low UPDATE_TOOLS=true
   fast_finish: true
+cache:
+  directories:
+  - $HOME/.composer/cache
 before_install:
 - echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
 - phpenv config-rm xdebug.ini || echo "XDebug is not enabled"

@@ -143,6 +143,20 @@
        "tags": ["featured"]
     },
     {
+      "name": "phpinsights",
+      "summary": "Analysis of code quality, style, architecture and complexity",
+      "website": "https://phpinsights.com/",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "nunomaduro/phpinsights",
+          "namespace": "tools",
+          "links": {"%target-dir%/phpinsights": "phpinsights"}
+        }
+      },
+      "tags": ["exclude-php:7.1"],
+      "test": "phpinsights --version"
+    },
+    {
       "name": "parallel-lint",
       "summary": "Checks PHP file syntax",
       "website": "https://github.com/JakubOnderka/PHP-Parallel-Lint",

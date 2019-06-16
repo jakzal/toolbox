@@ -722,7 +722,7 @@
           "command": "simple-phpunit install"
         },
         "sh": {
-          "command": "SYMFONY_PHPUNIT_VERSION=8.2 simple-phpunit install"
+          "command": "SYMFONY_PHPUNIT_VERSION=8.2 sh -c '[ $(echo $(php -r \"echo PHP_VERSION >= \\\"7.2\\\";\")) = 1 ] && simple-phpunit install'"
         }
       },
       "test": "simple-phpunit --version"

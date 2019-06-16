@@ -720,6 +720,9 @@
         },
         "sh": {
           "command": "simple-phpunit install"
+        },
+        "sh": {
+          "command": "SYMFONY_PHPUNIT_VERSION=8.2 simple-phpunit install"
         }
       },
       "test": "simple-phpunit --version"

@@ -719,10 +719,11 @@
           "links": {"%target-dir%/simple-phpunit": "simple-phpunit"}
         },
         "sh": {
-          "command": "simple-phpunit install"
+          "command": "simple-phpunit install && SYMFONY_PHPUNIT_VERSION=8.2 simple-phpunit install"
         }
       },
-      "test": "simple-phpunit --version"
+      "test": "simple-phpunit --version",
+      "tags": ["exclude-php:7.1"]
     },
     {
       "name": "testability",

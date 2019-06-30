@@ -724,19 +724,6 @@
       },
       "test": "simple-phpunit --version",
       "tags": ["exclude-php:7.1"]
-    },
-    {
-      "name": "testability",
-      "summary": "Analyses and reports testability issues of a php codebase",
-      "website": "https://github.com/edsonmedina/php_testability",
-      "command": {
-        "composer-bin-plugin": {
-          "package": "edsonmedina/php_testability:dev-master",
-          "namespace": "tools",
-          "links": {"%target-dir%/testability": "testability"}
-        }
-      },
-      "test": "testability --help"
     }
   ]
 }

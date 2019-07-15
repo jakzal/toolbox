@@ -630,7 +630,7 @@
     {
       "name": "psalm",
       "summary": "Finds errors in PHP applications",
-      "website": "https://getpsalm.org/",
+      "website": "https://psalm.dev/",
       "command": {
         "file-download": {
           "url": "https://github.com/vimeo/psalm/releases/download/3.4.9/psalm.phar.asc",

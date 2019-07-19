@@ -57,7 +57,7 @@
       "website": "https://dephpend.com/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/mihaeu/dephpend/releases/download/0.6.0/dephpend-0.6.0.phar",
+          "phar": "https://github.com/mihaeu/dephpend/releases/download/0.6.1/dephpend-0.6.1.phar",
           "bin": "%target-dir%/dephpend"
         }
       },
@@ -87,18 +87,6 @@
       },
       "test": "deptrac list",
       "tags": ["featured"]
-    },
-    {
-      "name": "design-pattern",
-      "summary": "Detects design patterns",
-      "website": "https://github.com/Halleck45/DesignPatternDetector",
-      "command": {
-        "composer-install": {
-          "repository": "https://github.com/Halleck45/DesignPatternDetector.git",
-          "target-dir": "%target-dir%/DesignPatternDetector"
-        }
-      },
-      "test": "design-pattern -V"
     },
     {
       "name": "diffFilter",
@@ -131,11 +119,11 @@
       "website": "https://infection.github.io/",
       "command": {
         "file-download": {
-          "url": "https://github.com/infection/infection/releases/download/0.13.1/infection.phar.asc",
+          "url": "https://github.com/infection/infection/releases/download/0.13.4/infection.phar.asc",
           "file": "%target-dir%/infection.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/infection/infection/releases/download/0.13.1/infection.phar",
+          "phar": "https://github.com/infection/infection/releases/download/0.13.4/infection.phar",
           "bin": "%target-dir%/infection"
         }
       },
@@ -187,7 +175,7 @@
       "website": "https://github.com/phan/phan",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phan/phan/releases/download/2.1.0/phan.phar",
+          "phar": "https://github.com/phan/phan/releases/download/2.2.6/phan.phar",
           "bin": "%target-dir%/phan"
         }
       },
@@ -642,14 +630,14 @@
     {
       "name": "psalm",
       "summary": "Finds errors in PHP applications",
-      "website": "https://getpsalm.org/",
+      "website": "https://psalm.dev/",
       "command": {
         "file-download": {
-          "url": "https://github.com/vimeo/psalm/releases/download/3.4.4/psalm.phar.asc",
+          "url": "https://github.com/vimeo/psalm/releases/download/3.4.9/psalm.phar.asc",
           "file": "%target-dir%/psalm.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/vimeo/psalm/releases/download/3.4.4/psalm.phar",
+          "phar": "https://github.com/vimeo/psalm/releases/download/3.4.9/psalm.phar",
           "bin": "%target-dir%/psalm"
         }
       },
@@ -688,7 +676,7 @@
       "website": "https://github.com/Roave/BackwardCompatibilityCheck",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/3.0.0/roave-backward-compatibility-check.phar",
+          "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/4.0.0/roave-backward-compatibility-check.phar",
           "bin": "%target-dir%/roave-backward-compatibility-check"
         }
       },
@@ -719,23 +707,11 @@
           "links": {"%target-dir%/simple-phpunit": "simple-phpunit"}
         },
         "sh": {
-          "command": "simple-phpunit install"
+          "command": "simple-phpunit install && SYMFONY_PHPUNIT_VERSION=8.2 simple-phpunit install"
         }
       },
-      "test": "simple-phpunit --version"
-    },
-    {
-      "name": "testability",
-      "summary": "Analyses and reports testability issues of a php codebase",
-      "website": "https://github.com/edsonmedina/php_testability",
-      "command": {
-        "composer-bin-plugin": {
-          "package": "edsonmedina/php_testability:dev-master",
-          "namespace": "tools",
-          "links": {"%target-dir%/testability": "testability"}
-        }
-      },
-      "test": "testability --help"
+      "test": "simple-phpunit --version",
+      "tags": ["exclude-php:7.1"]
     }
   ]
 }

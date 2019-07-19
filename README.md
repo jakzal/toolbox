@@ -24,7 +24,6 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * dephpend - [Detect flaws in your architecture](https://dephpend.com/)
 * deprecation-detector - [Finds usages of deprecated code](https://github.com/sensiolabs-de/deprecation-detector)
 * deptrac - [Enforces dependency rules between software layers](https://github.com/sensiolabs-de/deptrac)
-* design-pattern - [Detects design patterns](https://github.com/Halleck45/DesignPatternDetector)
 * diffFilter - [Applies QA tools to run on a single pull request](https://github.com/exussum12/coverageChecker)
 * ecs - [Sets up and runs coding standard checks](https://github.com/Symplify/EasyCodingStandard)
 * infection - [AST based PHP Mutation Testing Framework](https://infection.github.io/)
@@ -67,12 +66,16 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * phpstan-exception-rules - [PHPStan rules for checked and unchecked exceptions](https://github.com/pepakriz/phpstan-exception-rules)
 * phpunit - [The PHP testing framework](https://phpunit.de/)
 * phpunit-7 - [The PHP testing framework (7.x version)](https://phpunit.de/)
-* psalm - [Finds errors in PHP applications](https://getpsalm.org/)
+* psalm - [Finds errors in PHP applications](https://psalm.dev/)
 * psecio-parse - [Scans code for potential security-related issues](https://github.com/psecio/parse)
 * rector - [Tool for instant code upgrades and refactoring](https://github.com/rectorphp/rector)
 * roave-backward-compatibility-check - [Tool to compare two revisions of a class API to check for BC breaks](https://github.com/Roave/BackwardCompatibilityCheck)
 * security-checker - [Checks composer dependencies for known security vulnerabilities](https://github.com/sensiolabs/security-checker)
 * simple-phpunit - [Provides utilities to report legacy tests and usage of deprecated code](https://symfony.com/doc/current/components/phpunit_bridge.html)
+
+### Removed tools
+
+* design-pattern - [Detects design patterns](https://github.com/Halleck45/DesignPatternDetector)
 * testability - [Analyses and reports testability issues of a php codebase](https://github.com/edsonmedina/php_testability)
 
 ## Installation

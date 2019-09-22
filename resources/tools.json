@@ -127,8 +127,8 @@
           "bin": "%target-dir%/infection"
         }
       },
-       "test": "infection --version",
-       "tags": ["featured"]
+      "test": "infection --version",
+      "tags": ["featured", "exclude-php:7.1"]
     },
     {
       "name": "parallel-lint",

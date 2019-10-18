@@ -473,7 +473,7 @@
       "website": "http://www.phpspec.net/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpspec/phpspec/releases/download/6.0.0/phpspec.phar",
+          "phar": "https://github.com/phpspec/phpspec/releases/download/5.1.2/phpspec.phar",
           "bin": "%target-dir%/phpspec"
         }
       },
@@ -676,7 +676,7 @@
       "website": "https://github.com/Roave/BackwardCompatibilityCheck",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/4.1.0/roave-backward-compatibility-check.phar",
+          "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/4.0.0/roave-backward-compatibility-check.phar",
           "bin": "%target-dir%/roave-backward-compatibility-check"
         }
       },

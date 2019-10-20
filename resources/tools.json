@@ -81,12 +81,12 @@
       "website": "https://github.com/sensiolabs-de/deptrac",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/sensiolabs-de/deptrac/releases/download/0.5.0/deptrac.phar",
+          "phar": "https://github.com/sensiolabs-de/deptrac/releases/download/0.6.0/deptrac.phar",
           "bin": "%target-dir%/deptrac"
         }
       },
       "test": "deptrac list",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:7.1"]
     },
     {
       "name": "diffFilter",

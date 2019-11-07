@@ -57,7 +57,7 @@
       "website": "https://dephpend.com/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/mihaeu/dephpend/releases/download/0.6.1/dephpend-0.6.1.phar",
+          "phar": "https://github.com/mihaeu/dephpend/releases/download/0.6.2/dephpend-0.6.2.phar",
           "bin": "%target-dir%/dephpend"
         }
       },
@@ -175,7 +175,7 @@
       "website": "https://github.com/phan/phan",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phan/phan/releases/download/2.3.0/phan.phar",
+          "phar": "https://github.com/phan/phan/releases/download/2.4.0/phan.phar",
           "bin": "%target-dir%/phan"
         }
       },
@@ -633,11 +633,11 @@
       "website": "https://psalm.dev/",
       "command": {
         "file-download": {
-          "url": "https://github.com/vimeo/psalm/releases/download/3.6.1/psalm.phar.asc",
+          "url": "https://github.com/vimeo/psalm/releases/download/3.6.2/psalm.phar.asc",
           "file": "%target-dir%/psalm.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/vimeo/psalm/releases/download/3.6.1/psalm.phar",
+          "phar": "https://github.com/vimeo/psalm/releases/download/3.6.2/psalm.phar",
           "bin": "%target-dir%/psalm"
         }
       },

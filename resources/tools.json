@@ -175,7 +175,7 @@
       "website": "https://github.com/phan/phan",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phan/phan/releases/download/2.4.0/phan.phar",
+          "phar": "https://github.com/phan/phan/releases/download/2.4.1/phan.phar",
           "bin": "%target-dir%/phan"
         }
       },
@@ -473,7 +473,7 @@
       "website": "http://www.phpspec.net/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpspec/phpspec/releases/download/5.1.2/phpspec.phar",
+          "phar": "https://github.com/phpspec/phpspec/releases/download/6.0.0/phpspec.phar",
           "bin": "%target-dir%/phpspec"
         }
       },
@@ -633,11 +633,11 @@
       "website": "https://psalm.dev/",
       "command": {
         "file-download": {
-          "url": "https://github.com/vimeo/psalm/releases/download/3.6.2/psalm.phar.asc",
+          "url": "https://github.com/vimeo/psalm/releases/download/3.6.4/psalm.phar.asc",
           "file": "%target-dir%/psalm.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/vimeo/psalm/releases/download/3.6.2/psalm.phar",
+          "phar": "https://github.com/vimeo/psalm/releases/download/3.6.4/psalm.phar",
           "bin": "%target-dir%/psalm"
         }
       },
@@ -676,7 +676,7 @@
       "website": "https://github.com/Roave/BackwardCompatibilityCheck",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/4.0.0/roave-backward-compatibility-check.phar",
+          "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/4.1.0/roave-backward-compatibility-check.phar",
           "bin": "%target-dir%/roave-backward-compatibility-check"
         }
       },

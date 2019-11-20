@@ -473,7 +473,7 @@
       "website": "http://www.phpspec.net/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpspec/phpspec/releases/download/5.1.2/phpspec.phar",
+          "phar": "https://github.com/phpspec/phpspec/releases/download/6.0.0/phpspec.phar",
           "bin": "%target-dir%/phpspec"
         }
       },

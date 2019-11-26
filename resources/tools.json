@@ -119,11 +119,11 @@
       "website": "https://infection.github.io/",
       "command": {
         "file-download": {
-          "url": "https://github.com/infection/infection/releases/download/0.14.2/infection.phar.asc",
+          "url": "https://github.com/infection/infection/releases/download/0.14.3/infection.phar.asc",
           "file": "%target-dir%/infection.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/infection/infection/releases/download/0.14.2/infection.phar",
+          "phar": "https://github.com/infection/infection/releases/download/0.14.3/infection.phar",
           "bin": "%target-dir%/infection"
         }
       },
@@ -175,7 +175,7 @@
       "website": "https://github.com/phan/phan",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phan/phan/releases/download/2.4.2/phan.phar",
+          "phar": "https://github.com/phan/phan/releases/download/2.4.4/phan.phar",
           "bin": "%target-dir%/phan"
         }
       },

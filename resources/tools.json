@@ -111,7 +111,8 @@
           "target-dir": "%target-dir%/EasyCodingStandard"
         }
       },
-      "test": "ecs -h"
+      "test": "ecs -h",
+      "tags": ["exclude-php:7.1"]
     },
     {
       "name": "infection",

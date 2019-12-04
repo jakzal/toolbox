@@ -120,11 +120,11 @@
       "website": "https://infection.github.io/",
       "command": {
         "file-download": {
-          "url": "https://github.com/infection/infection/releases/download/0.14.3/infection.phar.asc",
+          "url": "https://github.com/infection/infection/releases/download/0.15.0/infection.phar.asc",
           "file": "%target-dir%/infection.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/infection/infection/releases/download/0.14.3/infection.phar",
+          "phar": "https://github.com/infection/infection/releases/download/0.15.0/infection.phar",
           "bin": "%target-dir%/infection"
         }
       },
@@ -634,11 +634,11 @@
       "website": "https://psalm.dev/",
       "command": {
         "file-download": {
-          "url": "https://github.com/vimeo/psalm/releases/download/3.6.6/psalm.phar.asc",
+          "url": "https://github.com/vimeo/psalm/releases/download/3.7.2/psalm.phar.asc",
           "file": "%target-dir%/psalm.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/vimeo/psalm/releases/download/3.6.6/psalm.phar",
+          "phar": "https://github.com/vimeo/psalm/releases/download/3.7.2/psalm.phar",
           "bin": "%target-dir%/psalm"
         }
       },

@@ -513,7 +513,7 @@
       "website": "https://github.com/localheinz/phpstan-rules",
       "command": {
         "composer-bin-plugin": {
-          "package": "localheinz/phpstan-rules",
+          "package": "localheinz/phpstan-rules:dev-master",
           "namespace": "phpstan"
         }
       },

@@ -21,7 +21,7 @@ class DryRunnerTest extends TestCase
      */
     private $out;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->out = $this->prophesize(OutputInterface::class);
         $this->runner = new DryRunner($this->out->reveal());

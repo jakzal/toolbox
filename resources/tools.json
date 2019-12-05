@@ -86,7 +86,7 @@
         }
       },
       "test": "deptrac list",
-      "tags": ["featured", "exclude-php:7.1"]
+      "tags": ["featured"]
     },
     {
       "name": "diffFilter",
@@ -111,8 +111,7 @@
           "target-dir": "%target-dir%/EasyCodingStandard"
         }
       },
-      "test": "ecs -h",
-      "tags": ["exclude-php:7.1"]
+      "test": "ecs -h"
     },
     {
       "name": "infection",
@@ -129,7 +128,7 @@
         }
       },
       "test": "infection --version",
-      "tags": ["featured", "exclude-php:7.1"]
+      "tags": ["featured"]
     },
     {
       "name": "parallel-lint",
@@ -377,7 +376,7 @@
         }
       },
       "test": "phpda list",
-      "tags": ["featured", "exclude-php:7.1", "exclude-php:7.2"]
+      "tags": ["featured", "exclude-php:7.2"]
     },
     {
       "name": "phpdoc-to-typehint",
@@ -402,7 +401,6 @@
           "links": {"%target-dir%/phpinsights": "phpinsights"}
         }
       },
-      "tags": ["exclude-php:7.1"],
       "test": "phpinsights --version"
     },
     {
@@ -517,8 +515,7 @@
           "namespace": "phpstan"
         }
       },
-      "test": "composer global bin phpstan show localheinz/phpstan-rules",
-      "tags": ["exclude-php:7.1"]
+      "test": "composer global bin phpstan show localheinz/phpstan-rules"
     },
     {
       "name": "phpstan-strict-rules",
@@ -615,7 +612,7 @@
         }
       },
       "test": "phpunit --version",
-      "tags": ["exclude-php:7.1", "featured"]
+      "tags": ["featured"]
     },
     {
       "name": "phpunit-7",
@@ -683,7 +680,7 @@
         }
       },
       "test": "roave-backward-compatibility-check --version",
-      "tags": ["exclude-php:7.1", "exclude-php:7.2"]
+      "tags": ["exclude-php:7.2"]
     },
     {
       "name": "security-checker",
@@ -712,8 +709,7 @@
           "command": "simple-phpunit install && SYMFONY_PHPUNIT_VERSION=8 simple-phpunit install"
         }
       },
-      "test": "simple-phpunit --version",
-      "tags": ["exclude-php:7.1"]
+      "test": "simple-phpunit --version"
     }
   ]
 }

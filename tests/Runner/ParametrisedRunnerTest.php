@@ -21,7 +21,7 @@ class ParametrisedRunnerTest extends TestCase
      */
     private $decoratedRunner;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->decoratedRunner = $this->prophesize(Runner::class);
         $this->runner = new ParametrisedRunner($this->decoratedRunner->reveal(), ['%foo%' => 'ABC']);

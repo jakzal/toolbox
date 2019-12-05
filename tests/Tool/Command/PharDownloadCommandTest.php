@@ -16,7 +16,7 @@ class PharDownloadCommandTest extends TestCase
      */
     private $command;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->command = new PharDownloadCommand(self::PHAR, self::BIN);
     }

@@ -168,6 +168,7 @@ class ToolFactoryTest extends TestCase
     public function test_it_complains_if_it_cannot_recognise_the_command()
     {
         $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessageMatches('/Unrecognised command: "foo". Supported commands are: "phar-download,.*?"/');
 
         ToolFactory::import($this->definition(['command' => ['foo' => ['phar' => 'phpstan/phpstan']]]));
     }

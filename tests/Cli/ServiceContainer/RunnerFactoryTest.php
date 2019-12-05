@@ -36,7 +36,7 @@ class RunnerFactoryTest extends TestCase
      */
     private $output;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->container = $this->prophesize(ContainerInterface::class);
         $this->input = $this->prophesize(InputInterface::class);

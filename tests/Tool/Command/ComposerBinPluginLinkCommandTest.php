@@ -17,7 +17,7 @@ final class ComposerBinPluginLinkCommandTest extends TestCase
      */
     private $command;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->command = new ComposerBinPluginLinkCommand(self::SOURCE, self::TARGET, self::NAMESPACE);
     }

@@ -78,6 +78,13 @@ class FilterTest extends TestCase
         $this->assertTrue($filter($this->tool(['phpspec', 'phpstan'])));
     }
 
+    public function test_it_returns_false_if_the_tool_has_no_tags_to_match()
+    {
+        $filter = new Filter([], ['phpspec']);
+
+        $this->assertFalse($filter($this->tool(['phpstan'])));
+    }
+
     public function test_it_returns_false_if_a_tag_is_both_included_and_excluded()
     {
         $filter = new Filter(['phpstan'], ['phpspec', 'phpstan']);

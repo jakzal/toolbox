@@ -17,7 +17,7 @@ abstract class ToolboxCommandTestCase extends TestCase
      */
     protected $app;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->app = new Application('test', $this->createServiceContainer());
     }

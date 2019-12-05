@@ -2,9 +2,8 @@ dist: xenial
 language: php
 matrix:
   include:
-  - php: 7.1
-    env: EXECUTE_DEPLOYMENT=true
   - php: 7.2
+    env: EXECUTE_DEPLOYMENT=true
   - php: 7.3
     env: deps=low UPDATE_TOOLS=true
   fast_finish: true

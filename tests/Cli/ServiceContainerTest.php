@@ -22,7 +22,7 @@ class ServiceContainerTest extends TestCase
      */
     private $container;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->container = new ServiceContainer();
         $this->container->set(InputInterface::class, $this->prophesize(InputInterface::class)->reveal());

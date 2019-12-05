@@ -21,7 +21,7 @@ class LazyRunnerTest extends TestCase
      */
     private $factory;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->factory = $this->prophesize(RunnerFactory::class);
 

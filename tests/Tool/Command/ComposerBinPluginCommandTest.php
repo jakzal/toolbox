@@ -18,7 +18,7 @@ class ComposerBinPluginCommandTest extends TestCase
      */
     private $command;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->command = new ComposerBinPluginCommand(
             self::PACKAGE,

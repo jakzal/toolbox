@@ -19,7 +19,7 @@ class ListCommandTest extends ToolboxCommandTestCase
      */
     private $useCase;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->useCase = $this->prophesize(ListTools::class);
 

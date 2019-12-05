@@ -31,7 +31,7 @@ class InstallToolsTest extends TestCase
      */
     private $tools;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->tools = $this->prophesize(Tools::class);
         $this->useCase = new InstallTools($this->tools->reveal());

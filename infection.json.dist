@@ -11,6 +11,11 @@
     "mutators": {
         "@default": true,
         "IdenticalEqual": false,
-        "NotIdenticalNotEqual": false
+        "NotIdenticalNotEqual": false,
+        "ArrayItemRemoval": {
+            "ignore": [
+                "Zalas\\Toolbox\\Cli\\Command\\ListCommand::execute"
+            ]
+        }
     }
 }

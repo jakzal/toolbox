@@ -28,7 +28,7 @@ class ApplicationTest extends TestCase
      */
     private $container;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->container = $this->prophesize(ServiceContainer::class);
         $this->app = new Application(self::VERSION, $this->container->reveal());
@@ -48,12 +48,24 @@ class ApplicationTest extends TestCase
     public function test_it_defines_tools_option()
     {
         $this->assertTrue($this->app->getDefinition()->hasOption('tools'));
+        $this->assertEquals(
+            [\realpath(__DIR__.'/../../src/Cli/').'/../../resources/pre-installation.json', \realpath(__DIR__.'/../../src/Cli/').'/../../resources/tools.json'],
+            $this->app->getDefinition()->getOption('tools')->getDefault()
+        );
     }
 
     /**
      * @putenv TOOLBOX_JSON=resources/pre.json,resources/tools.json
      */
     public function test_it_takes_the_tools_option_default_from_environment_if_present()
+    {
+        $this->assertSame(['resources/pre.json', 'resources/tools.json'], $this->app->getDefinition()->getOption('tools')->getDefault());
+    }
+
+    /**
+     * @putenv TOOLBOX_JSON=resources/pre.json , resources/tools.json
+     */
+    public function test_it_trims_the_tools_option()
     {
         $this->assertSame(['resources/pre.json', 'resources/tools.json'], $this->app->getDefinition()->getOption('tools')->getDefault());
     }

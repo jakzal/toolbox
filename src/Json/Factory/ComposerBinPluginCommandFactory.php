@@ -24,7 +24,7 @@ final class ComposerBinPluginCommandFactory
         return Collection::create(
             \array_map(function (string $source, string $target) use ($namespace) {
                 return new ComposerBinPluginLinkCommand($source, $target, $namespace);
-            }, \array_values($links), \array_keys($links))
+            }, $links, \array_keys($links))
         );
     }
 }

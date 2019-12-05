@@ -24,7 +24,7 @@ class InstallCommandTest extends ToolboxCommandTestCase
      */
     private $useCase;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->runner = $this->prophesize(Runner::class);
         $this->useCase = $this->prophesize(InstallTools::class);

@@ -15,7 +15,7 @@ class ComposerGlobalInstallCommandTest extends TestCase
      */
     private $command;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->command = new ComposerGlobalInstallCommand(self::PACKAGE);
     }

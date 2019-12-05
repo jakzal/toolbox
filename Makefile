@@ -69,7 +69,7 @@ package: tools/box
 	sed -e 's/Application('"'"'dev/Application('"'"'$(TOOLBOX_VERSION)/g' bin/toolbox.php > build/phar/bin/toolbox.php
 
 	cd build/phar && \
-	  composer config platform.php 7.1.3 && \
+	  composer config platform.php 7.2 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile
@@ -85,7 +85,7 @@ package-devkit: tools/box
 	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(TOOLBOX_VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
 
 	cd build/devkit-phar && \
-	  composer config platform.php 7.1.3 && \
+	  composer config platform.php 7.2 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile -c box-devkit.json.dist
@@ -140,13 +140,13 @@ tools/php-cs-fixer:
 	curl -Ls http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
 
 tools/deptrac:
-	curl -Ls https://github.com/sensiolabs-de/deptrac/releases/download/0.5.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
+	curl -Ls https://github.com/sensiolabs-de/deptrac/releases/download/0.6.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
 
 tools/infection: tools/infection.pubkey
-	curl -Ls https://github.com/infection/infection/releases/download/0.10.6/infection.phar -o tools/infection && chmod +x tools/infection
+	curl -Ls https://github.com/infection/infection/releases/download/0.13.2/infection.phar -o tools/infection && chmod +x tools/infection
 
 tools/infection.pubkey:
-	curl -Ls https://github.com/infection/infection/releases/download/0.10.6/infection.phar.pubkey -o tools/infection.pubkey
+	curl -Ls https://github.com/infection/infection/releases/download/0.13.2/infection.phar.pubkey -o tools/infection.pubkey
 
 tools/box:
-	curl -Ls https://github.com/humbug/box/releases/download/3.7.0/box.phar -o tools/box && chmod +x tools/box
+	curl -Ls https://github.com/humbug/box/releases/download/3.8.3/box.phar -o tools/box && chmod +x tools/box

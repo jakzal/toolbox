@@ -517,7 +517,8 @@
           "namespace": "phpstan"
         }
       },
-      "test": "composer global bin phpstan show localheinz/phpstan-rules"
+      "test": "composer global bin phpstan show localheinz/phpstan-rules",
+      "tags": ["exclude-php:7.1"]
     },
     {
       "name": "phpstan-strict-rules",

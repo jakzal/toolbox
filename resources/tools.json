@@ -663,7 +663,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "rector/rector",
-          "namespace": "tools",
+          "namespace": "rector",
           "links": {"%target-dir%/rector": "rector"}
         }
       },

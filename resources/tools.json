@@ -397,7 +397,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "nunomaduro/phpinsights",
-          "namespace": "tools",
+          "namespace": "phpinsights",
           "links": {"%target-dir%/phpinsights": "phpinsights"}
         }
       },

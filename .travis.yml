@@ -10,6 +10,7 @@ matrix:
 cache:
   directories:
   - $HOME/.composer/cache
+  - build/tools/.composer/cache
 before_install:
 - echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
 - phpenv config-rm xdebug.ini || echo "XDebug is not enabled"

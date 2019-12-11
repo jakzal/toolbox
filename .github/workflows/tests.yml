@@ -1,0 +1,18 @@
+name: Tests
+
+on: [pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run PHPUnit
+        uses: docker://jakzal/phpqa:php7.3-alpine
+        with:
+          args: phpunit
+      - name: Run Infection
+        uses: docker://jakzal/phpqa:php7.3-alpine
+        with:
+          args: phpdbg -qrr /tools/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
+

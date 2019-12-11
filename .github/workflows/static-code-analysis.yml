@@ -1,0 +1,21 @@
+name: Static code analysis
+
+on: [pull_request]
+
+jobs:
+  static-code-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run PHPStan
+        uses: docker://jakzal/phpqa:php7.3-alpine
+        with:
+          args: phpstan analyze src/ -l 1
+      - name: Run PHP-CS-Fixer
+        uses: docker://jakzal/phpqa:php7.3-alpine
+        with:
+          args: php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
+      - name: Run Deptrac
+        uses: docker://jakzal/phpqa:php7.3-alpine
+        with:
+          args: deptrac --no-interaction --ansi --formatter-graphviz-display=0

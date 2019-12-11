@@ -397,7 +397,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "nunomaduro/phpinsights",
-          "namespace": "tools",
+          "namespace": "phpinsights",
           "links": {"%target-dir%/phpinsights": "phpinsights"}
         }
       },
@@ -663,7 +663,7 @@
       "command": {
         "composer-bin-plugin": {
           "package": "rector/rector",
-          "namespace": "rector",
+          "namespace": "tools",
           "links": {"%target-dir%/rector": "rector"}
         }
       },

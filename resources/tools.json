@@ -506,16 +506,16 @@
       "test": "true"
     },
     {
-      "name": "phpstan-localheinz-rules",
+      "name": "phpstan-ergebnis-rules",
       "summary": "Additional rules for PHPstan",
-      "website": "https://github.com/localheinz/phpstan-rules",
+      "website": "https://github.com/ergebnis/phpstan-rules",
       "command": {
         "composer-bin-plugin": {
-          "package": "localheinz/phpstan-rules:dev-master",
+          "package": "ergebnis/phpstan-rules",
           "namespace": "phpstan"
         }
       },
-      "test": "composer global bin phpstan show localheinz/phpstan-rules"
+      "test": "composer global bin phpstan show ergebnis/phpstan-rules"
     },
     {
       "name": "phpstan-strict-rules",

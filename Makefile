@@ -149,4 +149,4 @@ tools/infection.pubkey:
 	curl -Ls https://github.com/infection/infection/releases/download/0.13.2/infection.phar.pubkey -o tools/infection.pubkey
 
 tools/box:
-	curl -Ls https://github.com/humbug/box/releases/download/3.8.3/box.phar -o tools/box && chmod +x tools/box
+	curl -Ls https://github.com/humbug/box/releases/download/3.8.4/box.phar -o tools/box && chmod +x tools/box

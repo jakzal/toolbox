@@ -167,7 +167,7 @@
         }
       },
       "test": "pdepend --version",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:7.4"]
     },
     {
       "name": "phan",

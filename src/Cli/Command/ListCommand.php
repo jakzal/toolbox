@@ -46,6 +46,8 @@ final class ListCommand extends Command
                 return [\sprintf('<info>%s</info>', $tool->name()), $tool->summary().PHP_EOL.$tool->website().PHP_EOL];
             })->toArray()
         );
+
+        return 0;
     }
 
     private function createStyle(InputInterface $input, OutputInterface $output): StyleInterface

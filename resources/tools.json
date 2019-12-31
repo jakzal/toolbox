@@ -438,8 +438,7 @@
           "bin": "%target-dir%/phpmd"
         }
       },
-      "test": "phpmd --version",
-      "tags": ["exclude-php:7.4"]
+      "test": "phpmd --version"
     },
     {
       "name": "phpmetrics",

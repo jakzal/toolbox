@@ -162,12 +162,12 @@
       "website": "https://pdepend.org/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/jakzal/pdepend/releases/download/2.5.2-jakzal-2/pdepend.phar",
+          "phar": "https://github.com/pdepend/pdepend/releases/download/2.6.1/pdepend.phar",
           "bin": "%target-dir%/pdepend"
         }
       },
       "test": "pdepend --version",
-      "tags": ["featured", "exclude-php:7.4"]
+      "tags": ["featured"]
     },
     {
       "name": "phan",

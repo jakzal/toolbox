@@ -16,7 +16,8 @@ It has been extracted as a separate project to make maintenance easier and enabl
 
 * composer - [Dependency Manager for PHP](https://getcomposer.org/)
 * composer-bin-plugin - [Composer plugin to install bin vendors in isolated locations](https://github.com/bamarni/composer-bin-plugin)
-* box - [An application for building and managing Phars](https://box-project.github.io/box2/)
+* box - [Fast, zero config application bundler with PHARs](https://github.com/humbug/box)
+* box-legacy - [Legacy version of box](https://box-project.github.io/box2/)
 * analyze - [Visualizes metrics and source code](https://github.com/Qafoo/QualityAnalyzer)
 * behat - [Helps to test business expectations](http://behat.org/)
 * churn - [Discovers good candidates for refactoring](https://github.com/bmitch/churn-php)

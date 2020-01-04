@@ -65,6 +65,8 @@ $application->add(
             file_put_contents($readmePath, $readme);
 
             $output->writeln(sprintf('The <info>%s</info> was updated with latest tools found in <info>%s</info>.', $readmePath, implode(', ', $jsonPath)));
+
+            return 0;
         }
     }
 );
@@ -171,6 +173,8 @@ $application->add(
             $tools = $this->loadTools($input->getOption('tools'), new Filter([\Zalas\Toolbox\UseCase\InstallTools::PRE_INSTALLATION_TAG], []));
 
             $output->writeln($this->renderPage($tools->map($this->toolToHtml())));
+
+            return 0;
         }
 
         private function toolToHtml(): \Closure

@@ -29,14 +29,27 @@
     },
     {
       "name": "box",
-      "summary": "An application for building and managing Phars",
-      "website": "https://box-project.github.io/box2/",
+      "summary": "Fast, zero config application bundler with PHARs",
+      "website": "https://github.com/humbug/box",
       "command": {
-        "sh": {
-          "command": "curl -Ls https://box-project.github.io/box2/installer.php | php && mv box.phar %target-dir%/box && chmod +x %target-dir%/box"
+        "phar-download": {
+          "phar": "https://github.com/humbug/box/releases/download/3.8.4/box.phar",
+          "bin": "%target-dir%/box"
         }
       },
       "test": "box list",
+      "tags": ["pre-installation"]
+    },
+    {
+      "name": "box-legacy",
+      "summary": "Legacy version of box",
+      "website": "https://box-project.github.io/box2/",
+      "command": {
+        "sh": {
+          "command": "curl -Ls https://box-project.github.io/box2/installer.php | php && mv box.phar %target-dir%/box-legacy && chmod +x %target-dir%/box-legacy"
+        }
+      },
+      "test": "box-legacy list",
       "tags": ["pre-installation"]
     }
   ]

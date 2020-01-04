@@ -21,7 +21,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * analyze - [Visualizes metrics and source code](https://github.com/Qafoo/QualityAnalyzer)
 * behat - [Helps to test business expectations](http://behat.org/)
 * churn - [Discovers good candidates for refactoring](https://github.com/bmitch/churn-php)
-* composer-normalize - [Composer plugin to normalize composer.json files](https://github.com/localheinz/composer-normalize)
+* composer-normalize - [Composer plugin to normalize composer.json files](https://github.com/ergebnis/composer-normalize)
 * dephpend - [Detect flaws in your architecture](https://dephpend.com/)
 * deprecation-detector - [Finds usages of deprecated code](https://github.com/sensiolabs-de/deprecation-detector)
 * deptrac - [Enforces dependency rules between software layers](https://github.com/sensiolabs-de/deptrac)
@@ -76,6 +76,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 
 ### Removed tools
 
+* composer-normalize - [Composer plugin to normalize composer.json files](https://github.com/localheinz/composer-normalize)
 * design-pattern - [Detects design patterns](https://github.com/Halleck45/DesignPatternDetector)
 * testability - [Analyses and reports testability issues of a php codebase](https://github.com/edsonmedina/php_testability)
 * phpstan-localheinz-rules - [Additional rules for PHPstan](https://github.com/localheinz/phpstan-rules)

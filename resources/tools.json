@@ -43,13 +43,13 @@
     {
       "name": "composer-normalize",
       "summary": "Composer plugin to normalize composer.json files",
-      "website": "https://github.com/localheinz/composer-normalize",
+      "website": "https://github.com/ergebnis/composer-normalize",
       "command": {
         "composer-global-install": {
-          "package": "localheinz/composer-normalize"
+          "package": "ergebnis/composer-normalize"
         }
       },
-      "test": "composer global show localheinz/composer-normalize"
+      "test": "composer global show ergebnis/composer-normalize"
     },
     {
       "name": "dephpend",

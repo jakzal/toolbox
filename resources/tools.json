@@ -52,6 +52,18 @@
       "test": "composer global show ergebnis/composer-normalize"
     },
     {
+      "name": "composer-unused",
+      "summary": "Show unused packages by scanning your code",
+      "website": "https://github.com/icanhazstring/composer-unused",
+      "command": {
+        "phar-download": {
+          "phar": "https://github.com/composer-unused/composer-unused/releases/download/0.7.1/composer-unused.phar",
+          "bin": "%target-dir%/composer-unused"
+        }
+      },
+      "test": "composer-unused -h"
+    },
+    {
       "name": "dephpend",
       "summary": "Detect flaws in your architecture",
       "website": "https://dephpend.com/",

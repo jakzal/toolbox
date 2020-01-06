@@ -22,6 +22,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * behat - [Helps to test business expectations](http://behat.org/)
 * churn - [Discovers good candidates for refactoring](https://github.com/bmitch/churn-php)
 * composer-normalize - [Composer plugin to normalize composer.json files](https://github.com/ergebnis/composer-normalize)
+* composer-unused - [Show unused packages by scanning your code](https://github.com/icanhazstring/composer-unused)
 * dephpend - [Detect flaws in your architecture](https://dephpend.com/)
 * deprecation-detector - [Finds usages of deprecated code](https://github.com/sensiolabs-de/deprecation-detector)
 * deptrac - [Enforces dependency rules between software layers](https://github.com/sensiolabs-de/deptrac)

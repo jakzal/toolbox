@@ -40,6 +40,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * phpDocumentor - [Documentation generator](https://www.phpdoc.org/)
 * phpbench - [PHP Benchmarking framework](https://github.com/phpbench/phpbench)
 * phpa - [Checks for weak assumptions](https://github.com/rskuipers/php-assumptions)
+* phpat - [Easy to use architecture testing tool](https://github.com/carlosas/phpat)
 * phpca - [Finds usage of non-built-in extensions](https://github.com/wapmorgan/PhpCodeAnalyzer)
 * phpcb - [PHP Code Browser](https://github.com/mayflower/PHP_CodeBrowser)
 * phpcbf - [Automatically corrects coding standard violations](https://github.com/squizlabs/PHP_CodeSniffer)

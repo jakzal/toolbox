@@ -290,6 +290,19 @@
       "tags": ["not-maintained"]
     },
     {
+      "name": "phpat",
+      "summary": "Easy to use architecture testing tool",
+      "website": "https://github.com/carlosas/phpat",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "carlosas/phpat",
+          "namespace": "tools",
+          "links": {"%target-dir%/phpat": "phpat"}
+        }
+      },
+      "test": "which phpat"
+    },
+    {
       "name": "phpca",
       "summary": "Finds usage of non-built-in extensions",
       "website": "https://github.com/wapmorgan/PhpCodeAnalyzer",

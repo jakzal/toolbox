@@ -61,7 +61,7 @@
           "bin": "%target-dir%/composer-unused"
         }
       },
-      "test": "composer-unused -h"
+      "test": "composer-unused -vvv | grep 'Your system is ready'"
     },
     {
       "name": "dephpend",

@@ -69,7 +69,7 @@
       "website": "https://dephpend.com/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/mihaeu/dephpend/releases/download/0.6.2/dephpend-0.6.2.phar",
+          "phar": "https://github.com/mihaeu/dephpend/releases/download/0.6.3/dephpend-0.6.3.phar",
           "bin": "%target-dir%/dephpend"
         }
       },

@@ -712,7 +712,7 @@
       "website": "https://github.com/Roave/BackwardCompatibilityCheck",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/4.0.0/roave-backward-compatibility-check.phar",
+          "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/4.4.0/roave-backward-compatibility-check.phar",
           "bin": "%target-dir%/roave-backward-compatibility-check"
         }
       },

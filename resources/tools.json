@@ -657,11 +657,11 @@
       "website": "https://psalm.dev/",
       "command": {
         "file-download": {
-          "url": "https://github.com/vimeo/psalm/releases/download/3.8.3/psalm.phar.asc",
+          "url": "https://github.com/vimeo/psalm/releases/download/3.8.5/psalm.phar.asc",
           "file": "%target-dir%/psalm.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/vimeo/psalm/releases/download/3.8.3/psalm.phar",
+          "phar": "https://github.com/vimeo/psalm/releases/download/3.8.5/psalm.phar",
           "bin": "%target-dir%/psalm"
         }
       },

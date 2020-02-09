@@ -637,7 +637,19 @@
         }
       },
       "test": "phpunit --version",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:7.2"]
+    },
+    {
+      "name": "phpunit-8",
+      "summary": "The PHP testing framework (8.x version)",
+      "website": "https://phpunit.de/",
+      "command": {
+        "phar-download": {
+          "phar": "https://phar.phpunit.de/phpunit-8.phar",
+          "bin": "%target-dir%/phpunit-8"
+        }
+      },
+      "test": "phpunit-8 --version"
     },
     {
       "name": "phpunit-7",

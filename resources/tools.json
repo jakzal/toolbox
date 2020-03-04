@@ -747,6 +747,19 @@
         }
       },
       "test": "simple-phpunit --version"
+    },
+    {
+      "name": "larastan",
+      "summary": "PHPStan extension for Laravel",
+      "website": "https://github.com/nunomaduro/larastan",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "nunomaduro/larastan",
+          "namespace": "phpstan"
+        }
+      },
+      "test": "true",
+      "tags": ["exclude-php:7.1"]
     }
   ]
 }

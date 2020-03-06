@@ -29,6 +29,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 * diffFilter - [Applies QA tools to run on a single pull request](https://github.com/exussum12/coverageChecker)
 * ecs - [Sets up and runs coding standard checks](https://github.com/Symplify/EasyCodingStandard)
 * infection - [AST based PHP Mutation Testing Framework](https://infection.github.io/)
+* larastan - [A phpstan wrapper for Laravel](https://github.com/nunomaduro/larastan)
 * parallel-lint - [Checks PHP file syntax](https://github.com/JakubOnderka/PHP-Parallel-Lint)
 * paratest - [Parallel testing for PHPUnit](https://github.com/paratestphp/paratest)
 * pdepend - [Static Analysis Tool](https://pdepend.org/)

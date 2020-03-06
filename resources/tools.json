@@ -758,7 +758,7 @@
           "namespace": "phpstan"
         }
       },
-      "test": "true",
+      "test": "composer global show nunomaduro/larastan",
       "tags": ["exclude-php:7.1"]
     }
   ]

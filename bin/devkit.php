@@ -119,7 +119,7 @@ $application->add(
             $command = <<<'CMD'
             grep -e 'github\.com.*releases.*\.phar"' %TOOLBOX_JSON% |
             sed -e 's@.*github.com/\(.*\)/releases.*@\1@' |
-            xargs -I"{}" sh -c "curl -s -XGET 'https://api.github.com/repos/{}/releases/latest' -H 'Accept:application/json' | grep browser_download_url | head -n 1" |
+            xargs -I"{}" sh -c "curl -s -XGET 'https://api.github.com/repos/{}/releases/latest' -H 'Accept:application/json' | grep browser_download_url | grep .phar | head -n 1" |
             sed -e 's/^[^:]*: "\([^"]*\)"/\1/'
 CMD;
             $command = strtr($command, ['%TOOLBOX_JSON%' => $jsonPath]);

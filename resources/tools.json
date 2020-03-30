@@ -140,7 +140,7 @@
         }
       },
       "test": "infection --version",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:7.2"]
     },
     {
       "name": "parallel-lint",

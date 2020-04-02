@@ -378,6 +378,19 @@
       "tags": ["featured", "exclude-php:7.2"]
     },
     {
+      "name": "phpcpd",
+      "summary": "Copy/Paste Detector",
+      "website": "https://github.com/sebastianbergmann/phpcpd",
+      "command": {
+        "phar-download": {
+          "phar": "https://phar.phpunit.de/phpcpd-4.1.0.phar",
+          "bin": "%target-dir%/phpcpd"
+        }
+      },
+      "test": "phpcpd -V",
+      "tags": ["featured", "exclude-php:7.3", "exclude-php:7.4"]
+    },
+    {
       "name": "phpcs",
       "summary": "Detects coding standard violations",
       "website": "https://github.com/squizlabs/PHP_CodeSniffer",

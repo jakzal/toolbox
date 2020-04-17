@@ -664,6 +664,18 @@
       "test": "phpunit-7 --version"
     },
     {
+      "name": "phpunit-5",
+      "summary": "The PHP testing framework (5.x version)",
+      "website": "https://phpunit.de/",
+      "command": {
+        "phar-download": {
+          "phar": "https://phar.phpunit.de/phpunit-5.phar",
+          "bin": "%target-dir%/phpunit-5"
+        }
+      },
+      "test": "phpunit-5 --version"
+    },
+    {
       "name": "psalm",
       "summary": "Finds errors in PHP applications",
       "website": "https://psalm.dev/",
@@ -749,6 +761,18 @@
       "test": "simple-phpunit --version"
     },
     {
+      "name": "twig-lint",
+      "summary": "Standalone twig linter",
+      "website": "https://github.com/asm89/twig-lint",
+      "command": {
+        "phar-download": {
+          "phar": "https://asm89.github.io/d/twig-lint.phar",
+          "bin": "%target-dir%/twig-lint"
+        }
+      },
+      "test": "twig-lint --version"
+    },
+    {
       "name": "larastan",
       "summary": "PHPStan extension for Laravel",
       "website": "https://github.com/nunomaduro/larastan",
@@ -759,6 +783,18 @@
         }
       },
       "test": "composer global bin phpstan show ergebnis/phpstan-rules"
+    },
+    {
+      "name": "yaml-lint",
+      "summary": "Compact command line utility for checking YAML file syntax",
+      "website": "https://github.com/j13k/yaml-lint",
+      "command": {
+        "phar-download": {
+          "phar": "https://github.com/j13k/yaml-lint/releases/download/1.1.3/yaml-lint.phar",
+          "bin": "%target-dir%/yaml-lint"
+        }
+      },
+      "test": "yaml-lint --version"
     }
   ]
 }

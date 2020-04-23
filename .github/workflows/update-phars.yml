@@ -1,0 +1,19 @@
+name: Update PHARs
+
+on:
+    schedule:
+        -   cron: '30 3 * * *'
+jobs:
+    update-phars:
+        runs-on: ubuntu-latest
+        name: Create a PR
+        steps:
+            -   uses: actions/checkout@v2
+            -   uses: geertvdc/setup-hub@master
+            -   run: git config user.email 'jakub@zalas.pl' && git config user.name 'Jakub Zalas'
+            -   uses: docker://jakzal/phpqa:alpine
+                with:
+                    args: make package-devkit update-phars
+            -   run: "git diff --exit-code master -- resources/ || hub pull-request -h tools-update -a jakzal -m 'Update tools' -m '' -m ':robot: This pull request was automagically sent from Github'"
+                env:
+                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}

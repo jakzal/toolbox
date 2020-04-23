@@ -28,7 +28,7 @@ test: vendor cs deptrac phpunit infection
 test-min: update-min cs deptrac phpunit infection
 .PHONY: test-min
 
-test-integration: package
+test-integration: build/toolbox.phar
 	rm -rf ./build/tools && \
 	  export PATH="$(shell pwd)/build/tools:$(shell pwd)/build/tools/.composer/vendor/bin:$(shell pwd)/build/tools/QualityAnalyzer/bin:$(shell pwd)/build/tools/EasyCodingStandard/bin:$$PATH" && \
 	  export COMPOSER_HOME=$(shell pwd)/build/tools/.composer && \
@@ -93,10 +93,10 @@ package-devkit: tools/box
 	@rm -rf build/devkit-phar
 .PHONY: package-devkit
 
-website:
+website: build/devkit.phar
 	rm -rf build/website
 	mkdir -p build/website
-	php bin/devkit.php generate:html > build/website/index.html
+	php build/devkit.phar generate:html > build/website/index.html
 	touch build/website/.nojekyll
 .PHONY: website
 
@@ -108,16 +108,15 @@ publish-website: website
 	  git push --force --quiet "https://github.com/jakzal/toolbox.git" master:gh-pages
 .PHONY: publish-website
 
-update-phars:
+update-phars: vendor
 	php bin/devkit.php update:phars
 	git diff --exit-code resources/ || \
-	  ( \
-	    git checkout -b tools-update && \
-	    git add resources/*.json && \
-	    git commit -m "Update tools" && \
-	    git push origin tools-update && \
-	    hub pull-request -h tools-update -a jakzal -m 'Update tools' -m '' -m ':robot: This pull request was automagically sent from [Travis CI]('$(TRAVIS_BUILD_WEB_URL)').' \
-	  )
+	 	  ( \
+	 	    git checkout -b tools-update && \
+	 	    git add resources/*.json && \
+	 	    git commit -m "Update tools" && \
+	 	    git push origin tools-update \
+	 	  )
 .PHONY: update-phars
 
 tools: tools/php-cs-fixer tools/deptrac tools/infection tools/box

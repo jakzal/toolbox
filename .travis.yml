@@ -43,4 +43,4 @@ env:
 addons:
   snaps:
   - name: hub
-    classic: true
+    confinement: classic

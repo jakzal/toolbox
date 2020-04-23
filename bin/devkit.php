@@ -170,7 +170,7 @@ $application->add(
 
         protected function execute(InputInterface $input, OutputInterface $output)
         {
-            $tools = $this->loadTools($input->getOption('tools'), new Filter([\Zalas\Toolbox\UseCase\InstallTools::PRE_INSTALLATION_TAG], []));
+            $tools = $this->loadTools($input->getOption('tools'), new Filter(['pre-installation'], []));
 
             $output->writeln($this->renderPage($tools->map($this->toolToHtml())));
 

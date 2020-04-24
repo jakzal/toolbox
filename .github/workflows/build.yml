@@ -1,0 +1,84 @@
+name: Build
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+    release:
+        types: [created]
+    schedule:
+        -   cron: '0 4 * * *'
+
+jobs:
+    tests:
+        runs-on: ubuntu-latest
+        name: Build and test
+        strategy:
+            matrix:
+                php: [7.2, 7.3, 7.4]
+                deps: [high]
+                include:
+                    -   php: 7.2
+                        deps: low
+        container:
+            image: docker://jakzal/phpqa:php${{ matrix.php }}-alpine
+        steps:
+            -   uses: actions/checkout@master
+            -   if: matrix.deps == 'high'
+                run: make install test package package-devkit
+            -   if: matrix.deps == 'low'
+                run: make update-min test-min
+            -   uses: actions/upload-artifact@v1
+                if: matrix.php == '7.2' && matrix.deps == 'high'
+                with:
+                    name: toolbox.phar
+                    path: build/toolbox.phar
+            -   uses: actions/upload-artifact@v1
+                if: matrix.php == '7.2' && matrix.deps == 'high'
+                with:
+                    name: devkit.phar
+                    path: build/devkit.phar
+    integration-tests:
+        runs-on: ubuntu-latest
+        name: Run integration tests
+        needs: tests
+        strategy:
+            matrix:
+                php: [7.2, 7.3, 7.4]
+        container:
+            image: docker://jakzal/phpqa:php${{ matrix.php }}-alpine
+        steps:
+            -   uses: actions/checkout@master
+            -   uses: actions/download-artifact@v1
+                with:
+                    name: toolbox.phar
+                    path: build/
+            -   run: make test-integration
+    publish-phars:
+        runs-on: ubuntu-latest
+        name: Publish PHARs
+        needs: tests
+        if: github.event_name == 'release'
+        steps:
+            -   uses: actions/download-artifact@v1
+                with:
+                    name: toolbox.phar
+            -   uses: actions/download-artifact@v1
+                with:
+                    name: devkit.phar
+            -   name: Upload toolbox.phar
+                uses: actions/upload-release-asset@v1
+                env:
+                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                with:
+                    upload_url: ${{ github.event.release.upload_url }}
+                    asset_path: ./toolbox.phar
+                    asset_name: toolbox.phar
+            -   name: Upload devkit.phar
+                uses: actions/upload-release-asset@v1
+                env:
+                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                with:
+                    upload_url: ${{ github.event.release.upload_url }}
+                    asset_path: ./devkit.phar
+                    asset_name: devkit.phar

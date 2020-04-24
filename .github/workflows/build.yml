@@ -74,6 +74,7 @@ jobs:
                     upload_url: ${{ github.event.release.upload_url }}
                     asset_path: ./toolbox.phar
                     asset_name: toolbox.phar
+                    asset_content_type: application/zip
             -   name: Upload devkit.phar
                 uses: actions/upload-release-asset@v1
                 env:
@@ -82,3 +83,4 @@ jobs:
                     upload_url: ${{ github.event.release.upload_url }}
                     asset_path: ./devkit.phar
                     asset_name: devkit.phar
+                    asset_content_type: application/zip

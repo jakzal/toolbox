@@ -63,9 +63,11 @@ jobs:
             -   uses: actions/download-artifact@v1
                 with:
                     name: toolbox.phar
+                    path: .
             -   uses: actions/download-artifact@v1
                 with:
                     name: devkit.phar
+                    path: .
             -   name: Upload toolbox.phar
                 uses: actions/upload-release-asset@v1
                 env:

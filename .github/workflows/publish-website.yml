@@ -1,0 +1,26 @@
+name: Publish the website
+
+on:
+    push:
+        branches: [master]
+    release:
+        types: [created]
+
+jobs:
+    publish-website:
+        runs-on: ubuntu-latest
+        name: Build and publish
+        steps:
+            -   uses: actions/checkout@v2
+                with:
+                    persist-credentials: false
+            -   name: Build the website
+                uses: docker://jakzal/phpqa:alpine
+                with:
+                    args: make package-devkit website
+            -   name: Publish the website
+                uses: JamesIves/github-pages-deploy-action@releases/v3
+                with:
+                    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                    BRANCH: gh-pages
+                    FOLDER: build/website

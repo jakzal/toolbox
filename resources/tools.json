@@ -93,7 +93,7 @@
       "website": "https://github.com/sensiolabs-de/deptrac",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/sensiolabs-de/deptrac/releases/download/0.6.0/deptrac.phar",
+          "phar": "https://github.com/sensiolabs-de/deptrac/releases/download/0.7.0/deptrac.phar",
           "bin": "%target-dir%/deptrac"
         }
       },

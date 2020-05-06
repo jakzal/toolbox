@@ -1,6 +1,7 @@
 name: Publish the website
 
 on:
+    pull_request:
     push:
         branches: [master]
     release:
@@ -14,10 +15,17 @@ jobs:
             -   uses: actions/checkout@v2
                 with:
                     persist-credentials: false
-            -   name: Build the website
-                uses: docker://jakzal/phpqa:alpine
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
                 with:
-                    args: make package-devkit website
+                    php-version: "7.4"
+                    tools: flex
+                    ini-values: "phar.readonly=0"
+
+            -   name: Build the website
+                run: make package-devkit website
+
             -   name: Publish the website
                 uses: JamesIves/github-pages-deploy-action@releases/v3
                 with:

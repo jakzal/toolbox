@@ -28,7 +28,7 @@ class ComposerGlobalMultiInstallCommandTest extends TestCase
             new ComposerGlobalInstallCommand('phpstan/phpstan'),
         ]));
 
-        $this->assertRegExp('#composer global require .*? phan/phan phpstan/phpstan#', (string) $command);
+        $this->assertMatchesRegularExpression('#composer global require .*? phan/phan phpstan/phpstan#', (string) $command);
     }
 
     public function test_it_throws_an_exception_if_there_is_no_commands()

@@ -3,6 +3,7 @@
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Cli\Command\TestCommand;
 use Zalas\Toolbox\Runner\Runner;
@@ -12,6 +13,8 @@ use Zalas\Toolbox\UseCase\TestTools;
 
 class TestCommandTest extends ToolboxCommandTestCase
 {
+    use ProphecyTrait;
+
     protected const CLI_COMMAND_NAME = TestCommand::NAME;
 
     /**

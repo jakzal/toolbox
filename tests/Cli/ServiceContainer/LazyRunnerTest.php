@@ -3,6 +3,7 @@
 namespace Zalas\Toolbox\Tests\Cli\ServiceContainer;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Cli\ServiceContainer\LazyRunner;
 use Zalas\Toolbox\Cli\ServiceContainer\RunnerFactory;
@@ -11,6 +12,8 @@ use Zalas\Toolbox\Tool\Command;
 
 class LazyRunnerTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @var LazyRunner
      */

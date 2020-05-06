@@ -25,9 +25,9 @@
         </whitelist>
     </filter>
 
-    <listeners>
-        <listener class="Zalas\PHPUnit\Globals\AnnotationListener" />
-    </listeners>
+    <extensions>
+        <extension class="Zalas\PHPUnit\Globals\AnnotationExtension"/>
+    </extensions>
 
     <logging>
         <log type="coverage-html" target="build/coverage" lowUpperBound="50" highLowerBound="95"/>

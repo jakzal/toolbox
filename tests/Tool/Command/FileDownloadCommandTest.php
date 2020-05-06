@@ -28,6 +28,6 @@ class FileDownloadCommandTest extends TestCase
 
     public function test_it_generates_the_installation_command()
     {
-        $this->assertRegExp(\sprintf('#curl .*? %s -o %s#', self::URL, self::FILE), (string) $this->command);
+        $this->assertMatchesRegularExpression(\sprintf('#curl .*? %s -o %s#', self::URL, self::FILE), (string) $this->command);
     }
 }

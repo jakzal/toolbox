@@ -1,6 +1,7 @@
 name: Publish the website
 
 on:
+    pull_request:
     push:
         branches: [master]
     release:

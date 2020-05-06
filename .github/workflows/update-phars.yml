@@ -1,6 +1,7 @@
 name: Update PHARs
 
 on:
+    pull_request:
     schedule:
         -   cron: '30 3 * * *'
 jobs:

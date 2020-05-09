@@ -795,6 +795,18 @@
         }
       },
       "test": "yaml-lint --version"
+    },
+    {
+      "name": "doctrine-psalm-plugin",
+      "summary": "Stubs to let Psalm understand Doctrine better",
+      "website": "https://github.com/weirdan/doctrine-psalm-plugin",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "weirdan/doctrine-psalm-plugin",
+          "namespace": "doctrine-psalm-plugin"
+        }
+      },
+      "test": "composer global bin doctrine-psalm-plugin show weirdan/doctrine-psalm-plugin"
     }
   ]
 }

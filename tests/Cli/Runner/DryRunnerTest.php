@@ -3,16 +3,16 @@
 namespace Zalas\Toolbox\Tests\Cli\Runner;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Runner\DryRunner;
 use Zalas\Toolbox\Runner\Runner;
+use Zalas\Toolbox\Tests\Prophecy\Prophecy;
 use Zalas\Toolbox\Tool\Command;
 
 class DryRunnerTest extends TestCase
 {
-    use ProphecyTrait;
+    use Prophecy;
 
     /**
      * @var DryRunner

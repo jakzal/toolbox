@@ -3,13 +3,13 @@
 namespace Zalas\Toolbox\Tests\Tool;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
+use Zalas\Toolbox\Tests\Prophecy\Prophecy;
 use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
 
 class FilterTest extends TestCase
 {
-    use ProphecyTrait;
+    use Prophecy;
 
     public function test_it_returns_true_if_no_excluded_tags_were_defined()
     {

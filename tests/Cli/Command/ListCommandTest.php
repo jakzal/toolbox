@@ -3,9 +3,9 @@
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
 use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Cli\Command\ListCommand;
+use Zalas\Toolbox\Tests\Prophecy\Prophecy;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
@@ -13,7 +13,7 @@ use Zalas\Toolbox\UseCase\ListTools;
 
 class ListCommandTest extends ToolboxCommandTestCase
 {
-    use ProphecyTrait;
+    use Prophecy;
 
     protected const CLI_COMMAND_NAME = ListCommand::NAME;
 

@@ -4,7 +4,6 @@ namespace Zalas\Toolbox\Tests\Cli;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Console\Application as CliApplication;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -14,10 +13,11 @@ use Zalas\Toolbox\Cli\Application;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Cli\ServiceContainer;
+use Zalas\Toolbox\Tests\Prophecy\Prophecy;
 
 class ApplicationTest extends TestCase
 {
-    use ProphecyTrait;
+    use Prophecy;
 
     private const VERSION = 'test';
 

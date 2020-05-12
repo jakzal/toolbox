@@ -4,8 +4,8 @@ namespace Zalas\Toolbox\Tests\UseCase;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
+use Zalas\Toolbox\Tests\Prophecy\Prophecy;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\BoxBuildCommand;
@@ -22,7 +22,7 @@ use Zalas\Toolbox\UseCase\InstallTools;
 
 class InstallToolsTest extends TestCase
 {
-    use ProphecyTrait;
+    use Prophecy;
 
     /**
      * @var InstallTools

@@ -4,14 +4,14 @@ namespace Zalas\Toolbox\Tests\Tool\Command;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
+use Zalas\Toolbox\Tests\Prophecy\Prophecy;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\MultiStepCommand;
 
 class MultiStepCommandTest extends TestCase
 {
-    use ProphecyTrait;
+    use Prophecy;
 
     public function test_it_is_a_command()
     {

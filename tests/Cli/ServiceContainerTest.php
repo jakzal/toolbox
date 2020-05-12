@@ -3,7 +3,6 @@
 namespace Zalas\Toolbox\Tests\Cli;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -15,10 +14,11 @@ use Zalas\Toolbox\Cli\Command\TestCommand;
 use Zalas\Toolbox\Cli\ServiceContainer;
 use Zalas\Toolbox\Cli\ServiceContainer\LazyRunner;
 use Zalas\Toolbox\Runner\Runner;
+use Zalas\Toolbox\Tests\Prophecy\Prophecy;
 
 class ServiceContainerTest extends TestCase
 {
-    use ProphecyTrait;
+    use Prophecy;
 
     /**
      * @var ServiceContainer

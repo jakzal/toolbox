@@ -4,14 +4,14 @@ declare(strict_types=1);
 namespace Zalas\Toolbox\Tests\Tool;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use TypeError;
+use Zalas\Toolbox\Tests\Prophecy\Prophecy;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Tool;
 
 class ToolTest extends TestCase
 {
-    use ProphecyTrait;
+    use Prophecy;
 
     public function test_it_exposes_its_properties()
     {

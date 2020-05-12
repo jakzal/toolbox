@@ -3,17 +3,17 @@
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
 use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Runner\Runner;
+use Zalas\Toolbox\Tests\Prophecy\Prophecy;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\UseCase\InstallTools;
 
 class InstallCommandTest extends ToolboxCommandTestCase
 {
-    use ProphecyTrait;
+    use Prophecy;
 
     protected const CLI_COMMAND_NAME = InstallCommand::NAME;
 

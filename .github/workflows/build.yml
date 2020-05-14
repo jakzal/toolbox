@@ -29,6 +29,7 @@ jobs:
                 with:
                     php-version: "${{ matrix.php }}"
                     tools: flex
+                    ini-values: "phar.readonly=0"
 
             -   if: matrix.deps == 'high'
                 run: make install test package package-devkit

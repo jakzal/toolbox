@@ -15,6 +15,7 @@ jobs:
                 with:
                     php-version: "7.4"
                     tools: flex
+                    ini-values: "phar.readonly=0"
 
             -   uses: geertvdc/setup-hub@master
 

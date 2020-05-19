@@ -119,12 +119,12 @@
       "website": "https://github.com/Symplify/EasyCodingStandard",
       "command": {
         "composer-bin-plugin": {
-          "package": "symplify/easy-coding-standard-prefixed",
+          "package": "symplify/easy-coding-standard-prefixed:7.3.17",
           "namespace": "tools",
           "links": {"%target-dir%/ecs": "ecs", "%target-dir%/ecs.phar": "ecs.phar"}
         }
       },
-      "test": "ecs -h"
+      "test": "ecs -h", "tags":["ecs"]
     },
     {
       "name": "infection",

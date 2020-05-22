@@ -57,7 +57,7 @@
       "website": "https://github.com/icanhazstring/composer-unused",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/composer-unused/composer-unused/releases/download/0.7.1/composer-unused.phar",
+          "phar": "https://github.com/composer-unused/composer-unused/releases/download/0.7.3/composer-unused.phar",
           "bin": "%target-dir%/composer-unused"
         }
       },

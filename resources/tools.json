@@ -61,7 +61,8 @@
           "bin": "%target-dir%/composer-unused"
         }
       },
-      "test": "composer-unused -vvv | grep 'Your system is ready'"
+      "test": "composer-unused -vvv | grep 'Your system is ready'",
+      "tags": ["exclude-php:7.2"]
     },
     {
       "name": "dephpend",

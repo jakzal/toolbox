@@ -787,6 +787,18 @@
       "test": "twig-lint --version"
     },
     {
+      "name": "twigcs",
+      "summary": "The missing checkstyle for twig!",
+      "website": "https://github.com/friendsoftwig/twigcs",
+      "command": {
+        "phar-download": {
+          "phar": "https://github.com/friendsoftwig/twigcs/releases/download/v3.2.2/twigcs.phar",
+          "bin": "%target-dir%/twigcs"
+        }
+      },
+      "test": "twigcs --help"
+    },
+    {
       "name": "larastan",
       "summary": "PHPStan extension for Laravel",
       "website": "https://github.com/nunomaduro/larastan",

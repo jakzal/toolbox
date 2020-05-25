@@ -787,6 +787,19 @@
       "test": "twig-lint --version"
     },
     {
+      "name": "twigcs",
+      "summary": "The missing checkstyle for twig!",
+      "website": "https://github.com/friendsoftwig/twigcs",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "friendsoftwig/twigcs",
+          "namespace": "twigcs",
+          "links": {"%target-dir%/twigcs": "twigcs"}
+        }
+      },
+      "test": "twigcs --help"
+    },
+    {
       "name": "larastan",
       "summary": "PHPStan extension for Laravel",
       "website": "https://github.com/nunomaduro/larastan",

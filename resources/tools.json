@@ -791,10 +791,9 @@
       "summary": "The missing checkstyle for twig!",
       "website": "https://github.com/friendsoftwig/twigcs",
       "command": {
-        "composer-bin-plugin": {
-          "package": "friendsoftwig/twigcs",
-          "namespace": "twigcs",
-          "links": {"%target-dir%/twigcs": "twigcs"}
+        "phar-download": {
+          "phar": "https://github.com/friendsoftwig/twigcs/releases/download/v3.2.2/twigcs.phar",
+          "bin": "%target-dir%/twigcs"
         }
       },
       "test": "twigcs --help"

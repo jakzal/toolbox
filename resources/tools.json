@@ -725,7 +725,7 @@
       "website": "https://github.com/rectorphp/rector",
       "command": {
         "composer-bin-plugin": {
-          "package": "rector/rector",
+          "package": "rector/rector-prefixed",
           "namespace": "tools",
           "links": {"%target-dir%/rector": "rector"}
         }

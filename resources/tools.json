@@ -70,7 +70,7 @@
       "website": "https://dephpend.com/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/mihaeu/dephpend/releases/download/0.6.3/dephpend-0.6.3.phar",
+          "phar": "https://github.com/mihaeu/dephpend/releases/download/0.7.0/dephpend-0.7.0.phar",
           "bin": "%target-dir%/dephpend"
         }
       },
@@ -94,7 +94,7 @@
       "website": "https://github.com/sensiolabs-de/deptrac",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/sensiolabs-de/deptrac/releases/download/0.7.1/deptrac.phar",
+          "phar": "https://github.com/sensiolabs-de/deptrac/releases/download/0.8.0/deptrac.phar",
           "bin": "%target-dir%/deptrac"
         }
       },

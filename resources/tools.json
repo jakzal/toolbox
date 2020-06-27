@@ -133,11 +133,11 @@
       "website": "https://infection.github.io/",
       "command": {
         "file-download": {
-          "url": "https://github.com/infection/infection/releases/download/0.16.3/infection.phar.asc",
+          "url": "https://github.com/infection/infection/releases/download/0.16.4/infection.phar.asc",
           "file": "%target-dir%/infection.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/infection/infection/releases/download/0.16.3/infection.phar",
+          "phar": "https://github.com/infection/infection/releases/download/0.16.4/infection.phar",
           "bin": "%target-dir%/infection"
         }
       },
@@ -473,7 +473,7 @@
       "website": "http://www.phpmetrics.org/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpmetrics/PhpMetrics/releases/download/v2.6.2/phpmetrics.phar",
+          "phar": "https://github.com/phpmetrics/PhpMetrics/releases/download/v2.7.0/phpmetrics.phar",
           "bin": "%target-dir%/phpmetrics"
         }
       },

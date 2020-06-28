@@ -473,7 +473,7 @@
       "website": "http://www.phpmetrics.org/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpmetrics/PhpMetrics/releases/download/v2.7.0/phpmetrics.phar",
+          "phar": "https://github.com/phpmetrics/PhpMetrics/releases/download/v2.7.3/phpmetrics.phar",
           "bin": "%target-dir%/phpmetrics"
         }
       },

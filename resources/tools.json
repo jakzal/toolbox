@@ -297,7 +297,7 @@
       "website": "https://github.com/carlosas/phpat",
       "command": {
         "composer-bin-plugin": {
-          "package": "carlosas/phpat",
+          "package": "phpat/phpat",
           "namespace": "tools",
           "links": {"%target-dir%/phpat": "phpat"}
         }

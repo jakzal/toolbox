@@ -120,7 +120,7 @@
       "website": "https://github.com/Symplify/EasyCodingStandard",
       "command": {
         "composer-bin-plugin": {
-          "package": "symplify/easy-coding-standard-prefixed:7.3.17",
+          "package": "symplify/easy-coding-standard-prefixed",
           "namespace": "tools",
           "links": {"%target-dir%/ecs": "ecs", "%target-dir%/ecs.phar": "ecs.phar"}
         }

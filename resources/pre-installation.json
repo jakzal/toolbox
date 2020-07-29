@@ -33,7 +33,7 @@
       "website": "https://github.com/humbug/box",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/humbug/box/releases/download/3.8.4/box.phar",
+          "phar": "https://github.com/humbug/box/releases/download/3.8.5/box.phar",
           "bin": "%target-dir%/box"
         }
       },

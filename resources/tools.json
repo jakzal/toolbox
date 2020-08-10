@@ -167,7 +167,8 @@
           "bin": "%target-dir%/paratest"
         }
       },
-      "test": "paratest --version"
+      "test": "paratest --version",
+      "tags": ["exclude-php:7.2"]
     },
     {
       "name": "pdepend",

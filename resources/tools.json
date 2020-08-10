@@ -162,10 +162,9 @@
       "summary": "Parallel testing for PHPUnit",
       "website": "https://github.com/paratestphp/paratest",
       "command": {
-        "composer-bin-plugin": {
-          "package": "brianium/paratest",
-          "namespace": "tools",
-          "links": {"%target-dir%/paratest": "paratest"}
+        "phar-download": {
+          "phar": "https://github.com/paratestphp/paratest/releases/download/4.2.0/paratest.phar",
+          "bin": "%target-dir%/paratest"
         }
       },
       "test": "paratest --version"

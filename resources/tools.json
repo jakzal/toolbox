@@ -454,7 +454,8 @@
           "bin": "%target-dir%/phploc"
         }
       },
-      "test": "phploc -v"
+      "test": "phploc -v",
+      "tags": ["exclude-php:7.2"]
     },
     {
       "name": "phpmd",

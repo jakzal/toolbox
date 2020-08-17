@@ -364,7 +364,8 @@
           "bin": "%target-dir%/phpcov"
         }
       },
-      "test": "phpcov -v"
+      "test": "phpcov -v",
+      "tags": ["exclude-php:7.2"]
     },
     {
       "name": "phpcpd",

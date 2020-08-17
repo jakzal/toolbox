@@ -364,7 +364,7 @@
           "bin": "%target-dir%/phpcov"
         }
       },
-      "test": "phpcov"
+      "test": "phpcov -v"
     },
     {
       "name": "phpcpd",
@@ -376,7 +376,7 @@
           "bin": "%target-dir%/phpcpd"
         }
       },
-      "test": "phpcpd -V",
+      "test": "phpcpd -v",
       "tags": ["featured", "exclude-php:7.2"]
     },
     {
@@ -453,7 +453,7 @@
           "bin": "%target-dir%/phploc"
         }
       },
-      "test": "phploc -V"
+      "test": "phploc -v"
     },
     {
       "name": "phpmd",

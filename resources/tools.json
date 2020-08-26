@@ -133,11 +133,11 @@
       "website": "https://infection.github.io/",
       "command": {
         "file-download": {
-          "url": "https://github.com/infection/infection/releases/download/0.17.2/infection.phar.asc",
+          "url": "https://github.com/infection/infection/releases/download/0.17.3/infection.phar.asc",
           "file": "%target-dir%/infection.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/infection/infection/releases/download/0.17.2/infection.phar",
+          "phar": "https://github.com/infection/infection/releases/download/0.17.3/infection.phar",
           "bin": "%target-dir%/infection"
         }
       },
@@ -163,7 +163,7 @@
       "website": "https://github.com/paratestphp/paratest",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/paratestphp/paratest/releases/download/4.2.0/paratest.phar",
+          "phar": "https://github.com/paratestphp/paratest/releases/download/5.0.2/paratest.phar",
           "bin": "%target-dir%/paratest"
         }
       },
@@ -189,7 +189,7 @@
       "website": "https://github.com/phan/phan",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phan/phan/releases/download/3.1.1/phan.phar",
+          "phar": "https://github.com/phan/phan/releases/download/3.2.0/phan.phar",
           "bin": "%target-dir%/phan"
         }
       },

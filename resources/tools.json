@@ -163,7 +163,7 @@
       "website": "https://github.com/paratestphp/paratest",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/paratestphp/paratest/releases/download/5.0.2/paratest.phar",
+          "phar": "https://github.com/paratestphp/paratest/releases/download/5.0.4/paratest.phar",
           "bin": "%target-dir%/paratest"
         }
       },

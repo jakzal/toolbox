@@ -57,7 +57,7 @@
       "website": "https://github.com/icanhazstring/composer-unused",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/composer-unused/composer-unused/releases/download/0.7.3/composer-unused.phar",
+          "phar": "https://github.com/composer-unused/composer-unused/releases/download/0.7.4/composer-unused.phar",
           "bin": "%target-dir%/composer-unused"
         }
       },
@@ -685,11 +685,11 @@
       "website": "https://psalm.dev/",
       "command": {
         "file-download": {
-          "url": "https://github.com/vimeo/psalm/releases/download/3.15/psalm.phar.asc",
+          "url": "https://github.com/vimeo/psalm/releases/download/3.16/psalm.phar.asc",
           "file": "%target-dir%/psalm.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/vimeo/psalm/releases/download/3.15/psalm.phar",
+          "phar": "https://github.com/vimeo/psalm/releases/download/3.16/psalm.phar",
           "bin": "%target-dir%/psalm"
         }
       },

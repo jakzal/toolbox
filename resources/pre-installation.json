@@ -6,7 +6,7 @@
       "website": "https://getcomposer.org/",
       "command": {
         "sh": {
-          "command": "composer self-update"
+          "command": "composer self-update --preview"
         }
       },
       "test": "composer list",

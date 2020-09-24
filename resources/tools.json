@@ -463,7 +463,7 @@
       "website": "https://phpmd.org/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpmd/phpmd/releases/download/2.9.0/phpmd.phar",
+          "phar": "https://github.com/phpmd/phpmd/releases/download/2.9.1/phpmd.phar",
           "bin": "%target-dir%/phpmd"
         }
       },

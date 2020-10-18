@@ -4,6 +4,7 @@ namespace Zalas\Toolbox\Tests\Runner;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Runner\ParametrisedRunner;
 use Zalas\Toolbox\Runner\Runner;
@@ -11,6 +12,8 @@ use Zalas\Toolbox\Tool\Command;
 
 class ParametrisedRunnerTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @var ParametrisedRunner
      */

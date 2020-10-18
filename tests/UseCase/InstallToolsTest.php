@@ -4,6 +4,7 @@ namespace Zalas\Toolbox\Tests\UseCase;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
@@ -21,6 +22,8 @@ use Zalas\Toolbox\UseCase\InstallTools;
 
 class InstallToolsTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @var InstallTools
      */
@@ -57,7 +60,7 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertRegExp('#composer global require .* phpstan/phpstan phan/phan#', (string)$command);
+        $this->assertMatchesRegularExpression('#composer global require .* phpstan/phpstan phan/phan#', (string)$command);
     }
 
     public function test_it_does_not_include_empty_commands()
@@ -68,8 +71,8 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertNotRegExp('#composer global require#', (string)$command, 'Composer commands are not grouped if there is none.');
-        $this->assertNotRegExp('#&&\s*$#', (string)$command, 'Empty commands are not included.');
+        $this->assertDoesNotMatchRegularExpression('#composer global require#', (string)$command, 'Composer commands are not grouped if there is none.');
+        $this->assertDoesNotMatchRegularExpression('#&&\s*$#', (string)$command, 'Empty commands are not included.');
     }
 
     public function test_it_groups_composer_bin_plugin_commands()
@@ -81,7 +84,7 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertRegExp('#composer global bin tools require .* phpstan/phpstan phan/phan#', (string)$command);
+        $this->assertMatchesRegularExpression('#composer global bin tools require .* phpstan/phpstan phan/phan#', (string)$command);
     }
 
     public function test_it_includes_installation_tagged_commands_before_other_ones()
@@ -93,8 +96,8 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertRegExp('#echo "Installation".*echo "Foo"#smi', (string)$command, 'Installation commands are included before other ones.');
-        $this->assertNotRegExp('#echo "Installation".*echo "Installation"#smi', (string)$command, 'Installation commands are not duplicated.');
+        $this->assertMatchesRegularExpression('#echo "Installation".*echo "Foo"#smi', (string)$command, 'Installation commands are included before other ones.');
+        $this->assertDoesNotMatchRegularExpression('#echo "Installation".*echo "Installation"#smi', (string)$command, 'Installation commands are not duplicated.');
     }
 
     public function test_it_includes_shell_commands()
@@ -105,7 +108,7 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertRegExp('#echo "Foo"#', (string)$command);
+        $this->assertMatchesRegularExpression('#echo "Foo"#', (string)$command);
     }
 
     public function test_it_includes_multi_step_commands()
@@ -119,7 +122,7 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertRegExp('#echo "Foo" && echo "Bar"#', (string)$command);
+        $this->assertMatchesRegularExpression('#echo "Foo" && echo "Bar"#', (string)$command);
     }
 
     public function test_it_includes_composer_install_commands()
@@ -130,7 +133,7 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertRegExp('#git clone git@github.com:phpspec/phpspec.git#', (string)$command);
+        $this->assertMatchesRegularExpression('#git clone git@github.com:phpspec/phpspec.git#', (string)$command);
     }
 
     public function test_it_includes_box_build_commands()
@@ -141,7 +144,7 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertRegExp('#box-legacy build#', (string)$command);
+        $this->assertMatchesRegularExpression('#box-legacy build#', (string)$command);
     }
 
     public function test_it_includes_phar_download_commands()
@@ -152,7 +155,7 @@ class InstallToolsTest extends TestCase
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertRegExp('#curl[^&]*?deptrac-0.2.0.phar#', (string)$command);
+        $this->assertMatchesRegularExpression('#curl[^&]*?deptrac-0.2.0.phar#', (string)$command);
     }
 
     private function filter(): Filter

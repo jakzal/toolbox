@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.0/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.0/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTodoAnnotatedTests="true"
@@ -25,9 +25,9 @@
         </whitelist>
     </filter>
 
-    <listeners>
-        <listener class="Zalas\PHPUnit\Globals\AnnotationListener" />
-    </listeners>
+    <extensions>
+        <extension class="Zalas\PHPUnit\Globals\AnnotationExtension" />
+    </extensions>
 
     <logging>
         <log type="coverage-html" target="build/coverage" lowUpperBound="50" highLowerBound="95"/>

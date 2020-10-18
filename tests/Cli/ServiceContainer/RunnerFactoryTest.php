@@ -3,6 +3,7 @@
 namespace Zalas\Toolbox\Tests\Cli\ServiceContainer;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -16,6 +17,8 @@ use Zalas\Toolbox\Tool\Command;
 
 class RunnerFactoryTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @var ContainerInterface|ObjectProphecy
      */

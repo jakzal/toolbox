@@ -21,7 +21,7 @@ class ComposerInstallCommandFactoryTest extends TestCase
         ]);
 
         $this->assertInstanceOf(ComposerInstallCommand::class, $command);
-        $this->assertRegExp('#git checkout '.self::VERSION.'#', (string) $command);
+        $this->assertMatchesRegularExpression('#git checkout '.self::VERSION.'#', (string) $command);
     }
 
     /**

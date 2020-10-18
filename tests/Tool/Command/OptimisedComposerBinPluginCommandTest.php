@@ -27,7 +27,7 @@ class OptimisedComposerBinPluginCommandTest extends TestCase
 
         $command = new OptimisedComposerBinPluginCommand(Collection::create($commands));
 
-        $this->assertRegExp('#composer global bin phpstan require .*? phpstan/phpstan && composer global bin tools require .*? phan/phan behat/behat#', (string) $command);
+        $this->assertMatchesRegularExpression('#composer global bin phpstan require .*? phpstan/phpstan && composer global bin tools require .*? phan/phan behat/behat#', (string) $command);
     }
 
     public function test_it_throws_an_exception_if_there_is_no_commands()
@@ -66,12 +66,12 @@ class OptimisedComposerBinPluginCommandTest extends TestCase
 
         $command = new OptimisedComposerBinPluginCommand(Collection::create($commands));
 
-        $this->assertRegExp('#composer global bin phpstan require .*? phpstan/phpstan && composer global bin tools require .*? phan/phan behat/behat#', (string) $command);
-        $this->assertRegExp('# && ln -sf.*?phpstan /tools/phpstan#', (string) $command);
-        $this->assertRegExp('# && ln -sf.*?phpstan /other/path/phpstan#', (string) $command);
-        $this->assertRegExp('# && ln -sf.*?phan /tools/phan#', (string) $command);
-        $this->assertRegExp('# && ln -sf.*?behat /tools/behat#', (string) $command);
-        $this->assertNotRegExp('#&&\s*&&#', (string) $command, 'It does not generate empty commands');
+        $this->assertMatchesRegularExpression('#composer global bin phpstan require .*? phpstan/phpstan && composer global bin tools require .*? phan/phan behat/behat#', (string) $command);
+        $this->assertMatchesRegularExpression('# && ln -sf.*?phpstan /tools/phpstan#', (string) $command);
+        $this->assertMatchesRegularExpression('# && ln -sf.*?phpstan /other/path/phpstan#', (string) $command);
+        $this->assertMatchesRegularExpression('# && ln -sf.*?phan /tools/phan#', (string) $command);
+        $this->assertMatchesRegularExpression('# && ln -sf.*?behat /tools/behat#', (string) $command);
+        $this->assertDoesNotMatchRegularExpression('#&&\s*&&#', (string) $command, 'It does not generate empty commands');
     }
 
     public function test_it_does_not_create_links_if_commands_have_no_links_defined()
@@ -84,7 +84,7 @@ class OptimisedComposerBinPluginCommandTest extends TestCase
 
         $command = new OptimisedComposerBinPluginCommand(Collection::create($commands));
 
-        $this->assertNotRegExp('#ln -s#', (string) $command);
-        $this->assertNotRegExp('#&&\s*&&#', (string) $command, 'It does not generate empty commands');
+        $this->assertDoesNotMatchRegularExpression('#ln -s#', (string) $command);
+        $this->assertDoesNotMatchRegularExpression('#&&\s*&&#', (string) $command, 'It does not generate empty commands');
     }
 }

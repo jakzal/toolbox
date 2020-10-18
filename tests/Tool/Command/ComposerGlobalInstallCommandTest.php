@@ -32,6 +32,6 @@ class ComposerGlobalInstallCommandTest extends TestCase
 
     public function test_it_generates_the_installation_command()
     {
-        $this->assertRegExp('#composer global require .*? phan/phan#', (string) $this->command);
+        $this->assertMatchesRegularExpression('#composer global require .*? phan/phan#', (string) $this->command);
     }
 }

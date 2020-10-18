@@ -23,15 +23,15 @@ class ComposerInstallCommandTest extends TestCase
     {
         $command = new ComposerInstallCommand(self::REPOSITORY, self::TARGET_DIR, self::VERSION);
 
-        $this->assertRegExp('#git clone '.self::REPOSITORY.'#', (string) $command);
-        $this->assertRegExp('#git checkout '.self::VERSION.'#', (string) $command);
-        $this->assertRegExp('#composer install --no-dev --no-suggest --prefer-dist -n#', (string) $command);
+        $this->assertMatchesRegularExpression('#git clone '.self::REPOSITORY.'#', (string) $command);
+        $this->assertMatchesRegularExpression('#git checkout '.self::VERSION.'#', (string) $command);
+        $this->assertMatchesRegularExpression('#composer install --no-dev --no-suggest --prefer-dist -n#', (string) $command);
     }
 
     public function test_it_tries_to_guess_version_number_if_not_given_one()
     {
         $command = new ComposerInstallCommand(self::REPOSITORY, self::TARGET_DIR);
 
-        $this->assertRegExp('#git checkout \$\(git describe --tags .*?\)#', (string) $command);
+        $this->assertMatchesRegularExpression('#git checkout \$\(git describe --tags .*?\)#', (string) $command);
     }
 }

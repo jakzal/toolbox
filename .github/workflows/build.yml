@@ -15,10 +15,10 @@ jobs:
         name: Build and test
         strategy:
             matrix:
-                php: [7.2, 7.3, 7.4, 8.0]
+                php: [7.3, 7.4, 8.0]
                 deps: [high]
                 include:
-                    -   php: 7.2
+                    -   php: 7.3
                         deps: low
 
         steps:
@@ -39,13 +39,13 @@ jobs:
                 run: make update-min test-min
 
             -   uses: actions/upload-artifact@v1
-                if: matrix.php == '7.2' && matrix.deps == 'high'
+                if: matrix.php == '7.3' && matrix.deps == 'high'
                 with:
                     name: toolbox.phar
                     path: build/toolbox.phar
 
             -   uses: actions/upload-artifact@v1
-                if: matrix.php == '7.2' && matrix.deps == 'high'
+                if: matrix.php == '7.3' && matrix.deps == 'high'
                 with:
                     name: devkit.phar
                     path: build/devkit.phar
@@ -56,7 +56,7 @@ jobs:
         needs: tests
         strategy:
             matrix:
-                php: [7.2, 7.3, 7.4, 8.0]
+                php: [7.3, 7.4, 8.0]
 
         steps:
             -   uses: actions/checkout@v2

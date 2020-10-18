@@ -29,6 +29,6 @@ final class ComposerBinPluginLinkCommandTest extends TestCase
 
     public function test_it_generates_a_symlink_command()
     {
-        $this->assertRegExp('#ln -sf \$\{COMPOSER_HOME:-"~/.composer"\}/vendor-bin/tools/vendor/bin/churn /tools/churn#', (string) $this->command);
+        $this->assertMatchesRegularExpression('#ln -sf \$\{COMPOSER_HOME:-"~/.composer"\}/vendor-bin/tools/vendor/bin/churn /tools/churn#', (string) $this->command);
     }
 }

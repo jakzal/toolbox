@@ -694,7 +694,7 @@
         }
       },
       "test": "psalm -h",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:7.2"]
     },
     {
       "name": "doctrine-psalm-plugin",

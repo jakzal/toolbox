@@ -28,7 +28,7 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: "${{ matrix.php }}"
-                    tools: flex
+                    tools: flex, composer:v1
                     ini-values: "phar.readonly=0"
 
             -   if: matrix.deps == 'high'
@@ -64,7 +64,7 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: "${{ matrix.php }}"
-                    tools: flex
+                    tools: flex, composer:v1
                     ini-values: "phar.readonly=0"
 
             -   uses: actions/download-artifact@v1

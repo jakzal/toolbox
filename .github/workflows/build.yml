@@ -30,6 +30,7 @@ jobs:
                     php-version: "${{ matrix.php }}"
                     tools: flex, composer:v1
                     ini-values: "phar.readonly=0"
+                    coverage: none
 
             -   if: matrix.deps == 'high'
                 run: make install test package package-devkit
@@ -66,6 +67,7 @@ jobs:
                     php-version: "${{ matrix.php }}"
                     tools: flex, composer:v1
                     ini-values: "phar.readonly=0"
+                    coverage: none
 
             -   uses: actions/download-artifact@v1
                 with:

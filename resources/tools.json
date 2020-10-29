@@ -57,7 +57,7 @@
       "website": "https://github.com/icanhazstring/composer-unused",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/composer-unused/composer-unused/releases/download/0.7.4/composer-unused.phar",
+          "phar": "https://github.com/composer-unused/composer-unused/releases/download/0.7.5/composer-unused.phar",
           "bin": "%target-dir%/composer-unused"
         }
       },
@@ -501,7 +501,7 @@
       "website": "http://www.phpspec.net/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpspec/phpspec/releases/download/6.2.0/phpspec.phar",
+          "phar": "https://github.com/phpspec/phpspec/releases/download/6.2.2/phpspec.phar",
           "bin": "%target-dir%/phpspec"
         }
       },

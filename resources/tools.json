@@ -94,7 +94,7 @@
       "website": "https://github.com/sensiolabs-de/deptrac",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/sensiolabs-de/deptrac/releases/download/0.8.2/deptrac.phar",
+          "phar": "https://github.com/sensiolabs-de/deptrac/releases/download/0.9.0/deptrac.phar",
           "bin": "%target-dir%/deptrac"
         }
       },
@@ -133,16 +133,16 @@
       "website": "https://infection.github.io/",
       "command": {
         "file-download": {
-          "url": "https://github.com/infection/infection/releases/download/0.18.2/infection.phar.asc",
+          "url": "https://github.com/infection/infection/releases/download/0.20.0/infection.phar.asc",
           "file": "%target-dir%/infection.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/infection/infection/releases/download/0.18.2/infection.phar",
+          "phar": "https://github.com/infection/infection/releases/download/0.20.0/infection.phar",
           "bin": "%target-dir%/infection"
         }
       },
       "test": "infection --version",
-      "tags": ["featured", "exclude-php:7.2"]
+      "tags": ["featured", "exclude-php:7.2", "exclude-php:7.3"]
     },
     {
       "name": "parallel-lint",
@@ -254,7 +254,7 @@
       "website": "https://www.phpdoc.org/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpDocumentor/phpDocumentor/releases/download/v2.9.1/phpDocumentor.phar",
+          "phar": "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.0.0/phpDocumentor.phar",
           "bin": "%target-dir%/phpDocumentor"
         }
       },
@@ -501,7 +501,7 @@
       "website": "http://www.phpspec.net/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpspec/phpspec/releases/download/6.2.2/phpspec.phar",
+          "phar": "https://github.com/phpspec/phpspec/releases/download/6.3.0/phpspec.phar",
           "bin": "%target-dir%/phpspec"
         }
       },
@@ -685,11 +685,11 @@
       "website": "https://psalm.dev/",
       "command": {
         "file-download": {
-          "url": "https://github.com/vimeo/psalm/releases/download/3.18.2/psalm.phar.asc",
+          "url": "https://github.com/vimeo/psalm/releases/download/4.1.1/psalm.phar.asc",
           "file": "%target-dir%/psalm.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/vimeo/psalm/releases/download/3.18.2/psalm.phar",
+          "phar": "https://github.com/vimeo/psalm/releases/download/4.1.1/psalm.phar",
           "bin": "%target-dir%/psalm"
         }
       },
@@ -794,7 +794,7 @@
       "website": "https://github.com/friendsoftwig/twigcs",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/friendsoftwig/twigcs/releases/download/v3.2.2/twigcs.phar",
+          "phar": "https://github.com/friendsoftwig/twigcs/releases/download/v4.0.0/twigcs.phar",
           "bin": "%target-dir%/twigcs"
         }
       },

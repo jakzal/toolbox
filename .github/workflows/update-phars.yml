@@ -14,7 +14,6 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: "7.4"
-                    tools: flex
                     ini-values: "phar.readonly=0"
 
             -   name: Configure git

@@ -33,7 +33,7 @@ jobs:
                     coverage: none
 
             -   if: matrix.deps == 'high'
-                run: make install test package package-devkit
+                run: make update test package package-devkit
 
             -   if: matrix.deps == 'low'
                 run: make update-min test-min

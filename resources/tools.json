@@ -506,7 +506,7 @@
         }
       },
       "test": "phpspec --version",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:7.2"]
     },
     {
       "name": "phpstan",

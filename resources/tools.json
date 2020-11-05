@@ -133,11 +133,11 @@
       "website": "https://infection.github.io/",
       "command": {
         "file-download": {
-          "url": "https://github.com/infection/infection/releases/download/0.20.0/infection.phar.asc",
+          "url": "https://github.com/infection/infection/releases/download/0.20.1/infection.phar.asc",
           "file": "%target-dir%/infection.phar.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/infection/infection/releases/download/0.20.0/infection.phar",
+          "phar": "https://github.com/infection/infection/releases/download/0.20.1/infection.phar",
           "bin": "%target-dir%/infection"
         }
       },
@@ -501,7 +501,7 @@
       "website": "http://www.phpspec.net/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpspec/phpspec/releases/download/6.3.0/phpspec.phar",
+          "phar": "https://github.com/phpspec/phpspec/releases/download/7.0.0/phpspec.phar",
           "bin": "%target-dir%/phpspec"
         }
       },

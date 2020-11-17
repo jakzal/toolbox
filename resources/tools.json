@@ -17,9 +17,8 @@
       "summary": "Helps to test business expectations",
       "website": "http://behat.org/",
       "command": {
-        "box-build": {
-          "repository": "https://github.com/behat/behat.git",
-          "phar": "behat.phar",
+        "phar-download": {
+          "phar": "https://github.com/Behat/Behat/releases/download/v3.8.1/behat.phar",
           "bin": "%target-dir%/behat"
         }
       },

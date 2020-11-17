@@ -17,8 +17,6 @@ jobs:
                     tools: flex
                     ini-values: "phar.readonly=0"
 
-            -   uses: geertvdc/setup-hub@master
-
             -   name: Configure git
                 run: git config user.email 'jakub@zalas.pl' && git config user.name 'Jakub Zalas'
 

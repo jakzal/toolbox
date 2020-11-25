@@ -28,12 +28,12 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: "${{ matrix.php }}"
-                    tools: flex, composer:v1
+                    tools: composer
                     ini-values: "phar.readonly=0"
                     coverage: none
 
             -   if: matrix.deps == 'high'
-                run: make install test package package-devkit
+                run: make update test package package-devkit
 
             -   if: matrix.deps == 'low'
                 run: make update-min test-min
@@ -65,7 +65,7 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: "${{ matrix.php }}"
-                    tools: flex, composer:v1
+                    tools: composer
                     ini-values: "phar.readonly=0"
                     coverage: none
 

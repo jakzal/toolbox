@@ -39,11 +39,11 @@ test-integration: build/toolbox.phar
 .PHONY: test-integration
 
 cs: tools/php-cs-fixer
-	tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
+	php -r 'exit((int)version_compare(PHP_VERSION, "8.0", "<"));' || tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
 .PHONY: cs
 
 cs-fix: tools/php-cs-fixer
-	tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
+	php -r 'exit((int)version_compare(PHP_VERSION, "8.0", "<"));' || tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
 .PHONY: cs-fix
 
 deptrac: tools/deptrac

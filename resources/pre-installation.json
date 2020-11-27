@@ -38,7 +38,7 @@
         }
       },
       "test": "box list",
-      "tags": ["pre-installation"]
+      "tags": ["pre-installation", "exclude-php:8.0"]
     },
     {
       "name": "box-legacy",

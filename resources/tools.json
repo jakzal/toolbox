@@ -300,7 +300,8 @@
           "links": {"%target-dir%/phpat": "phpat"}
         }
       },
-      "test": "which phpat"
+      "test": "which phpat",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpca",

@@ -755,7 +755,7 @@
         }
       },
       "test": "roave-backward-compatibility-check --version",
-      "tags": ["exclude-php:7.3"]
+      "tags": ["exclude-php:7.3", "exclude-php:8.0"]
     },
     {
       "name": "security-checker",

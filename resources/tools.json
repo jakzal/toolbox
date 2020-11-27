@@ -123,7 +123,8 @@
           "links": {"%target-dir%/ecs": "ecs", "%target-dir%/ecs.phar": "ecs.phar"}
         }
       },
-      "test": "ecs -h", "tags":["ecs"]
+      "test": "ecs -h",
+      "tags": ["ecs", "exclude-php:8.0"]
     },
     {
       "name": "infection",

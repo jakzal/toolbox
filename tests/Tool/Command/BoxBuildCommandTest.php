@@ -27,7 +27,7 @@ class BoxBuildCommandTest extends TestCase
             self::TMP_DIR,
             self::VERSION
         );
-        
+
         $this->assertInstanceOf(Command::class, $command);
     }
 
@@ -40,12 +40,12 @@ class BoxBuildCommandTest extends TestCase
             self::TMP_DIR,
             self::VERSION
         );
-        
-        $this->assertRegExp('#git clone '.self::REPOSITORY.'#', (string) $command);
-        $this->assertRegExp('#cd /tools/behat#', (string) $command);
-        $this->assertRegExp('#git checkout '.self::VERSION.'#', (string) $command);
-        $this->assertRegExp('#composer install --no-dev --no-suggest --prefer-dist -n#', (string) $command);
-        $this->assertRegExp('#box-legacy build#', (string) $command);
+
+        $this->assertMatchesRegularExpression('#git clone '.self::REPOSITORY.'#', (string) $command);
+        $this->assertMatchesRegularExpression('#cd /tools/behat#', (string) $command);
+        $this->assertMatchesRegularExpression('#git checkout '.self::VERSION.'#', (string) $command);
+        $this->assertMatchesRegularExpression('#composer install --no-dev --no-suggest --prefer-dist -n#', (string) $command);
+        $this->assertMatchesRegularExpression('#box-legacy build#', (string) $command);
     }
 
     public function test_it_tries_to_guess_version_number_if_not_given_one()
@@ -57,7 +57,7 @@ class BoxBuildCommandTest extends TestCase
             self::TMP_DIR
         );
 
-        $this->assertRegExp('#git checkout \$\(git describe --tags .*?\)#', (string) $command);
+        $this->assertMatchesRegularExpression('#git checkout \$\(git describe --tags .*?\)#', (string) $command);
     }
 
     public function test_it_uses_a_generic_directory_if_name_cannot_be_guessed_from_the_repository()
@@ -69,6 +69,6 @@ class BoxBuildCommandTest extends TestCase
             self::TMP_DIR
         );
 
-        $this->assertRegExp('#cd /tools/tmp#', (string) $command);
+        $this->assertMatchesRegularExpression('#cd /tools/tmp#', (string) $command);
     }
 }

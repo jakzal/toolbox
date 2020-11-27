@@ -3,6 +3,7 @@
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Tool\Collection;
@@ -12,6 +13,8 @@ use Zalas\Toolbox\UseCase\ListTools;
 
 class ListCommandTest extends ToolboxCommandTestCase
 {
+    use ProphecyTrait;
+
     protected const CLI_COMMAND_NAME = ListCommand::NAME;
 
     /**
@@ -35,8 +38,8 @@ class ListCommandTest extends ToolboxCommandTestCase
         $tester = $this->executeCliCommand();
 
         $this->assertSame(0, $tester->getStatusCode());
-        $this->assertRegExp('#Available tools#i', $tester->getDisplay());
-        $this->assertRegExp('#Behat.*?Tests business expectations.*?http://behat.org#smi', $tester->getDisplay());
+        $this->assertMatchesRegularExpression('#Available tools#i', $tester->getDisplay());
+        $this->assertMatchesRegularExpression('#Behat.*?Tests business expectations.*?http://behat.org#smi', $tester->getDisplay());
     }
 
     public function test_it_filters_by_tags()

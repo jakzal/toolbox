@@ -4,12 +4,15 @@ declare(strict_types=1);
 namespace Zalas\Toolbox\Tests\Tool;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use TypeError;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Tool;
 
 class ToolTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function test_it_exposes_its_properties()
     {
         $command = $this->prophesize(Command::class)->reveal();

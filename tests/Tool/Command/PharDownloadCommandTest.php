@@ -28,6 +28,6 @@ class PharDownloadCommandTest extends TestCase
 
     public function test_it_generates_the_installation_command()
     {
-        $this->assertRegExp(\sprintf('#curl .*? %s -o %s#', self::PHAR, self::BIN), (string) $this->command);
+        $this->assertMatchesRegularExpression(\sprintf('#curl .*? %s -o %s#', self::PHAR, self::BIN), (string) $this->command);
     }
 }

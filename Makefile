@@ -2,6 +2,7 @@ default: build
 
 PHP_VERSION:=$(shell php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
 TOOLBOX_VERSION?=dev
+IS_PHP8:=$(shell php -r 'echo (int)version_compare(PHP_VERSION, "8.0", ">=");')
 
 build: install test
 .PHONY: build
@@ -38,20 +39,29 @@ test-integration: build/toolbox.phar
 	  build/toolbox.phar test --target-dir ./build/tools --exclude-tag exclude-php:$(PHP_VERSION)
 .PHONY: test-integration
 
+ifeq ($(IS_PHP8),1)
+cs:
+	@echo $(IS_PHP8)
+else
 cs: tools/php-cs-fixer
 	tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
+endif
 .PHONY: cs
 
+ifeq ($(IS_PHP8),1)
+cs-fix:
+else
 cs-fix: tools/php-cs-fixer
 	tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
+endif
 .PHONY: cs-fix
 
 deptrac: tools/deptrac
 	tools/deptrac --no-interaction --ansi --formatter-graphviz-display=0
 .PHONY: deptrac
 
-infection: tools/infection tools/infection.pubkey
-	phpdbg -qrr ./tools/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
+infection:
+	phpdbg -qrr ./vendor/bin/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
 .PHONY: infection
 
 phpunit: tools/phpunit
@@ -62,6 +72,9 @@ phpunit-coverage: tools/phpunit
 	phpdbg -qrr tools/phpunit
 .PHONY: phpunit
 
+ifeq ($(IS_PHP8),1)
+package:
+else
 package: tools/box
 	@rm -rf build/phar && mkdir -p build/phar build/phar/bin
 
@@ -69,14 +82,18 @@ package: tools/box
 	sed -e 's/Application('"'"'dev/Application('"'"'$(TOOLBOX_VERSION)/g' bin/toolbox.php > build/phar/bin/toolbox.php
 
 	cd build/phar && \
-	  composer config platform.php 7.2 && \
+	  composer config platform.php 7.3 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile
 
 	@rm -rf build/phar
+endif
 .PHONY: package
 
+ifeq ($(IS_PHP8),1)
+package-devkit:
+else
 package-devkit: tools/box
 	@rm -rf build/devkit-phar && mkdir -p build/devkit-phar build/devkit-phar/bin build/devkit-phar/src
 
@@ -85,12 +102,13 @@ package-devkit: tools/box
 	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(TOOLBOX_VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
 
 	cd build/devkit-phar && \
-	  composer config platform.php 7.2 && \
+	  composer config platform.php 7.3 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile -c box-devkit.json.dist
 
 	@rm -rf build/devkit-phar
+endif
 .PHONY: package-devkit
 
 website: build/devkit.phar
@@ -119,7 +137,7 @@ update-phars: vendor
 	 	  )
 .PHONY: update-phars
 
-tools: tools/php-cs-fixer tools/deptrac tools/infection tools/box
+tools: tools/php-cs-fixer tools/deptrac tools/box
 .PHONY: tools
 
 clean:
@@ -139,13 +157,7 @@ tools/php-cs-fixer:
 	curl -Ls http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
 
 tools/deptrac:
-	curl -Ls https://github.com/sensiolabs-de/deptrac/releases/download/0.6.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
-
-tools/infection: tools/infection.pubkey
-	curl -Ls https://github.com/infection/infection/releases/download/0.13.2/infection.phar -o tools/infection && chmod +x tools/infection
-
-tools/infection.pubkey:
-	curl -Ls https://github.com/infection/infection/releases/download/0.13.2/infection.phar.pubkey -o tools/infection.pubkey
+	curl -Ls https://github.com/sensiolabs-de/deptrac/releases/download/0.10.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
 
 tools/box:
 	curl -Ls https://github.com/humbug/box/releases/download/3.9.1/box.phar -o tools/box && chmod +x tools/box

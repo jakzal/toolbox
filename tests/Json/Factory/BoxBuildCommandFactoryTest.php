@@ -26,7 +26,7 @@ class BoxBuildCommandFactoryTest extends TestCase
         ]);
 
         $this->assertInstanceOf(BoxBuildCommand::class, $command);
-        $this->assertRegExp('#git checkout '.self::VERSION.'#', (string) $command);
+        $this->assertMatchesRegularExpression('#git checkout '.self::VERSION.'#', (string) $command);
     }
 
     public function test_the_version_is_not_required()

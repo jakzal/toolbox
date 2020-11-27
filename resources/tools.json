@@ -10,7 +10,8 @@
           "target-dir": "%target-dir%/QualityAnalyzer"
         }
       },
-      "test": "analyze list"
+      "test": "analyze list",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "behat",
@@ -60,8 +61,7 @@
           "bin": "%target-dir%/composer-unused"
         }
       },
-      "test": "composer-unused -vvv | grep 'Your system is ready'",
-      "tags": ["exclude-php:7.2"]
+      "test": "composer-unused -vvv | grep 'Your system is ready'"
     },
     {
       "name": "dephpend",
@@ -111,7 +111,8 @@
           "links": {"%target-dir%/diffFilter": "diffFilter"}
         }
       },
-      "test": "diffFilter -v"
+      "test": "diffFilter -v",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "ecs",
@@ -124,7 +125,8 @@
           "links": {"%target-dir%/ecs": "ecs", "%target-dir%/ecs.phar": "ecs.phar"}
         }
       },
-      "test": "ecs -h", "tags":["ecs"]
+      "test": "ecs -h",
+      "tags": ["ecs", "exclude-php:8.0"]
     },
     {
       "name": "infection",
@@ -141,7 +143,7 @@
         }
       },
       "test": "infection --version",
-      "tags": ["featured", "exclude-php:7.2", "exclude-php:7.3"]
+      "tags": ["featured", "exclude-php:7.3"]
     },
     {
       "name": "parallel-lint",
@@ -154,7 +156,8 @@
           "bin": "%target-dir%/parallel-lint"
         }
       },
-      "test": "parallel-lint -h"
+      "test": "parallel-lint -h",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "paratest",
@@ -167,7 +170,7 @@
         }
       },
       "test": "paratest --version",
-      "tags": ["exclude-php:7.2"]
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "pdepend",
@@ -206,7 +209,8 @@
           "links": {"%target-dir%/php-coupling-detector": "php-coupling-detector"}
         }
       },
-      "test": "php-coupling-detector list"
+      "test": "php-coupling-detector list",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "php-cs-fixer",
@@ -219,7 +223,7 @@
         }
       },
       "test": "php-cs-fixer list",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:8.0"]
     },
     {
       "name": "php-formatter",
@@ -233,7 +237,8 @@
           "version": "1fa3d9a3e1c67654f3fe2511bd28fa7c33b59d7e"
         }
       },
-      "test": "php-formatter list"
+      "test": "php-formatter list",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "php-semver-checker",
@@ -258,7 +263,7 @@
         }
       },
       "test": "phpDocumentor list",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:8.0"]
     },
     {
       "name": "phpbench",
@@ -301,7 +306,8 @@
           "links": {"%target-dir%/phpat": "phpat"}
         }
       },
-      "test": "which phpat"
+      "test": "which phpat",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpca",
@@ -363,8 +369,7 @@
           "bin": "%target-dir%/phpcov"
         }
       },
-      "test": "phpcov -v",
-      "tags": ["exclude-php:7.2"]
+      "test": "phpcov -v"
     },
     {
       "name": "phpcpd",
@@ -377,7 +382,7 @@
         }
       },
       "test": "phpcpd -v",
-      "tags": ["featured", "exclude-php:7.2"]
+      "tags": ["featured"]
     },
     {
       "name": "phpcs",
@@ -403,7 +408,7 @@
         }
       },
       "test": "phpda list",
-      "tags": ["featured", "exclude-php:7.2"]
+      "tags": ["featured"]
     },
     {
       "name": "phpdoc-to-typehint",
@@ -428,7 +433,8 @@
           "links": {"%target-dir%/phpinsights": "phpinsights"}
         }
       },
-      "test": "phpinsights --version"
+      "test": "phpinsights --version",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phplint",
@@ -453,8 +459,7 @@
           "bin": "%target-dir%/phploc"
         }
       },
-      "test": "phploc -v",
-      "tags": ["exclude-php:7.2"]
+      "test": "phploc -v"
     },
     {
       "name": "phpmd",
@@ -492,7 +497,8 @@
           "links": {"%target-dir%/phpmnd": "phpmnd"}
         }
       },
-      "test": "phpmnd -V"
+      "test": "phpmnd -V",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpspec",
@@ -505,7 +511,7 @@
         }
       },
       "test": "phpspec --version",
-      "tags": ["featured", "exclude-php:7.2"]
+      "tags": ["featured"]
     },
     {
       "name": "phpstan",
@@ -640,7 +646,7 @@
         }
       },
       "test": "phpunit --version",
-      "tags": ["featured", "exclude-php:7.2"]
+      "tags": ["featured"]
     },
     {
       "name": "phpunit-8",
@@ -664,7 +670,8 @@
           "bin": "%target-dir%/phpunit-7"
         }
       },
-      "test": "phpunit-7 --version"
+      "test": "phpunit-7 --version",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpunit-5",
@@ -676,7 +683,8 @@
           "bin": "%target-dir%/phpunit-5"
         }
       },
-      "test": "phpunit-5 --version"
+      "test": "phpunit-5 --version",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "psalm",
@@ -705,7 +713,8 @@
           "namespace": "doctrine-psalm-plugin"
         }
       },
-      "test": "composer global bin doctrine-psalm-plugin show weirdan/doctrine-psalm-plugin"
+      "test": "composer global bin doctrine-psalm-plugin show weirdan/doctrine-psalm-plugin",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "psecio-parse",
@@ -731,7 +740,8 @@
           "links": {"%target-dir%/rector": "rector"}
         }
       },
-      "test": "rector --version"
+      "test": "rector --version",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "roave-backward-compatibility-check",
@@ -744,7 +754,7 @@
         }
       },
       "test": "roave-backward-compatibility-check --version",
-      "tags": ["exclude-php:7.2", "exclude-php:7.3"]
+      "tags": ["exclude-php:7.3", "exclude-php:8.0"]
     },
     {
       "name": "security-checker",

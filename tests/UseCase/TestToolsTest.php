@@ -3,6 +3,7 @@
 namespace Zalas\Toolbox\Tests\UseCase;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Filter;
@@ -12,6 +13,8 @@ use Zalas\Toolbox\UseCase\TestTools;
 
 class TestToolsTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function test_it_returns_test_aggregated_test_command()
     {
         $testCommands = [

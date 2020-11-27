@@ -19,7 +19,7 @@ class JsonToolsTest extends TestCase
     public function test_it_throws_an_exception_if_resource_is_missing()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessageRegExp('/Could not read the file/');
+        $this->expectExceptionMessageMatches('/Could not read the file/');
 
         $tools = new JsonTools($this->locator(['/foo/tools.json']));
         $tools->all($this->filter());
@@ -28,7 +28,7 @@ class JsonToolsTest extends TestCase
     public function test_it_throws_an_exception_if_resource_contains_invalid_json()
     {
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessageRegExp('/Failed to parse json/');
+        $this->expectExceptionMessageMatches('/Failed to parse json/');
 
         $tools = new JsonTools($this->locator([__DIR__.'/../resources/invalid.json']));
         $tools->all($this->filter());
@@ -37,7 +37,7 @@ class JsonToolsTest extends TestCase
     public function test_it_throws_an_exception_if_tools_are_not_present_in_the_resource()
     {
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessageRegExp('/Failed to find any tools/');
+        $this->expectExceptionMessageMatches('/Failed to find any tools/');
 
         $tools = new JsonTools($this->locator([__DIR__.'/../resources/no-tools.json']));
         $tools->all($this->filter());
@@ -46,7 +46,7 @@ class JsonToolsTest extends TestCase
     public function test_it_throws_an_exception_if_tools_is_not_a_collection()
     {
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessageRegExp('/Failed to find any tools/');
+        $this->expectExceptionMessageMatches('/Failed to find any tools/');
 
         $tools = new JsonTools($this->locator([__DIR__.'/../resources/invalid-tools.json']));
         $tools->all($this->filter());

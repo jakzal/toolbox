@@ -2,6 +2,7 @@ default: build
 
 PHP_VERSION:=$(shell php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
 TOOLBOX_VERSION?=dev
+IS_PHP8:=$(shell php -r 'echo (int)version_compare(PHP_VERSION, "8.0", ">=");')
 
 build: install test
 .PHONY: build
@@ -38,20 +39,33 @@ test-integration: build/toolbox.phar
 	  build/toolbox.phar test --target-dir ./build/tools --exclude-tag exclude-php:$(PHP_VERSION)
 .PHONY: test-integration
 
+ifeq ($(IS_PHP8),1)
+cs:
+	@echo $(IS_PHP8)
+else
 cs: tools/php-cs-fixer
-	php -r 'exit((int)version_compare(PHP_VERSION, "8.0", "<"));' || tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
+	tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
+endif
 .PHONY: cs
 
+ifeq ($(IS_PHP8),1)
+cs-fix:
+else
 cs-fix: tools/php-cs-fixer
-	php -r 'exit((int)version_compare(PHP_VERSION, "8.0", "<"));' || tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
+	tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
+endif
 .PHONY: cs-fix
 
 deptrac: tools/deptrac
 	tools/deptrac --no-interaction --ansi --formatter-graphviz-display=0
 .PHONY: deptrac
 
+ifeq ($(IS_PHP8),1)
+infection:
+else
 infection: tools/infection tools/infection.pubkey
 	phpdbg -qrr ./tools/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
+endif
 .PHONY: infection
 
 phpunit: tools/phpunit
@@ -62,6 +76,9 @@ phpunit-coverage: tools/phpunit
 	phpdbg -qrr tools/phpunit
 .PHONY: phpunit
 
+ifeq ($(IS_PHP8),1)
+package:
+else
 package: tools/box
 	@rm -rf build/phar && mkdir -p build/phar build/phar/bin
 
@@ -75,8 +92,12 @@ package: tools/box
 	tools/box compile
 
 	@rm -rf build/phar
+endif
 .PHONY: package
 
+ifeq ($(IS_PHP8),1)
+package-devkit:
+else
 package-devkit: tools/box
 	@rm -rf build/devkit-phar && mkdir -p build/devkit-phar build/devkit-phar/bin build/devkit-phar/src
 
@@ -91,6 +112,7 @@ package-devkit: tools/box
 	tools/box compile -c box-devkit.json.dist
 
 	@rm -rf build/devkit-phar
+endif
 .PHONY: package-devkit
 
 website: build/devkit.phar

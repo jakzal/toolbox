@@ -428,7 +428,8 @@
           "links": {"%target-dir%/phpinsights": "phpinsights"}
         }
       },
-      "test": "phpinsights --version"
+      "test": "phpinsights --version",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phplint",

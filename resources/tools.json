@@ -250,8 +250,7 @@
           "bin": "%target-dir%/php-semver-checker"
         }
       },
-      "test": "php-semver-checker list",
-      "tags": ["exclude-php:8.0"]
+      "test": "php-semver-checker list"
     },
     {
       "name": "phpDocumentor",
@@ -264,7 +263,7 @@
         }
       },
       "test": "phpDocumentor list",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:8.0"]
     },
     {
       "name": "phpbench",

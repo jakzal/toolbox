@@ -155,7 +155,8 @@
           "bin": "%target-dir%/parallel-lint"
         }
       },
-      "test": "parallel-lint -h"
+      "test": "parallel-lint -h",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "paratest",

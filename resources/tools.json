@@ -706,7 +706,8 @@
           "namespace": "doctrine-psalm-plugin"
         }
       },
-      "test": "composer global bin doctrine-psalm-plugin show weirdan/doctrine-psalm-plugin"
+      "test": "composer global bin doctrine-psalm-plugin show weirdan/doctrine-psalm-plugin",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "psecio-parse",

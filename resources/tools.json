@@ -10,7 +10,8 @@
           "target-dir": "%target-dir%/QualityAnalyzer"
         }
       },
-      "test": "analyze list"
+      "test": "analyze list",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "behat",

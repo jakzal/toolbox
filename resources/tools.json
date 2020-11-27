@@ -670,7 +670,8 @@
           "bin": "%target-dir%/phpunit-7"
         }
       },
-      "test": "phpunit-7 --version"
+      "test": "phpunit-7 --version",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpunit-5",
@@ -682,7 +683,8 @@
           "bin": "%target-dir%/phpunit-5"
         }
       },
-      "test": "phpunit-5 --version"
+      "test": "phpunit-5 --version",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "psalm",

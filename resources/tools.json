@@ -205,7 +205,8 @@
           "links": {"%target-dir%/php-coupling-detector": "php-coupling-detector"}
         }
       },
-      "test": "php-coupling-detector list"
+      "test": "php-coupling-detector list",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "php-cs-fixer",

@@ -11,7 +11,8 @@
     "require-dev": {
         "phpunit/phpunit": "^9.3",
         "zalas/phpunit-globals": "^2.1",
-        "phpspec/prophecy-phpunit": "^2.0"
+        "phpspec/prophecy-phpunit": "^2.0",
+        "infection/infection": "^0.18 || ^0.20.2"
     },
     "autoload": {
         "psr-4": {

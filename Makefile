@@ -60,8 +60,8 @@ deptrac: tools/deptrac
 	tools/deptrac --no-interaction --ansi --formatter-graphviz-display=0
 .PHONY: deptrac
 
-infection: tools/infection tools/infection.pubkey
-	phpdbg -qrr ./tools/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
+infection:
+	phpdbg -qrr ./vendor/bin/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
 .PHONY: infection
 
 phpunit: tools/phpunit
@@ -137,7 +137,7 @@ update-phars: vendor
 	 	  )
 .PHONY: update-phars
 
-tools: tools/php-cs-fixer tools/deptrac tools/infection tools/box
+tools: tools/php-cs-fixer tools/deptrac tools/box
 .PHONY: tools
 
 clean:
@@ -158,12 +158,6 @@ tools/php-cs-fixer:
 
 tools/deptrac:
 	curl -Ls https://github.com/sensiolabs-de/deptrac/releases/download/0.10.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
-
-tools/infection: tools/infection.pubkey
-	curl -Ls https://github.com/infection/infection/releases/download/0.20.2/infection.phar -o tools/infection && chmod +x tools/infection
-
-tools/infection.pubkey:
-	curl -Ls https://github.com/infection/infection/releases/download/0.20.2/infection.phar.pubkey -o tools/infection.pubkey
 
 tools/box:
 	curl -Ls https://github.com/humbug/box/releases/download/3.9.1/box.phar -o tools/box && chmod +x tools/box

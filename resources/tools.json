@@ -492,7 +492,8 @@
           "links": {"%target-dir%/phpmnd": "phpmnd"}
         }
       },
-      "test": "phpmnd -V"
+      "test": "phpmnd -V",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpspec",

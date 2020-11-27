@@ -111,7 +111,8 @@
           "links": {"%target-dir%/diffFilter": "diffFilter"}
         }
       },
-      "test": "diffFilter -v"
+      "test": "diffFilter -v",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "ecs",

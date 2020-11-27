@@ -219,7 +219,7 @@
         }
       },
       "test": "php-cs-fixer list",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:8.0"]
     },
     {
       "name": "php-formatter",

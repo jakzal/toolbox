@@ -31,13 +31,16 @@
       "summary": "Discovers good candidates for refactoring",
       "website": "https://github.com/bmitch/churn-php",
       "command": {
-        "composer-bin-plugin": {
-          "package": "bmitch/churn-php",
-          "namespace": "tools",
-          "links": {"%target-dir%/churn": "churn"}
+        "file-download": {
+          "url": "https://github.com/bmitch/churn-php/releases/download/1.3.0/churn.phar.asc",
+          "file": "%target-dir%/churn.phar.asc"
+        },
+        "phar-download": {
+          "phar": "https://github.com/bmitch/churn-php/releases/download/1.3.0/churn.phar",
+          "bin": "%target-dir%/churn"
         }
       },
-      "test": "churn list",
+      "test": "churn --version",
       "tags": ["featured"]
     },
     {

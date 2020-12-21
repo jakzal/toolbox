@@ -125,7 +125,7 @@
         "composer-bin-plugin": {
           "package": "symplify/easy-coding-standard-prefixed",
           "namespace": "tools",
-          "links": {"%target-dir%/ecs": "ecs", "%target-dir%/ecs.phar": "ecs.phar"}
+          "links": {"%target-dir%/ecs": "ecs"}
         }
       },
       "test": "ecs -h",

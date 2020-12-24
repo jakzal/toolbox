@@ -194,7 +194,7 @@
       "website": "https://github.com/phan/phan",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phan/phan/releases/download/3.2.7/phan.phar",
+          "phar": "https://github.com/phan/phan/releases/download/3.2.8/phan.phar",
           "bin": "%target-dir%/phan"
         }
       },

@@ -350,19 +350,6 @@
       "test": "phpcbf --help"
     },
     {
-      "name": "phpcf",
-      "summary": "Finds usage of deprecated features",
-      "website": "http://wapmorgan.github.io/PhpCodeFixer/",
-      "command": {
-        "composer-bin-plugin": {
-          "package": "wapmorgan/php-code-fixer",
-          "namespace": "tools",
-          "links": {"%target-dir%/phpcf": "phpcf"}
-        }
-      },
-      "test": "phpcf -h"
-    },
-    {
       "name": "phpcov",
       "summary": "a command-line frontend for the PHP_CodeCoverage library",
       "website": "https://github.com/sebastianbergmann/phpcov",
@@ -412,6 +399,18 @@
       },
       "test": "phpda list",
       "tags": ["featured"]
+    },
+    {
+      "name": "phpdd",
+      "summary": "Finds usage of deprecated features",
+      "website": "http://wapmorgan.github.io/PhpDeprecationDetector",
+      "command": {
+        "phar-download": {
+          "phar": "https://github.com/wapmorgan/PhpDeprecationDetector/releases/download/2.0.25/phpdd-2.0.25.phar",
+          "bin": "%target-dir%/phpdd"
+        }
+      },
+      "test": "phpdd -h"
     },
     {
       "name": "phpdoc-to-typehint",

@@ -508,7 +508,7 @@
       "website": "http://www.phpspec.net/",
       "command": {
         "phar-download": {
-          "phar": "https://github.com/phpspec/phpspec/releases/download/7.0.0/phpspec.phar",
+          "phar": "https://github.com/phpspec/phpspec/releases/download/7.0.1/phpspec.phar",
           "bin": "%target-dir%/phpspec"
         }
       },

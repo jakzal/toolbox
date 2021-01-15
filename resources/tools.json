@@ -119,20 +119,6 @@
       "tags": ["ecs", "exclude-php:8.0"]
     },
     {
-      "name": "parallel-lint",
-      "summary": "Checks PHP file syntax",
-      "website": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
-      "command": {
-        "box-build": {
-          "repository": "https://github.com/JakubOnderka/PHP-Parallel-Lint.git",
-          "phar": "parallel-lint.phar",
-          "bin": "%target-dir%/parallel-lint"
-        }
-      },
-      "test": "parallel-lint -h",
-      "tags": ["exclude-php:8.0"]
-    },
-    {
       "name": "pdepend",
       "summary": "Static Analysis Tool",
       "website": "https://pdepend.org/",
@@ -384,19 +370,6 @@
       "tags": ["exclude-php:8.0"]
     },
     {
-      "name": "phplint",
-      "summary": "Lints php files in parallel",
-      "website": "https://github.com/overtrue/phplint",
-      "command": {
-        "composer-bin-plugin": {
-          "package": "overtrue/phplint",
-          "namespace": "tools",
-          "links": {"%target-dir%/phplint": "phplint"}
-        }
-      },
-      "test": "phplint -V"
-    },
-    {
       "name": "phploc",
       "summary": "A tool for quickly measuring the size of a PHP project",
       "website": "https://github.com/sebastianbergmann/phploc",
@@ -531,18 +504,6 @@
       "tags": ["featured"]
     },
     {
-      "name": "twig-lint",
-      "summary": "Standalone twig linter",
-      "website": "https://github.com/asm89/twig-lint",
-      "command": {
-        "phar-download": {
-          "phar": "https://asm89.github.io/d/twig-lint.phar",
-          "bin": "%target-dir%/twig-lint"
-        }
-      },
-      "test": "twig-lint --version"
-    },
-    {
       "name": "twigcs",
       "summary": "The missing checkstyle for twig!",
       "website": "https://github.com/friendsoftwig/twigcs",
@@ -553,18 +514,6 @@
         }
       },
       "test": "twigcs --help"
-    },
-    {
-      "name": "yaml-lint",
-      "summary": "Compact command line utility for checking YAML file syntax",
-      "website": "https://github.com/j13k/yaml-lint",
-      "command": {
-        "phar-download": {
-          "phar": "https://github.com/j13k/yaml-lint/releases/download/1.1.3/yaml-lint.phar",
-          "bin": "%target-dir%/yaml-lint"
-        }
-      },
-      "test": "yaml-lint --version"
     }
   ]
 }

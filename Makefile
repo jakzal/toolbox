@@ -39,22 +39,11 @@ test-integration: build/toolbox.phar
 	  build/toolbox.phar test --target-dir ./build/tools --exclude-tag exclude-php:$(PHP_VERSION)
 .PHONY: test-integration
 
-ifeq ($(IS_PHP8),1)
-cs:
-	@echo $(IS_PHP8)
-else
 cs: tools/php-cs-fixer
-	tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
-endif
-.PHONY: cs
+	PHP_CS_FIXER_IGNORE_ENV=true tools/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
 
-ifeq ($(IS_PHP8),1)
-cs-fix:
-else
 cs-fix: tools/php-cs-fixer
-	tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
-endif
-.PHONY: cs-fix
+	PHP_CS_FIXER_IGNORE_ENV=true tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
 
 deptrac: tools/deptrac
 	tools/deptrac --no-interaction --ansi --formatter-graphviz-display=0

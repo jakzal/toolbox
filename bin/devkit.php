@@ -71,7 +71,9 @@ $application->add(
             $jsonPath = $input->getOption('tools');
             $readmePath = $input->getOption('readme');
             $tools = $this->loadTools($jsonPath);
-            $toolsList = $tools->reduce('', function ($acc, Tool $tool) {
+            $toolsList = $tools->sort(function (Tool $left, Tool $right) {
+                return strcasecmp($left->name(), $right->name());
+            })->reduce('', function ($acc, Tool $tool) {
                 return $acc . sprintf('* %s - [%s](%s)', $tool->name(), $tool->summary(), $tool->website()) . PHP_EOL;
             });
 

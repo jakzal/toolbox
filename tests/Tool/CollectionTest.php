@@ -81,6 +81,17 @@ class CollectionTest extends TestCase
         $this->assertTrue(Collection::create([])->empty());
     }
 
+    public function test_it_sorts_the_collection()
+    {
+        $c = Collection::create(['ab', 'c', 'aa', 'aaa']);
+        $sorted = $c->sort(function ($left, $right) {
+            return \strcasecmp($left, $right);
+        });
+
+        $this->assertIterates(['aa', 'aaa', 'ab', 'c'], $sorted);
+        $this->assertIterates(['ab', 'c', 'aa', 'aaa'], $c, 'The original collection is not modified');
+    }
+
     private function assertIterates(array $elements, Collection $c)
     {
         $this->assertSame($elements, \iterator_to_array($c));

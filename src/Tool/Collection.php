@@ -48,6 +48,14 @@ class Collection implements IteratorAggregate, Countable
         return \array_reduce($this->elements, $param, $initial);
     }
 
+    public function sort(callable $f): Collection
+    {
+        $elements = $this->elements;
+        \usort($elements, $f);
+
+        return self::create($elements);
+    }
+
     public function toArray(): array
     {
         return $this->elements;

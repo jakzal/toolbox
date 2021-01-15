@@ -52,7 +52,23 @@ class ApplicationTest extends TestCase
     {
         $this->assertTrue($this->app->getDefinition()->hasOption('tools'));
         $this->assertEquals(
-            [\realpath(__DIR__.'/../../src/Cli/').'/../../resources/pre-installation.json', \realpath(__DIR__.'/../../src/Cli/').'/../../resources/tools.json'],
+            [
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/pre-installation.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/architecture.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/checkstyle.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/compatibility.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/composer.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/deprecation.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/documentation.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/linting.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/metrics.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/phpstan.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/psalm.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/refactoring.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/security.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/test.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/tools.json'
+            ],
             $this->app->getDefinition()->getOption('tools')->getDefault()
         );
     }

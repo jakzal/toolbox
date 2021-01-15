@@ -22,7 +22,23 @@ trait Tools
     {
         return \getenv('TOOLBOX_JSON')
             ? \array_map('trim', \explode(',', \getenv('TOOLBOX_JSON')))
-            : [__DIR__ . '/../resources/pre-installation.json', __DIR__ . '/../resources/tools.json'];
+            : [
+                __DIR__ . '/../resources/pre-installation.json',
+                __DIR__ . '/../resources/architecture.json',
+                __DIR__ . '/../resources/checkstyle.json',
+                __DIR__ . '/../resources/compatibility.json',
+                __DIR__ . '/../resources/composer.json',
+                __DIR__ . '/../resources/deprecation.json',
+                __DIR__ . '/../resources/documentation.json',
+                __DIR__ . '/../resources/linting.json',
+                __DIR__ . '/../resources/metrics.json',
+                __DIR__ . '/../resources/phpstan.json',
+                __DIR__ . '/../resources/psalm.json',
+                __DIR__ . '/../resources/refactoring.json',
+                __DIR__ . '/../resources/security.json',
+                __DIR__ . '/../resources/test.json',
+                __DIR__ . '/../resources/tools.json'
+            ];
     }
 
     /**
@@ -55,7 +71,9 @@ $application->add(
             $jsonPath = $input->getOption('tools');
             $readmePath = $input->getOption('readme');
             $tools = $this->loadTools($jsonPath);
-            $toolsList = $tools->reduce('', function ($acc, Tool $tool) {
+            $toolsList = $tools->sort(function (Tool $left, Tool $right) {
+                return strcasecmp($left->name(), $right->name());
+            })->reduce('', function ($acc, Tool $tool) {
                 return $acc . sprintf('* %s - [%s](%s)', $tool->name(), $tool->summary(), $tool->website()) . PHP_EOL;
             });
 

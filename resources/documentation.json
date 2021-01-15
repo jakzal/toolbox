@@ -1,0 +1,30 @@
+{
+    "tools": [
+        {
+            "name": "phpDocumentor",
+            "summary": "Documentation generator",
+            "website": "https://www.phpdoc.org/",
+            "command": {
+                "phar-download": {
+                    "phar": "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.0.0/phpDocumentor.phar",
+                    "bin": "%target-dir%/phpDocumentor"
+                }
+            },
+            "test": "phpDocumentor list",
+            "tags": ["featured", "exclude-php:8.0", "documentation"]
+        },
+        {
+            "name": "phpcb",
+            "summary": "PHP Code Browser",
+            "website": "https://github.com/mayflower/PHP_CodeBrowser",
+            "command": {
+                "phar-download": {
+                    "phar": "https://github.com/bytepark/php-phar-qatools/raw/master/phpcb.phar",
+                    "bin": "%target-dir%/phpcb"
+                }
+            },
+            "test": "phpcb -V",
+            "tags": ["documentation"]
+        }
+    ]
+}

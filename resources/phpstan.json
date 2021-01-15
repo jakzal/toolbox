@@ -1,0 +1,148 @@
+{
+    "tools": [
+        {
+            "name": "phpstan",
+            "summary": "Static Analysis Tool",
+            "website": "https://github.com/phpstan/phpstan",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpstan/phpstan",
+                    "namespace": "phpstan",
+                    "links": {"%target-dir%/phpstan": "phpstan"}
+                }
+            },
+            "test": "phpstan --version",
+            "tags": ["featured", "phpstan"]
+        },
+        {
+            "name": "phpstan-deprecation-rules",
+            "summary": "PHPStan rules for detecting deprecated code",
+            "website": "https://github.com/phpstan/phpstan-deprecation-rules",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpstan/phpstan-deprecation-rules",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show phpstan/phpstan-deprecation-rules",
+            "tags": ["phpstan"]
+        },
+        {
+            "name": "phpstan-ergebnis-rules",
+            "summary": "Additional rules for PHPstan",
+            "website": "https://github.com/ergebnis/phpstan-rules",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "ergebnis/phpstan-rules",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show ergebnis/phpstan-rules",
+            "tags": ["phpstan"]
+        },
+        {
+            "name": "phpstan-strict-rules",
+            "summary": "Extra strict and opinionated rules for PHPStan",
+            "website": "https://github.com/phpstan/phpstan-strict-rules",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpstan/phpstan-strict-rules",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show phpstan/phpstan-strict-rules",
+            "tags": ["phpstan"]
+        },
+        {
+            "name": "phpstan-doctrine",
+            "summary": "Doctrine extensions for PHPStan",
+            "website": "https://github.com/phpstan/phpstan-doctrine",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpstan/phpstan-doctrine",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show phpstan/phpstan-doctrine",
+            "tags": ["phpstan"]
+        },
+        {
+            "name": "phpstan-phpunit",
+            "summary": "PHPUnit extensions and rules for PHPStan",
+            "website": "https://github.com/phpstan/phpstan-phpunit",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpstan/phpstan-phpunit",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show phpstan/phpstan-phpunit",
+            "tags": ["phpstan"]
+        },
+        {
+            "name": "phpstan-symfony",
+            "summary": "Symfony extension for PHPStan",
+            "website": "https://github.com/phpstan/phpstan-symfony",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpstan/phpstan-symfony",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show phpstan/phpstan-symfony",
+            "tags": ["phpstan"]
+        },
+        {
+            "name": "phpstan-beberlei-assert",
+            "summary": "PHPStan extension for beberlei/assert",
+            "website": "https://github.com/phpstan/phpstan-beberlei-assert",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpstan/phpstan-beberlei-assert",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show phpstan/phpstan-beberlei-assert",
+            "tags": ["phpstan"]
+        },
+        {
+            "name": "phpstan-webmozart-assert",
+            "summary": "PHPStan extension for webmozart/assert",
+            "website": "https://github.com/phpstan/phpstan-webmozart-assert",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpstan/phpstan-webmozart-assert",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show phpstan/phpstan-webmozart-assert",
+            "tags": ["phpstan"]
+        },
+        {
+            "name": "phpstan-exception-rules",
+            "summary": "PHPStan rules for checked and unchecked exceptions",
+            "website": "https://github.com/pepakriz/phpstan-exception-rules",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "pepakriz/phpstan-exception-rules",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show pepakriz/phpstan-exception-rules",
+            "tags": ["phpstan"]
+        },
+        {
+            "name": "larastan",
+            "summary": "PHPStan extension for Laravel",
+            "website": "https://github.com/nunomaduro/larastan",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "nunomaduro/larastan",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show ergebnis/phpstan-rules",
+            "tags": ["phpstan"]
+        }
+    ]
+}

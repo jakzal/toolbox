@@ -1,0 +1,31 @@
+{
+    "tools": [
+        {
+            "name": "psecio-parse",
+            "summary": "Scans code for potential security-related issues",
+            "website": "https://github.com/psecio/parse",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "psecio/parse:dev-master",
+                    "namespace": "legacy-php-parser",
+                    "links": {"%target-dir%/psecio-parse": "psecio-parse"}
+                }
+            },
+            "test": "psecio-parse --version",
+            "tags": ["security"]
+        },
+        {
+            "name": "security-checker",
+            "summary": "Checks composer dependencies for known security vulnerabilities",
+            "website": "https://github.com/sensiolabs/security-checker",
+            "command": {
+                "phar-download": {
+                    "phar": "http://get.sensiolabs.org/security-checker.phar",
+                    "bin": "%target-dir%/security-checker"
+                }
+            },
+            "test": "security-checker",
+            "tags": ["featured", "security"]
+        }
+    ]
+}

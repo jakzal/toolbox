@@ -58,6 +58,7 @@ class ApplicationTest extends TestCase
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/test.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/checkstyle.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/linting.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/metrics.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/tools.json'
             ],
             $this->app->getDefinition()->getOption('tools')->getDefault()

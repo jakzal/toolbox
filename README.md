@@ -191,6 +191,7 @@ By default the following files are used to load tool definitions:
 * `resources/test.json`
 * `resources/checkstyle.json`
 * `resources/linting.json`
+* `resources/metrics.json`
 * `resources/tools.json`
 
 Definitions can be loaded from customised files by passing the `--tools` option(s):

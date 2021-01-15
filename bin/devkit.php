@@ -28,6 +28,7 @@ trait Tools
                 __DIR__ . '/../resources/test.json',
                 __DIR__ . '/../resources/checkstyle.json',
                 __DIR__ . '/../resources/linting.json',
+                __DIR__ . '/../resources/metrics.json',
                 __DIR__ . '/../resources/tools.json'
             ];
     }

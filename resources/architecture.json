@@ -1,0 +1,85 @@
+{
+    "tools": [
+        {
+            "name": "dephpend",
+            "summary": "Detect flaws in your architecture",
+            "website": "https://dephpend.com/",
+            "command": {
+                "phar-download": {
+                    "phar": "https://github.com/mihaeu/dephpend/releases/download/0.7.0/dephpend-0.7.0.phar",
+                    "bin": "%target-dir%/dephpend"
+                }
+            },
+            "test": "dephpend list",
+            "tags": ["architecture"]
+        },
+        {
+            "name": "deptrac",
+            "summary": "Enforces dependency rules between software layers",
+            "website": "https://github.com/sensiolabs-de/deptrac",
+            "command": {
+                "phar-download": {
+                    "phar": "https://github.com/sensiolabs-de/deptrac/releases/download/0.10.2/deptrac.phar",
+                    "bin": "%target-dir%/deptrac"
+                }
+            },
+            "test": "deptrac list",
+            "tags": ["featured", "architecture"]
+        },
+        {
+            "name": "pdepend",
+            "summary": "Static Analysis Tool",
+            "website": "https://pdepend.org/",
+            "command": {
+                "phar-download": {
+                    "phar": "https://github.com/pdepend/pdepend/releases/download/2.8.0/pdepend.phar",
+                    "bin": "%target-dir%/pdepend"
+                }
+            },
+            "test": "pdepend --version",
+            "tags": ["featured", "architecture"]
+        },
+        {
+            "name": "php-coupling-detector",
+            "summary": "Detects code coupling issues",
+            "website": "https://akeneo.github.io/php-coupling-detector/",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "akeneo/php-coupling-detector",
+                    "namespace": "tools",
+                    "links": {"%target-dir%/php-coupling-detector": "php-coupling-detector"}
+                }
+            },
+            "test": "php-coupling-detector list",
+            "tags": ["exclude-php:8.0", "architecture"]
+        },
+        {
+            "name": "phpat",
+            "summary": "Easy to use architecture testing tool",
+            "website": "https://github.com/carlosas/phpat",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpat/phpat",
+                    "namespace": "tools",
+                    "links": {"%target-dir%/phpat": "phpat"}
+                }
+            },
+            "test": "which phpat",
+            "tags": ["exclude-php:8.0", "architecture"]
+        },
+        {
+            "name": "phpda",
+            "summary": "Generates dependency graphs",
+            "website": "https://mamuz.github.io/PhpDependencyAnalysis/",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "mamuz/php-dependency-analysis",
+                    "namespace": "phpda",
+                    "links": {"%target-dir%/phpda": "phpda"}
+                }
+            },
+            "test": "phpda list",
+            "tags": ["featured", "architecture"]
+        }
+    ]
+}

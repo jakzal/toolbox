@@ -187,11 +187,19 @@ The `--tag` option can be used to filter tools by tags.
 By default the following files are used to load tool definitions:
 
 * `resources/pre-installation.json`
-* `resources/phpstan.json`
-* `resources/test.json`
+* `resources/architecture.json`
 * `resources/checkstyle.json`
+* `resources/compatibility.json`
+* `resources/composer.json`
+* `resources/deprecation.json`
+* `resources/documentation.json`
 * `resources/linting.json`
 * `resources/metrics.json`
+* `resources/phpstan.json`
+* `resources/psalm.json`
+* `resources/refactoring.json`
+* `resources/security.json`
+* `resources/test.json`
 * `resources/tools.json`
 
 Definitions can be loaded from customised files by passing the `--tools` option(s):

@@ -48,12 +48,20 @@ final class Application extends CliApplication
             ? \array_map('trim', \explode(',', \getenv('TOOLBOX_JSON')))
             : [
                 __DIR__.'/../../resources/pre-installation.json',
-                __DIR__.'/../../resources/phpstan.json',
-                __DIR__.'/../../resources/test.json',
+                __DIR__.'/../../resources/architecture.json',
                 __DIR__.'/../../resources/checkstyle.json',
+                __DIR__.'/../../resources/compatibility.json',
+                __DIR__.'/../../resources/composer.json',
+                __DIR__.'/../../resources/deprecation.json',
+                __DIR__.'/../../resources/documentation.json',
                 __DIR__.'/../../resources/linting.json',
                 __DIR__.'/../../resources/metrics.json',
-                __DIR__.'/../../resources/tools.json'
+                __DIR__.'/../../resources/phpstan.json',
+                __DIR__.'/../../resources/psalm.json',
+                __DIR__.'/../../resources/refactoring.json',
+                __DIR__.'/../../resources/security.json',
+                __DIR__.'/../../resources/test.json',
+                __DIR__.'/../../resources/tools.json',
             ];
     }
 

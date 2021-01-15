@@ -1,0 +1,29 @@
+{
+    "tools": [
+        {
+            "name": "composer-normalize",
+            "summary": "Composer plugin to normalize composer.json files",
+            "website": "https://github.com/ergebnis/composer-normalize",
+            "command": {
+                "composer-global-install": {
+                    "package": "ergebnis/composer-normalize"
+                }
+            },
+            "test": "composer global show ergebnis/composer-normalize",
+            "tags": ["composer"]
+        },
+        {
+            "name": "composer-unused",
+            "summary": "Show unused packages by scanning your code",
+            "website": "https://github.com/icanhazstring/composer-unused",
+            "command": {
+                "phar-download": {
+                    "phar": "https://github.com/composer-unused/composer-unused/releases/download/0.7.5/composer-unused.phar",
+                    "bin": "%target-dir%/composer-unused"
+                }
+            },
+            "test": "composer-unused -vvv | grep 'Your system is ready'",
+            "tags": ["composer"]
+        }
+    ]
+}

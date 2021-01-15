@@ -1,0 +1,34 @@
+{
+    "tools": [
+        {
+            "name": "psalm",
+            "summary": "Finds errors in PHP applications",
+            "website": "https://psalm.dev/",
+            "command": {
+                "file-download": {
+                    "url": "https://github.com/vimeo/psalm/releases/download/4.4.1/psalm.phar.asc",
+                    "file": "%target-dir%/psalm.phar.asc"
+                },
+                "phar-download": {
+                    "phar": "https://github.com/vimeo/psalm/releases/download/4.4.1/psalm.phar",
+                    "bin": "%target-dir%/psalm"
+                }
+            },
+            "test": "psalm -h",
+            "tags": ["featured", "psalm"]
+        },
+        {
+            "name": "doctrine-psalm-plugin",
+            "summary": "Stubs to let Psalm understand Doctrine better",
+            "website": "https://github.com/weirdan/doctrine-psalm-plugin",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "weirdan/doctrine-psalm-plugin",
+                    "namespace": "doctrine-psalm-plugin"
+                }
+            },
+            "test": "composer global bin doctrine-psalm-plugin show weirdan/doctrine-psalm-plugin",
+            "tags": ["exclude-php:8.0", "psalm"]
+        }
+    ]
+}

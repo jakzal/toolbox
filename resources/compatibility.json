@@ -1,0 +1,30 @@
+{
+    "tools": [
+        {
+            "name": "php-semver-checker",
+            "summary": "Suggests a next version according to semantic versioning",
+            "website": "https://github.com/tomzx/php-semver-checker",
+            "command": {
+                "phar-download": {
+                    "phar": "http://psvc.coreteks.org/php-semver-checker.phar",
+                    "bin": "%target-dir%/php-semver-checker"
+                }
+            },
+            "test": "php-semver-checker list",
+            "tags": ["compatibility"]
+        },
+        {
+            "name": "roave-backward-compatibility-check",
+            "summary": "Tool to compare two revisions of a class API to check for BC breaks",
+            "website": "https://github.com/Roave/BackwardCompatibilityCheck",
+            "command": {
+                "phar-download": {
+                    "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/5.0.0/roave-backward-compatibility-check.phar",
+                    "bin": "%target-dir%/roave-backward-compatibility-check"
+                }
+            },
+            "test": "roave-backward-compatibility-check --version",
+            "tags": ["exclude-php:7.3", "exclude-php:8.0", "compatibility"]
+        }
+    ]
+}

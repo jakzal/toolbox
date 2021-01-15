@@ -184,7 +184,8 @@ The `--tag` option can be used to filter tools by tags.
 
 ### Tools definitions
 
-By default `resources/pre-installation.json` and `resources/tools.json` are used to load tool definitions.
+By default `resources/pre-installation.json`, `resources/phpstan.json`, and `resources/tools.json`
+are used to load tool definitions.
 Definitions can be loaded from customised files by passing the `--tools` option(s):
 
 ```

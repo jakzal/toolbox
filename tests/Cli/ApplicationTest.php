@@ -52,7 +52,11 @@ class ApplicationTest extends TestCase
     {
         $this->assertTrue($this->app->getDefinition()->hasOption('tools'));
         $this->assertEquals(
-            [\realpath(__DIR__.'/../../src/Cli/').'/../../resources/pre-installation.json', \realpath(__DIR__.'/../../src/Cli/').'/../../resources/tools.json'],
+            [
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/pre-installation.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/phpstan.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/tools.json'
+            ],
             $this->app->getDefinition()->getOption('tools')->getDefault()
         );
     }

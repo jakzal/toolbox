@@ -46,7 +46,7 @@ final class Application extends CliApplication
     {
         return \getenv('TOOLBOX_JSON')
             ? \array_map('trim', \explode(',', \getenv('TOOLBOX_JSON')))
-            : [__DIR__.'/../../resources/pre-installation.json', __DIR__.'/../../resources/tools.json'];
+            : [__DIR__.'/../../resources/pre-installation.json', __DIR__.'/../../resources/phpstan.json', __DIR__.'/../../resources/tools.json'];
     }
 
     private function createCommandLoader(ContainerInterface $container): CommandLoaderInterface

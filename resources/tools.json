@@ -105,20 +105,6 @@
       "tags": ["exclude-php:8.0"]
     },
     {
-      "name": "ecs",
-      "summary": "Sets up and runs coding standard checks",
-      "website": "https://github.com/Symplify/EasyCodingStandard",
-      "command": {
-        "composer-bin-plugin": {
-          "package": "symplify/easy-coding-standard-prefixed",
-          "namespace": "tools",
-          "links": {"%target-dir%/ecs": "ecs"}
-        }
-      },
-      "test": "ecs -h",
-      "tags": ["ecs", "exclude-php:8.0"]
-    },
-    {
       "name": "pdepend",
       "summary": "Static Analysis Tool",
       "website": "https://pdepend.org/",
@@ -156,34 +142,6 @@
         }
       },
       "test": "php-coupling-detector list",
-      "tags": ["exclude-php:8.0"]
-    },
-    {
-      "name": "php-cs-fixer",
-      "summary": "PHP Coding Standards Fixer",
-      "website": "http://cs.sensiolabs.org/",
-      "command": {
-        "phar-download": {
-          "phar": "http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar",
-          "bin": "%target-dir%/php-cs-fixer"
-        }
-      },
-      "test": "php-cs-fixer list",
-      "tags": ["featured", "exclude-php:8.0"]
-    },
-    {
-      "name": "php-formatter",
-      "summary": "Custom coding standards fixer",
-      "website": "https://github.com/mmoreram/php-formatter",
-      "command": {
-        "box-build": {
-          "repository": "https://github.com/mmoreram/php-formatter.git",
-          "phar": "build/php-formatter.phar",
-          "bin": "%target-dir%/php-formatter",
-          "version": "1fa3d9a3e1c67654f3fe2511bd28fa7c33b59d7e"
-        }
-      },
-      "test": "php-formatter list",
       "tags": ["exclude-php:8.0"]
     },
     {
@@ -281,18 +239,6 @@
       "test": "phpcb -V"
     },
     {
-      "name": "phpcbf",
-      "summary": "Automatically corrects coding standard violations",
-      "website": "https://github.com/squizlabs/PHP_CodeSniffer",
-      "command": {
-        "phar-download": {
-          "phar": "https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar",
-          "bin": "%target-dir%/phpcbf"
-        }
-      },
-      "test": "phpcbf --help"
-    },
-    {
       "name": "phpcpd",
       "summary": "Copy/Paste Detector",
       "website": "https://github.com/sebastianbergmann/phpcpd",
@@ -304,18 +250,6 @@
       },
       "test": "phpcpd -v",
       "tags": ["featured"]
-    },
-    {
-      "name": "phpcs",
-      "summary": "Detects coding standard violations",
-      "website": "https://github.com/squizlabs/PHP_CodeSniffer",
-      "command": {
-        "phar-download": {
-          "phar": "https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar",
-          "bin": "%target-dir%/phpcs"
-        }
-      },
-      "test": "phpcs --help"
     },
     {
       "name": "phpda",
@@ -502,18 +436,6 @@
       },
       "test": "security-checker",
       "tags": ["featured"]
-    },
-    {
-      "name": "twigcs",
-      "summary": "The missing checkstyle for twig!",
-      "website": "https://github.com/friendsoftwig/twigcs",
-      "command": {
-        "phar-download": {
-          "phar": "https://github.com/friendsoftwig/twigcs/releases/download/v4.0.0/twigcs.phar",
-          "bin": "%target-dir%/twigcs"
-        }
-      },
-      "test": "twigcs --help"
     }
   ]
 }

@@ -26,6 +26,7 @@ trait Tools
                 __DIR__ . '/../resources/pre-installation.json',
                 __DIR__ . '/../resources/phpstan.json',
                 __DIR__ . '/../resources/test.json',
+                __DIR__ . '/../resources/checkstyle.json',
                 __DIR__ . '/../resources/linting.json',
                 __DIR__ . '/../resources/tools.json'
             ];

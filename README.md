@@ -189,6 +189,7 @@ By default the following files are used to load tool definitions:
 * `resources/pre-installation.json`
 * `resources/phpstan.json`
 * `resources/test.json`
+* `resources/checkstyle.json`
 * `resources/linting.json`
 * `resources/tools.json`
 

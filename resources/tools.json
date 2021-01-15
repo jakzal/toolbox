@@ -14,19 +14,6 @@
       "tags": ["exclude-php:8.0"]
     },
     {
-      "name": "behat",
-      "summary": "Helps to test business expectations",
-      "website": "http://behat.org/",
-      "command": {
-        "phar-download": {
-          "phar": "https://github.com/Behat/Behat/releases/download/v3.8.1/behat.phar",
-          "bin": "%target-dir%/behat"
-        }
-      },
-      "test": "behat --version",
-      "tags": ["featured"]
-    },
-    {
       "name": "churn",
       "summary": "Discovers good candidates for refactoring",
       "website": "https://github.com/bmitch/churn-php",
@@ -132,23 +119,6 @@
       "tags": ["ecs", "exclude-php:8.0"]
     },
     {
-      "name": "infection",
-      "summary": "AST based PHP Mutation Testing Framework",
-      "website": "https://infection.github.io/",
-      "command": {
-        "file-download": {
-          "url": "https://github.com/infection/infection/releases/download/0.20.2/infection.phar.asc",
-          "file": "%target-dir%/infection.phar.asc"
-        },
-        "phar-download": {
-          "phar": "https://github.com/infection/infection/releases/download/0.20.2/infection.phar",
-          "bin": "%target-dir%/infection"
-        }
-      },
-      "test": "infection --version",
-      "tags": ["featured", "exclude-php:7.3"]
-    },
-    {
       "name": "parallel-lint",
       "summary": "Checks PHP file syntax",
       "website": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
@@ -160,19 +130,6 @@
         }
       },
       "test": "parallel-lint -h",
-      "tags": ["exclude-php:8.0"]
-    },
-    {
-      "name": "paratest",
-      "summary": "Parallel testing for PHPUnit",
-      "website": "https://github.com/paratestphp/paratest",
-      "command": {
-        "phar-download": {
-          "phar": "https://github.com/paratestphp/paratest/releases/download/5.0.4/paratest.phar",
-          "bin": "%target-dir%/paratest"
-        }
-      },
-      "test": "paratest --version",
       "tags": ["exclude-php:8.0"]
     },
     {
@@ -350,18 +307,6 @@
       "test": "phpcbf --help"
     },
     {
-      "name": "phpcov",
-      "summary": "a command-line frontend for the PHP_CodeCoverage library",
-      "website": "https://github.com/sebastianbergmann/phpcov",
-      "command": {
-        "phar-download": {
-          "phar": "https://phar.phpunit.de/phpcov.phar",
-          "bin": "%target-dir%/phpcov"
-        }
-      },
-      "test": "phpcov -v"
-    },
-    {
       "name": "phpcpd",
       "summary": "Copy/Paste Detector",
       "website": "https://github.com/sebastianbergmann/phpcpd",
@@ -503,70 +448,6 @@
       "tags": ["exclude-php:8.0"]
     },
     {
-      "name": "phpspec",
-      "summary": "SpecBDD Framework",
-      "website": "http://www.phpspec.net/",
-      "command": {
-        "phar-download": {
-          "phar": "https://github.com/phpspec/phpspec/releases/download/7.0.1/phpspec.phar",
-          "bin": "%target-dir%/phpspec"
-        }
-      },
-      "test": "phpspec --version",
-      "tags": ["featured"]
-    },
-    {
-      "name": "phpunit",
-      "summary": "The PHP testing framework",
-      "website": "https://phpunit.de/",
-      "command": {
-        "phar-download": {
-          "phar": "https://phar.phpunit.de/phpunit.phar",
-          "bin": "%target-dir%/phpunit"
-        }
-      },
-      "test": "phpunit --version",
-      "tags": ["featured"]
-    },
-    {
-      "name": "phpunit-8",
-      "summary": "The PHP testing framework (8.x version)",
-      "website": "https://phpunit.de/",
-      "command": {
-        "phar-download": {
-          "phar": "https://phar.phpunit.de/phpunit-8.phar",
-          "bin": "%target-dir%/phpunit-8"
-        }
-      },
-      "test": "phpunit-8 --version"
-    },
-    {
-      "name": "phpunit-7",
-      "summary": "The PHP testing framework (7.x version)",
-      "website": "https://phpunit.de/",
-      "command": {
-        "phar-download": {
-          "phar": "https://phar.phpunit.de/phpunit-7.phar",
-          "bin": "%target-dir%/phpunit-7"
-        }
-      },
-      "test": "phpunit-7 --version",
-      "tags": ["exclude-php:8.0"]
-    },
-    {
-      "name": "phpunit-5",
-      "summary": "The PHP testing framework (5.x version)",
-      "website": "https://phpunit.de/",
-      "command": {
-        "phar-download": {
-          "phar": "https://phar.phpunit.de/phpunit-5.phar",
-          "bin": "%target-dir%/phpunit-5"
-        }
-      },
-      "test": "phpunit-5 --version",
-      "tags": ["exclude-php:8.0"]
-    },
-    {
       "name": "psalm",
       "summary": "Finds errors in PHP applications",
       "website": "https://psalm.dev/",
@@ -650,22 +531,6 @@
       "tags": ["featured"]
     },
     {
-      "name": "simple-phpunit",
-      "summary": "Provides utilities to report legacy tests and usage of deprecated code",
-      "website": "https://symfony.com/doc/current/components/phpunit_bridge.html",
-      "command": {
-        "composer-bin-plugin": {
-          "package": "symfony/phpunit-bridge",
-          "namespace": "symfony",
-          "links": {"%target-dir%/simple-phpunit": "simple-phpunit"}
-        },
-        "sh": {
-          "command": "simple-phpunit install && SYMFONY_PHPUNIT_VERSION=8 simple-phpunit install"
-        }
-      },
-      "test": "simple-phpunit --version"
-    },
-    {
       "name": "twig-lint",
       "summary": "Standalone twig linter",
       "website": "https://github.com/asm89/twig-lint",
@@ -688,18 +553,6 @@
         }
       },
       "test": "twigcs --help"
-    },
-    {
-      "name": "larastan",
-      "summary": "PHPStan extension for Laravel",
-      "website": "https://github.com/nunomaduro/larastan",
-      "command": {
-        "composer-bin-plugin": {
-          "package": "nunomaduro/larastan",
-          "namespace": "phpstan"
-        }
-      },
-      "test": "composer global bin phpstan show ergebnis/phpstan-rules"
     },
     {
       "name": "yaml-lint",

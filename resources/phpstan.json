@@ -130,6 +130,19 @@
             },
             "test": "composer global bin phpstan show pepakriz/phpstan-exception-rules",
             "tags": ["phpstan"]
+        },
+        {
+            "name": "larastan",
+            "summary": "PHPStan extension for Laravel",
+            "website": "https://github.com/nunomaduro/larastan",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "nunomaduro/larastan",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show ergebnis/phpstan-rules",
+            "tags": ["phpstan"]
         }
     ]
 }

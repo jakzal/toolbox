@@ -55,6 +55,7 @@ class ApplicationTest extends TestCase
             [
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/pre-installation.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/phpstan.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/test.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/tools.json'
             ],
             $this->app->getDefinition()->getOption('tools')->getDefault()

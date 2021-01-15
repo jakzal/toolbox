@@ -24,7 +24,7 @@
                     "namespace": "phpstan"
                 }
             },
-            "test": "true",
+            "test": "composer global bin phpstan show phpstan/phpstan-deprecation-rules",
             "tags": ["phpstan"]
         },
         {
@@ -50,7 +50,7 @@
                     "namespace": "phpstan"
                 }
             },
-            "test": "true",
+            "test": "composer global bin phpstan show phpstan/phpstan-strict-rules",
             "tags": ["phpstan"]
         },
         {
@@ -63,7 +63,7 @@
                     "namespace": "phpstan"
                 }
             },
-            "test": "true",
+            "test": "composer global bin phpstan show phpstan/phpstan-doctrine",
             "tags": ["phpstan"]
         },
         {
@@ -76,7 +76,7 @@
                     "namespace": "phpstan"
                 }
             },
-            "test": "true",
+            "test": "composer global bin phpstan show phpstan/phpstan-phpunit",
             "tags": ["phpstan"]
         },
         {
@@ -89,7 +89,7 @@
                     "namespace": "phpstan"
                 }
             },
-            "test": "true",
+            "test": "composer global bin phpstan show phpstan/phpstan-symfony",
             "tags": ["phpstan"]
         },
         {
@@ -102,7 +102,7 @@
                     "namespace": "phpstan"
                 }
             },
-            "test": "true",
+            "test": "composer global bin phpstan show phpstan/phpstan-beberlei-assert",
             "tags": ["phpstan"]
         },
         {
@@ -115,7 +115,7 @@
                     "namespace": "phpstan"
                 }
             },
-            "test": "true",
+            "test": "composer global bin phpstan show phpstan/phpstan-webmozart-assert",
             "tags": ["phpstan"]
         },
         {
@@ -128,7 +128,7 @@
                     "namespace": "phpstan"
                 }
             },
-            "test": "true",
+            "test": "composer global bin phpstan show pepakriz/phpstan-exception-rules",
             "tags": ["phpstan"]
         }
     ]

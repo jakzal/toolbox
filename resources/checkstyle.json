@@ -25,7 +25,7 @@
                 }
             },
             "test": "php-cs-fixer list",
-            "tags": ["featured", "checkstyle", "exclude-php:8.0"]
+            "tags": ["featured", "checkstyle"]
         },
         {
             "name": "php-formatter",

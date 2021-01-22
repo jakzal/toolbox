@@ -10,6 +10,7 @@ use Zalas\Toolbox\Tool\Command\ComposerBinPluginCommand;
 use Zalas\Toolbox\Tool\Command\ComposerGlobalInstallCommand;
 use Zalas\Toolbox\Tool\Command\ComposerGlobalMultiInstallCommand;
 use Zalas\Toolbox\Tool\Command\ComposerInstallCommand;
+use Zalas\Toolbox\Tool\Command\FileDownloadCommand;
 use Zalas\Toolbox\Tool\Command\MultiStepCommand;
 use Zalas\Toolbox\Tool\Command\OptimisedComposerBinPluginCommand;
 use Zalas\Toolbox\Tool\Command\PharDownloadCommand;
@@ -38,6 +39,7 @@ class InstallTools
         return new MultiStepCommand(
             $installationCommands
                 ->merge($commandFilter(ShCommand::class))
+                ->merge($commandFilter(FileDownloadCommand::class))
                 ->merge($commandFilter(PharDownloadCommand::class))
                 ->merge($commandFilter(MultiStepCommand::class))
                 ->merge($this->groupComposerGlobalInstallCommands($commandFilter(ComposerGlobalInstallCommand::class)))

@@ -12,6 +12,7 @@ use Zalas\Toolbox\Tool\Command\BoxBuildCommand;
 use Zalas\Toolbox\Tool\Command\ComposerBinPluginCommand;
 use Zalas\Toolbox\Tool\Command\ComposerGlobalInstallCommand;
 use Zalas\Toolbox\Tool\Command\ComposerInstallCommand;
+use Zalas\Toolbox\Tool\Command\FileDownloadCommand;
 use Zalas\Toolbox\Tool\Command\MultiStepCommand;
 use Zalas\Toolbox\Tool\Command\PharDownloadCommand;
 use Zalas\Toolbox\Tool\Command\ShCommand;
@@ -156,6 +157,17 @@ class InstallToolsTest extends TestCase
         $command = $this->useCase->__invoke($this->filter());
 
         $this->assertMatchesRegularExpression('#curl[^&]*?deptrac-0.2.0.phar#', (string)$command);
+    }
+
+    public function test_it_includes_file_download_commands()
+    {
+        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+            $this->tool(new FileDownloadCommand('https://github.com/fabpot/local-php-security-checker/releases/download/v1.0.0/local-php-security-checker_1.0.0_linux_amd64', '/tools/security-checker')),
+        ]));
+
+        $command = $this->useCase->__invoke($this->filter());
+
+        $this->assertMatchesRegularExpression('#curl[^&]*?local-php-security-checker_1.0.0_linux_amd64#', (string)$command);
     }
 
     private function filter(): Filter

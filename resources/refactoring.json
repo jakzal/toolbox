@@ -36,7 +36,7 @@
             "website": "https://github.com/rectorphp/rector",
             "command": {
                 "composer-bin-plugin": {
-                    "package": "rector/rector-prefixed:0.8.52",
+                    "package": "rector/rector-prefixed",
                     "namespace": "rector",
                     "links": {"%target-dir%/rector": "rector"}
                 }

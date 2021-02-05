@@ -74,7 +74,7 @@
             "website": "https://github.com/friendsoftwig/twigcs",
             "command": {
                 "phar-download": {
-                    "phar": "https://github.com/friendsoftwig/twigcs/releases/download/v4.0.0/twigcs.phar",
+                    "phar": "https://github.com/friendsoftwig/twigcs/releases/download/v5.0.0/twigcs.phar",
                     "bin": "%target-dir%/twigcs"
                 }
             },

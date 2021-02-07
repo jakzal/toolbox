@@ -6,11 +6,11 @@
             "website": "https://github.com/bmitch/churn-php",
             "command": {
                 "file-download": {
-                    "url": "https://github.com/bmitch/churn-php/releases/download/1.3.0/churn.phar.asc",
+                    "url": "https://github.com/bmitch/churn-php/releases/download/1.4.0/churn.phar.asc",
                     "file": "%target-dir%/churn.phar.asc"
                 },
                 "phar-download": {
-                    "phar": "https://github.com/bmitch/churn-php/releases/download/1.3.0/churn.phar",
+                    "phar": "https://github.com/bmitch/churn-php/releases/download/1.4.0/churn.phar",
                     "bin": "%target-dir%/churn"
                 }
             },

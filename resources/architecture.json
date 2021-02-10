@@ -19,7 +19,7 @@
             "website": "https://github.com/qossmic/deptrac",
             "command": {
                 "phar-download": {
-                    "phar": "https://github.com/qossmic/deptrac/releases/download/0.11.0/deptrac.phar",
+                    "phar": "https://github.com/qossmic/deptrac/releases/download/0.11.1/deptrac.phar",
                     "bin": "%target-dir%/deptrac"
                 }
             },

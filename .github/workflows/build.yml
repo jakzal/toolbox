@@ -68,7 +68,7 @@ jobs:
                     tools: composer
                     ini-values: "phar.readonly=0"
                     coverage: none
-                    extensions: zip
+                    extensions: bz2, zip
 
             -   uses: actions/download-artifact@v1
                 with:

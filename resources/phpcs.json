@@ -1,0 +1,44 @@
+{
+  "tools": [
+    {
+      "name": "phpcs",
+      "summary": "Detects coding standard violations",
+      "website": "https://github.com/squizlabs/PHP_CodeSniffer",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "squizlabs/php_codesniffer",
+          "namespace": "phpcs",
+          "links": {"%target-dir%/phpcs": "phpcs"}
+        }
+      },
+      "test": "phpcs --help",
+      "tags": ["checkstyle"]
+    },
+    {
+      "name": "phpcodesniffer-composer-install",
+      "summary": "Easy installation of PHP_CodeSniffer coding standards (rulesets).",
+      "website": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "dealerdirect/phpcodesniffer-composer-installer",
+          "namespace": "phpcs"
+        }
+      },
+      "test": "composer global bin phpcs show dealerdirect/phpcodesniffer-composer-installer",
+      "tags": ["pre-installation"]
+    },
+    {
+      "name": "phpcs-security-audit",
+      "summary": "Finds vulnerabilities and weaknesses related to security in PHP code",
+      "website": "https://github.com/FloeDesignTechnologies/phpcs-security-audit",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "pheromone/phpcs-security-audit",
+          "namespace": "phpcs"
+        }
+      },
+      "test": "phpcs -i | grep Security",
+      "tags": ["security"]
+    }
+  ]
+}

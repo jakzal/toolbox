@@ -132,13 +132,27 @@
             "tags": ["phpstan"]
         },
         {
+            "name": "phpstan-larastan",
+            "summary": "Separate installation of phpstan for larastan",
+            "website": "https://github.com/phpstan/phpstan",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpstan/phpstan",
+                    "namespace": "larastan",
+                    "links": {"%target-dir%/phpstan-larastan": "phpstan"}
+                }
+            },
+            "test": "phpstan-larastan --version",
+            "tags": ["phpstan"]
+        },
+        {
             "name": "larastan",
             "summary": "PHPStan extension for Laravel",
             "website": "https://github.com/nunomaduro/larastan",
             "command": {
                 "composer-bin-plugin": {
                     "package": "nunomaduro/larastan",
-                    "namespace": "phpstan"
+                    "namespace": "larastan"
                 }
             },
             "test": "composer global bin phpstan show ergebnis/phpstan-rules",

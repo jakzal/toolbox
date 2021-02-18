@@ -6,11 +6,11 @@
             "website": "https://psalm.dev/",
             "command": {
                 "file-download": {
-                    "url": "https://github.com/vimeo/psalm/releases/download/4.6.0/psalm.phar.asc",
+                    "url": "https://github.com/vimeo/psalm/releases/download/4.6.1/psalm.phar.asc",
                     "file": "%target-dir%/psalm.phar.asc"
                 },
                 "phar-download": {
-                    "phar": "https://github.com/vimeo/psalm/releases/download/4.6.0/psalm.phar",
+                    "phar": "https://github.com/vimeo/psalm/releases/download/4.6.1/psalm.phar",
                     "bin": "%target-dir%/psalm"
                 }
             },

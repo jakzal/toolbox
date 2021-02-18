@@ -46,6 +46,7 @@ final class ToolFactory
             'file-download' => \sprintf('%s::import', FileDownloadCommandFactory::class),
             'box-build' => \sprintf('%s::import', BoxBuildCommandFactory::class),
             'composer-install' => \sprintf('%s::import', ComposerInstallCommandFactory::class),
+            'phive-install' => \sprintf('%s::import', PhiveInstallCommandFactory::class),
             'composer-global-install' => \sprintf('%s::import', ComposerGlobalInstallCommandFactory::class),
             'composer-bin-plugin' => \sprintf('%s::import', ComposerBinPluginCommandFactory::class),
             'sh' => \sprintf('%s::import', ShCommandFactory::class),

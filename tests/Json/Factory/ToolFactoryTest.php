@@ -12,6 +12,7 @@ use Zalas\Toolbox\Tool\Command\ComposerInstallCommand;
 use Zalas\Toolbox\Tool\Command\FileDownloadCommand;
 use Zalas\Toolbox\Tool\Command\MultiStepCommand;
 use Zalas\Toolbox\Tool\Command\PharDownloadCommand;
+use Zalas\Toolbox\Tool\Command\PhiveInstallCommand;
 use Zalas\Toolbox\Tool\Command\ShCommand;
 use Zalas\Toolbox\Tool\Command\TestCommand;
 
@@ -67,6 +68,20 @@ class ToolFactoryTest extends TestCase
         ]));
 
         $this->assertInstanceOf(PharDownloadCommand::class, $tool->command());
+    }
+
+    public function test_it_imports_the_phive_install_command()
+    {
+        $tool = ToolFactory::import($this->definition([
+            'command' => [
+                'phive-install' => [
+                    'alias' => 'phpstan/phpstan',
+                    'bin' => 'tools'
+                ]
+            ]
+        ]));
+
+        $this->assertInstanceOf(PhiveInstallCommand::class, $tool->command());
     }
 
     public function test_it_imports_the_file_download_command()

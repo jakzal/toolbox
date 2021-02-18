@@ -14,6 +14,7 @@ use Zalas\Toolbox\Tool\Command\FileDownloadCommand;
 use Zalas\Toolbox\Tool\Command\MultiStepCommand;
 use Zalas\Toolbox\Tool\Command\OptimisedComposerBinPluginCommand;
 use Zalas\Toolbox\Tool\Command\PharDownloadCommand;
+use Zalas\Toolbox\Tool\Command\PhiveInstallCommand;
 use Zalas\Toolbox\Tool\Command\ShCommand;
 use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
@@ -41,6 +42,7 @@ class InstallTools
                 ->merge($commandFilter(ShCommand::class))
                 ->merge($commandFilter(FileDownloadCommand::class))
                 ->merge($commandFilter(PharDownloadCommand::class))
+                ->merge($commandFilter(PhiveInstallCommand::class))
                 ->merge($commandFilter(MultiStepCommand::class))
                 ->merge($this->groupComposerGlobalInstallCommands($commandFilter(ComposerGlobalInstallCommand::class)))
                 ->merge($this->groupComposerBinPluginCommands($commandFilter(ComposerBinPluginCommand::class)))

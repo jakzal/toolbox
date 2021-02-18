@@ -13,6 +13,22 @@
       "tags": ["pre-installation"]
     },
     {
+      "name": "phive",
+      "summary": "PHAR Installation and Verification Environment",
+      "website": "https://phar.io/",
+      "command": {
+        "phar-download": {
+          "phar": "https://phar.io/releases/phive.phar",
+          "bin": "%target-dir%/phive"
+        },
+        "sh": {
+          "command": "phive --home %target-dir%"
+        }
+      },
+      "test": "phive --version",
+      "tags": ["pre-installation"]
+    },
+    {
       "name": "composer-bin-plugin",
       "summary": "Composer plugin to install bin vendors in isolated locations",
       "website": "https://github.com/bamarni/composer-bin-plugin",

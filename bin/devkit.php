@@ -32,6 +32,7 @@ trait Tools
                 __DIR__ . '/../resources/documentation.json',
                 __DIR__ . '/../resources/linting.json',
                 __DIR__ . '/../resources/metrics.json',
+                __DIR__ . '/../resources/phpcs.json',
                 __DIR__ . '/../resources/phpstan.json',
                 __DIR__ . '/../resources/psalm.json',
                 __DIR__ . '/../resources/refactoring.json',

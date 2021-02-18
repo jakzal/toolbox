@@ -62,6 +62,7 @@ class ApplicationTest extends TestCase
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/documentation.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/linting.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/metrics.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/phpcs.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/phpstan.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/psalm.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/refactoring.json',

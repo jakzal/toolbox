@@ -56,19 +56,6 @@
             "tags": ["checkstyle"]
         },
         {
-            "name": "phpcs",
-            "summary": "Detects coding standard violations",
-            "website": "https://github.com/squizlabs/PHP_CodeSniffer",
-            "command": {
-                "phar-download": {
-                    "phar": "https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar",
-                    "bin": "%target-dir%/phpcs"
-                }
-            },
-            "test": "phpcs --help",
-            "tags": ["checkstyle"]
-        },
-        {
             "name": "twigcs",
             "summary": "The missing checkstyle for twig!",
             "website": "https://github.com/friendsoftwig/twigcs",

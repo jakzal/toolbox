@@ -12,7 +12,7 @@
                 }
             },
             "test": "ecs -h",
-            "tags": ["checkstyle", "exclude-php:8.0"]
+            "tags": ["checkstyle"]
         },
         {
             "name": "php-cs-fixer",

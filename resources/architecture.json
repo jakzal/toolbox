@@ -51,7 +51,7 @@
                 }
             },
             "test": "php-coupling-detector list",
-            "tags": ["exclude-php:8.0", "architecture"]
+            "tags": ["architecture"]
         },
         {
             "name": "phpat",

@@ -36,12 +36,12 @@
             "website": "https://github.com/paratestphp/paratest",
             "command": {
                 "phar-download": {
-                    "phar": "https://github.com/paratestphp/paratest/releases/download/5.0.4/paratest.phar",
+                    "phar": "https://github.com/paratestphp/paratest/releases/download/6.2.0/paratest.phar",
                     "bin": "%target-dir%/paratest"
                 }
             },
             "test": "paratest --version",
-            "tags": ["exclude-php:8.0", "test"]
+            "tags": ["test"]
         },
         {
             "name": "phpcov",

@@ -11,7 +11,7 @@
                 }
             },
             "test": "phpDocumentor list",
-            "tags": ["featured", "exclude-php:8.0", "documentation"]
+            "tags": ["featured", "documentation"]
         },
         {
             "name": "phpcb",

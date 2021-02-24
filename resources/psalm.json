@@ -28,7 +28,7 @@
                 }
             },
             "test": "composer global bin doctrine-psalm-plugin show weirdan/doctrine-psalm-plugin",
-            "tags": ["exclude-php:8.0", "psalm"]
+            "tags": ["psalm"]
         }
     ]
 }

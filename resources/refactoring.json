@@ -42,7 +42,7 @@
                 }
             },
             "test": "rector --version",
-            "tags": ["exclude-php:8.0", "refactoring"]
+            "tags": ["refactoring"]
         }
     ]
 }

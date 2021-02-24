@@ -18,7 +18,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | :--- | :---------- | :------ | :------ | :------
 | analyze | [Visualizes metrics and source code](https://github.com/Qafoo/QualityAnalyzer) | &#x2705; | &#x2705; | &#x274C; |
 | behat | [Helps to test business expectations](http://behat.org/) | &#x2705; | &#x2705; | &#x2705; |
-| box | [Fast, zero config application bundler with PHARs](https://github.com/humbug/box) | &#x2705; | &#x2705; | &#x274C; |
+| box | [Fast, zero config application bundler with PHARs](https://github.com/humbug/box) | &#x2705; | &#x2705; | &#x2705; |
 | box-legacy | [Legacy version of box](https://box-project.github.io/box2/) | &#x2705; | &#x2705; | &#x2705; |
 | churn | [Discovers good candidates for refactoring](https://github.com/bmitch/churn-php) | &#x2705; | &#x2705; | &#x2705; |
 | composer | [Dependency Manager for PHP](https://getcomposer.org/) | &#x2705; | &#x2705; | &#x2705; |
@@ -29,7 +29,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | deprecation-detector | [Finds usages of deprecated code](https://github.com/sensiolabs-de/deprecation-detector) | &#x2705; | &#x2705; | &#x2705; |
 | deptrac | [Enforces dependency rules between software layers](https://github.com/qossmic/deptrac) | &#x2705; | &#x2705; | &#x2705; |
 | diffFilter | [Applies QA tools to run on a single pull request](https://github.com/exussum12/coverageChecker) | &#x2705; | &#x2705; | &#x274C; |
-| doctrine-psalm-plugin | [Stubs to let Psalm understand Doctrine better](https://github.com/weirdan/doctrine-psalm-plugin) | &#x2705; | &#x2705; | &#x274C; |
+| doctrine-psalm-plugin | [Stubs to let Psalm understand Doctrine better](https://github.com/weirdan/doctrine-psalm-plugin) | &#x2705; | &#x2705; | &#x2705; |
 | ecs | [Sets up and runs coding standard checks](https://github.com/Symplify/EasyCodingStandard) | &#x2705; | &#x2705; | &#x2705; |
 | infection | [AST based PHP Mutation Testing Framework](https://infection.github.io/) | &#x274C; | &#x2705; | &#x2705; |
 | larastan | [PHPStan extension for Laravel](https://github.com/nunomaduro/larastan) | &#x2705; | &#x2705; | &#x2705; |
@@ -38,7 +38,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | paratest | [Parallel testing for PHPUnit](https://github.com/paratestphp/paratest) | &#x2705; | &#x2705; | &#x274C; |
 | pdepend | [Static Analysis Tool](https://pdepend.org/) | &#x2705; | &#x2705; | &#x2705; |
 | phan | [Static Analysis Tool](https://github.com/phan/phan) | &#x2705; | &#x2705; | &#x2705; |
-| php-coupling-detector | [Detects code coupling issues](https://akeneo.github.io/php-coupling-detector/) | &#x2705; | &#x2705; | &#x274C; |
+| php-coupling-detector | [Detects code coupling issues](https://akeneo.github.io/php-coupling-detector/) | &#x2705; | &#x2705; | &#x2705; |
 | php-cs-fixer | [PHP Coding Standards Fixer](http://cs.sensiolabs.org/) | &#x2705; | &#x2705; | &#x2705; |
 | php-formatter | [Custom coding standards fixer](https://github.com/mmoreram/php-formatter) | &#x2705; | &#x2705; | &#x274C; |
 | php-semver-checker | [Suggests a next version according to semantic versioning](https://github.com/tomzx/php-semver-checker) | &#x2705; | &#x2705; | &#x2705; |
@@ -81,7 +81,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpunit-8 | [The PHP testing framework (8.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; |
 | psalm | [Finds errors in PHP applications](https://psalm.dev/) | &#x2705; | &#x2705; | &#x2705; |
 | psecio-parse | [Scans code for potential security-related issues](https://github.com/psecio/parse) | &#x2705; | &#x2705; | &#x2705; |
-| rector | [Tool for instant code upgrades and refactoring](https://github.com/rectorphp/rector) | &#x2705; | &#x2705; | &#x274C; |
+| rector | [Tool for instant code upgrades and refactoring](https://github.com/rectorphp/rector) | &#x2705; | &#x2705; | &#x2705; |
 | roave-backward-compatibility-check | [Tool to compare two revisions of a class API to check for BC breaks](https://github.com/Roave/BackwardCompatibilityCheck) | &#x274C; | &#x2705; | &#x274C; |
 | simple-phpunit | [Provides utilities to report legacy tests and usage of deprecated code](https://symfony.com/doc/current/components/phpunit_bridge.html) | &#x2705; | &#x2705; | &#x2705; |
 | twig-lint | [Standalone twig linter](https://github.com/asm89/twig-lint) | &#x2705; | &#x2705; | &#x2705; |

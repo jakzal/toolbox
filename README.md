@@ -74,6 +74,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpstan-phpunit | [PHPUnit extensions and rules for PHPStan](https://github.com/phpstan/phpstan-phpunit) | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-strict-rules | [Extra strict and opinionated rules for PHPStan](https://github.com/phpstan/phpstan-strict-rules) | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-symfony | [Symfony extension for PHPStan](https://github.com/phpstan/phpstan-symfony) | &#x2705; | &#x2705; | &#x2705; |
+| phpstan-symplify | [Symplify extension for PHPStan](https://github.com/symplify/phpstan-rules) | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-webmozart-assert | [PHPStan extension for webmozart/assert](https://github.com/phpstan/phpstan-webmozart-assert) | &#x2705; | &#x2705; | &#x2705; |
 | phpunit | [The PHP testing framework](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-5 | [The PHP testing framework (5.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x274C; |

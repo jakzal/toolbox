@@ -8,24 +8,27 @@ final class PhiveInstallCommand implements Command
 {
     private $alias;
     private $bin;
-    private $trust;
-    private $unsigned;
+    private $sig;
 
-    public function __construct(string $alias, string $bin, bool $trust = true, bool $unsigned = false)
+    public function __construct(string $alias, string $bin, ?string $sig = null)
     {
         $this->alias = $alias;
         $this->bin = $bin;
-        $this->trust = $trust;
-        $this->unsigned = $unsigned;
+        $this->sig = $sig;
     }
 
     public function __toString(): string
     {
+        $home = \dirname($this->bin);
+        $tmp = '/tmp/'.\md5($this->alias);
+
         return \sprintf(
-            'phive install %s %s %s -t %s',
-            $this->trust ? '--trust-gpg-keys' : '',
-            $this->unsigned ? '--force-accept-unsigned' : '',
+            'phive --no-progress --home %s install %s %s -t %s && mv %s/* %s',
+            $home,
+            $this->sig ? '--trust-gpg-keys '.$this->sig : '--force-accept-unsigned',
             $this->alias,
+            $tmp,
+            $tmp,
             $this->bin
         );
     }

@@ -20,9 +20,6 @@
         "phar-download": {
           "phar": "https://phar.io/releases/phive.phar",
           "bin": "%target-dir%/phive"
-        },
-        "sh": {
-          "command": "phive --home %target-dir%"
         }
       },
       "test": "phive --version",
@@ -49,9 +46,8 @@
       "website": "https://github.com/humbug/box",
       "command": {
         "phive-install": {
-          "alias": "humbug/box@^3.11.1",
-          "bin": "%target-dir%/box",
-          "unsigned": true
+          "alias": "humbug/box@^3.0",
+          "bin": "%target-dir%/box"
         }
       },
       "test": "box list",
@@ -62,8 +58,10 @@
       "summary": "Legacy version of box",
       "website": "https://box-project.github.io/box2/",
       "command": {
-        "sh": {
-          "command": "curl -Ls https://box-project.github.io/box2/installer.php | php && mv box.phar %target-dir%/box-legacy && chmod +x %target-dir%/box-legacy"
+        "phive-install": {
+          "alias": "box-project/box2",
+          "bin": "%target-dir%/box-legacy",
+          "sig": "293D771241515FE8"
         }
       },
       "test": "box-legacy list",

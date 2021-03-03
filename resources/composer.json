@@ -18,8 +18,9 @@
             "website": "https://github.com/icanhazstring/composer-unused",
             "command": {
                 "phive-install": {
-                    "alias": "composer-unused@^0.7.5",
-                    "bin": "%target-dir%/composer-unused"
+                    "alias": "composer-unused",
+                    "bin": "%target-dir%/composer-unused",
+                    "sig": "F4D32E2C9343B2AE"
                 }
             },
             "test": "composer-unused -vvv | grep 'Your system is ready'",
@@ -30,13 +31,10 @@
             "summary": "Verify that no unknown symbols are used in the sources of a package.",
             "website": "https://github.com/maglnet/ComposerRequireChecker",
             "command": {
-                "file-download": {
-                    "url": "https://github.com/maglnet/ComposerRequireChecker/releases/download/3.1.0/composer-require-checker.phar.asc",
-                    "file": "%target-dir%/composer-require-checker.asc"
-                },
-                "phar-download": {
-                    "phar": "https://github.com/maglnet/ComposerRequireChecker/releases/download/3.1.0/composer-require-checker.phar",
-                    "bin": "%target-dir%/composer-require-checker"
+                "phive-install": {
+                    "alias": "composer-require-checker",
+                    "bin": "%target-dir%/composer-require-checker",
+                    "sig": "033E5F8D801A2F8D"
                 }
             },
             "test": "composer-require-checker -V",
@@ -47,13 +45,10 @@
             "summary": "Verify that no unknown symbols are used in the sources of a package.",
             "website": "https://github.com/maglnet/ComposerRequireChecker",
             "command": {
-                "file-download": {
-                    "url": "https://github.com/maglnet/ComposerRequireChecker/releases/download/2.1.0/composer-require-checker.phar.asc",
-                    "file": "%target-dir%/composer-require-checker-v2.asc"
-                },
-                "phar-download": {
-                    "phar": "https://github.com/maglnet/ComposerRequireChecker/releases/download/2.1.0/composer-require-checker.phar",
-                    "bin": "%target-dir%/composer-require-checker-v2"
+                "phive-install": {
+                    "alias": "composer-require-checker@^2.0",
+                    "bin": "%target-dir%/composer-require-checker-v2",
+                    "sig": "D2CCAC42F6295E7D"
                 }
             },
             "test": "composer-require-checker-v2 -V",

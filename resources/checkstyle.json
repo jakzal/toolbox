@@ -21,7 +21,8 @@
             "command": {
                 "phive-install": {
                     "alias": "php-cs-fixer@^2.0",
-                    "bin": "%target-dir%/php-cs-fixer"
+                    "bin": "%target-dir%/php-cs-fixer",
+                    "sig": "E82B2FB314E9906E"
                 }
             },
             "test": "php-cs-fixer list",
@@ -49,7 +50,8 @@
             "command": {
                 "phive-install": {
                     "alias": "phpcbf",
-                    "bin": "%target-dir%/phpcbf"
+                    "bin": "%target-dir%/phpcbf",
+                    "sig": "31C7E470E2138192"
                 }
             },
             "test": "phpcbf --help",
@@ -61,9 +63,8 @@
             "website": "https://github.com/friendsoftwig/twigcs",
             "command": {
                 "phive-install": {
-                    "alias": "friendsoftwig/twigcs@^5.0.0",
-                    "bin": "%target-dir%/twigcs",
-                    "unsigned": true
+                    "alias": "friendsoftwig/twigcs@^5.0",
+                    "bin": "%target-dir%/twigcs"
                 }
             },
             "test": "twigcs --help",

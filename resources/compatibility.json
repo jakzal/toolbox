@@ -19,9 +19,8 @@
             "website": "https://github.com/Roave/BackwardCompatibilityCheck",
             "command": {
                 "phive-install": {
-                    "alias": "Roave/BackwardCompatibilityCheck@^5.0.0",
-                    "bin": "%target-dir%/roave-backward-compatibility-check",
-                    "unsigned": true
+                    "alias": "roave/backwardcompatibilitycheck@^5.0",
+                    "bin": "%target-dir%/roave-backward-compatibility-check"
                 }
             },
             "test": "roave-backward-compatibility-check --version",

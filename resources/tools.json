@@ -21,7 +21,8 @@
       "command": {
         "phive-install": {
           "alias": "phan@^4.0.3",
-          "bin": "%target-dir%/phan"
+          "bin": "%target-dir%/phan",
+          "sig": "8101FB57DD8130F0"
         }
       },
       "test": "phan -v",
@@ -33,11 +34,13 @@
       "website": "https://github.com/phpbench/phpbench",
       "command": {
         "phive-install": {
-          "alias": "phpbench/phpbench",
-          "bin": "%target-dir%/phpbench"
+          "alias": "phpbench",
+          "bin": "%target-dir%/phpbench",
+          "sig": "D0254321FB74703A"
         }
       },
-      "test": "phpbench"
+      "test": "phpbench",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpa",
@@ -73,7 +76,8 @@
       "command": {
         "phive-install": {
           "alias": "phpcpd",
-          "bin": "%target-dir%/phpcpd"
+          "bin": "%target-dir%/phpcpd",
+          "sig": "4AA394086372C20A"
         }
       },
       "test": "phpcpd -v",
@@ -85,8 +89,9 @@
       "website": "https://phpmd.org/",
       "command": {
         "phive-install": {
-          "alias": "phpmd@^2.9.1",
-          "bin": "%target-dir%/phpmd"
+          "alias": "phpmd",
+          "bin": "%target-dir%/phpmd",
+          "sig": "0F9684B8B16B7AB0"
         }
       },
       "test": "phpmd --version"

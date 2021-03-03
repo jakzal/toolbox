@@ -6,9 +6,8 @@
             "website": "https://github.com/sensiolabs-de/deprecation-detector",
             "command": {
                 "phive-install": {
-                    "alias": "sensiolabs-de/deprecation-detector@^0.1.0-alpha4",
-                    "bin": "%target-dir%/deprecation-detector",
-                    "unsigned": true
+                    "alias": "sensiolabs-de/deprecation-detector",
+                    "bin": "%target-dir%/deprecation-detector"
                 }
             },
             "test": "deprecation-detector list",
@@ -20,9 +19,8 @@
             "website": "http://wapmorgan.github.io/PhpDeprecationDetector",
             "command": {
                 "phive-install": {
-                    "alias": "wapmorgan/PhpDeprecationDetector@^2.0.25",
-                    "bin": "%target-dir%/phpdd",
-                    "unsigned": true
+                    "alias": "wapmorgan/phpdeprecationdetector@^2.0",
+                    "bin": "%target-dir%/phpdd"
                 }
             },
             "test": "phpdd -h",

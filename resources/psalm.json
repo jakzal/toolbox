@@ -6,8 +6,9 @@
             "website": "https://psalm.dev/",
             "command": {
                 "phive-install": {
-                    "alias": "psalm@^4.6.2",
-                    "bin": "%target-dir%/psalm"
+                    "alias": "psalm@^4.0",
+                    "bin": "%target-dir%/psalm",
+                    "sig": "12CE0F1D262429A5"
                 }
             },
             "test": "psalm -h",

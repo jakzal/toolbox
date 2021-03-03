@@ -6,8 +6,9 @@
             "website": "https://dephpend.com/",
             "command": {
                 "phive-install": {
-                    "alias": "dephpend@^0.7.0",
-                    "bin": "%target-dir%/dephpend"
+                    "alias": "dephpend",
+                    "bin": "%target-dir%/dephpend",
+                    "sig": "76835C9464877BDD"
                 }
             },
             "test": "dephpend list",
@@ -19,8 +20,9 @@
             "website": "https://github.com/qossmic/deptrac",
             "command": {
                 "phive-install": {
-                    "alias": "qossmic/deptrac@^0.11.1",
-                    "bin": "%target-dir%/deptrac"
+                    "alias": "deptrac",
+                    "bin": "%target-dir%/deptrac",
+                    "sig": "4F2AB4D11A9A65F7"
                 }
             },
             "test": "deptrac list",
@@ -32,7 +34,7 @@
             "website": "https://pdepend.org/",
             "command": {
                 "phive-install": {
-                    "alias": "pdepend/pdepend@^2.8.0",
+                    "alias": "pdepend/pdepend@^2.0",
                     "bin": "%target-dir%/pdepend"
                 }
             },

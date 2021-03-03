@@ -17,9 +17,11 @@
             "name": "infection",
             "summary": "AST based PHP Mutation Testing Framework",
             "website": "https://infection.github.io/",
+            "command": {
                 "phive-install": {
                     "alias": "infection@^0.21",
-                    "bin": "%target-dir%/infection"
+                    "bin": "%target-dir%/infection",
+                    "sig": "C5095986493B4AA0"
                 }
             },
             "test": "infection --version",
@@ -32,8 +34,7 @@
             "command": {
                 "phive-install": {
                     "alias": "paratestphp/paratest@^5.0.4",
-                    "bin": "%target-dir%/paratest",
-                    "unsigned": true
+                    "bin": "%target-dir%/paratest"
                 }
             },
             "test": "paratest --version",
@@ -46,7 +47,8 @@
             "command": {
                 "phive-install": {
                     "alias": "phpcov",
-                    "bin": "%target-dir%/phpcov"
+                    "bin": "%target-dir%/phpcov",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpcov -v",
@@ -58,9 +60,8 @@
             "website": "http://www.phpspec.net/",
             "command": {
                 "phive-install": {
-                    "alias": "https://github.com/phpspec/phpspec/releases/download/7.0.1/phpspec.phar",
-                    "bin": "%target-dir%/phpspec",
-                    "unsigned": true
+                    "alias": "phpspec/phpspec@^7.0",
+                    "bin": "%target-dir%/phpspec"
                 }
             },
             "test": "phpspec --version",
@@ -73,7 +74,8 @@
             "command": {
                 "phive-install": {
                     "alias": "phpunit",
-                    "bin": "%target-dir%/phpunit"
+                    "bin": "%target-dir%/phpunit",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpunit --version",
@@ -86,7 +88,8 @@
             "command": {
                 "phive-install": {
                     "alias": "phpunit@^8.0",
-                    "bin": "%target-dir%/phpunit-8"
+                    "bin": "%target-dir%/phpunit-8",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpunit-8 --version",
@@ -99,7 +102,8 @@
             "command": {
                 "phive-install": {
                     "alias": "phpunit@^7.0",
-                    "bin": "%target-dir%/phpunit-7"
+                    "bin": "%target-dir%/phpunit-7",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpunit-7 --version",
@@ -112,7 +116,8 @@
             "command": {
                 "phive-install": {
                     "alias": "phpunit@^5.0",
-                    "bin": "%target-dir%/phpunit-5"
+                    "bin": "%target-dir%/phpunit-5",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpunit-5 --version",

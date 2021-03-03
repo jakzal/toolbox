@@ -6,8 +6,9 @@
             "website": "https://github.com/bmitch/churn-php",
             "command": {
                 "phive-install": {
-                    "alias": "churn@^1.5.0",
-                    "bin": "%target-dir%/churn"
+                    "alias": "churn@^1.0",
+                    "bin": "%target-dir%/churn",
+                    "sig": "69132CC8829FAB5F"
                 }
             },
             "test": "churn --version",
@@ -20,8 +21,7 @@
             "command": {
                 "phive-install": {
                     "alias": "dunglas/phpdoc-to-typehint@^0.1.0",
-                    "bin": "%target-dir%/phpdoc-to-typehint",
-                    "unsigned": true
+                    "bin": "%target-dir%/phpdoc-to-typehint"
                 }
             },
             "test": "phpdoc-to-typehint -V",

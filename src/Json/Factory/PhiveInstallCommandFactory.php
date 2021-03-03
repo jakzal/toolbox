@@ -11,6 +11,6 @@ final class PhiveInstallCommandFactory
     {
         Assert::requireFields(['alias', 'bin'], $command, 'PhiveInstallCommand');
 
-        return new PhiveInstallCommand($command['alias'], $command['bin'], $command['trust'] ?? false, $command['unsigned'] ?? false);
+        return new PhiveInstallCommand($command['alias'], $command['bin'], $command['sig'] ?? null);
     }
 }

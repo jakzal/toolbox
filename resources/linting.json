@@ -46,9 +46,10 @@
             "summary": "Compact command line utility for checking YAML file syntax",
             "website": "https://github.com/j13k/yaml-lint",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/j13k/yaml-lint/releases/download/1.1.4/yaml-lint.phar",
-                    "bin": "%target-dir%/yaml-lint"
+                "phive-install": {
+                    "alias": "j13k/yaml-lint@^1.1.3",
+                    "bin": "%target-dir%/yaml-lint",
+                    "sig": "D684BDC6C6CAB80F"
                 }
             },
             "test": "yaml-lint --version",

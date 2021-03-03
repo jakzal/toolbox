@@ -5,9 +5,10 @@
             "summary": "Finds usages of deprecated code",
             "website": "https://github.com/sensiolabs-de/deprecation-detector",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/sensiolabs-de/deprecation-detector/releases/download/0.1.0-alpha4/deprecation-detector.phar",
-                    "bin": "%target-dir%/deprecation-detector"
+                "phive-install": {
+                    "alias": "sensiolabs-de/deprecation-detector@^0.1.0-alpha4",
+                    "bin": "%target-dir%/deprecation-detector",
+                    "unsigned": true
                 }
             },
             "test": "deprecation-detector list",
@@ -18,9 +19,10 @@
             "summary": "Finds usage of deprecated features",
             "website": "http://wapmorgan.github.io/PhpDeprecationDetector",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/wapmorgan/PhpDeprecationDetector/releases/download/2.0.25/phpdd-2.0.25.phar",
-                    "bin": "%target-dir%/phpdd"
+                "phive-install": {
+                    "alias": "wapmorgan/PhpDeprecationDetector@^2.0.25",
+                    "bin": "%target-dir%/phpdd",
+                    "unsigned": true
                 }
             },
             "test": "phpdd -h",

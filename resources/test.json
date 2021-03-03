@@ -30,13 +30,8 @@
             "name": "infection",
             "summary": "AST based PHP Mutation Testing Framework",
             "website": "https://infection.github.io/",
-            "command": {
-                "file-download": {
-                    "url": "https://github.com/infection/infection/releases/download/0.21.4/infection.phar.asc",
-                    "file": "%target-dir%/infection.phar.asc"
-                },
-                "phar-download": {
-                    "phar": "https://github.com/infection/infection/releases/download/0.21.4/infection.phar",
+                "phive-install": {
+                    "alias": "infection@^0.21",
                     "bin": "%target-dir%/infection"
                 }
             },
@@ -48,9 +43,10 @@
             "summary": "Parallel testing for PHPUnit",
             "website": "https://github.com/paratestphp/paratest",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/paratestphp/paratest/releases/download/5.0.4/paratest.phar",
-                    "bin": "%target-dir%/paratest"
+                "phive-install": {
+                    "alias": "paratestphp/paratest@^5.0.4",
+                    "bin": "%target-dir%/paratest",
+                    "unsigned": true
                 }
             },
             "test": "paratest --version",
@@ -61,8 +57,8 @@
             "summary": "a command-line frontend for the PHP_CodeCoverage library",
             "website": "https://github.com/sebastianbergmann/phpcov",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpcov.phar",
+                "phive-install": {
+                    "alias": "phpcov",
                     "bin": "%target-dir%/phpcov"
                 }
             },
@@ -74,9 +70,10 @@
             "summary": "SpecBDD Framework",
             "website": "http://www.phpspec.net/",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/phpspec/phpspec/releases/download/7.0.1/phpspec.phar",
-                    "bin": "%target-dir%/phpspec"
+                "phive-install": {
+                    "alias": "https://github.com/phpspec/phpspec/releases/download/7.0.1/phpspec.phar",
+                    "bin": "%target-dir%/phpspec",
+                    "unsigned": true
                 }
             },
             "test": "phpspec --version",
@@ -87,8 +84,8 @@
             "summary": "The PHP testing framework",
             "website": "https://phpunit.de/",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpunit.phar",
+                "phive-install": {
+                    "alias": "phpunit",
                     "bin": "%target-dir%/phpunit"
                 }
             },
@@ -100,8 +97,8 @@
             "summary": "The PHP testing framework (8.x version)",
             "website": "https://phpunit.de/",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpunit-8.phar",
+                "phive-install": {
+                    "alias": "phpunit@^8.0",
                     "bin": "%target-dir%/phpunit-8"
                 }
             },
@@ -113,8 +110,8 @@
             "summary": "The PHP testing framework (7.x version)",
             "website": "https://phpunit.de/",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpunit-7.phar",
+                "phive-install": {
+                    "alias": "phpunit@^7.0",
                     "bin": "%target-dir%/phpunit-7"
                 }
             },
@@ -126,8 +123,8 @@
             "summary": "The PHP testing framework (5.x version)",
             "website": "https://phpunit.de/",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpunit-5.phar",
+                "phive-install": {
+                    "alias": "phpunit@^5.0",
                     "bin": "%target-dir%/phpunit-5"
                 }
             },

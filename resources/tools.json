@@ -19,8 +19,8 @@
       "summary": "Static Analysis Tool",
       "website": "https://github.com/phan/phan",
       "command": {
-        "phar-download": {
-          "phar": "https://github.com/phan/phan/releases/download/4.0.3/phan.phar",
+        "phive-install": {
+          "alias": "phan@^4.0.3",
           "bin": "%target-dir%/phan"
         }
       },
@@ -32,12 +32,8 @@
       "summary": "PHP Benchmarking framework",
       "website": "https://github.com/phpbench/phpbench",
       "command": {
-        "file-download": {
-          "url": "https://phpbench.github.io/phpbench/phpbench.phar.pubkey",
-          "file": "%target-dir%/phpbench.pubkey"
-        },
-        "phar-download": {
-          "phar": "https://phpbench.github.io/phpbench/phpbench.phar",
+        "phive-install": {
+          "alias": "phpbench/phpbench",
           "bin": "%target-dir%/phpbench"
         }
       },
@@ -75,8 +71,8 @@
       "summary": "Copy/Paste Detector",
       "website": "https://github.com/sebastianbergmann/phpcpd",
       "command": {
-        "phar-download": {
-          "phar": "https://phar.phpunit.de/phpcpd.phar",
+        "phive-install": {
+          "alias": "phpcpd",
           "bin": "%target-dir%/phpcpd"
         }
       },
@@ -88,8 +84,8 @@
       "summary": "A tool for finding problems in PHP code",
       "website": "https://phpmd.org/",
       "command": {
-        "phar-download": {
-          "phar": "https://github.com/phpmd/phpmd/releases/download/2.9.1/phpmd.phar",
+        "phive-install": {
+          "alias": "phpmd@^2.9.1",
           "bin": "%target-dir%/phpmd"
         }
       },

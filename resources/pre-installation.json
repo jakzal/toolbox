@@ -48,9 +48,10 @@
       "summary": "Fast, zero config application bundler with PHARs",
       "website": "https://github.com/humbug/box",
       "command": {
-        "phar-download": {
-          "phar": "https://github.com/humbug/box/releases/download/3.11.1/box.phar",
-          "bin": "%target-dir%/box"
+        "phive-install": {
+          "alias": "humbug/box@^3.11.1",
+          "bin": "%target-dir%/box",
+          "unsigned": true
         }
       },
       "test": "box list",

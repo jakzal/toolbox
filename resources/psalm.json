@@ -5,12 +5,8 @@
             "summary": "Finds errors in PHP applications",
             "website": "https://psalm.dev/",
             "command": {
-                "file-download": {
-                    "url": "https://github.com/vimeo/psalm/releases/download/4.6.2/psalm.phar.asc",
-                    "file": "%target-dir%/psalm.phar.asc"
-                },
-                "phar-download": {
-                    "phar": "https://github.com/vimeo/psalm/releases/download/4.6.2/psalm.phar",
+                "phive-install": {
+                    "alias": "psalm@^4.6.2",
                     "bin": "%target-dir%/psalm"
                 }
             },

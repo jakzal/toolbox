@@ -32,8 +32,8 @@
             "summary": "A tool for quickly measuring the size of a PHP project",
             "website": "https://github.com/sebastianbergmann/phploc",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phploc.phar",
+                "phive-install": {
+                    "alias": "phploc",
                     "bin": "%target-dir%/phploc"
                 }
             },
@@ -45,8 +45,8 @@
             "summary": "Static Analysis Tool",
             "website": "http://www.phpmetrics.org/",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/phpmetrics/PhpMetrics/releases/download/v2.7.3/phpmetrics.phar",
+                "phive-install": {
+                    "alias": "https://github.com/phpmetrics/PhpMetrics/releases/download/v2.7.3/phpmetrics.phar",
                     "bin": "%target-dir%/phpmetrics"
                 }
             },

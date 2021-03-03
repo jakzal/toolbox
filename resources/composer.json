@@ -24,6 +24,40 @@
             },
             "test": "composer-unused -vvv | grep 'Your system is ready'",
             "tags": ["composer"]
+        },
+        {
+            "name": "composer-require-checker",
+            "summary": "Verify that no unknown symbols are used in the sources of a package.",
+            "website": "https://github.com/maglnet/ComposerRequireChecker",
+            "command": {
+                "file-download": {
+                    "url": "https://github.com/maglnet/ComposerRequireChecker/releases/download/3.1.0/composer-require-checker.phar.asc",
+                    "file": "%target-dir%/composer-require-checker.asc"
+                },
+                "phar-download": {
+                    "phar": "https://github.com/maglnet/ComposerRequireChecker/releases/download/3.1.0/composer-require-checker.phar",
+                    "bin": "%target-dir%/composer-require-checker"
+                }
+            },
+            "test": "composer-require-checker -V",
+            "tags": ["exclude-php:7.3", "composer"]
+        },
+        {
+            "name": "composer-require-checker-v2",
+            "summary": "Verify that no unknown symbols are used in the sources of a package.",
+            "website": "https://github.com/maglnet/ComposerRequireChecker",
+            "command": {
+                "file-download": {
+                    "url": "https://github.com/maglnet/ComposerRequireChecker/releases/download/2.1.0/composer-require-checker.phar.asc",
+                    "file": "%target-dir%/composer-require-checker-v2.asc"
+                },
+                "phar-download": {
+                    "phar": "https://github.com/maglnet/ComposerRequireChecker/releases/download/2.1.0/composer-require-checker.phar",
+                    "bin": "%target-dir%/composer-require-checker-v2"
+                }
+            },
+            "test": "composer-require-checker-v2 -V",
+            "tags": ["composer"]
         }
     ]
 }

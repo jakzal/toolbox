@@ -55,6 +55,19 @@
             "tags": ["test"]
         },
         {
+            "name": "php-fuzzer",
+            "summary": "A fuzzer for PHP, which can be used to find bugs in libraries by feeding them 'random' inputs",
+            "website": "https://github.com/nikic/PHP-Fuzzer",
+            "command": {
+                "phive-install": {
+                    "alias": "nikic/php-fuzzer",
+                    "bin": "%target-dir%/php-fuzzer"
+                }
+            },
+            "test": "php-fuzzer --help",
+            "tags": ["exclude-php:7.3", "test"]
+        },
+        {
             "name": "phpspec",
             "summary": "SpecBDD Framework",
             "website": "http://www.phpspec.net/",

@@ -39,7 +39,8 @@
           "sig": "D0254321FB74703A"
         }
       },
-      "test": "phpbench"
+      "test": "phpbench",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpa",

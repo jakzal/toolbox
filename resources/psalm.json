@@ -5,29 +5,58 @@
             "summary": "Finds errors in PHP applications",
             "website": "https://psalm.dev/",
             "command": {
-                "file-download": {
-                    "url": "https://github.com/vimeo/psalm/releases/download/4.6.4/psalm.phar.asc",
-                    "file": "%target-dir%/psalm.phar.asc"
-                },
-                "phar-download": {
-                    "phar": "https://github.com/vimeo/psalm/releases/download/4.6.4/psalm.phar",
-                    "bin": "%target-dir%/psalm"
+                "composer-bin-plugin": {
+                    "package": "vimeo/psalm",
+                    "namespace": "psalm",
+                    "links": {
+                        "%target-dir%/psalm": "psalm",
+                        "%target-dir%/psalm-language-server": "psalm-language-server",
+                        "%target-dir%/psalm-plugin": "psalm-plugin",
+                        "%target-dir%/psalm-refactor": "psalm-refactor",
+                        "%target-dir%/psalter": "psalter"
+                    }
                 }
             },
             "test": "psalm -h",
             "tags": ["featured", "psalm"]
         },
         {
-            "name": "doctrine-psalm-plugin",
+            "name": "psalm-plugin-doctrine",
             "summary": "Stubs to let Psalm understand Doctrine better",
             "website": "https://github.com/weirdan/doctrine-psalm-plugin",
             "command": {
                 "composer-bin-plugin": {
                     "package": "weirdan/doctrine-psalm-plugin",
-                    "namespace": "doctrine-psalm-plugin"
+                    "namespace": "psalm"
                 }
             },
-            "test": "composer global bin doctrine-psalm-plugin show weirdan/doctrine-psalm-plugin",
+            "test": "rm -f composer.json; psalm-plugin show | grep weirdan/doctrine-psalm-plugin",
+            "tags": ["psalm"]
+        },
+        {
+            "name": "psalm-plugin-phpunit",
+            "summary": "Psalm plugin for PHPUnit",
+            "website": "https://github.com/psalm/psalm-plugin-phpunit",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "psalm/plugin-phpunit",
+                    "namespace": "psalm"
+                }
+            },
+            "test": "rm -f composer.json; psalm-plugin show | grep psalm/plugin-phpunit",
+            "tags": ["psalm"]
+        },
+        {
+            "name": "psalm-plugin-symfony",
+            "summary": "Psalm Plugin for Symfony",
+            "website": "https://github.com/psalm/psalm-plugin-symfony",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "psalm/plugin-symfony",
+                    "namespace": "psalm"
+                }
+            },
+            "test": "rm -f composer.json; psalm-plugin show | grep psalm/plugin-symfony",
             "tags": ["psalm"]
         }
     ]

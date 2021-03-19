@@ -30,7 +30,7 @@
                     "namespace": "psalm"
                 }
             },
-            "test": "rm -f composer.json; psalm-plugin show | grep weirdan/doctrine-psalm-plugin",
+            "test": "cd / && psalm-plugin show | grep weirdan/doctrine-psalm-plugin",
             "tags": ["psalm"]
         },
         {
@@ -43,7 +43,7 @@
                     "namespace": "psalm"
                 }
             },
-            "test": "rm -f composer.json; psalm-plugin show | grep psalm/plugin-phpunit",
+            "test": "cd / && psalm-plugin show | grep psalm/plugin-phpunit",
             "tags": ["psalm"]
         },
         {
@@ -56,7 +56,7 @@
                     "namespace": "psalm"
                 }
             },
-            "test": "rm -f composer.json; psalm-plugin show | grep psalm/plugin-symfony",
+            "test": "cd / && psalm-plugin show | grep psalm/plugin-symfony",
             "tags": ["psalm"]
         }
     ]

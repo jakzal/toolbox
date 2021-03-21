@@ -41,7 +41,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | pdepend | [Static Analysis Tool](https://pdepend.org/) | &#x2705; | &#x2705; | &#x2705; |
 | phan | [Static Analysis Tool](https://github.com/phan/phan) | &#x2705; | &#x2705; | &#x2705; |
 | php-coupling-detector | [Detects code coupling issues](https://akeneo.github.io/php-coupling-detector/) | &#x2705; | &#x2705; | &#x2705; |
-| php-cs-fixer | [PHP Coding Standards Fixer](http://cs.sensiolabs.org/) | &#x2705; | &#x2705; | &#x2705; |
+| php-cs-fixer | [PHP Coding Standards Fixer](http://cs.symfony.com/) | &#x2705; | &#x2705; | &#x2705; |
 | php-formatter | [Custom coding standards fixer](https://github.com/mmoreram/php-formatter) | &#x2705; | &#x2705; | &#x274C; |
 | php-semver-checker | [Suggests a next version according to semantic versioning](https://github.com/tomzx/php-semver-checker) | &#x2705; | &#x2705; | &#x2705; |
 | phpa | [Checks for weak assumptions](https://github.com/rskuipers/php-assumptions) | &#x2705; | &#x2705; | &#x2705; |

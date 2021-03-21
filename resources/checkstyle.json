@@ -17,10 +17,10 @@
         {
             "name": "php-cs-fixer",
             "summary": "PHP Coding Standards Fixer",
-            "website": "http://cs.sensiolabs.org/",
+            "website": "http://cs.symfony.com/",
             "command": {
                 "phar-download": {
-                    "phar": "http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar",
+                    "phar": "http://cs.symfony.com/download/php-cs-fixer-v2.phar",
                     "bin": "%target-dir%/php-cs-fixer"
                 }
             },

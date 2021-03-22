@@ -17,7 +17,7 @@
         {
             "name": "php-cs-fixer",
             "summary": "PHP Coding Standards Fixer",
-            "website": "http://cs.sensiolabs.org/",
+            "website": "http://cs.symfony.com/",
             "command": {
                 "phive-install": {
                     "alias": "php-cs-fixer@^2.0",

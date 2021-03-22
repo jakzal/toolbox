@@ -19,8 +19,8 @@ final class PhiveInstallCommand implements Command
 
     public function __toString(): string
     {
-        $home = \dirname($this->bin);
-        $tmp = '/tmp/'.\md5($this->alias);
+        $home = \sprintf('%s/.phive', \dirname($this->bin));
+        $tmp = \sprintf('%s/tmp/%s', $home, \md5($this->alias));
 
         return \sprintf(
             'phive --no-progress --home %s install %s %s -t %s && mv %s/* %s',

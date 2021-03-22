@@ -19,17 +19,15 @@ final class PhiveInstallCommand implements Command
 
     public function __toString(): string
     {
-        $home = \dirname($this->bin);
-        $tmp = '/tmp/'.\md5($this->alias);
+        $home = \sprintf('%s/.phive', \dirname($this->bin));
+        $target = \dirname($this->bin);
 
         return \sprintf(
-            'phive --no-progress --home %s install %s %s -t %s && mv %s/* %s',
+            'phive --no-progress --home %s install %s %s -t %s',
             $home,
             $this->sig ? '--trust-gpg-keys '.$this->sig : '--force-accept-unsigned',
             $this->alias,
-            $tmp,
-            $tmp,
-            $this->bin
+            $target
         );
     }
 }

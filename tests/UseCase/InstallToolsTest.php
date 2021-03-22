@@ -167,7 +167,7 @@ class InstallToolsTest extends TestCase
         ]));
 
         $command = $this->useCase->__invoke($this->filter());
-        $this->assertMatchesRegularExpression('#phive --no-progress --home /tools install[^&]*?phpunit[^&]*? [^\s]++ && mv [^\s]++ /tools/phpunit#', (string)$command);
+        $this->assertMatchesRegularExpression('#phive --no-progress --home /tools/.phive install[^&]*?phpunit[^&]*? [^\s]++#', (string)$command);
     }
 
     public function test_it_includes_file_download_commands()

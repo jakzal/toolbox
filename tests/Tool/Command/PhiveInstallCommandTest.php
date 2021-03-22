@@ -26,12 +26,12 @@ class PhiveInstallCommandTest extends TestCase
 
     public function test_it_generates_the_installation_command()
     {
-        $this->assertMatchesRegularExpression(\sprintf('#phive --no-progress --home [^\s]*? install --trust-gpg-keys %s %s -t [^\s]++#', self::SIG, self::ALIAS, self::BIN), (string) $this->command);
+        $this->assertMatchesRegularExpression(\sprintf('#phive --no-progress --home [^\s]*? install --trust-gpg-keys %s %s -t [^\s]++ && mv [^\s]+? %s#', self::SIG, self::ALIAS, self::BIN), (string) $this->command);
     }
 
     public function test_it_accepts_unsigned_phar_command()
     {
         $command = new PhiveInstallCommand(self::ALIAS, self::BIN);
-        $this->assertMatchesRegularExpression(\sprintf('#phive --no-progress --home [^\s]*? install --force-accept-unsigned %s -t [^\s]++#', self::ALIAS, self::BIN), (string) $command);
+        $this->assertMatchesRegularExpression(\sprintf('#phive --no-progress --home [^\s]*? install --force-accept-unsigned %s -t [^\s]++ && mv [^\s]+?#', self::ALIAS, self::BIN), (string) $command);
     }
 }

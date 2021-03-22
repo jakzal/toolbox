@@ -11,7 +11,7 @@ Please note we have a [code of conduct](CODE_OF_CONDUCT.md). Please follow it in
 * Provide good commit messages describing what you've done.
 * Provide tests for any code you write.
 * Make sure all tests are passing.
-* Prefer `phar` downloads or `composer-bin-plugin` installation over `composer global` installations to avoid dependency conflicts.
+* Prefer `phive`, `phar` or `composer-bin-plugin` installation over `composer global` installations to avoid dependency conflicts.
 * Update the `resources/*.json` files with any new tools'd like to add.
 * Update `README.md` with any new tools you added (`php bin/devkit.php update:readme`).
 
@@ -54,25 +54,23 @@ php bin/devkit.php update:readme
 There are several supported ways to install tools.
 All of them are listed below in order of preference.
 
-#### composer-bin-plugin
+#### phive
 
-The `composer-bin-plugin` method uses the [bamarni/composer-bin-plugin](https://github.com/bamarni/composer-bin-plugin)
-to install the package in isolated directory.
-Thanks to the isolation we're less likely to run into problem with conflicting dependencies between tools.
+Downloads a phar for the given alias using phive and puts it into the specified location.
 
 ```json
 {
-  "command": {
-    "composer-bin-plugin": {
-      "package": "behat/behat",
-      "namespace": "behat",
-      "links": {"/tools/behat": "behat"}
+    "command": {
+	"phive-install": {
+	    "alias": "dephpend",
+	    "bin": "%target-dir%/dephpend",
+	    "sig": "76835C9464877BDD"
+	}
     }
-  }
 }
 ```
 
-The `links` attribute is optional, but it's recommended for packages that provide commands.
+`sig` is optional, but it is recommended if the phar is signed.
 
 #### phar-download
 
@@ -103,6 +101,27 @@ Downloads a file from the given URL and puts it into the specified location.
   }
 }
 ```
+
+
+#### composer-bin-plugin
+
+The `composer-bin-plugin` method uses the [bamarni/composer-bin-plugin](https://github.com/bamarni/composer-bin-plugin)
+to install the package in isolated directory.
+Thanks to the isolation we're less likely to run into problem with conflicting dependencies between tools.
+
+```json
+{
+  "command": {
+    "composer-bin-plugin": {
+      "package": "behat/behat",
+      "namespace": "behat",
+      "links": {"/tools/behat": "behat"}
+    }
+  }
+}
+```
+
+The `links` attribute is optional, but it's recommended for packages that provide commands.
 
 #### box-build
 

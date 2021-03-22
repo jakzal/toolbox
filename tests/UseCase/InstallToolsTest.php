@@ -15,6 +15,7 @@ use Zalas\Toolbox\Tool\Command\ComposerInstallCommand;
 use Zalas\Toolbox\Tool\Command\FileDownloadCommand;
 use Zalas\Toolbox\Tool\Command\MultiStepCommand;
 use Zalas\Toolbox\Tool\Command\PharDownloadCommand;
+use Zalas\Toolbox\Tool\Command\PhiveInstallCommand;
 use Zalas\Toolbox\Tool\Command\ShCommand;
 use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
@@ -157,6 +158,16 @@ class InstallToolsTest extends TestCase
         $command = $this->useCase->__invoke($this->filter());
 
         $this->assertMatchesRegularExpression('#curl[^&]*?deptrac-0.2.0.phar#', (string)$command);
+    }
+
+    public function test_it_includes_phive_install_commands()
+    {
+        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+            $this->tool(new PhiveInstallCommand('phpunit', '/tools/phpunit')),
+        ]));
+
+        $command = $this->useCase->__invoke($this->filter());
+        $this->assertMatchesRegularExpression('#phive --no-progress --home /tools/.phive install[^&]*?phpunit[^&]*? [^\s]++ && mv [^\s]++ /tools/phpunit#', (string)$command);
     }
 
     public function test_it_includes_file_download_commands()

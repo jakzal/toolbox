@@ -18,8 +18,8 @@
             "summary": "Tool to compare two revisions of a class API to check for BC breaks",
             "website": "https://github.com/Roave/BackwardCompatibilityCheck",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/Roave/BackwardCompatibilityCheck/releases/download/5.0.0/roave-backward-compatibility-check.phar",
+                "phive-install": {
+                    "alias": "roave/backwardcompatibilitycheck@^5.0",
                     "bin": "%target-dir%/roave-backward-compatibility-check"
                 }
             },

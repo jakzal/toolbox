@@ -5,8 +5,8 @@
             "summary": "Finds usages of deprecated code",
             "website": "https://github.com/sensiolabs-de/deprecation-detector",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/sensiolabs-de/deprecation-detector/releases/download/0.1.0-alpha4/deprecation-detector.phar",
+                "phive-install": {
+                    "alias": "sensiolabs-de/deprecation-detector",
                     "bin": "%target-dir%/deprecation-detector"
                 }
             },
@@ -18,8 +18,8 @@
             "summary": "Finds usage of deprecated features",
             "website": "http://wapmorgan.github.io/PhpDeprecationDetector",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/wapmorgan/PhpDeprecationDetector/releases/download/2.0.25/phpdd-2.0.25.phar",
+                "phive-install": {
+                    "alias": "wapmorgan/phpdeprecationdetector@^2.0",
                     "bin": "%target-dir%/phpdd"
                 }
             },

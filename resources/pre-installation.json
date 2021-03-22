@@ -13,6 +13,19 @@
       "tags": ["pre-installation"]
     },
     {
+      "name": "phive",
+      "summary": "PHAR Installation and Verification Environment",
+      "website": "https://phar.io/",
+      "command": {
+        "phar-download": {
+          "phar": "https://phar.io/releases/phive.phar",
+          "bin": "%target-dir%/phive"
+        }
+      },
+      "test": "phive --version",
+      "tags": ["pre-installation"]
+    },
+    {
       "name": "composer-bin-plugin",
       "summary": "Composer plugin to install bin vendors in isolated locations",
       "website": "https://github.com/bamarni/composer-bin-plugin",
@@ -32,8 +45,8 @@
       "summary": "Fast, zero config application bundler with PHARs",
       "website": "https://github.com/humbug/box",
       "command": {
-        "phar-download": {
-          "phar": "https://github.com/humbug/box/releases/download/3.11.1/box.phar",
+        "phive-install": {
+          "alias": "humbug/box@^3.0",
           "bin": "%target-dir%/box"
         }
       },
@@ -45,8 +58,10 @@
       "summary": "Legacy version of box",
       "website": "https://box-project.github.io/box2/",
       "command": {
-        "sh": {
-          "command": "curl -Ls https://box-project.github.io/box2/installer.php | php && mv box.phar %target-dir%/box-legacy && chmod +x %target-dir%/box-legacy"
+        "phive-install": {
+          "alias": "box-project/box2",
+          "bin": "%target-dir%/box-legacy",
+          "sig": "293D771241515FE8"
         }
       },
       "test": "box-legacy list",

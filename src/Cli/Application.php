@@ -50,6 +50,7 @@ final class Application extends CliApplication
                 __DIR__.'/../../resources/pre-installation.json',
                 __DIR__.'/../../resources/architecture.json',
                 __DIR__.'/../../resources/checkstyle.json',
+                __DIR__.'/../../resources/codeception.json',
                 __DIR__.'/../../resources/compatibility.json',
                 __DIR__.'/../../resources/composer.json',
                 __DIR__.'/../../resources/deprecation.json',

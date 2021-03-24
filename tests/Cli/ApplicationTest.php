@@ -56,6 +56,7 @@ class ApplicationTest extends TestCase
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/pre-installation.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/architecture.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/checkstyle.json',
+                \realpath(__DIR__.'/../../src/Cli/').'/../../resources/codeception.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/compatibility.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/composer.json',
                 \realpath(__DIR__.'/../../src/Cli/').'/../../resources/deprecation.json',

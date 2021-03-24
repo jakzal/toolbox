@@ -1,0 +1,343 @@
+{
+  "tools": [
+    {
+      "name": "codeception",
+      "summary": "Codeception is a BDD-styled PHP testing framework",
+      "website": "https://codeception.com/",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/codeception",
+          "namespace": "codeception",
+          "links": {"%target-dir%/codecept": "codecept"}
+        }
+      },
+      "test": "codecept --version",
+      "tags": ["test", "codeception"]
+    },
+    {
+      "name": "codeception-module-amqp",
+      "summary": "AMQP module for Codeception",
+      "website": "https://codeception.com/docs/modules/AMQP",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-amqp",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-amqp",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-apc",
+      "summary": "APC module for Codeception",
+      "website": "https://codeception.com/docs/modules/Apc",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-apc",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-apc",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-asserts",
+      "summary": "Additional asserts for Codeception",
+      "website": "https://codeception.com/docs/modules/Asserts",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-asserts",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-asserts",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-cli",
+      "summary": "CLI module for Codeception",
+      "website": "https://codeception.com/docs/modules/Cli",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-cli",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-cli",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-datafactory",
+      "summary": "DataFactory module for Codeception",
+      "website": "https://codeception.com/docs/modules/DataFactory",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-datafactory",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-datafactory",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-db",
+      "summary": "Db module for Codeception",
+      "website": "https://codeception.com/docs/modules/Db",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-db",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-db",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-doctrine2",
+      "summary": "Doctrine module for Codeception",
+      "website": "https://codeception.com/docs/modules/Doctrine2",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-doctrine2",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-doctrine2",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-filesystem",
+      "summary": "Filesystem module for Codeception",
+      "website": "https://codeception.com/docs/modules/Filesystem",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-filesystem",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-filesystem",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-ftp",
+      "summary": "FTP module for Codeception",
+      "website": "https://codeception.com/docs/modules/FTP",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-ftp",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-ftp",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-laminas",
+      "summary": "Laminas module for Codeception",
+      "website": "https://codeception.com/docs/modules/Laminas",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-laminas",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-laminas",
+      "tags": ["exclude-php:8.0", "codeception"]
+    },
+    {
+      "name": "codeception-module-laravel",
+      "summary": "Laravel module for Codeception",
+      "website": "https://codeception.com/docs/modules/Laravel",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-laravel",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-laravel",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-lumen",
+      "summary": "Lumen module for Codeception",
+      "website": "https://codeception.com/docs/modules/Lumen",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-lumen",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-lumen",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-memcache",
+      "summary": "Memcache module for Codeception",
+      "website": "https://codeception.com/docs/modules/Memcache",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-memcache",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-memcache",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-mezzio",
+      "summary": "Mezzio module for Codeception",
+      "website": "https://codeception.com/docs/modules/Mezzio",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-mezzio",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-mezzio",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-mongodb",
+      "summary": "MongoDb module for Codeception",
+      "website": "https://codeception.com/docs/modules/MongoDb",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-mongodb",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-mongodb",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-phalcon",
+      "summary": "Phalcon 3 module for Codeception",
+      "website": "https://codeception.com/docs/modules/Phalcon",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-phalcon",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-phalcon",
+      "tags": ["exclude-php:8.0", "codeception"]
+    },
+    {
+      "name": "codeception-module-phpbrowser",
+      "summary": "PhpBrowser module for Codeception",
+      "website": "https://codeception.com/docs/modules/PhpBrowser",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-phpbrowser",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-phpbrowser",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-queue",
+      "summary": "Queue module for Codeception",
+      "website": "https://codeception.com/docs/modules/Queue",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-queue",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-queue",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-redis",
+      "summary": "Redis module for Codeception",
+      "website": "https://codeception.com/docs/modules/Redis",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-redis",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-redis",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-rest",
+      "summary": "REST module for Codeception",
+      "website": "https://codeception.com/docs/modules/REST",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-rest",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-rest",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-sequence",
+      "summary": "Sequence module for Codeception",
+      "website": "https://codeception.com/docs/modules/Sequence",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-sequence",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-sequence",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-soap",
+      "summary": "SOAP module for Codeception",
+      "website": "https://codeception.com/docs/modules/SOAP",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-soap",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-soap",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-symfony",
+      "summary": "Symfony module for Codeception",
+      "website": "https://codeception.com/docs/modules/Symfony",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-symfony",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-symfony",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-webdriver",
+      "summary": "Webdriver module for Codeception",
+      "website": "https://codeception.com/docs/modules/Webdriver",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-webdriver",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-webdriver",
+      "tags": ["codeception"]
+    },
+    {
+      "name": "codeception-module-yii2",
+      "summary": "Yii module for Codeception",
+      "website": "https://codeception.com/docs/modules/Yii2",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "codeception/module-yii2",
+          "namespace": "codeception"
+        }
+      },
+      "test": "composer global bin codeception show codeception/module-yii2",
+      "tags": ["codeception"]
+    }
+  ]
+}

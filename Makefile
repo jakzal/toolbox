@@ -2,7 +2,6 @@ default: build
 
 PHP_VERSION:=$(shell php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
 TOOLBOX_VERSION?=dev
-IS_PHP8:=$(shell php -r 'echo (int)version_compare(PHP_VERSION, "8.0", ">=");')
 
 build: install test
 .PHONY: build
@@ -46,7 +45,7 @@ cs-fix: tools/php-cs-fixer
 	PHP_CS_FIXER_IGNORE_ENV=true tools/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
 
 deptrac: tools/deptrac
-	tools/deptrac --no-interaction --ansi --formatter-graphviz-display=0
+	tools/deptrac --no-interaction --ansi
 .PHONY: deptrac
 
 infection:
@@ -61,9 +60,6 @@ phpunit-coverage: tools/phpunit
 	phpdbg -qrr tools/phpunit
 .PHONY: phpunit
 
-ifeq ($(IS_PHP8),1)
-package:
-else
 package: tools/box
 	@rm -rf build/phar && mkdir -p build/phar build/phar/bin
 
@@ -77,12 +73,8 @@ package: tools/box
 	tools/box compile
 
 	@rm -rf build/phar
-endif
 .PHONY: package
 
-ifeq ($(IS_PHP8),1)
-package-devkit:
-else
 package-devkit: tools/box
 	@rm -rf build/devkit-phar && mkdir -p build/devkit-phar build/devkit-phar/bin build/devkit-phar/src
 
@@ -97,7 +89,6 @@ package-devkit: tools/box
 	tools/box compile -c box-devkit.json.dist
 
 	@rm -rf build/devkit-phar
-endif
 .PHONY: package-devkit
 
 website: build/devkit.phar
@@ -143,10 +134,11 @@ tools/phpunit: vendor/bin/phpunit
 	ln -sf ../vendor/bin/phpunit tools/phpunit
 
 tools/php-cs-fixer:
-	curl -Ls http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
+	curl -Ls http://cs.symfony.com/download/php-cs-fixer-v2.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
 
 tools/deptrac:
-	curl -Ls https://github.com/sensiolabs-de/deptrac/releases/download/0.10.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
+	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.13.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
+	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.13.0/deptrac.phar.asc -o tools/deptrac.asc
 
 tools/box:
-	curl -Ls https://github.com/humbug/box/releases/download/3.9.1/box.phar -o tools/box && chmod +x tools/box
+	curl -Ls https://github.com/humbug/box/releases/download/3.12.2/box.phar -o tools/box && chmod +x tools/box

@@ -19,9 +19,10 @@
       "summary": "Static Analysis Tool",
       "website": "https://github.com/phan/phan",
       "command": {
-        "phar-download": {
-          "phar": "https://github.com/phan/phan/releases/download/4.0.3/phan.phar",
-          "bin": "%target-dir%/phan"
+        "phive-install": {
+          "alias": "phan@^4.0.3",
+          "bin": "%target-dir%/phan",
+          "sig": "8101FB57DD8130F0"
         }
       },
       "test": "phan -v",
@@ -32,16 +33,14 @@
       "summary": "PHP Benchmarking framework",
       "website": "https://github.com/phpbench/phpbench",
       "command": {
-        "file-download": {
-          "url": "https://phpbench.github.io/phpbench/phpbench.phar.pubkey",
-          "file": "%target-dir%/phpbench.pubkey"
-        },
-        "phar-download": {
-          "phar": "https://phpbench.github.io/phpbench/phpbench.phar",
-          "bin": "%target-dir%/phpbench"
+        "phive-install": {
+          "alias": "phpbench",
+          "bin": "%target-dir%/phpbench",
+          "sig": "15E1F8E2B149E6F5"
         }
       },
-      "test": "phpbench"
+      "test": "phpbench",
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpa",
@@ -75,9 +74,10 @@
       "summary": "Copy/Paste Detector",
       "website": "https://github.com/sebastianbergmann/phpcpd",
       "command": {
-        "phar-download": {
-          "phar": "https://phar.phpunit.de/phpcpd.phar",
-          "bin": "%target-dir%/phpcpd"
+        "phive-install": {
+          "alias": "phpcpd",
+          "bin": "%target-dir%/phpcpd",
+          "sig": "4AA394086372C20A"
         }
       },
       "test": "phpcpd -v",
@@ -88,9 +88,10 @@
       "summary": "A tool for finding problems in PHP code",
       "website": "https://phpmd.org/",
       "command": {
-        "phar-download": {
-          "phar": "https://github.com/phpmd/phpmd/releases/download/2.9.1/phpmd.phar",
-          "bin": "%target-dir%/phpmd"
+        "phive-install": {
+          "alias": "phpmd",
+          "bin": "%target-dir%/phpmd",
+          "sig": "0F9684B8B16B7AB0"
         }
       },
       "test": "phpmd --version"

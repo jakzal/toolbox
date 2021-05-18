@@ -5,13 +5,10 @@
             "summary": "Discovers good candidates for refactoring",
             "website": "https://github.com/bmitch/churn-php",
             "command": {
-                "file-download": {
-                    "url": "https://github.com/bmitch/churn-php/releases/download/1.5.0/churn.phar.asc",
-                    "file": "%target-dir%/churn.phar.asc"
-                },
-                "phar-download": {
-                    "phar": "https://github.com/bmitch/churn-php/releases/download/1.5.0/churn.phar",
-                    "bin": "%target-dir%/churn"
+                "phive-install": {
+                    "alias": "churn@^1.0",
+                    "bin": "%target-dir%/churn",
+                    "sig": "69132CC8829FAB5F"
                 }
             },
             "test": "churn --version",
@@ -22,8 +19,8 @@
             "summary": "Automatically adds type hints and return types based on PHPDocs",
             "website": "https://github.com/dunglas/phpdoc-to-typehint",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/dunglas/phpdoc-to-typehint/releases/download/v0.1.0/phpdoc-to-typehint.phar",
+                "phive-install": {
+                    "alias": "dunglas/phpdoc-to-typehint@^0.1.0",
                     "bin": "%target-dir%/phpdoc-to-typehint"
                 }
             },
@@ -42,7 +39,7 @@
                 }
             },
             "test": "rector --version",
-            "tags": ["exclude-php:8.0", "refactoring"]
+            "tags": ["refactoring"]
         }
     ]
 }

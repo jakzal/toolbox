@@ -5,13 +5,14 @@
             "summary": "Documentation generator",
             "website": "https://www.phpdoc.org/",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.0.0/phpDocumentor.phar",
-                    "bin": "%target-dir%/phpDocumentor"
+                "phive-install": {
+                    "alias": "phpDocumentor",
+                    "bin": "%target-dir%/phpDocumentor",
+                    "sig": "6DA3ACC4991FFAE5"
                 }
             },
             "test": "phpDocumentor list",
-            "tags": ["featured", "exclude-php:8.0", "documentation"]
+            "tags": ["featured", "documentation"]
         },
         {
             "name": "phpcb",

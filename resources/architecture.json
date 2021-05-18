@@ -5,9 +5,10 @@
             "summary": "Detect flaws in your architecture",
             "website": "https://dephpend.com/",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/mihaeu/dephpend/releases/download/0.7.0/dephpend-0.7.0.phar",
-                    "bin": "%target-dir%/dephpend"
+                "phive-install": {
+                    "alias": "dephpend",
+                    "bin": "%target-dir%/dephpend",
+                    "sig": "76835C9464877BDD"
                 }
             },
             "test": "dephpend list",
@@ -18,9 +19,10 @@
             "summary": "Enforces dependency rules between software layers",
             "website": "https://github.com/qossmic/deptrac",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/qossmic/deptrac/releases/download/0.11.1/deptrac.phar",
-                    "bin": "%target-dir%/deptrac"
+                "phive-install": {
+                    "alias": "deptrac",
+                    "bin": "%target-dir%/deptrac",
+                    "sig": "4F2AB4D11A9A65F7"
                 }
             },
             "test": "deptrac list",
@@ -31,8 +33,8 @@
             "summary": "Static Analysis Tool",
             "website": "https://pdepend.org/",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/pdepend/pdepend/releases/download/2.8.0/pdepend.phar",
+                "phive-install": {
+                    "alias": "pdepend/pdepend@^2.0",
                     "bin": "%target-dir%/pdepend"
                 }
             },
@@ -51,7 +53,7 @@
                 }
             },
             "test": "php-coupling-detector list",
-            "tags": ["exclude-php:8.0", "architecture"]
+            "tags": ["architecture"]
         },
         {
             "name": "phpat",

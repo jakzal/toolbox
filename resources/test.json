@@ -14,17 +14,27 @@
             "tags": ["featured", "test"]
         },
         {
+            "name": "codeception",
+            "summary": "Codeception is a BDD-styled PHP testing framework",
+            "website": "https://codeception.com/",
+            "command": {
+                "phar-download": {
+                    "phar": "https://codeception.com/codecept.phar",
+                    "bin": "%target-dir%/codeception"
+                }
+            },
+            "test": "codeception --version",
+            "tags": ["test"]
+        },
+        {
             "name": "infection",
             "summary": "AST based PHP Mutation Testing Framework",
             "website": "https://infection.github.io/",
             "command": {
-                "file-download": {
-                    "url": "https://github.com/infection/infection/releases/download/0.21.0/infection.phar.asc",
-                    "file": "%target-dir%/infection.phar.asc"
-                },
-                "phar-download": {
-                    "phar": "https://github.com/infection/infection/releases/download/0.21.0/infection.phar",
-                    "bin": "%target-dir%/infection"
+                "phive-install": {
+                    "alias": "infection@^0.21",
+                    "bin": "%target-dir%/infection",
+                    "sig": "C5095986493B4AA0"
                 }
             },
             "test": "infection --version",
@@ -35,8 +45,8 @@
             "summary": "Parallel testing for PHPUnit",
             "website": "https://github.com/paratestphp/paratest",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/paratestphp/paratest/releases/download/6.2.0/paratest.phar",
+                "phive-install": {
+                    "alias": "paratestphp/paratest@^6.3.0",
                     "bin": "%target-dir%/paratest"
                 }
             },
@@ -48,21 +58,35 @@
             "summary": "a command-line frontend for the PHP_CodeCoverage library",
             "website": "https://github.com/sebastianbergmann/phpcov",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpcov.phar",
-                    "bin": "%target-dir%/phpcov"
+                "phive-install": {
+                    "alias": "phpcov",
+                    "bin": "%target-dir%/phpcov",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpcov -v",
             "tags": ["test"]
         },
         {
+            "name": "php-fuzzer",
+            "summary": "A fuzzer for PHP, which can be used to find bugs in libraries by feeding them 'random' inputs",
+            "website": "https://github.com/nikic/PHP-Fuzzer",
+            "command": {
+                "phive-install": {
+                    "alias": "nikic/php-fuzzer",
+                    "bin": "%target-dir%/php-fuzzer"
+                }
+            },
+            "test": "php-fuzzer --help",
+            "tags": ["exclude-php:7.3", "test"]
+        },
+        {
             "name": "phpspec",
             "summary": "SpecBDD Framework",
             "website": "http://www.phpspec.net/",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/phpspec/phpspec/releases/download/7.0.1/phpspec.phar",
+                "phive-install": {
+                    "alias": "phpspec/phpspec@^7.0",
                     "bin": "%target-dir%/phpspec"
                 }
             },
@@ -74,9 +98,10 @@
             "summary": "The PHP testing framework",
             "website": "https://phpunit.de/",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpunit.phar",
-                    "bin": "%target-dir%/phpunit"
+                "phive-install": {
+                    "alias": "phpunit",
+                    "bin": "%target-dir%/phpunit",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpunit --version",
@@ -87,9 +112,10 @@
             "summary": "The PHP testing framework (8.x version)",
             "website": "https://phpunit.de/",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpunit-8.phar",
-                    "bin": "%target-dir%/phpunit-8"
+                "phive-install": {
+                    "alias": "phpunit@^8.0",
+                    "bin": "%target-dir%/phpunit-8",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpunit-8 --version",
@@ -100,9 +126,10 @@
             "summary": "The PHP testing framework (7.x version)",
             "website": "https://phpunit.de/",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpunit-7.phar",
-                    "bin": "%target-dir%/phpunit-7"
+                "phive-install": {
+                    "alias": "phpunit@^7.0",
+                    "bin": "%target-dir%/phpunit-7",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpunit-7 --version",
@@ -113,9 +140,10 @@
             "summary": "The PHP testing framework (5.x version)",
             "website": "https://phpunit.de/",
             "command": {
-                "phar-download": {
-                    "phar": "https://phar.phpunit.de/phpunit-5.phar",
-                    "bin": "%target-dir%/phpunit-5"
+                "phive-install": {
+                    "alias": "phpunit@^5.0",
+                    "bin": "%target-dir%/phpunit-5",
+                    "sig": "4AA394086372C20A"
                 }
             },
             "test": "phpunit-5 --version",

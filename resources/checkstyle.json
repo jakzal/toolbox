@@ -17,11 +17,12 @@
         {
             "name": "php-cs-fixer",
             "summary": "PHP Coding Standards Fixer",
-            "website": "http://cs.sensiolabs.org/",
+            "website": "http://cs.symfony.com/",
             "command": {
-                "phar-download": {
-                    "phar": "http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar",
-                    "bin": "%target-dir%/php-cs-fixer"
+                "phive-install": {
+                    "alias": "php-cs-fixer@^2.0",
+                    "bin": "%target-dir%/php-cs-fixer",
+                    "sig": "E82B2FB314E9906E"
                 }
             },
             "test": "php-cs-fixer list",
@@ -47,9 +48,10 @@
             "summary": "Automatically corrects coding standard violations",
             "website": "https://github.com/squizlabs/PHP_CodeSniffer",
             "command": {
-                "phar-download": {
-                    "phar": "https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar",
-                    "bin": "%target-dir%/phpcbf"
+                "phive-install": {
+                    "alias": "phpcbf",
+                    "bin": "%target-dir%/phpcbf",
+                    "sig": "31C7E470E2138192"
                 }
             },
             "test": "phpcbf --help",
@@ -60,8 +62,8 @@
             "summary": "The missing checkstyle for twig!",
             "website": "https://github.com/friendsoftwig/twigcs",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/friendsoftwig/twigcs/releases/download/v5.0.0/twigcs.phar",
+                "phive-install": {
+                    "alias": "friendsoftwig/twigcs@^5.0",
                     "bin": "%target-dir%/twigcs"
                 }
             },

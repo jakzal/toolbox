@@ -39,6 +39,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | parallel-lint | [Checks PHP file syntax](https://github.com/JakubOnderka/PHP-Parallel-Lint) | &#x2705; | &#x2705; | &#x274C; |
 | paratest | [Parallel testing for PHPUnit](https://github.com/paratestphp/paratest) | &#x2705; | &#x2705; | &#x274C; |
 | pdepend | [Static Analysis Tool](https://pdepend.org/) | &#x2705; | &#x2705; | &#x2705; |
+| pest | [an elegant PHP Testing Framework with a focus on simplicity](https://github.com/pestphp/pest) | &#x2705; | &#x2705; | &#x2705; |
 | phan | [Static Analysis Tool](https://github.com/phan/phan) | &#x2705; | &#x2705; | &#x2705; |
 | phive | [PHAR Installation and Verification Environment](https://phar.io/) | &#x2705; | &#x2705; | &#x2705; |
 | php-coupling-detector | [Detects code coupling issues](https://akeneo.github.io/php-coupling-detector/) | &#x2705; | &#x2705; | &#x2705; |

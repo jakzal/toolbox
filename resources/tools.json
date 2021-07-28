@@ -107,8 +107,7 @@
           "links": {"%target-dir%/phpmnd": "phpmnd"}
         }
       },
-      "test": "phpmnd -V",
-      "tags": ["exclude-php:8.0"]
+      "test": "phpmnd -V"
     }
   ]
 }

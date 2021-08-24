@@ -7,5 +7,9 @@ return [
     'whitelist-global-functions' => true,
     'files-whitelist' => [
         'vendor/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'vendor/symfony/polyfill-php80/bootstrap.php',
     ],
+    'whitelist' => [
+        'Symfony\\Polyfill\\Php80\\*'
+    ]
 ];

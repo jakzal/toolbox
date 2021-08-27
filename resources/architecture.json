@@ -22,7 +22,7 @@
                 "phive-install": {
                     "alias": "deptrac",
                     "bin": "%target-dir%/deptrac",
-                    "sig": "A98E898BB53EB748"
+                    "sig": "B8F640134AB1782E"
                 }
             },
             "test": "deptrac list",

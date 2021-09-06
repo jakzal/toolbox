@@ -60,13 +60,13 @@ Downloads a phar for the given alias using phive and puts it into the specified 
 
 ```json
 {
-    "command": {
-	"phive-install": {
-	    "alias": "dephpend",
-	    "bin": "%target-dir%/dephpend",
-	    "sig": "76835C9464877BDD"
-	}
+  "command": {
+    "phive-install": {
+      "alias": "dephpend",
+      "bin": "%target-dir%/dephpend",
+      "sig": "76835C9464877BDD"
     }
+  }
 }
 ```
 

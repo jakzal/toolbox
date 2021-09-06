@@ -20,7 +20,7 @@
             "website": "http://cs.symfony.com/",
             "command": {
                 "phive-install": {
-                    "alias": "php-cs-fixer@^2.0",
+                    "alias": "php-cs-fixer@^3.0",
                     "bin": "%target-dir%/php-cs-fixer",
                     "sig": "E82B2FB314E9906E"
                 }

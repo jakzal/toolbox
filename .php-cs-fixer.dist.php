@@ -4,19 +4,18 @@ $finder = PhpCsFixer\Finder::create()
     ->in(['src', 'tests'])
 ;
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setRules([
         '@PSR2' => true,
         'array_syntax' => ['syntax' => 'short'],
         'blank_line_before_statement' => true,
         'concat_space' => ['spacing' => 'none'],
         'declare_strict_types' => true,
-        'native_function_invocation' => true,
+        'native_function_invocation' => ['include' => ['@internal']],
         'no_empty_comment' => true,
         'no_empty_phpdoc' => true,
         'no_empty_statement' => true,
         'no_extra_blank_lines' => true,
-        'no_extra_consecutive_blank_lines' => true,
         'no_leading_import_slash' => true,
         'no_leading_namespace_whitespace' => true,
         'no_unused_imports' => true,
@@ -32,4 +31,3 @@ return PhpCsFixer\Config::create()
     ])
     ->setFinder($finder)
 ;
-

@@ -8,7 +8,7 @@
                 "phive-install": {
                     "alias": "phpDocumentor",
                     "bin": "%target-dir%/phpDocumentor",
-                    "sig": "6DA3ACC4991FFAE5"
+                    "sig": "67F861C3D889C656"
                 }
             },
             "test": "phpDocumentor list",

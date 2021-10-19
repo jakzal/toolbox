@@ -6,7 +6,7 @@ build:
       version: 8.0
   tests:
     override:
-    - make test
+    - make phpunit
   project_setup:
   nodes:
     coverage:

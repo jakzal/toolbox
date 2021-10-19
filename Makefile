@@ -134,7 +134,7 @@ tools/phpunit: vendor/bin/phpunit
 	ln -sf ../vendor/bin/phpunit tools/phpunit
 
 tools/php-cs-fixer:
-	curl -Ls http://cs.symfony.com/download/php-cs-fixer-v3.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
+	curl -Ls https://cs.symfony.com/download/php-cs-fixer-v3.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
 
 tools/deptrac:
 	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.13.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac

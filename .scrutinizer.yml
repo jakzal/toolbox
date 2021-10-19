@@ -28,7 +28,7 @@ checks:
   php: true
 
 tools:
-  php_code_sniffer: { config: { standard: psr2 } }
+  php_code_sniffer: false
   php_cs_fixer: { config: { level: psr2 } }
   external_code_coverage: false
   php_code_coverage: true

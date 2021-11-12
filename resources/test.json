@@ -6,7 +6,7 @@
             "website": "http://behat.org/",
             "command": {
                 "phar-download": {
-                    "phar": "https://github.com/Behat/Behat/releases/download/v3.9.0/behat.phar",
+                    "phar": "https://github.com/Behat/Behat/releases/download/v3.10.0/behat.phar",
                     "bin": "%target-dir%/behat"
                 }
             },

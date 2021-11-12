@@ -137,7 +137,7 @@
             "website": "https://github.com/phpstan/phpstan",
             "command": {
                 "composer-bin-plugin": {
-                    "package": "phpstan/phpstan:^0.12.81",
+                    "package": "phpstan/phpstan",
                     "namespace": "larastan",
                     "links": {"%target-dir%/phpstan-larastan": "phpstan"}
                 }

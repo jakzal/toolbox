@@ -45,9 +45,10 @@
             "summary": "Parallel testing for PHPUnit",
             "website": "https://github.com/paratestphp/paratest",
             "command": {
-                "phive-install": {
-                    "alias": "paratestphp/paratest@^6.3.0",
-                    "bin": "%target-dir%/paratest"
+                "composer-bin-plugin": {
+                    "package": "brianium/paratest",
+                    "namespace": "paratest",
+                    "links": {"%target-dir%/paratest": "paratest"}
                 }
             },
             "test": "paratest --version",

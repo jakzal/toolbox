@@ -31,8 +31,10 @@
             "summary": "Verify that no unknown symbols are used in the sources of a package.",
             "website": "https://github.com/maglnet/ComposerRequireChecker",
             "command": {
-                "composer-global-install": {
-                    "package": "maglnet/composer-require-checker"
+                "phive-install": {
+                    "alias": "composer-require-checker",
+                    "bin": "%target-dir%/composer-require-checker",
+                    "sig": "033E5F8D801A2F8D"
                 }
             },
             "test": "composer-require-checker -V",

@@ -11,7 +11,7 @@
                 }
             },
             "test": "parallel-lint -h",
-            "tags": ["exclude-php:8.0", "linting"]
+            "tags": ["linting"]
         },
         {
             "name": "phplint",

@@ -12,7 +12,7 @@
         }
       },
       "test": "diffFilter -v",
-      "tags": ["exclude-php:8.0"]
+      "tags": []
     },
     {
       "name": "phan",

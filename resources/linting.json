@@ -3,11 +3,10 @@
         {
             "name": "parallel-lint",
             "summary": "Checks PHP file syntax",
-            "website": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
+            "website": "https://github.com/php-parallel-lint/PHP-Parallel-Lint",
             "command": {
-                "box-build": {
-                    "repository": "https://github.com/JakubOnderka/PHP-Parallel-Lint.git",
-                    "phar": "parallel-lint.phar",
+                "phive-install": {
+                    "alias": "php-parallel-lint/PHP-Parallel-Lint",
                     "bin": "%target-dir%/parallel-lint"
                 }
             },

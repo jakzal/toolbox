@@ -3,10 +3,10 @@ inherit: true
 build:
   environment:
     php:
-      version: 7.4
+      version: 8.0
   tests:
     override:
-    - make test
+    - make phpunit
   project_setup:
   nodes:
     coverage:
@@ -28,7 +28,7 @@ checks:
   php: true
 
 tools:
-  php_code_sniffer: { config: { standard: psr2 } }
+  php_code_sniffer: false
   php_cs_fixer: { config: { level: psr2 } }
   external_code_coverage: false
   php_code_coverage: true

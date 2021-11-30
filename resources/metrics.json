@@ -25,7 +25,7 @@
                 }
             },
             "test": "phpinsights --version",
-            "tags": ["exclude-php:8.0", "metrics"]
+            "tags": ["metrics"]
         },
         {
             "name": "phploc",

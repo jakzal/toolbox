@@ -12,6 +12,8 @@
         "@default": true,
         "IdenticalEqual": false,
         "NotIdenticalNotEqual": false,
+        "Concat": false,
+        "ConcatOperandRemoval": false,
         "ArrayItemRemoval": {
             "ignore": [
                 "Zalas\\Toolbox\\Cli\\Command\\ListCommand::execute"

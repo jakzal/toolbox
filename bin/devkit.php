@@ -74,7 +74,7 @@ $application->add(
             $tools = $this->loadTools($jsonPath);
 
             $toolsList = '| Name | Description | PHP 7.4 | PHP 8.0' . PHP_EOL;
-            $toolsList .= '| :--- | :---------- | :------ | :------ | :------' . PHP_EOL;
+            $toolsList .= '| :--- | :---------- | :------ | :------' . PHP_EOL;
             $toolsList .= $tools->sort(function (Tool $left, Tool $right) {
                 return strcasecmp($left->name(), $right->name());
             })->reduce('', function ($acc, Tool $tool) {

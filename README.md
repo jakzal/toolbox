@@ -15,7 +15,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 ## Available tools
 
 | Name | Description | PHP 7.4 | PHP 8.0
-| :--- | :---------- | :------ | :------ | :------
+| :--- | :---------- | :------ | :------
 | analyze | [Visualizes metrics and source code](https://github.com/Qafoo/QualityAnalyzer) | &#x2705; | &#x274C; |
 | behat | [Helps to test business expectations](http://behat.org/) | &#x2705; | &#x2705; |
 | box | [Fast, zero config application bundler with PHARs](https://github.com/humbug/box) | &#x2705; | &#x2705; |

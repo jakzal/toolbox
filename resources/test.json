@@ -38,7 +38,7 @@
                 }
             },
             "test": "infection --version",
-            "tags": ["featured", "exclude-php:7.3", "test"]
+            "tags": ["featured", "test"]
         },
         {
             "name": "paratest",
@@ -79,7 +79,7 @@
                 }
             },
             "test": "php-fuzzer --help",
-            "tags": ["exclude-php:7.3", "test"]
+            "tags": ["test"]
         },
         {
             "name": "phpspec",

@@ -67,7 +67,7 @@ package: tools/box
 	sed -e 's/Application('"'"'dev/Application('"'"'$(TOOLBOX_VERSION)/g' bin/toolbox.php > build/phar/bin/toolbox.php
 
 	cd build/phar && \
-	  composer config platform.php 7.3 && \
+	  composer config platform.php 7.4.7 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile
@@ -83,7 +83,7 @@ package-devkit: tools/box
 	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(TOOLBOX_VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
 
 	cd build/devkit-phar && \
-	  composer config platform.php 7.3 && \
+	  composer config platform.php 7.4.7 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile -c box-devkit.json.dist
@@ -137,8 +137,8 @@ tools/php-cs-fixer:
 	curl -Ls https://cs.symfony.com/download/php-cs-fixer-v3.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
 
 tools/deptrac:
-	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.14.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
-	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.14.0/deptrac.phar.asc -o tools/deptrac.asc
+	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.18.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
+	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.18.0/deptrac.phar.asc -o tools/deptrac.asc
 
 tools/box:
 	curl -Ls https://github.com/humbug/box/releases/download/3.13.0/box.phar -o tools/box && chmod +x tools/box

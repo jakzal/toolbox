@@ -8,7 +8,7 @@
                 "phive-install": {
                     "alias": "churn@^1.0",
                     "bin": "%target-dir%/churn",
-                    "sig": "69132CC8829FAB5F"
+                    "sig": "96141E4421A9B0D5"
                 }
             },
             "test": "churn --version",

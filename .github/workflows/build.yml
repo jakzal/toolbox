@@ -76,6 +76,9 @@ jobs:
                     path: build/
 
             -   run: make test-integration
+                env:
+                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                    GITHUB_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
     publish-phars:
         runs-on: ubuntu-latest

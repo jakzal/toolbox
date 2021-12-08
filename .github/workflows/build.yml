@@ -9,6 +9,9 @@ on:
     schedule:
         -   cron: '0 4 * * *'
 
+env:
+    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
 jobs:
     tests:
         runs-on: ubuntu-latest
@@ -77,7 +80,6 @@ jobs:
 
             -   run: make test-integration
                 env:
-                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
                     GITHUB_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
     publish-phars:

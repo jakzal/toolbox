@@ -38,19 +38,7 @@
                 }
             },
             "test": "composer-require-checker -V",
-            "tags": ["exclude-php:7.3", "composer"]
-        },
-        {
-            "name": "composer-require-checker-v2",
-            "summary": "Verify that no unknown symbols are used in the sources of a package.",
-            "website": "https://github.com/maglnet/ComposerRequireChecker",
-            "command": {
-                "composer-global-install": {
-                    "package": "maglnet/composer-require-checker:^2.0"
-                }
-            },
-            "test": "composer-require-checker -V",
-            "tags": ["exclude-php:7.4", "exclude-php:8.0", "composer"]
+            "tags": ["composer"]
         }
     ]
 }

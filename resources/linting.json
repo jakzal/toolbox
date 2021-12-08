@@ -24,7 +24,7 @@
                 }
             },
             "test": "phplint -V",
-            "tags": ["exclude-php:7.3", "linting"]
+            "tags": ["linting"]
         },
         {
             "name": "twig-lint",

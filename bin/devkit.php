@@ -73,17 +73,16 @@ $application->add(
             $readmePath = $input->getOption('readme');
             $tools = $this->loadTools($jsonPath);
 
-            $toolsList = '| Name | Description | PHP 7.3 | PHP 7.4 | PHP 8.0' . PHP_EOL;
+            $toolsList = '| Name | Description | PHP 7.4 | PHP 8.0' . PHP_EOL;
             $toolsList .= '| :--- | :---------- | :------ | :------ | :------' . PHP_EOL;
             $toolsList .= $tools->sort(function (Tool $left, Tool $right) {
                 return strcasecmp($left->name(), $right->name());
             })->reduce('', function ($acc, Tool $tool) {
 
-                return $acc . sprintf('| %s | [%s](%s) | %s | %s | %s |',
+                return $acc . sprintf('| %s | [%s](%s) | %s | %s |',
                         $tool->name(),
                         $tool->summary(),
                         $tool->website(),
-                        in_array('exclude-php:7.3', $tool->tags(), true) ? '&#x274C;' : '&#x2705;' ,
                         in_array('exclude-php:7.4', $tool->tags(), true) ? '&#x274C;' : '&#x2705;' ,
                         in_array('exclude-php:8.0', $tool->tags(), true) ? '&#x274C;' : '&#x2705;'
                     ) . PHP_EOL;

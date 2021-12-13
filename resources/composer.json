@@ -38,6 +38,20 @@
                 }
             },
             "test": "composer-require-checker -V",
+            "tags": ["composer", "exclude-php:7.4"]
+        },
+        {
+            "name": "composer-require-checker-3",
+            "summary": "Verify that no unknown symbols are used in the sources of a package.",
+            "website": "https://github.com/maglnet/ComposerRequireChecker",
+            "command": {
+                "phive-install": {
+                    "alias": "composer-require-checker@^3.8",
+                    "bin": "%target-dir%/composer-require-checker-3",
+                    "sig": "033E5F8D801A2F8D"
+                }
+            },
+            "test": "composer-require-checker-3 -V",
             "tags": ["composer"]
         }
     ]

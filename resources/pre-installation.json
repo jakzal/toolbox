@@ -17,9 +17,16 @@
       "summary": "PHAR Installation and Verification Environment",
       "website": "https://phar.io/",
       "command": {
+        "file-download": {
+          "url": "https://github.com/phar-io/phive/releases/download/0.15.0/phive-0.15.0.phar.asc",
+          "file": "%target-dir%/phive.asc"
+        },
         "phar-download": {
-          "phar": "https://phar.io/releases/phive.phar",
+          "phar": "https://github.com/phar-io/phive/releases/download/0.15.0/phive-0.15.0.phar",
           "bin": "%target-dir%/phive"
+        },
+        "sh": {
+          "command": "gpg --keyserver hkps://keys.openpgp.org --recv-keys 0x9D8A98B29B2D5D79 && gpg --verify %target-dir%/phive.asc %target-dir%/phive"
         }
       },
       "test": "phive --version",

@@ -41,7 +41,7 @@
                 }
             },
             "test": "php-formatter list",
-            "tags": ["checkstyle", "exclude-php:8.0"]
+            "tags": ["checkstyle", "exclude-php:8.1", "exclude-php:8.0"]
         },
         {
             "name": "phpcbf",

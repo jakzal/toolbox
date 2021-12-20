@@ -11,7 +11,7 @@
                 }
             },
             "test": "analyze list",
-            "tags": ["exclude-php:8.0", "metrics"]
+            "tags": ["exclude-php:8.1", "exclude-php:8.0", "metrics"]
         },
         {
             "name": "phpinsights",

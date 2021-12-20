@@ -92,7 +92,7 @@
                 }
             },
             "test": "phpspec --version",
-            "tags": ["featured", "test"]
+            "tags": ["exclude-php:8.1", "featured", "test"]
         },
         {
             "name": "phpunit",
@@ -134,7 +134,7 @@
                 }
             },
             "test": "phpunit-7 --version",
-            "tags": ["exclude-php:8.0", "test"]
+            "tags": ["exclude-php:8.1", "exclude-php:8.0", "test"]
         },
         {
             "name": "phpunit-5",
@@ -148,7 +148,7 @@
                 }
             },
             "test": "phpunit-5 --version",
-            "tags": ["exclude-php:8.0", "test"]
+            "tags": ["exclude-php:8.1", "exclude-php:8.0", "test"]
         },
         {
             "name": "simple-phpunit",

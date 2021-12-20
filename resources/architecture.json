@@ -67,7 +67,7 @@
                 }
             },
             "test": "which phpat",
-            "tags": ["exclude-php:8.0", "architecture"]
+            "tags": ["architecture"]
         },
         {
             "name": "phpda",

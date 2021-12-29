@@ -65,7 +65,7 @@
                 }
             },
             "test": "twig-linter --help",
-            "tags": ["checkstyle"]
+            "tags": ["linting"]
         }
     ]
 }

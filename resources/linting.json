@@ -28,7 +28,7 @@
         },
         {
             "name": "twig-lint",
-            "summary": "Standalone cli twig 2.X linter",
+            "summary": "Standalone cli twig 1.X linter",
             "website": "https://github.com/asm89/twig-lint",
             "command": {
                 "phar-download": {

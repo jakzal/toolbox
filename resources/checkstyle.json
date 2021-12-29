@@ -70,6 +70,20 @@
             },
             "test": "twigcs --help",
             "tags": ["checkstyle"]
+        },
+        {
+            "name": "twig-linter",
+            "summary": "Standalone cli twig linter (heavily based on twig lint command from symfony-bridge)",
+            "website": "https://github.com/sserbin/twig-linter",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "sserbin/twig-linter:@dev",
+                    "namespace": "tools",
+                    "links": {"%target-dir%/twig-linter": "twig-linter"}
+                }
+            },
+            "test": "twig-linter --help",
+            "tags": ["checkstyle"]
         }
     ]
 }

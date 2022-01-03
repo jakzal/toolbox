@@ -60,7 +60,7 @@
             "command": {
                 "composer-bin-plugin": {
                     "package": "sserbin/twig-linter:@dev",
-                    "namespace": "tools",
+                    "namespace": "twig-linter",
                     "links": {"%target-dir%/twig-linter": "twig-linter"}
                 }
             },

@@ -28,7 +28,7 @@
         },
         {
             "name": "twig-lint",
-            "summary": "Standalone twig linter",
+            "summary": "Standalone cli twig 1.X linter",
             "website": "https://github.com/asm89/twig-lint",
             "command": {
                 "phar-download": {
@@ -51,6 +51,20 @@
                 }
             },
             "test": "yaml-lint --version",
+            "tags": ["linting"]
+        },
+        {
+            "name": "twig-linter",
+            "summary": "Standalone cli twig 3.X linter",
+            "website": "https://github.com/sserbin/twig-linter",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "sserbin/twig-linter:@dev",
+                    "namespace": "twig-linter",
+                    "links": {"%target-dir%/twig-linter": "twig-linter"}
+                }
+            },
+            "test": "twig-linter --help",
             "tags": ["linting"]
         }
     ]

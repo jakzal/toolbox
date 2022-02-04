@@ -141,4 +141,4 @@ tools/deptrac:
 	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.18.0/deptrac.phar.asc -o tools/deptrac.asc
 
 tools/box:
-	curl -Ls https://github.com/humbug/box/releases/download/3.14.0/box.phar -o tools/box && chmod +x tools/box
+	curl -Ls https://github.com/humbug/box/releases/download/3.15.0/box.phar -o tools/box && chmod +x tools/box

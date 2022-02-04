@@ -8,8 +8,11 @@ return [
     'exclude-files' => [
         'vendor/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'vendor/symfony/polyfill-php80/bootstrap.php',
+        'vendor/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
+        'vendor/symfony/polyfill-intl-normalizer/bootstrap.php',
     ],
-    'exclude-namespaces' => [
-        'Symfony\\Polyfill\\Php80\\*'
-    ]
+    'expose-namespaces' => [
+        'Symfony\Polyfill\Php80',
+        'Symfony\Polyfill\Intl',
+    ],
 ];

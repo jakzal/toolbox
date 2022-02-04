@@ -59,20 +59,6 @@
       },
       "test": "box list",
       "tags": ["pre-installation"]
-    },
-    {
-      "name": "box-legacy",
-      "summary": "Legacy version of box",
-      "website": "https://box-project.github.io/box2/",
-      "command": {
-        "phive-install": {
-          "alias": "box-project/box2",
-          "bin": "%target-dir%/box-legacy",
-          "sig": "293D771241515FE8"
-        }
-      },
-      "test": "box-legacy list",
-      "tags": ["pre-installation"]
     }
   ]
 }

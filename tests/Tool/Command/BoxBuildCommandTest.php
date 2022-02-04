@@ -45,7 +45,7 @@ class BoxBuildCommandTest extends TestCase
         $this->assertMatchesRegularExpression('#cd /tools/behat#', (string) $command);
         $this->assertMatchesRegularExpression('#git checkout '.self::VERSION.'#', (string) $command);
         $this->assertMatchesRegularExpression('#composer install --no-dev --no-suggest --prefer-dist -n#', (string) $command);
-        $this->assertMatchesRegularExpression('#box-legacy build#', (string) $command);
+        $this->assertMatchesRegularExpression('#box compile#', (string) $command);
     }
 
     public function test_it_tries_to_guess_version_number_if_not_given_one()

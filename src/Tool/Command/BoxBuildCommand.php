@@ -24,7 +24,7 @@ final class BoxBuildCommand implements Command
     public function __toString(): string
     {
         return \sprintf(
-            'git clone %s %s&& cd %s && git checkout %s && composer install --no-dev --no-suggest --prefer-dist -n && box-legacy build && mv %s %s && chmod +x %s && cd && rm -rf %s',
+            'git clone %s %s&& cd %s && git checkout %s && composer install --no-dev --no-suggest --prefer-dist -n && box compile && mv %s %s && chmod +x %s && cd && rm -rf %s',
             $this->repository,
             $this->targetDir(),
             $this->targetDir(),

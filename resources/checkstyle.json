@@ -29,21 +29,6 @@
             "tags": ["featured", "checkstyle"]
         },
         {
-            "name": "php-formatter",
-            "summary": "Custom coding standards fixer",
-            "website": "https://github.com/mmoreram/php-formatter",
-            "command": {
-                "box-build": {
-                    "repository": "https://github.com/mmoreram/php-formatter.git",
-                    "phar": "build/php-formatter.phar",
-                    "bin": "%target-dir%/php-formatter",
-                    "version": "1fa3d9a3e1c67654f3fe2511bd28fa7c33b59d7e"
-                }
-            },
-            "test": "php-formatter list",
-            "tags": ["checkstyle", "exclude-php:8.1", "exclude-php:8.0"]
-        },
-        {
             "name": "phpcbf",
             "summary": "Automatically corrects coding standard violations",
             "website": "https://github.com/squizlabs/PHP_CodeSniffer",

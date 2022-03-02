@@ -28,19 +28,6 @@
             "tags": ["phpstan"]
         },
         {
-            "name": "phpstan-extension-installer",
-            "summary": "Composer plugin for automatic installation of PHPStan extensions.",
-            "website": "https://github.com/phpstan/extension-installer",
-            "command": {
-                "composer-bin-plugin": {
-                    "package": "phpstan/extension-installer",
-                    "namespace": "phpstan"
-                }
-            },
-            "test": "composer global bin phpstan show phpstan/extension-installer",
-            "tags": ["phpstan"]
-        },
-        {
             "name": "phpstan-ergebnis-rules",
             "summary": "Additional rules for PHPstan",
             "website": "https://github.com/ergebnis/phpstan-rules",

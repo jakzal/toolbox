@@ -32,7 +32,7 @@
             "website": "https://infection.github.io/",
             "command": {
                 "phive-install": {
-                    "alias": "infection@^0.21",
+                    "alias": "infection@^0.26",
                     "bin": "%target-dir%/infection",
                     "sig": "C5095986493B4AA0"
                 }

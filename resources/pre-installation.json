@@ -53,7 +53,7 @@
       "website": "https://github.com/humbug/box",
       "command": {
         "phive-install": {
-          "alias": "humbug/box@^3.0",
+          "alias": "humbug/box",
           "bin": "%target-dir%/box"
         }
       },

@@ -20,7 +20,7 @@
       "website": "https://github.com/phan/phan",
       "command": {
         "phive-install": {
-          "alias": "phan@^4.0.3",
+          "alias": "phan",
           "bin": "%target-dir%/phan",
           "sig": "8101FB57DD8130F0"
         }

@@ -45,7 +45,7 @@
             "website": "https://github.com/j13k/yaml-lint",
             "command": {
                 "phive-install": {
-                    "alias": "j13k/yaml-lint@^1.1.3",
+                    "alias": "j13k/yaml-lint",
                     "bin": "%target-dir%/yaml-lint",
                     "sig": "D684BDC6C6CAB80F"
                 }

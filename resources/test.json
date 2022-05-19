@@ -87,7 +87,7 @@
             "website": "http://www.phpspec.net/",
             "command": {
                 "phive-install": {
-                    "alias": "phpspec/phpspec@^7.0",
+                    "alias": "phpspec/phpspec",
                     "bin": "%target-dir%/phpspec"
                 }
             },

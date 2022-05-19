@@ -34,7 +34,7 @@
             "website": "https://pdepend.org/",
             "command": {
                 "phive-install": {
-                    "alias": "pdepend/pdepend@^2.0",
+                    "alias": "pdepend/pdepend",
                     "bin": "%target-dir%/pdepend"
                 }
             },

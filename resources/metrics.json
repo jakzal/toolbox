@@ -47,7 +47,7 @@
             "website": "http://www.phpmetrics.org/",
             "command": {
                 "phive-install": {
-                    "alias": "phpmetrics/PhpMetrics@^2.0",
+                    "alias": "phpmetrics/PhpMetrics",
                     "bin": "%target-dir%/phpmetrics"
                 }
             },

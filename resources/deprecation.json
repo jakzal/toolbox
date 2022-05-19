@@ -19,7 +19,7 @@
             "website": "http://wapmorgan.github.io/PhpDeprecationDetector",
             "command": {
                 "phive-install": {
-                    "alias": "wapmorgan/phpdeprecationdetector@^2.0",
+                    "alias": "wapmorgan/phpdeprecationdetector",
                     "bin": "%target-dir%/phpdd"
                 }
             },

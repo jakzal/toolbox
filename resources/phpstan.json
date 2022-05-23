@@ -151,7 +151,7 @@
             "website": "https://github.com/nunomaduro/larastan",
             "command": {
                 "composer-bin-plugin": {
-                    "package": "nunomaduro/larastan:^1.0",
+                    "package": "nunomaduro/larastan",
                     "namespace": "larastan"
                 }
             },

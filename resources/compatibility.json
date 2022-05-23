@@ -24,7 +24,7 @@
                 }
             },
             "test": "roave-backward-compatibility-check --version",
-            "tags": ["exclude-php:8.1", "exclude-php:8.0", "compatibility"]
+            "tags": ["compatibility"]
         }
     ]
 }

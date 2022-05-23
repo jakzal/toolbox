@@ -15,19 +15,6 @@
             "tags": ["featured", "refactoring"]
         },
         {
-            "name": "phpdoc-to-typehint",
-            "summary": "Automatically adds type hints and return types based on PHPDocs",
-            "website": "https://github.com/dunglas/phpdoc-to-typehint",
-            "command": {
-                "phive-install": {
-                    "alias": "dunglas/phpdoc-to-typehint",
-                    "bin": "%target-dir%/phpdoc-to-typehint"
-                }
-            },
-            "test": "phpdoc-to-typehint -V",
-            "tags": ["refactoring"]
-        },
-        {
             "name": "rector",
             "summary": "Tool for instant code upgrades and refactoring",
             "website": "https://github.com/rectorphp/rector",

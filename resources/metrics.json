@@ -18,6 +18,9 @@
             "summary": "Analyses code quality, style, architecture and complexity",
             "website": "https://phpinsights.com/",
             "command": {
+                "sh": {
+                    "command": "composer global bin phpinsights config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true"
+                },
                 "composer-bin-plugin": {
                     "package": "nunomaduro/phpinsights",
                     "namespace": "phpinsights",

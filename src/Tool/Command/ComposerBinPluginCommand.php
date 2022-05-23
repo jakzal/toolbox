@@ -22,7 +22,7 @@ final class ComposerBinPluginCommand implements Command
 
     public function __toString(): string
     {
-        return \sprintf('composer global bin %s require --no-suggest --prefer-dist --update-no-dev -n %s%s', $this->namespace, $this->package, $this->linkCommand());
+        return \sprintf('composer global bin %s require --prefer-dist --update-no-dev -n %s%s', $this->namespace, $this->package, $this->linkCommand());
     }
 
     public function package(): string

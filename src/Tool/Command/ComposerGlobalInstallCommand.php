@@ -15,7 +15,7 @@ final class ComposerGlobalInstallCommand implements Command
 
     public function __toString(): string
     {
-        return \sprintf('composer global require --no-suggest --prefer-dist --update-no-dev -n %s', $this->package);
+        return \sprintf('composer global require --prefer-dist --update-no-dev -n %s', $this->package);
     }
 
     public function package(): string

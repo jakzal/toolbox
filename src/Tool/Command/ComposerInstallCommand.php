@@ -20,7 +20,7 @@ final class ComposerInstallCommand implements Command
     public function __toString(): string
     {
         return \sprintf(
-            'git clone %s %s && cd %s && git checkout %s && composer install --no-dev --no-suggest --prefer-dist -n',
+            'git clone %s %s && cd %s && git checkout %s && composer install --no-dev --prefer-dist -n',
             $this->repository,
             $this->targetDir,
             $this->targetDir,

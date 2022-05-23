@@ -37,11 +37,11 @@
       "summary": "Composer plugin to install bin vendors in isolated locations",
       "website": "https://github.com/bamarni/composer-bin-plugin",
       "command": {
+        "sh": {
+          "command": "composer global config extra.bamarni-bin.bin-links false && composer config --global allow-plugins.bamarni/composer-bin-plugin true"
+        },
         "composer-global-install": {
           "package": "bamarni/composer-bin-plugin"
-        },
-        "sh": {
-          "command": "composer global config extra.bamarni-bin.bin-links false"
         }
       },
       "test": "composer global show bamarni/composer-bin-plugin",

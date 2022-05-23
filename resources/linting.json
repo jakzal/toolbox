@@ -18,9 +18,10 @@
             "summary": "Lints php files in parallel",
             "website": "https://github.com/overtrue/phplint",
             "command": {
-                "phive-install": {
-                    "alias": "overtrue/phplint",
-                    "bin": "%target-dir%/phplint"
+                "composer-bin-plugin": {
+                    "package": "overtrue/phplint",
+                    "namespace": "phplint",
+                    "links": {"%target-dir%/phplint": "phplint"}
                 }
             },
             "test": "phplint -V",

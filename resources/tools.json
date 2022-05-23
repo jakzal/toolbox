@@ -39,7 +39,7 @@
           "sig": "15E1F8E2B149E6F5"
         }
       },
-      "test": "phpbench",
+      "test": "phpbench -V",
       "tags": []
     },
     {

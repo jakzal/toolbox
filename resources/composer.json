@@ -5,6 +5,9 @@
             "summary": "Composer plugin to normalize composer.json files",
             "website": "https://github.com/ergebnis/composer-normalize",
             "command": {
+                "sh": {
+                    "command": "composer config --global allow-plugins.ergebnis/composer-normalize true"
+                },
                 "composer-global-install": {
                     "package": "ergebnis/composer-normalize"
                 }

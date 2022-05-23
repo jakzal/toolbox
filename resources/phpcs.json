@@ -19,6 +19,9 @@
       "summary": "Easy installation of PHP_CodeSniffer coding standards (rulesets).",
       "website": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer",
       "command": {
+        "sh": {
+          "command": "composer global bin phpcs config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true"
+        },
         "composer-bin-plugin": {
           "package": "dealerdirect/phpcodesniffer-composer-installer",
           "namespace": "phpcs"

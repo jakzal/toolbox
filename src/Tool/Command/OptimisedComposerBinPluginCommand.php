@@ -37,7 +37,7 @@ final class OptimisedComposerBinPluginCommand implements Command
 
     private function commandToRun(string $namespace, array $packages): string
     {
-        return \sprintf('composer global bin %s require --no-suggest --prefer-dist --update-no-dev -n %s', $namespace, \implode(' ', $packages));
+        return \sprintf('composer global bin %s require --prefer-dist --update-no-dev -n %s', $namespace, \implode(' ', $packages));
     }
 
     private function commandsToRun(array $packagesGrouped): array

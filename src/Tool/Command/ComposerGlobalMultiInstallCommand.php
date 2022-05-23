@@ -27,6 +27,6 @@ final class ComposerGlobalMultiInstallCommand implements Command
             return $command->package();
         }, $this->commands->toArray()));
 
-        return \sprintf('composer global require --no-suggest --prefer-dist --update-no-dev -n %s', $packages);
+        return \sprintf('composer global require --prefer-dist --update-no-dev -n %s', $packages);
     }
 }

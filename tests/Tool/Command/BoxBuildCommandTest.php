@@ -44,7 +44,7 @@ class BoxBuildCommandTest extends TestCase
         $this->assertMatchesRegularExpression('#git clone '.self::REPOSITORY.'#', (string) $command);
         $this->assertMatchesRegularExpression('#cd /tools/behat#', (string) $command);
         $this->assertMatchesRegularExpression('#git checkout '.self::VERSION.'#', (string) $command);
-        $this->assertMatchesRegularExpression('#composer install --no-dev --no-suggest --prefer-dist -n#', (string) $command);
+        $this->assertMatchesRegularExpression('#composer install --no-dev --prefer-dist -n#', (string) $command);
         $this->assertMatchesRegularExpression('#box compile#', (string) $command);
     }
 

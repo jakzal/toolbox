@@ -93,6 +93,19 @@
             "tags": ["phpstan"]
         },
         {
+            "name": "phpstan-symplify",
+            "summary": "Symplify extension for PHPStan",
+            "website": "https://github.com/symplify/phpstan-rules",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "symplify/phpstan-rules",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show symplify/phpstan-rules",
+            "tags": ["phpstan"]
+        },
+        {
             "name": "phpstan-beberlei-assert",
             "summary": "PHPStan extension for beberlei/assert",
             "website": "https://github.com/phpstan/phpstan-beberlei-assert",

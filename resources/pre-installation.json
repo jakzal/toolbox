@@ -54,7 +54,8 @@
       "command": {
         "phive-install": {
           "alias": "humbug/box",
-          "bin": "%target-dir%/box"
+          "bin": "%target-dir%/box",
+          "sig": "2DF45277AEF09A2F"
         }
       },
       "test": "box list",

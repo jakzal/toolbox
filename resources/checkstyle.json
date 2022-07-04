@@ -6,8 +6,8 @@
             "website": "https://github.com/Symplify/EasyCodingStandard",
             "command": {
                 "composer-bin-plugin": {
-                    "package": "symplify/easy-coding-standard-prefixed",
-                    "namespace": "tools",
+                    "package": "symplify/easy-coding-standard",
+                    "namespace": "ecs",
                     "links": {"%target-dir%/ecs": "ecs"}
                 }
             },

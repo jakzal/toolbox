@@ -30,7 +30,7 @@ test-min: update-min cs deptrac phpunit infection
 
 test-integration: build/toolbox.phar
 	rm -rf ./build/tools && \
-	  export PATH="$(shell pwd)/build/tools:$(shell pwd)/build/tools/.composer/vendor/bin:$(shell pwd)/build/tools/QualityAnalyzer/bin:$(shell pwd)/build/tools/EasyCodingStandard/bin:$$PATH" && \
+	  export PATH="$(shell pwd)/build/tools:$(shell pwd)/build/tools/.composer/vendor/bin:$(shell pwd)/build/tools/QualityAnalyzer/bin:$$PATH" && \
 	  export COMPOSER_HOME=$(shell pwd)/build/tools/.composer && \
 	  chmod +x build/toolbox.phar && \
 	  mkdir -p ./build/tools && \

@@ -38,7 +38,7 @@
       "website": "https://github.com/bamarni/composer-bin-plugin",
       "command": {
         "sh": {
-          "command": "composer global config extra.bamarni-bin.bin-links false && composer config --global allow-plugins.bamarni/composer-bin-plugin true"
+          "command": "composer global config --json extra.bamarni-bin.bin-links false && composer config --global --json allow-plugins.bamarni/composer-bin-plugin true"
         },
         "composer-global-install": {
           "package": "bamarni/composer-bin-plugin"

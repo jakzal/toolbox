@@ -15,6 +15,20 @@
             "tags": ["checkstyle"]
         },
         {
+            "name": "pint",
+            "summary": "Opinionated PHP code style fixer for Laravel",
+            "website": "https://github.com/laravel/pint",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "laravel/pint",
+                    "namespace": "pint",
+                    "links": {"%target-dir%/pint": "pint"}
+                }
+            },
+            "test": "pint --test",
+            "tags": ["featured", "checkstyle", "exclude-php:7.4"]
+        },
+        {
             "name": "php-cs-fixer",
             "summary": "PHP Coding Standards Fixer",
             "website": "http://cs.symfony.com/",

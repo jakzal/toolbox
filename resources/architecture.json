@@ -56,6 +56,19 @@
             "tags": ["architecture"]
         },
         {
+            "name": "phparkitect",
+            "summary": "Helps to put architectural constraints in a PHP code base",
+            "website": "https://github.com/phparkitect/arkitect",
+            "command": {
+                "phar-download": {
+                    "phar": "https://github.com/phparkitect/arkitect/releases/latest/download/phparkitect.phar",
+                    "bin": "%target-dir%/phparkitect"
+                }
+            },
+            "test": "phparkitect --version",
+            "tags": ["architecture"]
+        },
+        {
             "name": "phpat",
             "summary": "Easy to use architecture testing tool",
             "website": "https://github.com/carlosas/phpat",

@@ -61,7 +61,7 @@
             "website": "https://github.com/phparkitect/arkitect",
             "command": {
                 "phar-download": {
-                    "phar": "https://github.com/phparkitect/arkitect/releases/latest/download/phparkitect.phar",
+                    "phar": "https://github.com/phparkitect/arkitect/releases/download/0.2.26/phparkitect.phar",
                     "bin": "%target-dir%/phparkitect"
                 }
             },

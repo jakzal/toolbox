@@ -148,6 +148,7 @@ $application->add(
         {
             $command = <<<'CMD'
             grep -e 'github\.com.*releases.*\.phar"' %TOOLBOX_JSON% |
+            grep -v -e '/latest/' |
             sed -e 's@.*github.com/\(.*\)/releases.*@\1@' |
             xargs -I"{}" sh -c "curl -s -XGET 'https://api.github.com/repos/{}/releases/latest' -H 'Accept:application/json' | grep browser_download_url | grep .phar | head -n 1" |
             sed -e 's/^[^:]*: "\([^"]*\)"/\1/'

@@ -116,11 +116,7 @@ Get the `toolbox.phar` from the [latest release](https://github.com/jakzal/toolb
 The command below should do the job:
 
 ```bash
-curl -s https://api.github.com/repos/jakzal/toolbox/releases/latest \
-  | grep "browser_download_url.*toolbox.phar" \
-  | cut -d '"' -f 4 \
-  | xargs curl -Ls -o toolbox \
-  && chmod +x toolbox
+curl -Ls https://github.com/jakzal/toolbox/releases/latest/download/toolbox.phar -o toolbox && chmod +x toolbox
 ```
 
 ## Usage

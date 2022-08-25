@@ -4,7 +4,7 @@
     "type": "project",
     "require": {
         "php": "^7.4.7 || ~8.0.0 || ~8.1.0",
-        "symfony/console": "^4.4 || ^5.3",
+        "symfony/console": "^4.4 || ^5.4 || ^6.1",
         "psr/container": "^1.0"
     },
     "require-dev": {

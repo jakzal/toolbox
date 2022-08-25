@@ -6,6 +6,7 @@ use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Application as CliApplication;
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
+use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -34,7 +35,7 @@ final class Application extends CliApplication
         return parent::doRun($input, $output);
     }
 
-    protected function getDefaultInputDefinition()
+    protected function getDefaultInputDefinition(): InputDefinition
     {
         $definition = parent::getDefaultInputDefinition();
         $definition->addOption(new InputOption('tools', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Path(s) to the list of tools. Can also be set with TOOLBOX_JSON environment variable.', $this->toolsJsonDefault()));

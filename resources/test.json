@@ -74,7 +74,7 @@
             "website": "https://github.com/nikic/PHP-Fuzzer",
             "command": {
                 "phive-install": {
-                    "alias": "nikic/php-fuzzer:0.0.5",
+                    "alias": "nikic/php-fuzzer",
                     "bin": "%target-dir%/php-fuzzer"
                 }
             },

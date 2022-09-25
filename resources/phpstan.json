@@ -132,6 +132,19 @@
             "tags": ["phpstan"]
         },
         {
+            "name": "phpat",
+            "summary": "Easy to use architecture testing tool",
+            "website": "https://github.com/carlosas/phpat",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "phpat/phpat",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show phpat/phpat",
+            "tags": ["phpstan", "architecture"]
+        },
+        {
             "name": "phpstan-larastan",
             "summary": "Separate installation of phpstan for larastan",
             "website": "https://github.com/phpstan/phpstan",

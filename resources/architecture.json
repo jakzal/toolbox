@@ -69,20 +69,6 @@
             "tags": ["architecture"]
         },
         {
-            "name": "phpat",
-            "summary": "Easy to use architecture testing tool",
-            "website": "https://github.com/carlosas/phpat",
-            "command": {
-                "composer-bin-plugin": {
-                    "package": "phpat/phpat",
-                    "namespace": "tools",
-                    "links": {"%target-dir%/phpat": "phpat"}
-                }
-            },
-            "test": "which phpat",
-            "tags": ["architecture"]
-        },
-        {
             "name": "phpda",
             "summary": "Generates dependency graphs",
             "website": "https://mamuz.github.io/PhpDependencyAnalysis/",

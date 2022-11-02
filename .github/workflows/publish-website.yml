@@ -25,7 +25,7 @@ jobs:
                 run: make package-devkit website
 
             -   name: Publish the website
-                uses: JamesIves/github-pages-deploy-action@releases/v3
+                uses: JamesIves/github-pages-deploy-action@v4
                 with:
                     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
                     BRANCH: gh-pages

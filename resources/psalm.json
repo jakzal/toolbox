@@ -6,7 +6,7 @@
             "website": "https://psalm.dev/",
             "command": {
                 "composer-bin-plugin": {
-                    "package": "vimeo/psalm",
+                    "package": "vimeo/psalm:~4.0",
                     "namespace": "psalm",
                     "links": {
                         "%target-dir%/psalm": "psalm",

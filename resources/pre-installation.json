@@ -73,7 +73,7 @@
         }
       },
       "test": "box-3 list",
-      "tags": ["pre-installation"]
+      "tags": ["exclude-php:8.2", "pre-installation"]
     }
   ]
 }

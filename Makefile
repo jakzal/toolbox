@@ -68,7 +68,7 @@ package: tools/box
 	sed -e 's/Application('"'"'dev/Application('"'"'$(TOOLBOX_VERSION)/g' bin/toolbox.php > build/phar/bin/toolbox.php
 
 	cd build/phar && \
-	  composer config platform.php 7.4.7 && \
+	  composer config platform.php 8.0.0 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile
@@ -84,7 +84,7 @@ package-devkit: tools/box
 	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(TOOLBOX_VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
 
 	cd build/devkit-phar && \
-	  composer config platform.php 7.4.7 && \
+	  composer config platform.php 8.0.0 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile -c box-devkit.json.dist

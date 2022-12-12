@@ -138,8 +138,13 @@ tools/php-cs-fixer:
 	curl -Ls https://cs.symfony.com/download/php-cs-fixer-v3.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
 
 tools/deptrac:
-	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.18.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
-	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.18.0/deptrac.phar.asc -o tools/deptrac.asc
+ifeq ($(IS_PHP81),1)
+	curl -Ls https://github.com/qossmic/deptrac/releases/download/1.0.2/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
+	curl -Ls https://github.com/qossmic/deptrac/releases/download/1.0.2/deptrac.phar.asc -o tools/deptrac.asc
+else
+	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.24.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
+	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.24.0/deptrac.phar.asc -o tools/deptrac.asc
+endif
 
 tools/box:
 ifeq ($(IS_PHP81),1)

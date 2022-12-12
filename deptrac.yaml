@@ -1,0 +1,63 @@
+parameters:
+  paths:
+    - ./src
+  exclude_files: []
+  layers:
+    - name: Cli
+      collectors:
+        - type: className
+          regex: ^Zalas\\Toolbox\\Cli\\.*
+    - name: Json
+      collectors:
+        - type: className
+          regex: ^Zalas\\Toolbox\\Json\\.*
+    - name: Runner
+      collectors:
+        - type: className
+          regex: ^Zalas\\Toolbox\\Runner\\.*
+    - name: Tool
+      collectors:
+        - type: className
+          regex: ^Zalas\\Toolbox\\Tool\\.*
+    - name: UseCase
+      collectors:
+        - type: className
+          regex: ^Zalas\\Toolbox\\UseCase\\.*
+    - name: Psr Container
+      collectors:
+        - type: className
+          regex: ^Psr\\Container\\.*
+    - name: Symfony Console
+      collectors:
+        - type: className
+          regex: ^Symfony\\Component\\Console\\.*
+    - name: Other Vendors
+      collectors:
+        - type: bool
+          must:
+            # must be outside of global namespace
+            - type: className
+              regex: '[\\]+'
+          must_not:
+            # must not be one of the known vendors
+            - type: className
+              regex: ^Zalas\\Toolbox\\(Cli|Json|Runner|Tool|UseCase)\\.*
+            - type: className
+              regex: ^Psr\\Container\\.*
+            - type: className
+              regex: ^Symfony\\Component\\Console\\.*
+  ruleset:
+    Cli:
+      - Tool
+      - Json
+      - Runner
+      - UseCase
+      - Symfony Console
+      - Psr Container
+    Json:
+      - Tool
+    Runner:
+      - Tool
+    Tool:
+    UseCase:
+      - Tool

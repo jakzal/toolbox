@@ -133,7 +133,7 @@
                     "links": {"%target-dir%/simple-phpunit": "simple-phpunit"}
                 },
                 "sh": {
-                    "command": "simple-phpunit install && SYMFONY_PHPUNIT_VERSION=8 simple-phpunit install"
+                    "command": "simple-phpunit install && SYMFONY_PHPUNIT_VERSION=9 simple-phpunit install"
                 }
             },
             "test": "simple-phpunit --version",

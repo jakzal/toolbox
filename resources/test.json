@@ -123,34 +123,6 @@
             "tags": ["test"]
         },
         {
-            "name": "phpunit-7",
-            "summary": "The PHP testing framework (7.x version)",
-            "website": "https://phpunit.de/",
-            "command": {
-                "phive-install": {
-                    "alias": "phpunit@^7.0",
-                    "bin": "%target-dir%/phpunit-7",
-                    "sig": "4AA394086372C20A"
-                }
-            },
-            "test": "phpunit-7 --version",
-            "tags": ["exclude-php:8.2", "exclude-php:8.1", "exclude-php:8.0", "test"]
-        },
-        {
-            "name": "phpunit-5",
-            "summary": "The PHP testing framework (5.x version)",
-            "website": "https://phpunit.de/",
-            "command": {
-                "phive-install": {
-                    "alias": "phpunit@^5.0",
-                    "bin": "%target-dir%/phpunit-5",
-                    "sig": "4AA394086372C20A"
-                }
-            },
-            "test": "phpunit-5 --version",
-            "tags": ["exclude-php:8.2", "exclude-php:8.1", "exclude-php:8.0", "test"]
-        },
-        {
             "name": "simple-phpunit",
             "summary": "Provides utilities to report legacy tests and usage of deprecated code",
             "website": "https://symfony.com/doc/current/components/phpunit_bridge.html",

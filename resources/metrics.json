@@ -1,19 +1,6 @@
 {
     "tools": [
         {
-            "name": "analyze",
-            "summary": "Visualizes metrics and source code",
-            "website": "https://github.com/Qafoo/QualityAnalyzer",
-            "command": {
-                "composer-install": {
-                    "repository": "https://github.com/Qafoo/QualityAnalyzer.git",
-                    "target-dir": "%target-dir%/QualityAnalyzer"
-                }
-            },
-            "test": "analyze list",
-            "tags": ["exclude-php:8.2", "exclude-php:8.1", "exclude-php:8.0", "metrics"]
-        },
-        {
             "name": "phpinsights",
             "summary": "Analyses code quality, style, architecture and complexity",
             "website": "https://phpinsights.com/",

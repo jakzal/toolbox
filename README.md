@@ -16,7 +16,6 @@ It has been extracted as a separate project to make maintenance easier and enabl
 
 | Name | Description | PHP 8.0 | PHP 8.1 | PHP 8.2 |
 | :--- | :---------- | :------ | :------ | :------ |
-| analyze | [Visualizes metrics and source code](https://github.com/Qafoo/QualityAnalyzer) | &#x274C; | &#x274C; | &#x274C; |
 | behat | [Helps to test business expectations](http://behat.org/) | &#x2705; | &#x2705; | &#x2705; |
 | box | [Fast, zero config application bundler with PHARs](https://github.com/humbug/box) | &#x274C; | &#x2705; | &#x2705; |
 | box-3 | [Fast, zero config application bundler with PHARs](https://github.com/humbug/box) | &#x2705; | &#x2705; | &#x274C; |
@@ -79,8 +78,6 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpstan-symfony | [Symfony extension for PHPStan](https://github.com/phpstan/phpstan-symfony) | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-webmozart-assert | [PHPStan extension for webmozart/assert](https://github.com/phpstan/phpstan-webmozart-assert) | &#x2705; | &#x2705; | &#x2705; |
 | phpunit | [The PHP testing framework](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; |
-| phpunit-5 | [The PHP testing framework (5.x version)](https://phpunit.de/) | &#x274C; | &#x274C; | &#x274C; |
-| phpunit-7 | [The PHP testing framework (7.x version)](https://phpunit.de/) | &#x274C; | &#x274C; | &#x274C; |
 | phpunit-8 | [The PHP testing framework (8.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; |
 | psalm | [Finds errors in PHP applications](https://psalm.dev/) | &#x2705; | &#x2705; | &#x2705; |
 | psalm-plugin-doctrine | [Stubs to let Psalm understand Doctrine better](https://github.com/weirdan/doctrine-psalm-plugin) | &#x2705; | &#x2705; | &#x2705; |
@@ -99,6 +96,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 
 | Name | Summary |  
 | :--- | :------ |
+| analyze | [Visualizes metrics and source code](https://github.com/Qafoo/QualityAnalyzer) |
 | box-legacy | [Legacy version of box](https://box-project.github.io/box2/) |
 | composer-normalize | [Composer plugin to normalize composer.json files](https://github.com/localheinz/composer-normalize) |
 | design-pattern | [Detects design patterns](https://github.com/Halleck45/DesignPatternDetector) |
@@ -107,6 +105,8 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpcf | [Finds usage of deprecated features](http://wapmorgan.github.io/PhpCodeFixer/) |
 | phpdoc-to-typehint | [Automatically adds type hints and return types based on PHPDocs](https://github.com/dunglas/phpdoc-to-typehint) |
 | phpstan-localheinz-rules | [Additional rules for PHPstan](https://github.com/localheinz/phpstan-rules) |
+| phpunit-5 | [The PHP testing framework (5.x version)](https://phpunit.de/) |
+| phpunit-7 | [The PHP testing framework (7.x version)](https://phpunit.de/) |
 | security-checker | [Checks composer dependencies for known security vulnerabilities](https://github.com/sensiolabs/security-checker) |
 | testability | [Analyses and reports testability issues of a php codebase](https://github.com/edsonmedina/php_testability) |
 
@@ -133,7 +133,7 @@ To exclude some tools from the listing multiple `--exclude-tag` options can be a
 The `--tag` option can be used to filter tools by tags.
 
 ```
-./toolbox list-tools --exclude-tag exclude-php:7.4 --exclude-tag foo --tag bar
+./toolbox list-tools --exclude-tag exclude-php:8.2 --exclude-tag foo --tag bar
 ```
 
 ### Install tools
@@ -171,7 +171,7 @@ To exclude some tools from the installation multiple `--exclude-tag` options can
 The `--tag` option can be used to filter tools by tags.
 
 ```
-./toolbox install --exclude-tag exclude-php:7.4 --exclude-tag foo --tag bar
+./toolbox install --exclude-tag exclude-php:8.2 --exclude-tag foo --tag bar
 ```
 
 ### Test if installed tools are usable
@@ -194,7 +194,7 @@ To exclude some tools from the generated test command multiple `--exclude-tag` o
 The `--tag` option can be used to filter tools by tags.
 
 ```
-./toolbox test --exclude-tag exclude-php:7.4 --exclude-tag foo --tag bar
+./toolbox test --exclude-tag exclude-php:8.2 --exclude-tag foo --tag bar
 ```
 
 ### Tools definitions
@@ -236,7 +236,7 @@ Tools can be tagged in order to enable grouping and filtering them.
 The tags below have a special meaning:
 
 * `pre-installation` - these tools will be installed before any other tools.
-* `exclude-php:8.1`, `exclude-php:7.4` etc - used to exclude installation on the specified php version.
+* `exclude-php:8.1`, `exclude-php:8.2` etc - used to exclude installation on the specified php version.
 
 ## Contributing
 

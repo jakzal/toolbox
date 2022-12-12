@@ -26,7 +26,7 @@
                 }
             },
             "test": "php-cs-fixer list",
-            "tags": ["featured", "checkstyle"]
+            "tags": ["exclude-php:8.2", "featured", "checkstyle"]
         },
         {
             "name": "phpcbf",

@@ -1,6 +1,7 @@
 default: build
 
 PHP_VERSION:=$(shell php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
+IS_PHP81:=$(shell php -r 'echo (int)version_compare(PHP_VERSION, "8.1", ">=");')
 TOOLBOX_VERSION?=dev
 
 build: install test
@@ -141,4 +142,8 @@ tools/deptrac:
 	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.18.0/deptrac.phar.asc -o tools/deptrac.asc
 
 tools/box:
+ifeq ($(IS_PHP81),1)
+	curl -Ls https://github.com/humbug/box/releases/download/4.2.0/box.phar -o tools/box && chmod +x tools/box
+else
 	curl -Ls https://github.com/humbug/box/releases/download/3.15.0/box.phar -o tools/box && chmod +x tools/box
+endif

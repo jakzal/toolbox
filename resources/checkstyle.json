@@ -26,7 +26,7 @@
                 }
             },
             "test": "pint --test",
-            "tags": ["featured", "checkstyle", "exclude-php:7.4"]
+            "tags": ["featured", "checkstyle"]
         },
         {
             "name": "php-cs-fixer",

@@ -41,7 +41,7 @@
                 }
             },
             "test": "composer-require-checker -V",
-            "tags": ["composer"]
+            "tags": ["composer", "exclude-php:8.0"]
         },
         {
             "name": "composer-require-checker-3",

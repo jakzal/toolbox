@@ -64,7 +64,7 @@
                 "phive-install": {
                     "alias": "friendsoftwig/twigcs",
                     "bin": "%target-dir%/twigcs",
-                    "sig": "C0DD602D1DD2E5AF"
+                    "sig": "C00543248C87FB13"
                 }
             },
             "test": "twigcs --help",

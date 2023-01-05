@@ -11,7 +11,7 @@
         "phpunit/phpunit": "^9.5",
         "zalas/phpunit-globals": "^2.1",
         "phpspec/prophecy-phpunit": "^2.0",
-        "infection/infection": "^0.25.4"
+        "infection/infection": "^0.26"
     },
     "autoload": {
         "psr-4": {

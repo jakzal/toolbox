@@ -36,7 +36,7 @@
         "phive-install": {
           "alias": "phpbench",
           "bin": "%target-dir%/phpbench",
-          "sig": "15E1F8E2B149E6F5"
+          "sig": "6FC579F5F0FCC966"
         }
       },
       "test": "phpbench -V",

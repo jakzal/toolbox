@@ -109,6 +109,20 @@
             "tags": ["featured", "test"]
         },
         {
+            "name": "phpunit-9",
+            "summary": "The PHP testing framework (9.x version)",
+            "website": "https://phpunit.de/",
+            "command": {
+                "phive-install": {
+                    "alias": "phpunit@^9.0",
+                    "bin": "%target-dir%/phpunit-9",
+                    "sig": "4AA394086372C20A"
+                }
+            },
+            "test": "phpunit --version",
+            "tags": ["test"]
+        },
+        {
             "name": "phpunit-8",
             "summary": "The PHP testing framework (8.x version)",
             "website": "https://phpunit.de/",

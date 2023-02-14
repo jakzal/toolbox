@@ -119,7 +119,7 @@
                     "sig": "4AA394086372C20A"
                 }
             },
-            "test": "phpunit --version",
+            "test": "phpunit-9 --version",
             "tags": ["test"]
         },
         {

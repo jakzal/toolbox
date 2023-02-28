@@ -170,6 +170,21 @@
             },
             "test": "composer global bin phpstan show ergebnis/phpstan-rules",
             "tags": ["phpstan"]
+        },
+        {
+            "name": "phpstan-banned-code",
+            "summary": "PHPStan rules for detecting calls to specific functions you don't want in your project",
+            "website": "https://github.com/ekino/phpstan-banned-code",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "ekino/phpstan-banned-code",
+                    "namespace": "phpstan"
+                }
+            },
+            "test": "composer global bin phpstan show ekino/phpstan-banned-code",
+            "tags": [
+                "phpstan"
+            ]
         }
     ]
 }

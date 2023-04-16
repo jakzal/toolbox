@@ -38,7 +38,7 @@
                 }
             },
             "test": "infection --version",
-            "tags": ["featured", "test"]
+            "tags": ["featured", "test", "exclude-php:8.0"]
         },
         {
             "name": "paratest",

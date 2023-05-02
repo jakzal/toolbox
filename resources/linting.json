@@ -52,7 +52,7 @@
                 }
             },
             "test": "yaml-lint --version",
-            "tags": ["linting"]
+            "tags": ["exclude-php:8.0", "linting"]
         },
         {
             "name": "twig-linter",

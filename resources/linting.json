@@ -48,11 +48,11 @@
                 "phive-install": {
                     "alias": "j13k/yaml-lint",
                     "bin": "%target-dir%/yaml-lint",
-                    "sig": "D684BDC6C6CAB80F"
+                    "sig": "985E1E22802973B2"
                 }
             },
             "test": "yaml-lint --version",
-            "tags": ["linting"]
+            "tags": ["exclude-php:8.0", "linting"]
         },
         {
             "name": "twig-linter",

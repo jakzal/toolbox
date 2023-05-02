@@ -47,8 +47,7 @@
             "command": {
                 "phive-install": {
                     "alias": "j13k/yaml-lint",
-                    "bin": "%target-dir%/yaml-lint",
-                    "sig": "985E1E22802973B2"
+                    "bin": "%target-dir%/yaml-lint"
                 }
             },
             "test": "yaml-lint --version",

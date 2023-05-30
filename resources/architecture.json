@@ -35,7 +35,8 @@
             "command": {
                 "phive-install": {
                     "alias": "pdepend/pdepend",
-                    "bin": "%target-dir%/pdepend"
+                    "bin": "%target-dir%/pdepend",
+                    "sig": "508003DAED98C308"
                 }
             },
             "test": "pdepend --version",

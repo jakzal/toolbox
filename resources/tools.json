@@ -40,7 +40,7 @@
         }
       },
       "test": "phpbench -V",
-      "tags": []
+      "tags": ["exclude-php:8.0"]
     },
     {
       "name": "phpa",

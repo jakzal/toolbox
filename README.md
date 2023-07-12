@@ -47,7 +47,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpa | [Checks for weak assumptions](https://github.com/rskuipers/php-assumptions) | &#x2705; | &#x2705; | &#x2705; |
 | phparkitect | [Helps to put architectural constraints in a PHP code base](https://github.com/phparkitect/arkitect) | &#x2705; | &#x2705; | &#x2705; |
 | phpat | [Easy to use architecture testing tool](https://github.com/carlosas/phpat) | &#x2705; | &#x2705; | &#x2705; |
-| phpbench | [PHP Benchmarking framework](https://github.com/phpbench/phpbench) | &#x2705; | &#x2705; | &#x2705; |
+| phpbench | [PHP Benchmarking framework](https://github.com/phpbench/phpbench) | &#x274C; | &#x2705; | &#x2705; |
 | phpca | [Finds usage of non-built-in extensions](https://github.com/wapmorgan/PhpCodeAnalyzer) | &#x2705; | &#x2705; | &#x2705; |
 | phpcb | [PHP Code Browser](https://github.com/mayflower/PHP_CodeBrowser) | &#x2705; | &#x2705; | &#x2705; |
 | phpcbf | [Automatically corrects coding standard violations](https://github.com/squizlabs/PHP_CodeSniffer) | &#x2705; | &#x2705; | &#x2705; |

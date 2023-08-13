@@ -78,7 +78,7 @@
                     "bin": "%target-dir%/php-fuzzer"
                 }
             },
-            "test": "php-fuzzer --help",
+            "test": "php-fuzzer --help | grep 'Usage:'",
             "tags": ["test"]
         },
         {

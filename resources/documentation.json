@@ -8,11 +8,11 @@
                 "phive-install": {
                     "alias": "phpDocumentor",
                     "bin": "%target-dir%/phpDocumentor",
-                    "sig": "67F861C3D889C656"
+                    "sig": "8AC0BAA79732DD42"
                 }
             },
             "test": "phpDocumentor list",
-            "tags": ["featured", "documentation"]
+            "tags": ["featured", "documentation", "exclude-php:8.0"]
         },
         {
             "name": "phpcb",

@@ -55,6 +55,20 @@
             "tags": ["test"]
         },
         {
+            "name": "pest",
+            "summary": "an elegant PHP testing Framework with a focus on simplicity, meticulously designed to bring back the joy of testing in PHP",
+            "website": "https://github.com/pestphp/pest",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "laravel/pest",
+                    "namespace": "pest",
+                    "links": {"%target-dir%/pest": "pest"}
+                }
+            },
+            "test": "pest -v",
+            "tags": ["test"]
+        },
+        {
             "name": "phpcov",
             "summary": "a command-line frontend for the PHP_CodeCoverage library",
             "website": "https://github.com/sebastianbergmann/phpcov",

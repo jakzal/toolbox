@@ -56,7 +56,7 @@
         },
         {
             "name": "pest",
-            "summary": "an elegant PHP testing Framework with a focus on simplicity, meticulously designed to bring back the joy of testing in PHP",
+            "summary": "an elegant PHP testing Framework with a focus on simplicity",
             "website": "https://github.com/pestphp/pest",
             "command": {
                 "composer-bin-plugin": {

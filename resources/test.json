@@ -60,7 +60,7 @@
             "website": "https://github.com/pestphp/pest",
             "command": {
                 "composer-bin-plugin": {
-                    "package": "laravel/pest",
+                    "package": "pestphp/pest",
                     "namespace": "pest",
                     "links": {"%target-dir%/pest": "pest"}
                 }

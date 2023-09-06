@@ -68,7 +68,7 @@
                     "links": {"%target-dir%/pest": "pest"}
                 }
             },
-            "test": "pest -v",
+            "test": "pest --version",
             "tags": ["test"]
         },
         {

@@ -11,6 +11,8 @@ on:
 
 env:
     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    # for phive
+    GITHUB_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
 jobs:
     tests:

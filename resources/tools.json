@@ -91,7 +91,7 @@
         "phive-install": {
           "alias": "phpmd",
           "bin": "%target-dir%/phpmd",
-          "sig": "A4E55EA12C7C085C"
+          "sig": "9093F8B32E4815AA"
         }
       },
       "test": "phpmd --version"

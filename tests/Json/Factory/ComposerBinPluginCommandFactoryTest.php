@@ -57,7 +57,7 @@ class ComposerBinPluginCommandFactoryTest extends TestCase
         ComposerBinPluginCommandFactory::import($properties);
     }
 
-    public function provideRequiredProperties(): \Generator
+    public static function provideRequiredProperties(): \Generator
     {
         yield ['package'];
         yield ['namespace'];

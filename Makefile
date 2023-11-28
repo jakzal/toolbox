@@ -56,10 +56,6 @@ phpunit: tools/phpunit
 	tools/phpunit
 .PHONY: phpunit
 
-phpunit-coverage: tools/phpunit
-	phpdbg -qrr tools/phpunit
-.PHONY: phpunit
-
 package: tools/box
 	@rm -rf build/phar && mkdir -p build/phar build/phar/bin
 

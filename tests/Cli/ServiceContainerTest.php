@@ -48,7 +48,7 @@ class ServiceContainerTest extends TestCase
         $this->assertInstanceOf($expectedType, $this->container->get($serviceId));
     }
 
-    public function provideApplicationServices()
+    public static function provideApplicationServices()
     {
         yield [InstallCommand::class, InstallCommand::class];
         yield [ListCommand::class, ListCommand::class];

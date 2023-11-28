@@ -35,7 +35,7 @@ jobs:
                     php-version: "${{ matrix.php }}"
                     tools: composer
                     ini-values: "phar.readonly=0"
-                    coverage: none
+                    coverage: pcov
 
             -   if: matrix.deps == 'high'
                 run: make update test package package-devkit

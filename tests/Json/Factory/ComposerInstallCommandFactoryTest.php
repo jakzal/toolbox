@@ -41,7 +41,7 @@ class ComposerInstallCommandFactoryTest extends TestCase
         ComposerInstallCommandFactory::import($properties);
     }
 
-    public function provideRequiredProperties()
+    public static function provideRequiredProperties()
     {
         yield ['repository'];
         yield ['target-dir'];

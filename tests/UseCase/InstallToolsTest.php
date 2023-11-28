@@ -2,10 +2,8 @@
 
 namespace Zalas\Toolbox\Tests\UseCase;
 
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
-use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\BoxBuildCommand;
@@ -17,6 +15,7 @@ use Zalas\Toolbox\Tool\Command\MultiStepCommand;
 use Zalas\Toolbox\Tool\Command\PharDownloadCommand;
 use Zalas\Toolbox\Tool\Command\PhiveInstallCommand;
 use Zalas\Toolbox\Tool\Command\ShCommand;
+use Zalas\Toolbox\Tool\Command\TestCommand;
 use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
 use Zalas\Toolbox\Tool\Tools;
@@ -24,29 +23,27 @@ use Zalas\Toolbox\UseCase\InstallTools;
 
 class InstallToolsTest extends TestCase
 {
-    use ProphecyTrait;
-
     /**
      * @var InstallTools
      */
     private $useCase;
 
     /**
-     * @var Tools|ObjectProphecy
+     * @var Tools|Stub
      */
     private $tools;
 
     protected function setUp(): void
     {
-        $this->tools = $this->prophesize(Tools::class);
-        $this->useCase = new InstallTools($this->tools->reveal());
+        $this->tools = $this->createStub(Tools::class);
+        $this->useCase = new InstallTools($this->tools);
     }
 
     public function test_it_returns_a_multi_step_command()
     {
         $filter = $this->filter();
 
-        $this->tools->all($filter)->willReturn(Collection::create([$this->tool(new ShCommand('echo "Foo"'))]));
+        $this->givenToolsFor($filter, Collection::create([$this->tool(new ShCommand('echo "Foo"'))]));
 
         $command = $this->useCase->__invoke($filter);
 
@@ -55,7 +52,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_groups_composer_global_install_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new ComposerGlobalInstallCommand('phpstan/phpstan')),
             $this->tool(new ComposerGlobalInstallCommand('phan/phan')),
         ]));
@@ -67,7 +64,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_does_not_include_empty_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new ShCommand('echo "Foo"')),
         ]));
 
@@ -79,7 +76,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_groups_composer_bin_plugin_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new ComposerBinPluginCommand('phpstan/phpstan', 'tools', Collection::create([]))),
             $this->tool(new ComposerBinPluginCommand('phan/phan', 'tools', Collection::create([]))),
         ]));
@@ -91,7 +88,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_includes_installation_tagged_commands_before_other_ones()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new ShCommand('echo "Foo"')),
             $this->tool(new ShCommand('echo "Installation"'), [InstallTools::PRE_INSTALLATION_TAG]),
         ]));
@@ -104,7 +101,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_includes_shell_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new ShCommand('echo "Foo"')),
         ]));
 
@@ -115,7 +112,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_includes_multi_step_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new MultiStepCommand(Collection::create([
                 new ShCommand('echo "Foo"'),
                 new ShCommand('echo "Bar"')
@@ -129,7 +126,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_includes_composer_install_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new ComposerInstallCommand('git@github.com:phpspec/phpspec.git', '/usr/local/bin')),
         ]));
 
@@ -140,7 +137,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_includes_box_build_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new BoxBuildCommand('https://github.com/behat/behat.git', 'behat.phar', '/tools/behat', '/tmp')),
         ]));
 
@@ -151,7 +148,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_includes_phar_download_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new PharDownloadCommand('https://github.com/sensiolabs-de/deptrac/releases/download/0.2.0/deptrac-0.2.0.phar', '/tools/phar')),
         ]));
 
@@ -162,7 +159,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_includes_phive_install_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new PhiveInstallCommand('phpunit', '/tools/phpunit')),
         ]));
 
@@ -172,7 +169,7 @@ class InstallToolsTest extends TestCase
 
     public function test_it_includes_file_download_commands()
     {
-        $this->tools->all(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->givenTools(Collection::create([
             $this->tool(new FileDownloadCommand('https://github.com/fabpot/local-php-security-checker/releases/download/v1.0.0/local-php-security-checker_1.0.0_linux_amd64', '/tools/security-checker')),
         ]));
 
@@ -188,10 +185,26 @@ class InstallToolsTest extends TestCase
 
     private function tool(Command $command, array $tags = []): Tool
     {
-        $tool = $this->prophesize(Tool::class);
-        $tool->command()->willReturn($command);
-        $tool->tags()->willReturn($tags);
+        return new Tool(
+            "any name",
+            "any summary",
+            "https://example.com",
+            $tags,
+            $command,
+            new TestCommand("any test command", "any test name")
+        );
+    }
 
-        return $tool->reveal();
+    private function givenToolsFor(Filter $filter, Collection $tools): void
+    {
+        $this->tools->method('all')
+            ->with($filter)
+            ->willReturn($tools);
+    }
+
+    private function givenTools(Collection $tools): void
+    {
+        $this->tools->method('all')
+            ->willReturn($tools);
     }
 }

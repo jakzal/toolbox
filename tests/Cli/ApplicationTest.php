@@ -2,10 +2,8 @@
 
 namespace Zalas\Toolbox\Tests\Cli;
 
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
-use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\Console\Application as CliApplication;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
@@ -17,8 +15,6 @@ use Zalas\Toolbox\Cli\ServiceContainer;
 
 class ApplicationTest extends TestCase
 {
-    use ProphecyTrait;
-
     private const VERSION = 'test';
 
     /**
@@ -27,14 +23,14 @@ class ApplicationTest extends TestCase
     private $app;
 
     /**
-     * @var ServiceContainer|ObjectProphecy
+     * @var ServiceContainer|Stub
      */
     private $container;
 
     protected function setUp(): void
     {
-        $this->container = $this->prophesize(ServiceContainer::class);
-        $this->app = new Application(self::VERSION, $this->container->reveal());
+        $this->container = $this->createStub(ServiceContainer::class);
+        $this->app = new Application(self::VERSION, $this->container);
     }
 
     public function test_it_is_a_cli_application()
@@ -113,7 +109,7 @@ class ApplicationTest extends TestCase
      */
     public function test_it_runs_the_command_in_dry_run_mode()
     {
-        $output = $this->prophesize(OutputInterface::class);
+        $output = $this->givenOutputThatExpectsMessageWritten('composer global bin phpstan require');
 
         $app = new Application(self::VERSION, new ServiceContainer());
         $app->doRun(
@@ -123,12 +119,17 @@ class ApplicationTest extends TestCase
                 '--tools' => [__DIR__.'/../resources/tools.json'],
                 '--no-interaction' => true,
             ]),
-            $output->reveal()
+            $output
         );
+    }
 
-        $output->writeln(Argument::allOf(
-            Argument::type('string'),
-            Argument::containingString('composer global bin phpstan require')
-        ))->shouldHaveBeenCalled();
+    public function givenOutputThatExpectsMessageWritten(string $message): OutputInterface
+    {
+        $output = $this->createMock(OutputInterface::class);
+        $output->expects(self::once())
+            ->method('writeln')
+            ->with(self::stringContains($message));
+
+        return $output;
     }
 }

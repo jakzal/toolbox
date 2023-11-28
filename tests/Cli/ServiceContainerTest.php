@@ -3,7 +3,6 @@
 namespace Zalas\Toolbox\Tests\Cli;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -18,8 +17,6 @@ use Zalas\Toolbox\Runner\Runner;
 
 class ServiceContainerTest extends TestCase
 {
-    use ProphecyTrait;
-
     /**
      * @var ServiceContainer
      */
@@ -28,8 +25,8 @@ class ServiceContainerTest extends TestCase
     protected function setUp(): void
     {
         $this->container = new ServiceContainer();
-        $this->container->set(InputInterface::class, $this->prophesize(InputInterface::class)->reveal());
-        $this->container->set(OutputInterface::class, $this->prophesize(OutputInterface::class)->reveal());
+        $this->container->set(InputInterface::class, $this->createStub(InputInterface::class));
+        $this->container->set(OutputInterface::class, $this->createStub(OutputInterface::class));
     }
 
     public function test_it_is_a_psr_container()
@@ -69,7 +66,7 @@ class ServiceContainerTest extends TestCase
 
     public function test_it_registers_a_runtime_service()
     {
-        $service = $this->prophesize(InputInterface::class)->reveal();
+        $service = $this->createStub(InputInterface::class);
 
         $this->container->set(InputInterface::class, $service);
 

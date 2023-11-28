@@ -2,12 +2,14 @@
 
 namespace Zalas\Toolbox\Tests\Cli\ServiceContainer;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
-use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Runner\DryRunner;
 use Zalas\Toolbox\Cli\ServiceContainer\RunnerFactory;
@@ -17,10 +19,8 @@ use Zalas\Toolbox\Tool\Command;
 
 class RunnerFactoryTest extends TestCase
 {
-    use ProphecyTrait;
-
     /**
-     * @var ContainerInterface|ObjectProphecy
+     * @var ContainerInterface
      */
     private $container;
 
@@ -30,27 +30,38 @@ class RunnerFactoryTest extends TestCase
     private $runnerFactory;
 
     /**
-     * @var InputInterface|ObjectProphecy
+     * @var InputInterface
      */
     private $input;
 
     /**
-     * @var OutputInterface|ObjectProphecy
+     * @var OutputInterface|MockObject
      */
     private $output;
 
     protected function setUp(): void
     {
-        $this->container = $this->prophesize(ContainerInterface::class);
-        $this->input = $this->prophesize(InputInterface::class);
-        $this->output = $this->prophesize(OutputInterface::class);
+        $this->input = $this->givenInput([]);
+        $this->output = $this->createStub(OutputInterface::class);
 
-        $this->container->get(InputInterface::class)->willReturn($this->input);
-        $this->container->get(OutputInterface::class)->willReturn($this->output);
-        $this->input->getOption('dry-run')->willReturn(false);
-        $this->input->hasOption('target-dir')->willReturn(false);
+        $this->container = new class([ InputInterface::class => &$this->input, OutputInterface::class => &$this->output, ]) implements ContainerInterface {
 
-        $this->runnerFactory = new RunnerFactory($this->container->reveal());
+            public function __construct(private array $services)
+            {
+            }
+
+            public function get(string $id)
+            {
+                return $this->services[$id];
+            }
+
+            public function has(string $id): bool
+            {
+                return isset($this->services[$id]);
+            }
+        };
+
+        $this->runnerFactory = new RunnerFactory($this->container);
     }
 
     public function test_it_creates_the_passthru_runner_by_default()
@@ -62,7 +73,7 @@ class RunnerFactoryTest extends TestCase
 
     public function test_it_creates_the_dry_runner_if_dry_run_option_is_passed()
     {
-        $this->input->getOption('dry-run')->willReturn(true);
+        $this->givenInput(['--dry-run' => true]);
 
         $runner = $this->runnerFactory->createRunner();
 
@@ -71,8 +82,7 @@ class RunnerFactoryTest extends TestCase
 
     public function test_it_creates_the_parametrised_runner_if_target_dir_option_is_present()
     {
-        $this->input->hasOption('target-dir')->willReturn(true);
-        $this->input->getOption('target-dir')->willReturn('/usr/local/bin');
+        $this->givenInput(['--target-dir' => '/usr/local/bin']);
 
         $runner = $this->runnerFactory->createRunner();
 
@@ -81,9 +91,9 @@ class RunnerFactoryTest extends TestCase
 
     public function test_the_parametrised_runner_includes_the_target_dir_parameter()
     {
-        $this->input->hasOption('target-dir')->willReturn(true);
-        $this->input->getOption('target-dir')->willReturn('/usr/local/bin');
-        $this->input->getOption('dry-run')->willReturn(true);
+        $this->givenInput(['--target-dir' => '/usr/local/bin', '--dry-run' => true]);
+
+        $this->output->expects(self::once())->method('writeln')->with('ls /usr/local/bin');
 
         $runner = $this->runnerFactory->createRunner();
 
@@ -93,25 +103,22 @@ class RunnerFactoryTest extends TestCase
                 return 'ls %target-dir%';
             }
         });
-
-        $this->output->writeln('ls /usr/local/bin')->shouldHaveBeenCalled();
     }
 
     public function test_it_throws_an_exception_if_target_dir_does_not_exist()
     {
         $this->expectException(ContainerExceptionInterface::class);
 
-        $this->input->hasOption('target-dir')->willReturn(true);
-        $this->input->getOption('target-dir')->willReturn('/foo/bar/baz');
+        $this->givenInput(['--target-dir' => '/foo/bar/baz']);
 
         $this->runnerFactory->createRunner();
     }
 
     public function test_it_uses_the_real_path_as_target_dir()
     {
-        $this->input->hasOption('target-dir')->willReturn(true);
-        $this->input->getOption('target-dir')->willReturn(__DIR__.'/../../../bin');
-        $this->input->getOption('dry-run')->willReturn(true);
+        $this->givenInput(['--target-dir' => __DIR__.'/../../../bin', '--dry-run' => true]);
+
+        $this->output->expects(self::once())->method('writeln')->with(\sprintf('ls %s', \realpath(__DIR__.'/../../../bin')));
 
         $runner = $this->runnerFactory->createRunner();
         $runner->run(new class implements Command {
@@ -120,7 +127,15 @@ class RunnerFactoryTest extends TestCase
                 return 'ls %target-dir%';
             }
         });
+    }
 
-        $this->output->writeln(\sprintf('ls %s', \realpath(__DIR__.'/../../../bin')))->shouldHaveBeenCalled();
+    private function givenInput(array $parameters): InputInterface
+    {
+        $this->input = new ArrayInput($parameters, new InputDefinition(\array_filter([
+            new InputOption('dry-run', null, InputOption::VALUE_NONE),
+            isset($parameters['--target-dir']) ? new InputOption('target-dir', null, InputOption::VALUE_REQUIRED) : null,
+        ])));
+
+        return $this->input;
     }
 }

@@ -2,36 +2,34 @@
 
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
-use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
-use Prophecy\Prophecy\ObjectProphecy;
+use PHPUnit\Framework\MockObject\MockObject;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Tool\Collection;
+use Zalas\Toolbox\Tool\Command\ShCommand;
+use Zalas\Toolbox\Tool\Command\TestCommand;
 use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
 use Zalas\Toolbox\UseCase\ListTools;
 
 class ListCommandTest extends ToolboxCommandTestCase
 {
-    use ProphecyTrait;
-
     protected const CLI_COMMAND_NAME = ListCommand::NAME;
 
     /**
-     * @var ListTools|ObjectProphecy
+     * @var ListTools|MockObject
      */
     private $useCase;
 
     protected function setUp(): void
     {
-        $this->useCase = $this->prophesize(ListTools::class);
+        $this->useCase = $this->createMock(ListTools::class);
 
         parent::setUp();
     }
 
     public function test_it_runs_the_list_tools_use_case()
     {
-        $this->useCase->__invoke(Argument::type(Filter::class))->willReturn(Collection::create([
+        $this->useCase->method('__invoke')->willReturn(Collection::create([
             $this->createTool('Behat', 'Tests business expectations', 'http://behat.org'),
         ]));
 
@@ -44,13 +42,14 @@ class ListCommandTest extends ToolboxCommandTestCase
 
     public function test_it_filters_by_tags()
     {
-        $this->useCase->__invoke(Argument::type(Filter::class))->willReturn(Collection::create([
-            $this->createTool('Behat', 'Tests business expectations', 'http://behat.org'),
-        ]));
+        $this->useCase->expects(self::once())
+            ->method('__invoke')
+            ->with(new Filter(['foo'], ['bar']))
+            ->willReturn(Collection::create([
+                 $this->createTool('Behat', 'Tests business expectations', 'http://behat.org'),
+            ]));
 
         $this->executeCliCommand(['--exclude-tag' => ['foo'], '--tag' => ['bar']]);
-
-        $this->useCase->__invoke(new Filter(['foo'], ['bar']))->shouldHaveBeenCalled();
     }
 
     public function test_it_defines_exclude_tag_option()
@@ -83,17 +82,19 @@ class ListCommandTest extends ToolboxCommandTestCase
     protected function getContainerTestDoubles(): array
     {
         return [
-            ListTools::class => $this->useCase->reveal(),
+            ListTools::class => $this->useCase,
         ];
     }
 
     private function createTool(string $name, string $summary, string $website): Tool
     {
-        $tool = $this->prophesize(Tool::class);
-        $tool->name()->willReturn($name);
-        $tool->summary()->willReturn($summary);
-        $tool->website()->willReturn($website);
-
-        return $tool->reveal();
+        return new Tool(
+            $name,
+            $summary,
+            $website,
+            [],
+            new ShCommand('any command'),
+            new TestCommand('any test command', 'any')
+        );
     }
 }

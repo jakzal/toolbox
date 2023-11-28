@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Cli\ServiceContainer;
 
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
@@ -89,6 +90,7 @@ class RunnerFactoryTest extends TestCase
         $this->assertInstanceOf(ParametrisedRunner::class, $runner);
     }
 
+    #[DoesNotPerformAssertions]
     public function test_the_parametrised_runner_includes_the_target_dir_parameter()
     {
         $this->givenInput(['--target-dir' => '/usr/local/bin', '--dry-run' => true]);
@@ -114,6 +116,7 @@ class RunnerFactoryTest extends TestCase
         $this->runnerFactory->createRunner();
     }
 
+    #[DoesNotPerformAssertions]
     public function test_it_uses_the_real_path_as_target_dir()
     {
         $this->givenInput(['--target-dir' => __DIR__.'/../../../bin', '--dry-run' => true]);

@@ -38,7 +38,7 @@ class FileDownloadCommandFactoryTest extends TestCase
         FileDownloadCommandFactory::import($properties);
     }
 
-    public function provideRequiredProperties(): \Generator
+    public static function provideRequiredProperties(): \Generator
     {
         yield ['url'];
         yield ['file'];

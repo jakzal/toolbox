@@ -8,9 +8,9 @@
         "psr/container": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "zalas/phpunit-globals": "^2.1",
-        "infection/infection": "^0.26"
+        "phpunit/phpunit": "^10.4",
+        "zalas/phpunit-globals": "^3.2",
+        "infection/infection": "^0.27"
     },
     "autoload": {
         "psr-4": {

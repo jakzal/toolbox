@@ -53,7 +53,7 @@ class PhiveInstallCommandFactoryTest extends TestCase
         $this->assertStringContainsString('unsigned', (string)$command);
     }
 
-    public function provideRequiredProperties(): \Generator
+    public static function provideRequiredProperties(): \Generator
     {
         yield ['alias'];
         yield ['bin'];

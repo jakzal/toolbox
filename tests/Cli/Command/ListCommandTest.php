@@ -3,6 +3,7 @@
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
 use PHPUnit\Framework\MockObject\Stub;
+use Zalas\PHPUnit\Globals\Attribute\Putenv;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command\ShCommand;
@@ -59,9 +60,7 @@ class ListCommandTest extends ToolboxCommandTestCase
         $this->assertSame([], $this->cliCommand()->getDefinition()->getOption('exclude-tag')->getDefault());
     }
 
-    /**
-     * @putenv TOOLBOX_EXCLUDED_TAGS=foo,bar,baz
-     */
+    #[Putenv('TOOLBOX_EXCLUDED_TAGS', 'foo,bar,baz')]
     public function test_it_takes_the_excluded_tag_option_default_from_environment_if_present()
     {
         $this->assertSame(['foo', 'bar', 'baz'], $this->cliCommand()->getDefinition()->getOption('exclude-tag')->getDefault());
@@ -72,9 +71,7 @@ class ListCommandTest extends ToolboxCommandTestCase
         $this->assertTrue($this->cliCommand()->getDefinition()->hasOption('tag'));
     }
 
-    /**
-     * @putenv TOOLBOX_TAGS=foo,bar,baz
-     */
+    #[Putenv('TOOLBOX_TAGS', 'foo,bar,baz')]
     public function test_it_takes_the_tag_option_default_from_environment_if_present()
     {
         $this->assertSame(['foo', 'bar', 'baz'], $this->cliCommand()->getDefinition()->getOption('tag')->getDefault());

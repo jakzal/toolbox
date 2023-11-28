@@ -49,15 +49,11 @@ deptrac: tools/deptrac
 .PHONY: deptrac
 
 infection:
-	phpdbg -qrr ./vendor/bin/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
+	./vendor/bin/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
 .PHONY: infection
 
 phpunit: tools/phpunit
 	tools/phpunit
-.PHONY: phpunit
-
-phpunit-coverage: tools/phpunit
-	phpdbg -qrr tools/phpunit
 .PHONY: phpunit
 
 package: tools/box

@@ -209,7 +209,7 @@ class ToolFactoryTest extends TestCase
         ToolFactory::import($properties);
     }
 
-    public function provideRequiredProperties(): \Generator
+    public static function provideRequiredProperties(): \Generator
     {
         yield ['name'];
         yield ['summary'];

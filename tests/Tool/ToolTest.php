@@ -4,19 +4,16 @@ declare(strict_types=1);
 namespace Zalas\Toolbox\Tests\Tool;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use TypeError;
-use Zalas\Toolbox\Tool\Command;
+use Zalas\Toolbox\Tool\Command\ShCommand;
 use Zalas\Toolbox\Tool\Tool;
 
 class ToolTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function test_it_exposes_its_properties()
     {
-        $command = $this->prophesize(Command::class)->reveal();
-        $testCommand = $this->prophesize(Command::class)->reveal();
+        $command = $this->anyCommand();
+        $testCommand = $this->anyCommand();
 
         $tool = new Tool('phpstan', 'Static analysis tool', 'https://github.com/phpstan/phpstan', ['qa', 'static-analysis'], $command, $testCommand);
 
@@ -31,9 +28,17 @@ class ToolTest extends TestCase
     public function test_tags_can_only_be_strings()
     {
         $this->expectException(TypeError::class);
-        $command = $this->prophesize(Command::class)->reveal();
-        $testCommand = $this->prophesize(Command::class)->reveal();
+        $command = $this->anyCommand();
+        $testCommand = $this->anyCommand();
 
         new Tool('phpstan', 'Static analysis tool', 'https://github.com/phpstan/phpstan', [['qa'], ['static-analysis']], $command, $testCommand);
+    }
+
+    /**
+     * @return object
+     */
+    public function anyCommand(): object
+    {
+        return new ShCommand('any command');
     }
 }

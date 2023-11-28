@@ -51,7 +51,7 @@ class ServiceContainer implements ContainerInterface
     /**
      * {@inheritdoc}
      */
-    public function get($id)
+    public function get(string $id)
     {
         if (isset($this->runtimeServices[$id])) {
             return $this->runtimeServices[$id];
@@ -68,7 +68,7 @@ class ServiceContainer implements ContainerInterface
     /**
      * {@inheritdoc}
      */
-    public function has($id)
+    public function has(string $id): bool
     {
         return isset($this->services[$id]) || isset($this->runtimeServices[$id]);
     }

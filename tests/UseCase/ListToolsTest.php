@@ -46,6 +46,7 @@ class ListToolsTest extends TestCase
     {
         $repository = $this->createStub(Tools::class);
         $repository->method('all')->with($filter)->willReturn($tools);
+
         return $repository;
     }
 }

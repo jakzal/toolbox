@@ -58,17 +58,17 @@ class LazyRunnerTest extends TestCase
         $this->lazyRunner->run($command);
     }
 
-    private function command(): Command
-    {
-        return new Command\ShCommand('any command');
-    }
-
     public function givenRunner(Command $command, int $result): Runner
     {
         $runner = $this->createStub(Runner::class);
         $runner->method('run')->with($command)->willReturn($result);
 
         return $runner;
+    }
+
+    private function command(): Command
+    {
+        return new Command\ShCommand('any command');
     }
 
     private function givenFactoryCreates(Runner $runner): void

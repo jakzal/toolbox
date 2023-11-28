@@ -48,8 +48,9 @@ class TestToolsTest extends TestCase
     {
         $tools = $this->createStub(Tools::class);
         $tools->method('all')->with($filter)->willReturn(Collection::create(
-            array_map(fn ($command) => $this->tool($command), $testCommands)
+            \array_map(fn ($command) => $this->tool($command), $testCommands)
         ));
+
         return $tools;
     }
 

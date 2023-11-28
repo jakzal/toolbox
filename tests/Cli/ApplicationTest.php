@@ -129,6 +129,7 @@ class ApplicationTest extends TestCase
         $output->expects(self::once())
             ->method('writeln')
             ->with(self::stringContains($message));
+
         return $output;
     }
 }

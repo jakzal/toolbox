@@ -44,10 +44,7 @@ class RunnerFactoryTest extends TestCase
         $this->input = $this->givenInput([]);
         $this->output = $this->createStub(OutputInterface::class);
 
-        $this->container = new class([
-            InputInterface::class => &$this->input,
-            OutputInterface::class => &$this->output,
-        ]) implements ContainerInterface {
+        $this->container = new class([ InputInterface::class => &$this->input, OutputInterface::class => &$this->output, ]) implements ContainerInterface {
 
             public function __construct(private array $services)
             {
@@ -134,10 +131,11 @@ class RunnerFactoryTest extends TestCase
 
     private function givenInput(array $parameters): InputInterface
     {
-        $this->input = new ArrayInput($parameters, new InputDefinition(array_filter([
+        $this->input = new ArrayInput($parameters, new InputDefinition(\array_filter([
             new InputOption('dry-run', null, InputOption::VALUE_NONE),
             isset($parameters['--target-dir']) ? new InputOption('target-dir', null, InputOption::VALUE_REQUIRED) : null,
         ])));
+
         return $this->input;
     }
 }

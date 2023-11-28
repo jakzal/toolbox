@@ -3,14 +3,13 @@
 namespace Zalas\Toolbox\Tests\Tool;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
+use Zalas\Toolbox\Tool\Command\ShCommand;
+use Zalas\Toolbox\Tool\Command\TestCommand;
 use Zalas\Toolbox\Tool\Filter;
 use Zalas\Toolbox\Tool\Tool;
 
 class FilterTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function test_it_returns_true_if_no_excluded_tags_were_defined()
     {
         $filter = new Filter([], []);
@@ -97,9 +96,13 @@ class FilterTest extends TestCase
 
     private function tool(array $tags): Tool
     {
-        $tool = $this->prophesize(Tool::class);
-        $tool->tags()->willReturn($tags);
-
-        return $tool->reveal();
+        return new Tool(
+            'any name',
+            'any summary',
+            'https://example.com',
+            $tags,
+            new ShCommand('any command'),
+            new TestCommand('any test command', 'any')
+        );
     }
 }

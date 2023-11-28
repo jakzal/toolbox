@@ -12,7 +12,7 @@
                 }
             },
             "test": "phpDocumentor list",
-            "tags": ["featured", "documentation", "exclude-php:8.0"]
+            "tags": ["featured", "documentation"]
         },
         {
             "name": "phpcb",

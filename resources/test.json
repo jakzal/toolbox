@@ -38,7 +38,7 @@
                 }
             },
             "test": "infection --version",
-            "tags": ["featured", "test", "exclude-php:8.0"]
+            "tags": ["featured", "test"]
         },
         {
             "name": "paratest",
@@ -83,7 +83,7 @@
                 }
             },
             "test": "phpcov -v",
-            "tags": ["exclude-php:8.0", "test"]
+            "tags": ["test"]
         },
         {
             "name": "php-fuzzer",
@@ -123,7 +123,7 @@
                 }
             },
             "test": "phpunit --version",
-            "tags": ["exclude-php:8.0", "featured", "test"]
+            "tags": ["featured", "test"]
         },
         {
             "name": "phpunit-9",

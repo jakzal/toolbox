@@ -17,7 +17,7 @@
     <env name="TOOLBOX_EXCLUDED_TAGS" value="" force="true"/>
   </php>
   <extensions>
-    <bootstrap class="Zalas\PHPUnit\Globals\AnnotationExtension"/>
+    <bootstrap class="Zalas\PHPUnit\Globals\AttributeExtension"/>
   </extensions>
   <logging/>
   <source>

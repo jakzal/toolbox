@@ -2,32 +2,29 @@
 
 namespace Zalas\Toolbox\Tests\Runner;
 
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
-use Prophecy\Prophecy\ObjectProphecy;
 use Zalas\Toolbox\Runner\ParametrisedRunner;
 use Zalas\Toolbox\Runner\Runner;
 use Zalas\Toolbox\Tool\Command;
+use Zalas\Toolbox\Tool\Command\ShCommand;
 
 class ParametrisedRunnerTest extends TestCase
 {
-    use ProphecyTrait;
-
     /**
      * @var ParametrisedRunner
      */
     private $runner;
 
     /**
-     * @var Runner|ObjectProphecy
+     * @var Runner|Stub
      */
     private $decoratedRunner;
 
     protected function setUp(): void
     {
-        $this->decoratedRunner = $this->prophesize(Runner::class);
-        $this->runner = new ParametrisedRunner($this->decoratedRunner->reveal(), ['%foo%' => 'ABC']);
+        $this->decoratedRunner = $this->createStub(Runner::class);
+        $this->runner = new ParametrisedRunner($this->decoratedRunner, ['%foo%' => 'ABC']);
     }
 
     public function test_it_is_a_runner()
@@ -39,13 +36,15 @@ class ParametrisedRunnerTest extends TestCase
     {
         $command = $this->command('echo "%foo%"');
 
-        $this->decoratedRunner->run(Argument::that(function (Command $c) {
-            if ('echo "ABC"' !== $c->__toString()) {
-                throw new \RuntimeException(\sprintf('Expected `echo "ABC"`, but got `%s`.', $c->__toString()));
-            }
+        $this->decoratedRunner->method('run')
+            ->with(self::callback(function (Command $c) {
+                if ('echo "ABC"' !== $c->__toString()) {
+                    throw new \RuntimeException(\sprintf('Expected `echo "ABC"`, but got `%s`.', $c->__toString()));
+                }
 
-            return true;
-        }))->willReturn(42);
+                return true;
+            }))
+            ->willReturn(42);
 
         $exitCode = $this->runner->run($command);
 
@@ -54,9 +53,6 @@ class ParametrisedRunnerTest extends TestCase
 
     private function command(string $commandString): Command
     {
-        $command = $this->prophesize(Command::class);
-        $command->__toString()->willReturn($commandString);
-
-        return $command->reveal();
+        return new ShCommand($commandString);
     }
 }

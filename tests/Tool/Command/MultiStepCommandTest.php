@@ -4,15 +4,13 @@ namespace Zalas\Toolbox\Tests\Tool\Command;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\MultiStepCommand;
+use Zalas\Toolbox\Tool\Command\ShCommand;
 
 class MultiStepCommandTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function test_it_is_a_command()
     {
         $command = new MultiStepCommand(Collection::create([$this->command('echo "A"')]));
@@ -49,9 +47,6 @@ class MultiStepCommandTest extends TestCase
 
     private function command(string $commandString): Command
     {
-        $command = $this->prophesize(Command::class);
-        $command->__toString()->willReturn($commandString);
-
-        return $command->reveal();
+        return new ShCommand($commandString);
     }
 }

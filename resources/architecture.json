@@ -81,7 +81,7 @@
                 }
             },
             "test": "phpda list",
-            "tags": ["exclude-php:8.2", "exclude-php:8.1", "featured", "architecture"]
+            "tags": ["exclude-php:8.3", "exclude-php:8.2", "exclude-php:8.1", "featured", "architecture"]
         }
     ]
 }

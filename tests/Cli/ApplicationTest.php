@@ -8,6 +8,7 @@ use Symfony\Component\Console\Application as CliApplication;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
+use Zalas\PHPUnit\Globals\Attribute\Putenv;
 use Zalas\Toolbox\Cli\Application;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Cli\Command\ListCommand;
@@ -70,17 +71,13 @@ class ApplicationTest extends TestCase
         );
     }
 
-    /**
-     * @putenv TOOLBOX_JSON=resources/pre.json,resources/tools.json
-     */
+    #[Putenv('TOOLBOX_JSON', 'resources/pre.json,resources/tools.json')]
     public function test_it_takes_the_tools_option_default_from_environment_if_present()
     {
         $this->assertSame(['resources/pre.json', 'resources/tools.json'], $this->app->getDefinition()->getOption('tools')->getDefault());
     }
 
-    /**
-     * @putenv TOOLBOX_JSON=resources/pre.json , resources/tools.json
-     */
+    #[Putenv('TOOLBOX_JSON', 'resources/pre.json , resources/tools.json')]
     public function test_it_trims_the_tools_option()
     {
         $this->assertSame(['resources/pre.json', 'resources/tools.json'], $this->app->getDefinition()->getOption('tools')->getDefault());

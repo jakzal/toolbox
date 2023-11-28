@@ -58,7 +58,7 @@ class BoxBuildCommandFactoryTest extends TestCase
         BoxBuildCommandFactory::import($properties);
     }
 
-    public function provideRequiredProperties(): \Generator
+    public static function provideRequiredProperties(): \Generator
     {
         yield ['repository'];
         yield ['phar'];

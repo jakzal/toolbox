@@ -38,7 +38,7 @@ class PharDownloadCommandFactoryTest extends TestCase
         PharDownloadCommandFactory::import($properties);
     }
 
-    public function provideRequiredProperties(): \Generator
+    public static function provideRequiredProperties(): \Generator
     {
         yield ['phar'];
         yield ['bin'];

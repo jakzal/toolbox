@@ -1,7 +1,6 @@
 default: build
 
 PHP_VERSION:=$(shell php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
-IS_PHP81:=$(shell php -r 'echo (int)version_compare(PHP_VERSION, "8.1", ">=");')
 TOOLBOX_VERSION?=dev
 
 build: install test
@@ -50,15 +49,11 @@ deptrac: tools/deptrac
 .PHONY: deptrac
 
 infection:
-	phpdbg -qrr ./vendor/bin/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
+	./vendor/bin/infection --no-interaction --formatter=progress --min-msi=100 --min-covered-msi=100 --only-covered --ansi
 .PHONY: infection
 
 phpunit: tools/phpunit
 	tools/phpunit
-.PHONY: phpunit
-
-phpunit-coverage: tools/phpunit
-	phpdbg -qrr tools/phpunit
 .PHONY: phpunit
 
 package: tools/box
@@ -68,7 +63,7 @@ package: tools/box
 	sed -e 's/Application('"'"'dev/Application('"'"'$(TOOLBOX_VERSION)/g' bin/toolbox.php > build/phar/bin/toolbox.php
 
 	cd build/phar && \
-	  composer config platform.php 8.0.2 && \
+	  composer config platform.php 8.1.0 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile
@@ -84,7 +79,7 @@ package-devkit: tools/box
 	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(TOOLBOX_VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
 
 	cd build/devkit-phar && \
-	  composer config platform.php 8.0.2 && \
+	  composer config platform.php 8.1.0 && \
 	  composer update --no-dev -o -a
 
 	tools/box compile -c box-devkit.json.dist
@@ -138,17 +133,8 @@ tools/php-cs-fixer:
 	curl -Ls https://cs.symfony.com/download/php-cs-fixer-v3.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
 
 tools/deptrac:
-ifeq ($(IS_PHP81),1)
 	curl -Ls https://github.com/qossmic/deptrac/releases/download/1.0.2/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
 	curl -Ls https://github.com/qossmic/deptrac/releases/download/1.0.2/deptrac.phar.asc -o tools/deptrac.asc
-else
-	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.24.0/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
-	curl -Ls https://github.com/qossmic/deptrac/releases/download/0.24.0/deptrac.phar.asc -o tools/deptrac.asc
-endif
 
 tools/box:
-ifeq ($(IS_PHP81),1)
 	curl -Ls https://github.com/humbug/box/releases/download/4.2.0/box.phar -o tools/box && chmod +x tools/box
-else
-	curl -Ls https://github.com/humbug/box/releases/download/3.15.0/box.phar -o tools/box && chmod +x tools/box
-endif

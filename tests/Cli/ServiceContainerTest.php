@@ -26,7 +26,7 @@ class ServiceContainerTest extends TestCase
     {
         $this->container = new ServiceContainer();
         $this->container->set(InputInterface::class, $this->createStub(InputInterface::class));
-        $this->container->set(OutputInterface::class, $this->createMock(OutputInterface::class));
+        $this->container->set(OutputInterface::class, $this->createStub(OutputInterface::class));
     }
 
     public function test_it_is_a_psr_container()

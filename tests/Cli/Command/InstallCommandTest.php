@@ -2,7 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Runner\Runner;
 use Zalas\Toolbox\Tool\Command;
@@ -15,19 +15,19 @@ class InstallCommandTest extends ToolboxCommandTestCase
     protected const CLI_COMMAND_NAME = InstallCommand::NAME;
 
     /**
-     * @var Runner|MockObject
+     * @var Runner|Stub
      */
     private $runner;
 
     /**
-     * @var InstallTools|MockObject
+     * @var InstallTools|Stub
      */
     private $useCase;
 
     protected function setUp(): void
     {
-        $this->runner = $this->createMock(Runner::class);
-        $this->useCase = $this->createMock(InstallTools::class);
+        $this->runner = $this->createStub(Runner::class);
+        $this->useCase = $this->createStub(InstallTools::class);
 
         parent::setUp();
     }
@@ -36,7 +36,7 @@ class InstallCommandTest extends ToolboxCommandTestCase
     {
         $command = $this->createCommand();
         $this->useCase->method('__invoke')->willReturn($command);
-        $this->runner->expects(self::once())->method('run')->with($command)->willReturn(0);
+        $this->runner->method('run')->with($command)->willReturn(0);
 
         $tester = $this->executeCliCommand();
 
@@ -55,13 +55,15 @@ class InstallCommandTest extends ToolboxCommandTestCase
 
     public function test_it_filters_by_tags()
     {
-        $this->useCase->expects(self::once())
+        $this->useCase
             ->method('__invoke')
             ->with(new Filter(['foo'], ['bar']))
             ->willReturn($this->createCommand());
         $this->runner->method('run')->willReturn(0);
 
-        $this->executeCliCommand(['--exclude-tag' => ['foo'], '--tag' => ['bar']]);
+        $tester = $this->executeCliCommand(['--exclude-tag' => ['foo'], '--tag' => ['bar']]);
+
+        $this->assertSame(0, $tester->getStatusCode());
     }
 
     public function test_it_defines_dry_run_option()

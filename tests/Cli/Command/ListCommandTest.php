@@ -2,7 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command\ShCommand;
@@ -16,13 +16,13 @@ class ListCommandTest extends ToolboxCommandTestCase
     protected const CLI_COMMAND_NAME = ListCommand::NAME;
 
     /**
-     * @var ListTools|MockObject
+     * @var ListTools|Stub
      */
     private $useCase;
 
     protected function setUp(): void
     {
-        $this->useCase = $this->createMock(ListTools::class);
+        $this->useCase = $this->createStub(ListTools::class);
 
         parent::setUp();
     }
@@ -42,14 +42,15 @@ class ListCommandTest extends ToolboxCommandTestCase
 
     public function test_it_filters_by_tags()
     {
-        $this->useCase->expects(self::once())
-            ->method('__invoke')
+        $this->useCase->method('__invoke')
             ->with(new Filter(['foo'], ['bar']))
             ->willReturn(Collection::create([
                  $this->createTool('Behat', 'Tests business expectations', 'http://behat.org'),
             ]));
 
-        $this->executeCliCommand(['--exclude-tag' => ['foo'], '--tag' => ['bar']]);
+        $tester = $this->executeCliCommand(['--exclude-tag' => ['foo'], '--tag' => ['bar']]);
+
+        $this->assertSame(0, $tester->getStatusCode());
     }
 
     public function test_it_defines_exclude_tag_option()

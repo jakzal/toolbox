@@ -73,18 +73,19 @@ $application->add(
             $readmePath = $input->getOption('readme');
             $tools = $this->loadTools($jsonPath);
 
-            $toolsList = '| Name | Description | PHP 8.1 | PHP 8.2 |' . PHP_EOL;
-            $toolsList .= '| :--- | :---------- | :------ | :------ |' . PHP_EOL;
+            $toolsList = '| Name | Description | PHP 8.1 | PHP 8.2 | PHP 8.3 |' . PHP_EOL;
+            $toolsList .= '| :--- | :---------- | :------ | :------ | :------ |' . PHP_EOL;
             $toolsList .= $tools->sort(function (Tool $left, Tool $right) {
                 return strcasecmp($left->name(), $right->name());
             })->reduce('', function ($acc, Tool $tool) {
 
-                return $acc . sprintf('| %s | [%s](%s) | %s | %s |',
+                return $acc . sprintf('| %s | [%s](%s) | %s | %s | %s |',
                         $tool->name(),
                         $tool->summary(),
                         $tool->website(),
                         in_array('exclude-php:8.1', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
-                        in_array('exclude-php:8.2', $tool->tags(), true) ? '&#x274C;' : '&#x2705;'
+                        in_array('exclude-php:8.2', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
+                        in_array('exclude-php:8.3', $tool->tags(), true) ? '&#x274C;' : '&#x2705;'
                     ) . PHP_EOL;
             });
 

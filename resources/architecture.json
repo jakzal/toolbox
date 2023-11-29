@@ -68,20 +68,6 @@
             },
             "test": "phparkitect --version",
             "tags": ["architecture"]
-        },
-        {
-            "name": "phpda",
-            "summary": "Generates dependency graphs",
-            "website": "https://mamuz.github.io/PhpDependencyAnalysis/",
-            "command": {
-                "composer-bin-plugin": {
-                    "package": "mamuz/php-dependency-analysis",
-                    "namespace": "phpda",
-                    "links": {"%target-dir%/phpda": "phpda"}
-                }
-            },
-            "test": "phpda list",
-            "tags": ["exclude-php:8.2", "exclude-php:8.1", "featured", "architecture"]
         }
     ]
 }

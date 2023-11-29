@@ -20,7 +20,7 @@ jobs:
         name: Build and test
         strategy:
             matrix:
-                php: [8.1, 8.2]
+                php: [8.1, 8.2, 8.3]
                 deps: [high]
                 include:
                     -   php: 8.1
@@ -61,7 +61,7 @@ jobs:
         needs: tests
         strategy:
             matrix:
-                php: [8.1, 8.2]
+                php: [8.1, 8.2, 8.3]
 
         steps:
             -   uses: actions/checkout@v3

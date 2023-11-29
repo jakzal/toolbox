@@ -109,7 +109,7 @@
                 }
             },
             "test": "phpspec --version",
-            "tags": ["exclude-php:8.2", "featured", "test"]
+            "tags": ["exclude-php:8.3", "exclude-php:8.2", "featured", "test"]
         },
         {
             "name": "phpunit",

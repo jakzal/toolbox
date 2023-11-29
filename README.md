@@ -57,7 +57,6 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpcpd | [Copy/Paste Detector](https://github.com/sebastianbergmann/phpcpd) | &#x2705; | &#x2705; |
 | phpcs | [Detects coding standard violations](https://github.com/squizlabs/PHP_CodeSniffer) | &#x2705; | &#x2705; |
 | phpcs-security-audit | [Finds vulnerabilities and weaknesses related to security in PHP code](https://github.com/FloeDesignTechnologies/phpcs-security-audit) | &#x2705; | &#x2705; |
-| phpda | [Generates dependency graphs](https://mamuz.github.io/PhpDependencyAnalysis/) | &#x274C; | &#x274C; |
 | phpdd | [Finds usage of deprecated features](http://wapmorgan.github.io/PhpDeprecationDetector) | &#x2705; | &#x2705; |
 | phpDocumentor | [Documentation generator](https://www.phpdoc.org/) | &#x2705; | &#x2705; |
 | phpinsights | [Analyses code quality, style, architecture and complexity](https://phpinsights.com/) | &#x2705; | &#x2705; |
@@ -107,6 +106,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | parallel-lint | [Checks PHP file syntax](https://github.com/JakubOnderka/PHP-Parallel-Lint) |
 | php-formatter | [Custom coding standards fixer](https://github.com/mmoreram/php-formatter) |
 | phpcf | [Finds usage of deprecated features](http://wapmorgan.github.io/PhpCodeFixer/) |
+| phpda | [Generates dependency graphs](https://mamuz.github.io/PhpDependencyAnalysis/) |
 | phpdoc-to-typehint | [Automatically adds type hints and return types based on PHPDocs](https://github.com/dunglas/phpdoc-to-typehint) |
 | phpstan-localheinz-rules | [Additional rules for PHPstan](https://github.com/localheinz/phpstan-rules) |
 | phpunit-5 | [The PHP testing framework (5.x version)](https://phpunit.de/) |

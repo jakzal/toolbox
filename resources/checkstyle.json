@@ -50,7 +50,7 @@
                 "phive-install": {
                     "alias": "phpcbf",
                     "bin": "%target-dir%/phpcbf",
-                    "sig": "C00543248C87FB13"
+                    "sig": "31C7E470E2138192"
                 }
             },
             "test": "phpcbf --help",

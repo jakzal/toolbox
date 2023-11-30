@@ -68,7 +68,7 @@
                 }
             },
             "test": "twigcs --help",
-            "tags": ["exclude-php:8.3", "checkstyle"]
+            "tags": ["checkstyle"]
         }
     ]
 }

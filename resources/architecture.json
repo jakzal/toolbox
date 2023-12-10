@@ -54,7 +54,7 @@
                 }
             },
             "test": "php-coupling-detector list",
-            "tags": ["architecture"]
+            "tags": ["exclude-php:8.1", "exclude-php:8.2", "exclude-php:8.3", "architecture"]
         },
         {
             "name": "phparkitect",

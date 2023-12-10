@@ -17,7 +17,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | Name | Description | PHP 8.1 | PHP 8.2 | PHP 8.3 |
 | :--- | :---------- | :------ | :------ | :------ |
 | behat | [Helps to test business expectations](http://behat.org/) | &#x2705; | &#x2705; | &#x2705; |
-| box | [Fast, zero config application bundler with PHARs](https://github.com/humbug/box) | &#x2705; | &#x2705; | &#x2705; |
+| box | [Fast, zero config application bundler with PHARs](https://github.com/humbug/box) | &#x274C; | &#x2705; | &#x2705; |
 | box-3 | [Fast, zero config application bundler with PHARs](https://github.com/humbug/box) | &#x2705; | &#x274C; | &#x2705; |
 | churn | [Discovers good candidates for refactoring](https://github.com/bmitch/churn-php) | &#x2705; | &#x2705; | &#x2705; |
 | codeception | [Codeception is a BDD-styled PHP testing framework](https://codeception.com/) | &#x2705; | &#x2705; | &#x2705; |

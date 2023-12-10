@@ -59,7 +59,7 @@
         }
       },
       "test": "box list",
-      "tags": ["pre-installation"]
+      "tags": ["exclude-php:8.1", "pre-installation"]
     },
     {
       "name": "box-3",

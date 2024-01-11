@@ -19,6 +19,9 @@ jobs:
             -   name: Configure git
                 run: git config user.email 'jakub@zalas.pl' && git config user.name 'Jakub Zalas'
 
+            -   name: Install dependencies
+                run: sudo apt-get update && sudo apt-get install -y hub
+
             -   name: Update PHARs
                 run: make package-devkit update-phars
 

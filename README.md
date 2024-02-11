@@ -79,6 +79,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpstan-symfony | [Symfony extension for PHPStan](https://github.com/phpstan/phpstan-symfony) | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-webmozart-assert | [PHPStan extension for webmozart/assert](https://github.com/phpstan/phpstan-webmozart-assert) | &#x2705; | &#x2705; | &#x2705; |
 | phpunit | [The PHP testing framework](https://phpunit.de/) | &#x274C; | &#x2705; | &#x2705; |
+| phpunit-10 | [The PHP testing framework (10.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-8 | [The PHP testing framework (8.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-9 | [The PHP testing framework (9.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; |
 | pint | [Opinionated PHP code style fixer for Laravel](https://github.com/laravel/pint) | &#x2705; | &#x2705; | &#x2705; |

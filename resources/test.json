@@ -5,9 +5,10 @@
             "summary": "Helps to test business expectations",
             "website": "http://behat.org/",
             "command": {
-                "phar-download": {
-                    "phar": "https://github.com/Behat/Behat/releases/download/v3.13.0/behat.phar",
-                    "bin": "%target-dir%/behat"
+                "composer-bin-plugin": {
+                    "package": "behat/behat",
+                    "namespace": "behat",
+                    "links": {"%target-dir%/behat": "behat"}
                 }
             },
             "test": "behat --version",

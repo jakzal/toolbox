@@ -83,7 +83,7 @@
                 }
             },
             "test": "phpcov -v",
-            "tags": ["test"]
+            "tags": ["test", "exclude-php:8.1"]
         },
         {
             "name": "php-fuzzer",

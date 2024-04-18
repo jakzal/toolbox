@@ -69,6 +69,20 @@
             },
             "test": "twigcs --help",
             "tags": ["checkstyle"]
+        },
+        {
+            "name": "twig-cs-fixer",
+            "summary": "Automatically corrects twig files following the official coding standard rules",
+            "website": "https://github.com/VincentLanglet/Twig-CS-Fixer",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "vincentlanglet/twig-cs-fixer",
+                    "namespace": "twig-cs-fixer",
+                    "links": {"%target-dir%/twig-cs-fixer": "twig-cs-fixer"}
+                }
+            },
+            "test": "twig-cs-fixer --help",
+            "tags": ["checkstyle"]
         }
     ]
 }

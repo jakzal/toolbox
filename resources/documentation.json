@@ -11,7 +11,7 @@
                     "sig": "8AC0BAA79732DD42"
                 }
             },
-            "test": "phpDocumentor list",
+            "test": "phpDocumentor --help",
             "tags": ["featured", "documentation"]
         },
         {

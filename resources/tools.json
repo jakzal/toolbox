@@ -19,10 +19,9 @@
       "summary": "Static Analysis Tool",
       "website": "https://github.com/phan/phan",
       "command": {
-        "phive-install": {
-          "alias": "phan",
-          "bin": "%target-dir%/phan",
-          "sig": "8101FB57DD8130F0"
+        "phar-download": {
+          "phar": "https://github.com/phan/phan/releases/latest/download/phan.phar",
+          "bin": "%target-dir%/phan"
         }
       },
       "test": "phan -v",

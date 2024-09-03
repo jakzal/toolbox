@@ -75,7 +75,7 @@ jobs:
                     coverage: none
                     extensions: bz2, zip
 
-            -   uses: actions/download-artifact@v1
+            -   uses: actions/download-artifact@v4.1.7
                 with:
                     name: toolbox.phar
                     path: build/
@@ -90,11 +90,11 @@ jobs:
         needs: tests
         if: github.event_name == 'release'
         steps:
-            -   uses: actions/download-artifact@v1
+            -   uses: actions/download-artifact@v4.1.7
                 with:
                     name: toolbox.phar
                     path: .
-            -   uses: actions/download-artifact@v1
+            -   uses: actions/download-artifact@v4.1.7
                 with:
                     name: devkit.phar
                     path: .

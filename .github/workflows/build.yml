@@ -43,13 +43,13 @@ jobs:
             -   if: matrix.deps == 'low'
                 run: make update-min test-min
 
-            -   uses: actions/upload-artifact@v1
+            -   uses: actions/upload-artifact@v4
                 if: matrix.php == '8.1' && matrix.deps == 'high'
                 with:
                     name: toolbox.phar
                     path: build/toolbox.phar
 
-            -   uses: actions/upload-artifact@v1
+            -   uses: actions/upload-artifact@v4
                 if: matrix.php == '8.1' && matrix.deps == 'high'
                 with:
                     name: devkit.phar
@@ -75,7 +75,7 @@ jobs:
                     coverage: none
                     extensions: bz2, zip
 
-            -   uses: actions/download-artifact@v1
+            -   uses: actions/download-artifact@v4
                 with:
                     name: toolbox.phar
                     path: build/
@@ -90,11 +90,11 @@ jobs:
         needs: tests
         if: github.event_name == 'release'
         steps:
-            -   uses: actions/download-artifact@v1
+            -   uses: actions/download-artifact@v4
                 with:
                     name: toolbox.phar
                     path: .
-            -   uses: actions/download-artifact@v1
+            -   uses: actions/download-artifact@v4
                 with:
                     name: devkit.phar
                     path: .

@@ -79,13 +79,14 @@ $application->add(
                 return strcasecmp($left->name(), $right->name());
             })->reduce('', function ($acc, Tool $tool) {
 
-                return $acc . sprintf('| %s | [%s](%s) | %s | %s | %s |',
+                return $acc . sprintf('| %s | [%s](%s) | %s | %s | %s | %s |',
                         $tool->name(),
                         $tool->summary(),
                         $tool->website(),
                         in_array('exclude-php:8.1', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
                         in_array('exclude-php:8.2', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
-                        in_array('exclude-php:8.3', $tool->tags(), true) ? '&#x274C;' : '&#x2705;'
+                        in_array('exclude-php:8.3', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
+                        in_array('exclude-php:8.4', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
                     ) . PHP_EOL;
             });
 

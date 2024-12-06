@@ -41,8 +41,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | pest | [The elegant PHP Testing Framework](https://github.com/pestphp/pest) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phan | [Static Analysis Tool](https://github.com/phan/phan) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phive | [PHAR Installation and Verification Environment](https://phar.io/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| php-coupling-detector | [Detects code coupling issues](https://akeneo.github.io/php-coupling-detector/) | &#x274C; | &#x274C; | &#x274C; | &#x2705; |
-| php-cs-fixer | [PHP Coding Standards Fixer](http://cs.symfony.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| php-cs-fixer | [PHP Coding Standards Fixer](http://cs.symfony.com/) | &#x2705; | &#x2705; | &#x2705; | &#x274C; |
 | php-fuzzer | [A fuzzer for PHP, which can be used to find bugs in libraries by feeding them 'random' inputs](https://github.com/nikic/PHP-Fuzzer) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | php-semver-checker | [Suggests a next version according to semantic versioning](https://github.com/tomzx/php-semver-checker) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpa | [Checks for weak assumptions](https://github.com/rskuipers/php-assumptions) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -65,7 +64,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpmd | [A tool for finding problems in PHP code](https://phpmd.org/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpmetrics | [Static Analysis Tool](http://www.phpmetrics.org/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpmnd | [Helps to detect magic numbers](https://github.com/povils/phpmnd) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| phpspec | [SpecBDD Framework](http://www.phpspec.net/) | &#x2705; | &#x274C; | &#x274C; | &#x2705; |
+| phpspec | [SpecBDD Framework](http://www.phpspec.net/) | &#x2705; | &#x274C; | &#x274C; | &#x274C; |
 | phpstan | [Static Analysis Tool](https://github.com/phpstan/phpstan) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-banned-code | [PHPStan rules for detecting calls to specific functions you don't want in your project](https://github.com/ekino/phpstan-banned-code) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-beberlei-assert | [PHPStan extension for beberlei/assert](https://github.com/phpstan/phpstan-beberlei-assert) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -89,7 +88,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | psalm-plugin-symfony | [Psalm Plugin for Symfony](https://github.com/psalm/psalm-plugin-symfony) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | psecio-parse | [Scans code for potential security-related issues](https://github.com/psecio/parse) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | rector | [Tool for instant code upgrades and refactoring](https://github.com/rectorphp/rector) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| roave-backward-compatibility-check | [Tool to compare two revisions of a class API to check for BC breaks](https://github.com/Roave/BackwardCompatibilityCheck) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| roave-backward-compatibility-check | [Tool to compare two revisions of a class API to check for BC breaks](https://github.com/Roave/BackwardCompatibilityCheck) | &#x2705; | &#x2705; | &#x2705; | &#x274C; |
 | simple-phpunit | [Provides utilities to report legacy tests and usage of deprecated code](https://symfony.com/doc/current/components/phpunit_bridge.html) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | twig-cs-fixer | [Automatically corrects twig files following the official coding standard rules](https://github.com/VincentLanglet/Twig-CS-Fixer) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | twig-lint | [Standalone cli twig 1.X linter](https://github.com/asm89/twig-lint) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

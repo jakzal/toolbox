@@ -79,11 +79,7 @@ jobs:
                 with:
                     name: toolbox.phar
                     path: build/
-            -   name: Check GitHub API rate limits
-                run: curl -I https://api.github.com
             -   run: make test-integration
-                env:
-                    GITHUB_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
     publish-phars:
         runs-on: ubuntu-latest

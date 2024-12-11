@@ -105,6 +105,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | composer-normalize | [Composer plugin to normalize composer.json files](https://github.com/localheinz/composer-normalize) |
 | design-pattern | [Detects design patterns](https://github.com/Halleck45/DesignPatternDetector) |
 | parallel-lint | [Checks PHP file syntax](https://github.com/JakubOnderka/PHP-Parallel-Lint) |
+| php-coupling-detector | [Detects code coupling issues](https://akeneo.github.io/php-coupling-detector/) |
 | php-formatter | [Custom coding standards fixer](https://github.com/mmoreram/php-formatter) |
 | phpcf | [Finds usage of deprecated features](http://wapmorgan.github.io/PhpCodeFixer/) |
 | phpda | [Generates dependency graphs](https://mamuz.github.io/PhpDependencyAnalysis/) |

@@ -40,7 +40,7 @@
                 }
             },
             "test": "php-cs-fixer list",
-            "tags": ["featured", "checkstyle"]
+            "tags": ["featured", "checkstyle", "exclude-php:8.4"]
         },
         {
             "name": "phpcbf",

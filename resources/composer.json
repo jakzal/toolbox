@@ -56,6 +56,21 @@
             },
             "test": "composer-require-checker-3 -V",
             "tags": ["composer"]
+        },
+        {
+            "name": "cyclonedx-php-composer",
+            "summary": "Composer plugin to create Software-Bill-of-Materials (SBOM) in CycloneDX format",
+            "website": "https://github.com/CycloneDX/cyclonedx-php-composer",
+            "command": {
+                "sh": {
+                    "command": "composer global config --no-plugins allow-plugins.cyclonedx/cyclonedx-php-composer true"
+                },
+                "composer-global-install": {
+                    "package": "cyclonedx/cyclonedx-php-composer"
+                }
+            },
+            "test": "composer global show cyclonedx/cyclonedx-php-composer",
+            "tags": ["composer"]
         }
     ]
 }

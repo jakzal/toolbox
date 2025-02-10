@@ -124,7 +124,21 @@
                 }
             },
             "test": "phpunit --version",
-            "tags": ["featured", "test", "exclude-php:8.1"]
+            "tags": ["featured", "test", "exclude-php:8.1", "exclude-php:8.2"]
+        },
+        {
+            "name": "phpunit-11",
+            "summary": "The PHP testing framework (11.x version)",
+            "website": "https://phpunit.de/",
+            "command": {
+                "phive-install": {
+                    "alias": "phpunit@^11.0",
+                    "bin": "%target-dir%/phpunit-11",
+                    "sig": "4AA394086372C20A"
+                }
+            },
+            "test": "phpunit-11 --version",
+            "tags": ["test", "exclude-php:8.1"]
         },
         {
             "name": "phpunit-10",
@@ -137,7 +151,7 @@
                     "sig": "4AA394086372C20A"
                 }
             },
-            "test": "phpunit-9 --version",
+            "test": "phpunit-10 --version",
             "tags": ["test"]
         },
         {

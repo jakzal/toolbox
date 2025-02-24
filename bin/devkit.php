@@ -67,7 +67,7 @@ $application->add(
             $this->addOption('readme', null, InputOption::VALUE_REQUIRED, 'Path to the readme file', __DIR__ . '/../README.md');
         }
 
-        protected function execute(InputInterface $input, OutputInterface $output)
+        protected function execute(InputInterface $input, OutputInterface $output): int
         {
             $jsonPath = $input->getOption('tools');
             $readmePath = $input->getOption('readme');
@@ -112,7 +112,7 @@ $application->add(
             $this->addOption('tools', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Path(s) to the list of tools. Can also be set with TOOLBOX_JSON environment variable.', $this->toolsJsonDefault());
         }
 
-        protected function execute(InputInterface $input, OutputInterface $output)
+        protected function execute(InputInterface $input, OutputInterface $output): int
         {
             foreach ($input->getOption('tools') as $jsonPath) {
                 $result = $this->updatePhars($jsonPath, $output);
@@ -199,7 +199,7 @@ $application->add(
             $this->addOption('tools', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Path(s) to the list of tools. Can also be set with TOOLBOX_JSON environment variable.', $this->toolsJsonDefault());
         }
 
-        protected function execute(InputInterface $input, OutputInterface $output)
+        protected function execute(InputInterface $input, OutputInterface $output): int
         {
             $tools = $this->loadTools($input->getOption('tools'), new Filter(['pre-installation'], []));
 

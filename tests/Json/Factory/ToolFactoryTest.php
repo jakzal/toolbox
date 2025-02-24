@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Json\Factory;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Zalas\Toolbox\Json\Factory\ToolFactory;
 use Zalas\Toolbox\Tool\Command;
@@ -195,9 +196,7 @@ class ToolFactoryTest extends TestCase
         ToolFactory::import($this->definition(['command' => []]));
     }
 
-    /**
-     * @dataProvider provideRequiredProperties
-     */
+    #[DataProvider('provideRequiredProperties')]
     public function test_it_complains_if_any_of_required_properties_is_missing(string $property)
     {
         $this->expectException(\InvalidArgumentException::class);

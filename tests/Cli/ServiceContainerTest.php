@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Cli;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -39,9 +40,7 @@ class ServiceContainerTest extends TestCase
         $this->assertFalse($this->container->has('foo'));
     }
 
-    /**
-     * @dataProvider provideApplicationServices
-     */
+    #[DataProvider('provideApplicationServices')]
     public function test_it_creates_application_services(string $serviceId, string $expectedType)
     {
         $this->assertTrue($this->container->has($serviceId));

@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Json\Factory;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Zalas\Toolbox\Json\Factory\ComposerBinPluginCommandFactory;
 use Zalas\Toolbox\Tool\Collection;
@@ -40,9 +41,7 @@ class ComposerBinPluginCommandFactoryTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider provideRequiredProperties
-     */
+    #[DataProvider('provideRequiredProperties')]
     public function test_it_complains_if_any_of_required_properties_is_missing(string $property)
     {
         $this->expectException(\InvalidArgumentException::class);

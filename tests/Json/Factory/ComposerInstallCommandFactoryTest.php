@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Json\Factory;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Zalas\Toolbox\Json\Factory\ComposerInstallCommandFactory;
 use Zalas\Toolbox\Tool\Command\ComposerInstallCommand;
@@ -24,9 +25,7 @@ class ComposerInstallCommandFactoryTest extends TestCase
         $this->assertMatchesRegularExpression('#git checkout '.self::VERSION.'#', (string) $command);
     }
 
-    /**
-     * @dataProvider provideRequiredProperties
-     */
+    #[DataProvider('provideRequiredProperties')]
     public function test_it_complains_if_a_required_property_is_missing(string $property)
     {
         $this->expectException(\InvalidArgumentException::class);
@@ -41,7 +40,7 @@ class ComposerInstallCommandFactoryTest extends TestCase
         ComposerInstallCommandFactory::import($properties);
     }
 
-    public static function provideRequiredProperties()
+    public static function provideRequiredProperties(): \Generator
     {
         yield ['repository'];
         yield ['target-dir'];

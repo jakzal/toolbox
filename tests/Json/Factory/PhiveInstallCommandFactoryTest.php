@@ -2,6 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Json\Factory;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Zalas\Toolbox\Json\Factory\PhiveInstallCommandFactory;
 use Zalas\Toolbox\Tool\Command\PhiveInstallCommand;
@@ -24,9 +25,7 @@ class PhiveInstallCommandFactoryTest extends TestCase
         $this->assertStringNotContainsString('unsigned', (string)$command);
     }
 
-    /**
-     * @dataProvider provideRequiredProperties
-     */
+    #[DataProvider('provideRequiredProperties')]
     public function test_it_complains_if_any_of_required_properties_is_missing(string $property)
     {
         $this->expectException(\InvalidArgumentException::class);

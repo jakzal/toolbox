@@ -34,7 +34,7 @@ final class ListCommand extends Command
         $this->addOption('tag', 't', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to filter by', $this->defaultTag());
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $tools = \call_user_func($this->listTools, new Filter($input->getOption('exclude-tag'), $input->getOption('tag')));
 

@@ -27,7 +27,7 @@ final class Application extends CliApplication
         $this->setCommandLoader($this->createCommandLoader($serviceContainer));
     }
 
-    public function doRun(InputInterface $input, OutputInterface $output)
+    public function doRun(InputInterface $input, OutputInterface $output): int
     {
         $this->serviceContainer->set(InputInterface::class, $input);
         $this->serviceContainer->set(OutputInterface::class, $output);

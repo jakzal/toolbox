@@ -17,8 +17,8 @@ final class InstallCommand extends Command
 
     public const NAME = 'install';
 
-    private $useCase;
-    private $runner;
+    private InstallTools $useCase;
+    private Runner $runner;
 
     public function __construct(InstallTools $useCase, Runner $runner)
     {
@@ -28,7 +28,7 @@ final class InstallCommand extends Command
         $this->runner = $runner;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Installs tools');
         $this->addOption('dry-run', null, InputOption::VALUE_NONE, 'Output the command without executing it');

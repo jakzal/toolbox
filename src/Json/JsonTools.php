@@ -7,7 +7,6 @@ use RuntimeException;
 use Zalas\Toolbox\Json\Factory\ToolFactory;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Filter;
-use Zalas\Toolbox\Tool\Tool;
 use Zalas\Toolbox\Tool\Tools;
 
 final class JsonTools implements Tools
@@ -23,7 +22,8 @@ final class JsonTools implements Tools
     }
 
     /**
-     * @return Collection|Tool[]
+     * @param Filter $filter
+     * @return Collection
      */
     public function all(Filter $filter): Collection
     {

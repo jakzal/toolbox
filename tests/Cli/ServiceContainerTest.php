@@ -18,10 +18,7 @@ use Zalas\Toolbox\Runner\Runner;
 
 class ServiceContainerTest extends TestCase
 {
-    /**
-     * @var ServiceContainer
-     */
-    private $container;
+    private ServiceContainer $container;
 
     protected function setUp(): void
     {
@@ -47,7 +44,7 @@ class ServiceContainerTest extends TestCase
         $this->assertInstanceOf($expectedType, $this->container->get($serviceId));
     }
 
-    public static function provideApplicationServices()
+    public static function provideApplicationServices(): \Generator
     {
         yield [InstallCommand::class, InstallCommand::class];
         yield [ListCommand::class, ListCommand::class];

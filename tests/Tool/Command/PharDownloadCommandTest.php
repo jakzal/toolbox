@@ -11,7 +11,7 @@ class PharDownloadCommandTest extends TestCase
     private const PHAR = 'https://example.com/foo.phar';
     private const BIN = '/usr/local/bin/foo';
 
-    private $command;
+    private PharDownloadCommand $command;
 
     protected function setUp(): void
     {

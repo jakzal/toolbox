@@ -11,15 +11,9 @@ use Zalas\Toolbox\Tool\Command;
 
 class LazyRunnerTest extends TestCase
 {
-    /**
-     * @var LazyRunner
-     */
-    private $lazyRunner;
+    private LazyRunner $lazyRunner;
 
-    /**
-     * @var RunnerFactory|MockObject
-     */
-    private $factory;
+    private RunnerFactory|MockObject $factory;
 
     protected function setUp(): void
     {

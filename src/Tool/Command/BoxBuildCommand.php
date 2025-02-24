@@ -6,11 +6,11 @@ use Zalas\Toolbox\Tool\Command;
 
 final class BoxBuildCommand implements Command
 {
-    private $repository;
-    private $phar;
-    private $bin;
-    private $workDir;
-    private $version;
+    private string $repository;
+    private string $phar;
+    private string $bin;
+    private string $workDir;
+    private ?string $version;
 
     public function __construct(string $repository, string $phar, string $bin, string $workDir, ?string $version = null)
     {

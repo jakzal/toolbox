@@ -13,10 +13,7 @@ class ComposerBinPluginCommandTest extends TestCase
     private const PACKAGE = 'phpstan/phpstan';
     private const NAMESPACE = 'tools';
 
-    /**
-     * @var ComposerBinPluginCommand
-     */
-    private $command;
+    private ComposerBinPluginCommand $command;
 
     protected function setUp(): void
     {

@@ -8,8 +8,8 @@ use Zalas\Toolbox\Tool\Command;
 
 final class MultiStepCommand implements Command
 {
-    private $commands;
-    private $glue;
+    private Collection $commands;
+    private mixed $glue;
 
     public function __construct(Collection $commands, $glue = ' && ')
     {

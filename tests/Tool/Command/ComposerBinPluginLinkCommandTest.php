@@ -12,10 +12,7 @@ final class ComposerBinPluginLinkCommandTest extends TestCase
     private const TARGET = '/tools/churn';
     private const NAMESPACE = 'tools';
 
-    /**
-     * @var ComposerBinPluginLinkCommand
-     */
-    private $command;
+    private ComposerBinPluginLinkCommand $command;
 
     protected function setUp(): void
     {

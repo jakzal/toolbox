@@ -6,8 +6,8 @@ use Zalas\Toolbox\Tool\Command;
 
 final class ParametrisedRunner implements Runner
 {
-    private $decoratedRunner;
-    private $parameters;
+    private Runner $decoratedRunner;
+    private array $parameters;
 
     public function __construct(Runner $decoratedRunner, array $parameters)
     {
@@ -18,8 +18,8 @@ final class ParametrisedRunner implements Runner
     public function run(Command $command): int
     {
         return $this->decoratedRunner->run(new class($command, $this->parameters) implements Command {
-            private $command;
-            private $parameters;
+            private Command $command;
+            private array $parameters;
 
             public function __construct(Command $command, array $parameters)
             {

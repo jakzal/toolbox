@@ -19,34 +19,20 @@ use Zalas\Toolbox\Tool\Command;
 
 class RunnerFactoryTest extends TestCase
 {
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
+    private RunnerFactory $runnerFactory;
 
-    /**
-     * @var RunnerFactory
-     */
-    private $runnerFactory;
+    private InputInterface $input;
 
-    /**
-     * @var InputInterface
-     */
-    private $input;
-
-    /**
-     * @var OutputInterface|MockObject
-     */
-    private $output;
+    private OutputInterface|MockObject $output;
 
     protected function setUp(): void
     {
         $this->input = $this->givenInput([]);
         $this->output = $this->createMock(OutputInterface::class);
 
-        $this->container = new class([ InputInterface::class => &$this->input, OutputInterface::class => &$this->output, ]) implements ContainerInterface {
+        $container = new class([ InputInterface::class => &$this->input, OutputInterface::class => &$this->output, ]) implements ContainerInterface {
 
-            public function __construct(private array $services)
+            public function __construct(private readonly array $services)
             {
             }
 
@@ -61,7 +47,7 @@ class RunnerFactoryTest extends TestCase
             }
         };
 
-        $this->runnerFactory = new RunnerFactory($this->container);
+        $this->runnerFactory = new RunnerFactory($container);
     }
 
     public function test_it_creates_the_passthru_runner_by_default()

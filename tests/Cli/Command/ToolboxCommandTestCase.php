@@ -12,10 +12,7 @@ abstract class ToolboxCommandTestCase extends TestCase
 {
     protected const CLI_COMMAND_NAME = '';
 
-    /**
-     * @var Application
-     */
-    protected $app;
+    protected Application $app;
 
     protected function setUp(): void
     {
@@ -48,7 +45,7 @@ abstract class ToolboxCommandTestCase extends TestCase
     private function createServiceContainer(): ServiceContainer
     {
         return new class($this->getContainerTestDoubles()) extends ServiceContainer {
-            private $services;
+            private array $services;
 
             public function __construct(array $services)
             {

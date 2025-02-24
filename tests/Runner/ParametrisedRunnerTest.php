@@ -11,15 +11,9 @@ use Zalas\Toolbox\Tool\Command\ShCommand;
 
 class ParametrisedRunnerTest extends TestCase
 {
-    /**
-     * @var ParametrisedRunner
-     */
-    private $runner;
+    private ParametrisedRunner $runner;
 
-    /**
-     * @var Runner|Stub
-     */
-    private $decoratedRunner;
+    private Runner|Stub $decoratedRunner;
 
     protected function setUp(): void
     {

@@ -6,7 +6,7 @@ use Zalas\Toolbox\Tool\Command;
 
 final class ShCommand implements Command
 {
-    private $command;
+    private string $command;
 
     public function __construct(string $command)
     {

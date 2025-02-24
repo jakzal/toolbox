@@ -17,8 +17,8 @@ final class TestCommand extends Command
 
     public const NAME = 'test';
 
-    private $useCase;
-    private $runner;
+    private TestTools $useCase;
+    private Runner $runner;
 
     public function __construct(TestTools $useCase, Runner $runner)
     {
@@ -28,7 +28,7 @@ final class TestCommand extends Command
         $this->runner = $runner;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Runs basic tests to verify tools are installed');
         $this->addOption('dry-run', null, InputOption::VALUE_NONE, 'Output the command without executing it');

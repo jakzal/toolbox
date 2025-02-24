@@ -6,8 +6,8 @@ use Zalas\Toolbox\Tool\Command;
 
 final class TestCommand implements Command
 {
-    private $command;
-    private $name;
+    private string $command;
+    private string $name;
 
     public function __construct(string $command, string $name)
     {

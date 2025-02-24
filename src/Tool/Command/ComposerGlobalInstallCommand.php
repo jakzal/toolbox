@@ -6,7 +6,7 @@ use Zalas\Toolbox\Tool\Command;
 
 final class ComposerGlobalInstallCommand implements Command
 {
-    private $package;
+    private string $package;
 
     public function __construct(string $package)
     {

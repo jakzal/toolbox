@@ -10,10 +10,7 @@ class ComposerGlobalInstallCommandTest extends TestCase
 {
     private const PACKAGE = 'phan/phan';
 
-    /**
-     * @var ComposerGlobalInstallCommand
-     */
-    private $command;
+    private ComposerGlobalInstallCommand $command;
 
     protected function setUp(): void
     {

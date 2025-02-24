@@ -17,12 +17,10 @@
         {
             "name": "deptrac",
             "summary": "Enforces dependency rules between software layers",
-            "website": "https://github.com/qossmic/deptrac",
+            "website": "https://github.com/deptrac/deptrac",
             "command": {
-                "phive-install": {
-                    "alias": "deptrac",
-                    "bin": "%target-dir%/deptrac",
-                    "sig": "D4F06E96D1BD037B"
+                "composer-global-install": {
+                    "package": "deptrac/deptrac"
                 }
             },
             "test": "deptrac list",

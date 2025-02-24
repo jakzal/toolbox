@@ -8,8 +8,8 @@
         "psr/container": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^11.5.9",
-        "zalas/phpunit-globals": "^3.5",
+        "phpunit/phpunit": "^11.5.9 || ^12.0",
+        "zalas/phpunit-globals": "^4.0",
         "infection/infection": "^0.29",
         "deptrac/deptrac": "^3.0"
     },

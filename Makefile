@@ -133,8 +133,7 @@ tools/php-cs-fixer:
 	curl -Ls https://cs.symfony.com/download/php-cs-fixer-v3.phar -o tools/php-cs-fixer && chmod +x tools/php-cs-fixer
 
 tools/deptrac:
-	curl -Ls https://github.com/qossmic/deptrac/releases/download/1.0.2/deptrac.phar -o tools/deptrac && chmod +x tools/deptrac
-	curl -Ls https://github.com/qossmic/deptrac/releases/download/1.0.2/deptrac.phar.asc -o tools/deptrac.asc
+	ln -sf ../vendor/bin/deptrac tools/deptrac
 
 tools/box:
 	curl -Ls https://github.com/humbug/box/releases/download/4.2.0/box.phar -o tools/box && chmod +x tools/box

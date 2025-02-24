@@ -39,7 +39,7 @@
                 }
             },
             "test": "infection --version",
-            "tags": ["featured", "test", "exclude-php:8.1"]
+            "tags": ["featured", "test"]
         },
         {
             "name": "paratest",
@@ -84,7 +84,7 @@
                 }
             },
             "test": "phpcov -v",
-            "tags": ["test", "exclude-php:8.1"]
+            "tags": ["test"]
         },
         {
             "name": "php-fuzzer",
@@ -124,7 +124,7 @@
                 }
             },
             "test": "phpunit --version",
-            "tags": ["featured", "test", "exclude-php:8.1", "exclude-php:8.2"]
+            "tags": ["featured", "test", "exclude-php:8.2"]
         },
         {
             "name": "phpunit-11",
@@ -138,7 +138,7 @@
                 }
             },
             "test": "phpunit-11 --version",
-            "tags": ["test", "exclude-php:8.1"]
+            "tags": ["test"]
         },
         {
             "name": "phpunit-10",

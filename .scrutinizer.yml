@@ -3,7 +3,7 @@ inherit: true
 build:
   environment:
     php:
-      version: 8.2
+      version: 8.4
     variables:
       XDEBUG_MODE: coverage
   tests:

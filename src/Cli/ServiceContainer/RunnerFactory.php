@@ -4,6 +4,7 @@ namespace Zalas\Toolbox\Cli\ServiceContainer;
 
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Cli\Runner\DryRunner;
@@ -13,13 +14,17 @@ use Zalas\Toolbox\Runner\Runner;
 
 class RunnerFactory
 {
-    private $container;
+    private ContainerInterface $container;
 
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     public function createRunner(): Runner
     {
         $runner = $this->createRealRunner();
@@ -32,9 +37,10 @@ class RunnerFactory
     }
 
     /**
-     * @return DryRunner|PassthruRunner
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
-    private function createRealRunner()
+    private function createRealRunner(): DryRunner|PassthruRunner
     {
         if ($this->container->get(InputInterface::class)->getOption('dry-run')) {
             return new DryRunner($this->container->get(OutputInterface::class));
@@ -43,6 +49,10 @@ class RunnerFactory
         return new PassthruRunner();
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     private function parameters(): array
     {
         if ($targetDir = $this->targetDir()) {
@@ -52,6 +62,10 @@ class RunnerFactory
         return [];
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     private function targetDir(): ?string
     {
         if (!$this->container->get(InputInterface::class)->hasOption('target-dir')) {

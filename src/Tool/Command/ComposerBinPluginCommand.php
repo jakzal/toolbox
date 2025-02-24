@@ -7,11 +7,11 @@ use Zalas\Toolbox\Tool\Command;
 
 final class ComposerBinPluginCommand implements Command
 {
-    private $package;
+    private string $package;
 
-    private $namespace;
+    private string $namespace;
 
-    private $links;
+    private Collection $links;
 
     public function __construct(string $package, string $namespace, Collection $links)
     {

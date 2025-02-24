@@ -6,9 +6,9 @@ use Zalas\Toolbox\Tool\Command;
 
 final class ComposerInstallCommand implements Command
 {
-    private $repository;
-    private $targetDir;
-    private $version;
+    private string $repository;
+    private string $targetDir;
+    private ?string $version;
 
     public function __construct(string $repository, string $targetDir, ?string $version = null)
     {

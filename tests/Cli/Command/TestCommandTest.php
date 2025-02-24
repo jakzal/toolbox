@@ -15,15 +15,9 @@ class TestCommandTest extends ToolboxCommandTestCase
 {
     protected const CLI_COMMAND_NAME = TestCommand::NAME;
 
-    /**
-     * @var Runner|Stub
-     */
-    private $runner;
+    private Runner|Stub $runner;
 
-    /**
-     * @var TestTools|Stub
-     */
-    private $useCase;
+    private TestTools|Stub $useCase;
 
     protected function setUp(): void
     {

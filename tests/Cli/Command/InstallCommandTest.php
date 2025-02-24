@@ -15,15 +15,9 @@ class InstallCommandTest extends ToolboxCommandTestCase
 {
     protected const CLI_COMMAND_NAME = InstallCommand::NAME;
 
-    /**
-     * @var Runner|Stub
-     */
-    private $runner;
+    private Runner|Stub $runner;
 
-    /**
-     * @var InstallTools|Stub
-     */
-    private $useCase;
+    private InstallTools|Stub $useCase;
 
     protected function setUp(): void
     {

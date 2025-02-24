@@ -6,9 +6,9 @@ use Zalas\Toolbox\Tool\Command;
 
 final class ComposerBinPluginLinkCommand implements Command
 {
-    private $source;
-    private $target;
-    private $namespace;
+    private string $source;
+    private string $target;
+    private string $namespace;
 
     public function __construct(string $source, string $target, string $namespace)
     {

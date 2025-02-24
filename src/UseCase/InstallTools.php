@@ -24,7 +24,7 @@ class InstallTools
 {
     public const PRE_INSTALLATION_TAG = 'pre-installation';
 
-    private $tools;
+    private Tools $tools;
 
     public function __construct(Tools $tools)
     {
@@ -60,7 +60,7 @@ class InstallTools
         };
     }
 
-    private function installationCommands(Collection $tools)
+    private function installationCommands(Collection $tools): Collection
     {
         return $tools->filter(function (Tool $tool) {
             return \in_array(self::PRE_INSTALLATION_TAG, $tool->tags());
@@ -69,7 +69,7 @@ class InstallTools
         });
     }
 
-    private function toolCommands(Collection $tools)
+    private function toolCommands(Collection $tools): Collection
     {
         return $tools->filter(function (Tool $tool) {
             return !\in_array(self::PRE_INSTALLATION_TAG, $tool->tags());

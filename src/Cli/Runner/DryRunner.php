@@ -8,7 +8,7 @@ use Zalas\Toolbox\Tool\Command;
 
 final class DryRunner implements Runner
 {
-    private $output;
+    private OutputInterface $output;
 
     public function __construct(OutputInterface $output)
     {

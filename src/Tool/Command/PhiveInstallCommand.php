@@ -6,9 +6,9 @@ use Zalas\Toolbox\Tool\Command;
 
 final class PhiveInstallCommand implements Command
 {
-    private $alias;
-    private $bin;
-    private $sig;
+    private string $alias;
+    private string $bin;
+    private ?string $sig;
 
     public function __construct(string $alias, string $bin, ?string $sig = null)
     {

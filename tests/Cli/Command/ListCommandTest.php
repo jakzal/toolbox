@@ -16,10 +16,7 @@ class ListCommandTest extends ToolboxCommandTestCase
 {
     protected const CLI_COMMAND_NAME = ListCommand::NAME;
 
-    /**
-     * @var ListTools|Stub
-     */
-    private $useCase;
+    private ListTools|Stub $useCase;
 
     protected function setUp(): void
     {

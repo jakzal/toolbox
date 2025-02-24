@@ -22,7 +22,7 @@ use Zalas\Toolbox\UseCase\TestTools;
 
 class ServiceContainer implements ContainerInterface
 {
-    private $services = [
+    private array $services = [
         InstallCommand::class => 'createInstallCommand',
         ListCommand::class => 'createListCommand',
         TestCommand::class => 'createTestCommand',
@@ -33,7 +33,7 @@ class ServiceContainer implements ContainerInterface
         Tools::class => 'createTools',
     ];
 
-    private $runtimeServices = [
+    private array $runtimeServices = [
         InputInterface::class => null,
         OutputInterface::class => null,
     ];
@@ -73,16 +73,28 @@ class ServiceContainer implements ContainerInterface
         return isset($this->services[$id]) || isset($this->runtimeServices[$id]);
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     private function createInstallCommand(): InstallCommand
     {
         return new InstallCommand($this->get(InstallTools::class), $this->get(Runner::class));
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     private function createListCommand(): ListCommand
     {
         return new ListCommand($this->get(ListTools::class));
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     private function createTestCommand(): TestCommand
     {
         return new TestCommand($this->get(TestTools::class), $this->get(Runner::class));
@@ -93,16 +105,28 @@ class ServiceContainer implements ContainerInterface
         return new LazyRunner(new RunnerFactory($this));
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     private function createInstallToolsUseCase(): InstallTools
     {
         return new InstallTools($this->get(Tools::class));
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     private function createListToolsUseCase(): ListTools
     {
         return new ListTools($this->get(Tools::class));
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     private function createTestToolsUseCase(): TestTools
     {
         return new TestTools($this->get(Tools::class));

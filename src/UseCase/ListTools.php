@@ -4,24 +4,17 @@ namespace Zalas\Toolbox\UseCase;
 
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Filter;
-use Zalas\Toolbox\Tool\Tool;
 use Zalas\Toolbox\Tool\Tools;
 
 class ListTools
 {
-    /**
-     * @var Tools
-     */
-    private $tools;
+    private Tools $tools;
 
     public function __construct(Tools $tools)
     {
         $this->tools = $tools;
     }
 
-    /**
-     * @return Collection|Tool[]
-     */
     public function __invoke(Filter $filter): Collection
     {
         return $this->tools->all($filter);

@@ -4,7 +4,7 @@ namespace Zalas\Toolbox\Json\Factory;
 
 final class Assert
 {
-    public static function requireFields(array $fields, array $data, string $type)
+    public static function requireFields(array $fields, array $data, string $type): void
     {
         $missingFields = \array_filter($fields, function (string $field) use ($data) {
             return !isset($data[$field]);

@@ -2,7 +2,6 @@
 
 namespace Zalas\Toolbox\Tests\Cli;
 
-use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application as CliApplication;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -18,20 +17,12 @@ class ApplicationTest extends TestCase
 {
     private const VERSION = 'test';
 
-    /**
-     * @var Application
-     */
-    private $app;
-
-    /**
-     * @var ServiceContainer|Stub
-     */
-    private $container;
+    private Application $app;
 
     protected function setUp(): void
     {
-        $this->container = $this->createStub(ServiceContainer::class);
-        $this->app = new Application(self::VERSION, $this->container);
+        $container = $this->createStub(ServiceContainer::class);
+        $this->app = new Application(self::VERSION, $container);
     }
 
     public function test_it_is_a_cli_application()

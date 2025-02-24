@@ -10,7 +10,7 @@ use Zalas\Toolbox\Tool\Tools;
 
 class TestTools
 {
-    private $tools;
+    private Tools $tools;
 
     public function __construct(Tools $tools)
     {

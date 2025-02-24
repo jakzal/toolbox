@@ -16,7 +16,7 @@ use Zalas\Toolbox\Cli\Command\TestCommand;
 
 final class Application extends CliApplication
 {
-    private $serviceContainer;
+    private ServiceContainer $serviceContainer;
 
     public function __construct(string $version, ServiceContainer $serviceContainer)
     {
@@ -27,6 +27,9 @@ final class Application extends CliApplication
         $this->setCommandLoader($this->createCommandLoader($serviceContainer));
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function doRun(InputInterface $input, OutputInterface $output): int
     {
         $this->serviceContainer->set(InputInterface::class, $input);

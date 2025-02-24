@@ -8,10 +8,7 @@ use Traversable;
 
 class Collection implements IteratorAggregate, Countable
 {
-    /**
-     * @var array
-     */
-    private $elements;
+    private array $elements;
 
     private function __construct(array $elements)
     {

@@ -8,7 +8,7 @@ use Zalas\Toolbox\Tool\Command;
 
 final class OptimisedComposerBinPluginCommand implements Command
 {
-    private $commands;
+    private Collection $commands;
 
     public function __construct(Collection $commands)
     {

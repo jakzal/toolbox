@@ -12,7 +12,7 @@ class PhiveInstallCommandTest extends TestCase
     private const BIN = '/usr/local/bin/foo';
     private const SIG = '0000000000000000';
 
-    private $command;
+    private PhiveInstallCommand $command;
 
     protected function setUp(): void
     {

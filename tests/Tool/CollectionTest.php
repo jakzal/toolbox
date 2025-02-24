@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Zalas\Toolbox\Tool;
+namespace Zalas\Toolbox\Tests\Tool;
 
 use PHPUnit\Framework\TestCase;
+use Zalas\Toolbox\Tool\Collection;
 
 class CollectionTest extends TestCase
 {
@@ -92,8 +93,8 @@ class CollectionTest extends TestCase
         $this->assertIterates(['ab', 'c', 'aa', 'aaa'], $c, 'The original collection is not modified');
     }
 
-    private function assertIterates(array $elements, Collection $c)
+    private function assertIterates(array $elements, Collection $c, string $message = ''): void
     {
-        $this->assertSame($elements, \iterator_to_array($c));
+        $this->assertSame($elements, \iterator_to_array($c), $message);
     }
 }

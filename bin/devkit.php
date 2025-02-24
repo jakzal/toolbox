@@ -42,9 +42,6 @@ trait Tools
             ];
     }
 
-    /**
-     * @return Collection|Tool[]
-     */
     private function loadTools($jsonPath, ?Filter $filter = null): Collection
     {
         return (new JsonTools(function () use ($jsonPath) {
@@ -59,7 +56,7 @@ $application->add(
     {
         use Tools;
 
-        protected function configure()
+        protected function configure(): void
         {
             $this->setName('update:readme');
             $this->setDescription('Updates README.md with latest list of available tools');
@@ -105,7 +102,7 @@ $application->add(
     {
         use Tools;
 
-        protected function configure()
+        protected function configure(): void
         {
             $this->setName('update:phars');
             $this->setDescription('Attempts to update phar links to latest versions');
@@ -125,7 +122,7 @@ $application->add(
             return 0;
         }
 
-        private function updatePhars(string $jsonPath, OutputInterface $output)
+        private function updatePhars(string $jsonPath, OutputInterface $output): int
         {
             $phars = $this->findLatestPhars($jsonPath);
 
@@ -192,7 +189,7 @@ $application->add(
     {
         use Tools;
 
-        protected function configure()
+        protected function configure(): void
         {
             $this->setName('generate:html');
             $this->setDescription('Generates an html list of available tools');
@@ -241,10 +238,6 @@ TEMPLATE;
             };
         }
 
-        /**
-         * @param Collection|string[] $toolsHtml
-         * @return string
-         */
         private function renderPage(Collection $toolsHtml): string
         {
             $template = <<<'TEMPLATE'

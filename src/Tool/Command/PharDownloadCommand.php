@@ -6,8 +6,8 @@ use Zalas\Toolbox\Tool\Command;
 
 final class PharDownloadCommand implements Command
 {
-    private $phar;
-    private $bin;
+    private string $phar;
+    private string $bin;
 
     public function __construct(string $phar, string $bin)
     {

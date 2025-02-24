@@ -4,12 +4,12 @@ namespace Zalas\Toolbox\Tool;
 
 class Tool
 {
-    private $name;
-    private $summary;
-    private $website;
-    private $command;
-    private $testCommand;
-    private $tags;
+    private string $name;
+    private string $summary;
+    private string $website;
+    private Command $command;
+    private Command $testCommand;
+    private array $tags;
 
     public function __construct(string $name, string $summary, string $website, array $tags, Command $command, Command $testCommand)
     {

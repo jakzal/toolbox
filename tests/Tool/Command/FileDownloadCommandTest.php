@@ -11,10 +11,7 @@ class FileDownloadCommandTest extends TestCase
     private const URL = 'https://example.com/file';
     private const FILE = '/usr/local/bin/file.txt';
 
-    /**
-     * @var FileDownloadCommand
-     */
-    private $command;
+    private FileDownloadCommand $command;
 
     protected function setUp(): void
     {

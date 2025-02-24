@@ -11,15 +11,9 @@ use Zalas\Toolbox\Tool\Command;
 
 class DryRunnerTest extends TestCase
 {
-    /**
-     * @var DryRunner
-     */
-    private $runner;
+    private DryRunner $runner;
 
-    /**
-     * @var OutputInterface|MockObject
-     */
-    private $out;
+    private OutputInterface|MockObject $out;
 
     protected function setUp(): void
     {

@@ -23,15 +23,9 @@ use Zalas\Toolbox\UseCase\InstallTools;
 
 class InstallToolsTest extends TestCase
 {
-    /**
-     * @var InstallTools
-     */
-    private $useCase;
+    private InstallTools $useCase;
 
-    /**
-     * @var Tools|Stub
-     */
-    private $tools;
+    private Tools|Stub $tools;
 
     protected function setUp(): void
     {

@@ -18,7 +18,7 @@ final class ListCommand extends Command
 
     public const NAME = 'list-tools';
 
-    private $listTools;
+    private ListTools $listTools;
 
     public function __construct(ListTools $listTools)
     {
@@ -27,7 +27,7 @@ final class ListCommand extends Command
         $this->listTools = $listTools;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Lists available tools');
         $this->addOption('exclude-tag', 'e', InputOption::VALUE_REQUIRED|InputOption::VALUE_IS_ARRAY, 'Tool tags to exclude', $this->defaultExcludeTag());

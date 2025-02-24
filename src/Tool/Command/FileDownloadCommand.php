@@ -6,8 +6,8 @@ use Zalas\Toolbox\Tool\Command;
 
 final class FileDownloadCommand implements Command
 {
-    private $url;
-    private $file;
+    private string $url;
+    private string $file;
 
     public function __construct(string $url, string $file)
     {

@@ -67,6 +67,20 @@
             },
             "test": "twig-linter --help",
             "tags": ["linting"]
+        },
+        {
+            "name": "gherkin-lint-php",
+            "summary": "Gherkin linter for PHP",
+            "website": "https://github.com/dantleech/gherkin-lint-php",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "dantleech/gherkin-lint",
+                    "namespace": "gherkin-lint-php",
+                    "links": {"%target-dir%/gherkinlint": "gherkinlint"}
+                }
+            },
+            "test": "gherkinlint --help",
+            "tags": ["linting"]
         }
     ]
 }

@@ -43,6 +43,20 @@
             },
             "test": "phpmetrics --version",
             "tags": ["featured", "metrics"]
+        },
+        {
+            "name": "lines",
+            "summary": "CLI tool for quick metrics of PHP projects",
+            "website": "https://github.com/tomasVotruba/lines",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "tomasvotruba/lines",
+                    "namespace": "lines",
+                    "links": {"%target-dir%/lines": "lines"}
+                }
+            },
+            "test": "lines list -q",
+            "tags": ["metrics"]
         }
     ]
 }

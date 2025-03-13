@@ -71,6 +71,21 @@
             },
             "test": "composer global show cyclonedx/cyclonedx-php-composer",
             "tags": ["composer"]
+        },
+        {
+            "name": "composer-lock-diff",
+            "summary": "Composer plugin to check what has changed after a composer update",
+            "website": "https://github.com/davidrjonas/composer-lock-diff",
+            "command": {
+                "sh": {
+                    "command": "composer global config --no-plugins allow-plugins.davidrjonas/composer-lock-diff true"
+                },
+                "composer-global-install": {
+                    "package": "davidrjonas/composer-lock-diff"
+                }
+            },
+            "test": "composer global show davidrjonas/composer-lock-diff",
+            "tags": ["composer"]
         }
     ]
 }

@@ -119,19 +119,6 @@
             "tags": ["phpstan"]
         },
         {
-            "name": "phpstan-exception-rules",
-            "summary": "PHPStan rules for checked and unchecked exceptions",
-            "website": "https://github.com/pepakriz/phpstan-exception-rules",
-            "command": {
-                "composer-bin-plugin": {
-                    "package": "pepakriz/phpstan-exception-rules",
-                    "namespace": "phpstan"
-                }
-            },
-            "test": "composer global bin phpstan show pepakriz/phpstan-exception-rules",
-            "tags": ["phpstan"]
-        },
-        {
             "name": "phpat",
             "summary": "Easy to use architecture testing tool",
             "website": "https://github.com/carlosas/phpat",

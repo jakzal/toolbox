@@ -77,14 +77,13 @@
             "summary": "Composer plugin to check what has changed after a composer update",
             "website": "https://github.com/davidrjonas/composer-lock-diff",
             "command": {
-                "sh": {
-                    "command": "composer global config --no-plugins allow-plugins.davidrjonas/composer-lock-diff true"
-                },
-                "composer-global-install": {
-                    "package": "davidrjonas/composer-lock-diff"
+                "composer-bin-plugin": {
+                    "package": "davidrjonas/composer-lock-diff",
+                    "namespace": "composer-lock-diff",
+                    "links": {"%target-dir%/composer-lock-diff": "composer-lock-diff"}
                 }
             },
-            "test": "composer global show davidrjonas/composer-lock-diff",
+            "test": "composer-lock-diff --help",
             "tags": ["composer"]
         }
     ]

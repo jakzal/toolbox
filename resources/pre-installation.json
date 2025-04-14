@@ -18,11 +18,11 @@
       "website": "https://phar.io/",
       "command": {
         "file-download": {
-          "url": "https://github.com/phar-io/phive/releases/download/0.15.3/phive-0.15.3.phar.asc",
+          "url": "https://github.com/phar-io/phive/releases/download/0.16.0/phive-0.16.0.phar.asc",
           "file": "%target-dir%/phive.asc"
         },
         "phar-download": {
-          "phar": "https://github.com/phar-io/phive/releases/download/0.15.3/phive-0.15.3.phar",
+          "phar": "https://github.com/phar-io/phive/releases/download/0.16.0/phive-0.16.0.phar",
           "bin": "%target-dir%/phive"
         },
         "sh": {

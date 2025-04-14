@@ -107,7 +107,6 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | :--- | :------ |
 | analyze | [Visualizes metrics and source code](https://github.com/Qafoo/QualityAnalyzer) |
 | box-legacy | [Legacy version of box](https://box-project.github.io/box2/) |
-| composer-normalize | [Composer plugin to normalize composer.json files](https://github.com/localheinz/composer-normalize) |
 | design-pattern | [Detects design patterns](https://github.com/Halleck45/DesignPatternDetector) |
 | parallel-lint | [Checks PHP file syntax](https://github.com/JakubOnderka/PHP-Parallel-Lint) |
 | php-coupling-detector | [Detects code coupling issues](https://akeneo.github.io/php-coupling-detector/) |

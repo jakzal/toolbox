@@ -69,21 +69,30 @@ $application->add(
             $jsonPath = $input->getOption('tools');
             $readmePath = $input->getOption('readme');
             $tools = $this->loadTools($jsonPath);
+            
+            $composerJson = \Safe\json_decode(file_get_contents(__DIR__ . '/../composer.json'), true);
+            if (!isset($composerJson['require']['php']) || preg_match_all('/~(\d+\.\d+)\.0/', $composerJson['require']['php'], $matches) === 0) {
+                $output->writeln('<error>Invalid or missing PHP version in composer.json</error>');
+                return 1;
+            }
+            $versions = $matches[1];
 
-            $toolsList = '| Name | Description | PHP 8.2 | PHP 8.3 | PHP 8.4 |' . PHP_EOL;
-            $toolsList .= '| :--- | :---------- | :------ | :------ | :------ |' . PHP_EOL;
+            $toolsList = '| Name | Description | '. implode(' ', array_map(fn($v) => sprintf('PHP %s |', $v), $versions))  . PHP_EOL;
+            $toolsList .= '| :--- | :---------- | '. implode(' ', array_fill(0, count($versions), ':------ |')) . PHP_EOL;
             $toolsList .= $tools->sort(function (Tool $left, Tool $right) {
                 return strcasecmp($left->name(), $right->name());
-            })->reduce('', function ($acc, Tool $tool) {
+            })->reduce('', function ($acc, Tool $tool) use ($versions) {
 
-                return $acc . sprintf('| %s | [%s](%s) | %s | %s | %s |',
-                        $tool->name(),
-                        $tool->summary(),
-                        $tool->website(),
-                        in_array('exclude-php:8.2', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
-                        in_array('exclude-php:8.3', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
-                        in_array('exclude-php:8.4', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
-                    ) . PHP_EOL;
+                $args = [
+                    $tool->name(),
+                    $tool->summary(),
+                    $tool->website(),
+                ];
+                foreach ($versions as $version) {
+                    $args[] = in_array(sprintf('exclude-php:%s', $version), $tool->tags(), true) ? '&#x274C;' : '&#x2705;';
+                }
+                
+                return $acc . vsprintf('| %s | [%s](%s) | '. implode(' ', array_fill(0, count($versions), '%s |')), $args) . PHP_EOL;
             });
 
             $readme = file_get_contents($readmePath);

@@ -17,6 +17,6 @@ final class TestCommand implements Command
 
     public function __toString(): string
     {
-        return \sprintf('((%s > /dev/null && echo -e "\e[0;32m✔\e[0m︎%s") || (echo -e "\e[1;31m✘\e[0m%s" && false))', $this->command, $this->name, $this->name);
+        return \sprintf('(output=$(%s 2>&1) && echo -e "\e[0;32m✔\e[0m︎%s" || (echo -e "\e[1;31m✘\e[0m%s\n$output" && false))', $this->command, $this->name, $this->name);
     }
 }

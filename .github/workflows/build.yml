@@ -98,11 +98,11 @@ jobs:
                     name: devkit.phar
                     path: .
             -   name: Upload toolbox.phar
-                run: gh release upload ${{ github.event.release.tag_name }} toolbox.phar --clobber
+                run: gh release upload ${{ github.event.release.tag_name }} toolbox.phar --clobber --repo github.com/jakzal/toolbox
                 env:
                     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
             -   name: Upload devkit.phar
-                run: gh release upload ${{ github.event.release.tag_name }} devkit.phar --clobber
+                run: gh release upload ${{ github.event.release.tag_name }} devkit.phar --clobber --repo github.com/jakzal/toolbox
                 env:
                     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 

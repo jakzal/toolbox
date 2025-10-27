@@ -98,20 +98,11 @@ jobs:
                     name: devkit.phar
                     path: .
             -   name: Upload toolbox.phar
-                uses: actions/upload-release-asset@v1
+                run: gh release upload ${{ github.event.release.tag_name }} toolbox.phar --clobber
                 env:
                     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-                with:
-                    upload_url: ${{ github.event.release.upload_url }}
-                    asset_path: ./toolbox.phar
-                    asset_name: toolbox.phar
-                    asset_content_type: application/zip
             -   name: Upload devkit.phar
-                uses: actions/upload-release-asset@v1
+                run: gh release upload ${{ github.event.release.tag_name }} devkit.phar --clobber
                 env:
                     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-                with:
-                    upload_url: ${{ github.event.release.upload_url }}
-                    asset_path: ./devkit.phar
-                    asset_name: devkit.phar
-                    asset_content_type: application/zip
+

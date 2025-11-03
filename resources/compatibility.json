@@ -6,7 +6,7 @@
             "website": "https://github.com/tomzx/php-semver-checker",
             "command": {
                 "phar-download": {
-                    "phar": "https://github.com/tomzx/php-semver-checker/releases/latest/download/php-semver-checker.phar",
+                    "phar": "https://github.com/tomzx/php-semver-checker/releases/download/v0.17.0/php-semver-checker.phar",
                     "bin": "%target-dir%/php-semver-checker"
                 }
             },

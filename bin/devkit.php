@@ -8,8 +8,10 @@ use Symfony\Component\Console\Command\Command as CliCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Yaml\Yaml;
 use Zalas\Toolbox\Runner\PassthruRunner;
 use Zalas\Toolbox\Json\JsonTools;
+use Zalas\Toolbox\Json\PhpVersionsParser;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\ShCommand;
@@ -70,19 +72,30 @@ $application->add(
             $readmePath = $input->getOption('readme');
             $tools = $this->loadTools($jsonPath);
 
-            $toolsList = '| Name | Description | PHP 8.2 | PHP 8.3 | PHP 8.4 |' . PHP_EOL;
-            $toolsList .= '| :--- | :---------- | :------ | :------ | :------ |' . PHP_EOL;
+            $versions = PhpVersionsParser::fromComposerFile(__DIR__ . '/../composer.json');
+
+            // Generate dynamic table header
+            $headers = array_merge(['Name', 'Description'], array_map(fn($v) => "PHP $v", $versions));
+            $toolsList = '| ' . implode(' | ', $headers) . ' |' . PHP_EOL;
+
+            // Generate dynamic separator
+            $separators = array_merge([':---', ':----------'], array_fill(0, count($versions), ':------'));
+            $toolsList .= '| ' . implode(' | ', $separators) . ' |' . PHP_EOL;
+
+            // Generate tool rows with dynamic version checks
             $toolsList .= $tools->sort(function (Tool $left, Tool $right) {
                 return strcasecmp($left->name(), $right->name());
-            })->reduce('', function ($acc, Tool $tool) {
+            })->reduce('', function ($acc, Tool $tool) use ($versions) {
+                $versionCols = array_map(function($version) use ($tool) {
+                    $tag = "exclude-php:{$version}";
+                    return in_array($tag, $tool->tags(), true) ? '&#x274C;' : '&#x2705;';
+                }, $versions);
 
-                return $acc . sprintf('| %s | [%s](%s) | %s | %s | %s |',
+                return $acc . sprintf('| %s | [%s](%s) | %s |',
                         $tool->name(),
                         $tool->summary(),
                         $tool->website(),
-                        in_array('exclude-php:8.2', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
-                        in_array('exclude-php:8.3', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
-                        in_array('exclude-php:8.4', $tool->tags(), true) ? '&#x274C;' : '&#x2705;',
+                        implode(' | ', $versionCols)
                     ) . PHP_EOL;
             });
 
@@ -293,6 +306,104 @@ TEMPLATE;
                 )),
                 '%GENERATED_ON%' => (new \DateTime('now', new \DateTimeZone('UTC')))->format('r'),
             ]);
+        }
+    }
+);
+$application->add(
+    new class extends CliCommand
+    {
+        protected function configure(): void
+        {
+            $this->setName('update:workflows');
+            $this->setDescription('Updates GitHub Actions workflows with PHP versions from composer.json');
+        }
+
+        protected function execute(InputInterface $input, OutputInterface $output): int
+        {
+            $composerPath = __DIR__ . '/../composer.json';
+            $versions = PhpVersionsParser::fromComposerFile($composerPath);
+            $minVersion = PhpVersionsParser::getMinimumVersion($versions);
+
+            // Update build.yml
+            $this->updateWorkflowFile(
+                __DIR__ . '/../.github/workflows/build.yml',
+                $versions,
+                $minVersion,
+                $output
+            );
+
+            // Update publish-website.yml
+            $this->updateWorkflowFile(
+                __DIR__ . '/../.github/workflows/publish-website.yml',
+                $versions,
+                $minVersion,
+                $output,
+                true // only update minimum version
+            );
+
+            // Update update-phars.yml
+            $this->updateWorkflowFile(
+                __DIR__ . '/../.github/workflows/update-phars.yml',
+                $versions,
+                $minVersion,
+                $output,
+                true // only update minimum version
+            );
+
+            $output->writeln('<info>All workflows updated successfully.</info>');
+
+            return 0;
+        }
+
+        private function updateWorkflowFile(
+            string $filePath,
+            array $versions,
+            string $minVersion,
+            OutputInterface $output,
+            bool $onlyMinVersion = false
+        ): void {
+            if (!\file_exists($filePath)) {
+                $output->writeln(sprintf('<error>Workflow file not found: %s</error>', $filePath));
+                return;
+            }
+
+            $content = Yaml::parseFile($filePath);
+
+            if ($onlyMinVersion) {
+                // For publish-website.yml and update-phars.yml, only update php-version
+                if (isset($content['jobs'])) {
+                    foreach ($content['jobs'] as &$job) {
+                        if (isset($job['steps'])) {
+                            foreach ($job['steps'] as &$step) {
+                                if (isset($step['uses']) && str_contains($step['uses'], 'setup-php@')) {
+                                    if (isset($step['with']['php-version'])) {
+                                        $step['with']['php-version'] = $minVersion;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                // For build.yml, update matrix strategy
+                if (isset($content['jobs'])) {
+                    foreach ($content['jobs'] as &$job) {
+                        if (isset($job['strategy']['matrix']['php'])) {
+                            $job['strategy']['matrix']['php'] = $versions;
+                        }
+                        if (isset($job['strategy']['matrix']['include'])) {
+                            foreach ($job['strategy']['matrix']['include'] as &$include) {
+                                if (isset($include['php'])) {
+                                    $include['php'] = $minVersion;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            \file_put_contents($filePath, Yaml::dump($content, 10, 4, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK));
+            $output->writeln(sprintf('<info>Updated %s</info>', basename($filePath)));
         }
     }
 );

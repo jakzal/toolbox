@@ -85,6 +85,20 @@
             },
             "test": "composer-lock-diff --help",
             "tags": ["composer"]
+        },
+        {
+            "name": "jack",
+            "summary": "Helps to upgrade outdated Composer dependencies incrementally",
+            "website": "https://github.com/rectorphp/jack",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "rector/jack",
+                    "namespace": "jack",
+                    "links": {"%target-dir%/jack": "jack"}
+                }
+            },
+            "test": "jack --version",
+            "tags": ["composer"]
         }
     ]
 }

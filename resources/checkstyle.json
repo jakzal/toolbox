@@ -45,7 +45,7 @@
         {
             "name": "phpcbf",
             "summary": "Automatically corrects coding standard violations",
-            "website": "https://github.com/squizlabs/PHP_CodeSniffer",
+            "website": "https://github.com/PHPCSStandards/PHP_CodeSniffer",
             "command": {
                 "phive-install": {
                     "alias": "phpcbf",

@@ -70,7 +70,12 @@ $application->add(
             $readmePath = $input->getOption('readme');
             $tools = $this->loadTools($jsonPath);
             
-            $versions = ['8.2', '8.3', '8.4'];
+            $composerJson = \Safe\json_decode(file_get_contents(__DIR__ . '/../composer.json'), true);
+            if (!isset($composerJson['require']['php']) || preg_match_all('/~(\d+\.\d+)\.0/', $composerJson['require']['php'], $matches) === 0) {
+                $output->writeln('<error>Invalid or missing PHP version in composer.json</error>');
+                return 1;
+            }
+            $versions = $matches[1];
 
             $toolsList = '| Name | Description | '. implode(' ', array_map(fn($v) => sprintf('PHP %s |', $v), $versions))  . PHP_EOL;
             $toolsList .= '| :--- | :---------- | '. implode(' ', array_fill(0, count($versions), ':------ |')) . PHP_EOL;

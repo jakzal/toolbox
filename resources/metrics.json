@@ -55,7 +55,7 @@
                     "links": {"%target-dir%/lines": "lines"}
                 }
             },
-            "test": "lines list -q",
+            "test": "lines --version",
             "tags": ["metrics"]
         }
     ]

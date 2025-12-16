@@ -6,12 +6,12 @@
             "website": "https://github.com/tomzx/php-semver-checker",
             "command": {
                 "phar-download": {
-                    "phar": "http://psvc.coreteks.org/php-semver-checker.phar",
+                    "phar": "https://github.com/tomzx/php-semver-checker/releases/download/v0.17.0/php-semver-checker.phar",
                     "bin": "%target-dir%/php-semver-checker"
                 }
             },
             "test": "php-semver-checker list",
-            "tags": ["compatibility", "exclude-php:8.2", "exclude-php:8.3", "exclude-php:8.4"]
+            "tags": ["compatibility"]
         },
         {
             "name": "roave-backward-compatibility-check",
@@ -28,7 +28,7 @@
                 }
             },
             "test": "roave-backward-compatibility-check --version",
-            "tags": ["compatibility", "exclude-php:8.4"]
+            "tags": ["compatibility"]
         }
     ]
 }

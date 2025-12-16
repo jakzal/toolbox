@@ -56,23 +56,6 @@
             "tags": ["test"]
         },
         {
-            "name": "pest",
-            "summary": "The elegant PHP Testing Framework",
-            "website": "https://github.com/pestphp/pest",
-            "command": {
-                "sh": {
-                  "command": "composer global bin pest config allow-plugins.pestphp/pest-plugin true"
-                },
-                "composer-bin-plugin": {
-                    "package": "pestphp/pest",
-                    "namespace": "pest",
-                    "links": {"%target-dir%/pest": "pest"}
-                }
-            },
-            "test": "pest --version",
-            "tags": ["test"]
-        },
-        {
             "name": "phpcov",
             "summary": "a command-line frontend for the PHP_CodeCoverage library",
             "website": "https://github.com/sebastianbergmann/phpcov",
@@ -110,7 +93,7 @@
                 }
             },
             "test": "phpspec --version",
-            "tags": ["exclude-php:8.4", "featured", "test"]
+            "tags": ["featured", "test"]
         },
         {
             "name": "phpunit",

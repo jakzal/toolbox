@@ -3,7 +3,7 @@
     {
       "name": "phpcs",
       "summary": "Detects coding standard violations",
-      "website": "https://github.com/squizlabs/PHP_CodeSniffer",
+      "website": "https://github.com/PHPCSStandards/PHP_CodeSniffer",
       "command": {
         "composer-bin-plugin": {
           "package": "squizlabs/php_codesniffer",
@@ -17,7 +17,7 @@
     {
       "name": "phpcodesniffer-composer-install",
       "summary": "Easy installation of PHP_CodeSniffer coding standards (rulesets).",
-      "website": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer",
+      "website": "https://github.com/PHPCSStandards/composer-installer",
       "command": {
         "sh": {
           "command": "composer global bin phpcs config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true"

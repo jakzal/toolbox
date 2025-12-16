@@ -10,8 +10,8 @@
     "require-dev": {
         "phpunit/phpunit": "^11.5.9 || ^12.0",
         "zalas/phpunit-globals": "^4.0",
-        "infection/infection": "^0.29",
-        "deptrac/deptrac": "^3.0"
+        "infection/infection": "^0.31",
+        "deptrac/deptrac": "^4.0"
     },
     "autoload": {
         "psr-4": {

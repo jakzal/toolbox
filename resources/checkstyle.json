@@ -68,7 +68,7 @@
                 }
             },
             "test": "twigcs --help",
-            "tags": ["checkstyle"]
+            "tags": ["checkstyle", "exclude-php:8.5"]
         },
         {
             "name": "twig-cs-fixer",

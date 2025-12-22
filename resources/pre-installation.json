@@ -60,20 +60,6 @@
       },
       "test": "box list",
       "tags": ["pre-installation"]
-    },
-    {
-      "name": "box-3",
-      "summary": "Fast, zero config application bundler with PHARs",
-      "website": "https://github.com/humbug/box",
-      "command": {
-        "phive-install": {
-          "alias": "humbug/box:^3.16",
-          "bin": "%target-dir%/box-3",
-          "sig": "2DF45277AEF09A2F"
-        }
-      },
-      "test": "box-3 list",
-      "tags": ["exclude-php:8.2", "pre-installation"]
     }
   ]
 }

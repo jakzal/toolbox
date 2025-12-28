@@ -92,12 +92,12 @@
             "website": "https://github.com/rectorphp/jack",
             "command": {
                 "composer-bin-plugin": {
-                    "package": "rector/jack",
+                    "package": "rector/jack:0.4.0",
                     "namespace": "jack",
                     "links": {"%target-dir%/jack": "jack"}
                 }
             },
-            "test": "jack --version",
+            "test": "jack help",
             "tags": ["composer"]
         }
     ]

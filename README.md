@@ -19,7 +19,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | behat | [Helps to test business expectations](http://behat.org/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | box | [Fast, zero config application bundler with PHARs](https://github.com/humbug/box) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | churn | [Discovers good candidates for refactoring](https://github.com/bmitch/churn-php) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| codeception | [Codeception is a BDD-styled PHP testing framework](https://codeception.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| codeception | [Codeception is a BDD-styled PHP testing framework](https://codeception.com/) | &#x2705; | &#x2705; | &#x2705; | &#x274C; |
 | composer | [Dependency Manager for PHP](https://getcomposer.org/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | composer-bin-plugin | [Composer plugin to install bin vendors in isolated locations](https://github.com/bamarni/composer-bin-plugin) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | composer-lock-diff | [Composer plugin to check what has changed after a composer update](https://github.com/davidrjonas/composer-lock-diff) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -68,7 +68,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpmd | [A tool for finding problems in PHP code](https://phpmd.org/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpmetrics | [Static Analysis Tool](http://www.phpmetrics.org/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpmnd | [Helps to detect magic numbers](https://github.com/povils/phpmnd) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| phpspec | [SpecBDD Framework](http://www.phpspec.net/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| phpspec | [SpecBDD Framework](http://www.phpspec.net/) | &#x2705; | &#x2705; | &#x2705; | &#x274C; |
 | phpstan | [Static Analysis Tool](https://github.com/phpstan/phpstan) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-banned-code | [PHPStan rules for detecting calls to specific functions you don't want in your project](https://github.com/ekino/phpstan-banned-code) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-beberlei-assert | [PHPStan extension for beberlei/assert](https://github.com/phpstan/phpstan-beberlei-assert) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -83,6 +83,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpunit | [The PHP testing framework](https://phpunit.de/) | &#x274C; | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-10 | [The PHP testing framework (10.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-11 | [The PHP testing framework (11.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| phpunit-12 | [The PHP testing framework (12.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-8 | [The PHP testing framework (8.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-9 | [The PHP testing framework (9.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | pint | [Opinionated PHP code style fixer for Laravel](https://github.com/laravel/pint) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

@@ -107,7 +107,21 @@
                 }
             },
             "test": "phpunit --version",
-            "tags": ["featured", "test", "exclude-php:8.2"]
+            "tags": ["featured", "test", "exclude-php:8.2", "exclude-php:8.3"]
+        },
+        {
+            "name": "phpunit-12",
+            "summary": "The PHP testing framework (12.x version)",
+            "website": "https://phpunit.de/",
+            "command": {
+                "phive-install": {
+                    "alias": "phpunit@^12.0",
+                    "bin": "%target-dir%/phpunit-12",
+                    "sig": "4AA394086372C20A"
+                }
+            },
+            "test": "phpunit-12 --version",
+            "tags": ["test", "exclude-php:8.2"]
         },
         {
             "name": "phpunit-11",

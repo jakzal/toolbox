@@ -24,7 +24,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | composer-bin-plugin | [Composer plugin to install bin vendors in isolated locations](https://github.com/bamarni/composer-bin-plugin) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | composer-lock-diff | [Composer plugin to check what has changed after a composer update](https://github.com/davidrjonas/composer-lock-diff) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | composer-normalize | [Composer plugin to normalize composer.json files](https://github.com/ergebnis/composer-normalize) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| composer-require-checker | [Verify that no unknown symbols are used in the sources of a package.](https://github.com/maglnet/ComposerRequireChecker) | &#x274C; | &#x2705; | &#x2705; | &#x2705; |
+| composer-require-checker | [Verify that no unknown symbols are used in the sources of a package.](https://github.com/maglnet/ComposerRequireChecker) | &#x274C; | &#x274C; | &#x2705; | &#x2705; |
 | composer-require-checker-3 | [Verify that no unknown symbols are used in the sources of a package.](https://github.com/maglnet/ComposerRequireChecker) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | composer-unused | [Show unused packages by scanning your code](https://github.com/icanhazstring/composer-unused) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | cyclonedx-php-composer | [Composer plugin to create Software-Bill-of-Materials (SBOM) in CycloneDX format](https://github.com/CycloneDX/cyclonedx-php-composer) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -80,10 +80,10 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpstan-strict-rules | [Extra strict and opinionated rules for PHPStan](https://github.com/phpstan/phpstan-strict-rules) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-symfony | [Symfony extension for PHPStan](https://github.com/phpstan/phpstan-symfony) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpstan-webmozart-assert | [PHPStan extension for webmozart/assert](https://github.com/phpstan/phpstan-webmozart-assert) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| phpunit | [The PHP testing framework](https://phpunit.de/) | &#x274C; | &#x2705; | &#x2705; | &#x2705; |
+| phpunit | [The PHP testing framework](https://phpunit.de/) | &#x274C; | &#x274C; | &#x2705; | &#x2705; |
 | phpunit-10 | [The PHP testing framework (10.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-11 | [The PHP testing framework (11.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| phpunit-12 | [The PHP testing framework (12.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| phpunit-12 | [The PHP testing framework (12.x version)](https://phpunit.de/) | &#x274C; | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-8 | [The PHP testing framework (8.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | phpunit-9 | [The PHP testing framework (9.x version)](https://phpunit.de/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | pint | [Opinionated PHP code style fixer for Laravel](https://github.com/laravel/pint) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

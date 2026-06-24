@@ -19,9 +19,10 @@
       "summary": "Static Analysis Tool",
       "website": "https://github.com/phan/phan",
       "command": {
-        "phar-download": {
-          "phar": "https://github.com/phan/phan/releases/latest/download/phan.phar",
-          "bin": "%target-dir%/phan"
+        "composer-bin-plugin": {
+          "package": "phan/phan",
+          "namespace": "phan",
+          "links": {"%target-dir%/phan": "phan"}
         }
       },
       "test": "phan -v",

@@ -70,7 +70,7 @@ $application->add(
             $readmePath = $input->getOption('readme');
             $tools = $this->loadTools($jsonPath);
 
-            $versions = ['8.2', '8.3', '8.4', '8.5'];
+            $versions = ['8.3', '8.4', '8.5'];
 
             $toolsList = '| Name | Description | '. implode(' ', array_map(fn($v) => sprintf('PHP %s |', $v), $versions))  . PHP_EOL;
             $toolsList .= '| :--- | :---------- | '. implode(' ', array_fill(0, count($versions), ':------ |')) . PHP_EOL;

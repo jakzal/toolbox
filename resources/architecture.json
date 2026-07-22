@@ -23,7 +23,7 @@
                     "package": "deptrac/deptrac"
                 }
             },
-            "test": "deptrac list",
+            "test": "deptrac --version",
             "tags": ["featured", "architecture"]
         },
         {

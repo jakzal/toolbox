@@ -27,7 +27,7 @@ jobs:
                         deps: low
 
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v5
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
@@ -43,13 +43,13 @@ jobs:
             -   if: matrix.deps == 'low'
                 run: make update-min test-min
 
-            -   uses: actions/upload-artifact@v4
+            -   uses: actions/upload-artifact@v6
                 if: matrix.php == '8.3' && matrix.deps == 'high'
                 with:
                     name: toolbox.phar
                     path: build/toolbox.phar
 
-            -   uses: actions/upload-artifact@v4
+            -   uses: actions/upload-artifact@v6
                 if: matrix.php == '8.3' && matrix.deps == 'high'
                 with:
                     name: devkit.phar
@@ -64,7 +64,7 @@ jobs:
                 php: [8.3, 8.4, 8.5]
 
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v5
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
@@ -75,7 +75,7 @@ jobs:
                     coverage: none
                     extensions: bz2, zip
 
-            -   uses: actions/download-artifact@v4
+            -   uses: actions/download-artifact@v7
                 with:
                     name: toolbox.phar
                     path: build/
@@ -89,11 +89,11 @@ jobs:
         needs: tests
         if: github.event_name == 'release'
         steps:
-            -   uses: actions/download-artifact@v4
+            -   uses: actions/download-artifact@v7
                 with:
                     name: toolbox.phar
                     path: .
-            -   uses: actions/download-artifact@v4
+            -   uses: actions/download-artifact@v7
                 with:
                     name: devkit.phar
                     path: .

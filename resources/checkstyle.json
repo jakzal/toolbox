@@ -61,14 +61,14 @@
             "summary": "The missing checkstyle for twig!",
             "website": "https://github.com/friendsoftwig/twigcs",
             "command": {
-                "phive-install": {
-                    "alias": "friendsoftwig/twigcs",
-                    "bin": "%target-dir%/twigcs",
-                    "sig": "C00543248C87FB13"
+                "composer-bin-plugin": {
+                    "package": "friendsoftwig/twigcs",
+                    "namespace": "twigcs",
+                    "links": {"%target-dir%/twigcs": "twigcs"}
                 }
             },
             "test": "twigcs --help",
-            "tags": ["checkstyle", "exclude-php:8.5"]
+            "tags": ["checkstyle"]
         },
         {
             "name": "twig-cs-fixer",

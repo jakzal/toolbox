@@ -25,7 +25,7 @@
                 }
             },
             "test": "codeception --version",
-            "tags": ["test", "exclude-php:8.5"]
+            "tags": ["test"]
         },
         {
             "name": "infection",

@@ -19,9 +19,10 @@
             "summary": "Codeception is a BDD-styled PHP testing framework",
             "website": "https://codeception.com/",
             "command": {
-                "phar-download": {
-                    "phar": "https://codeception.com/codecept.phar",
-                    "bin": "%target-dir%/codeception"
+                "composer-bin-plugin": {
+                    "package": "codeception/codeception",
+                    "namespace": "codeception",
+                    "links": {"%target-dir%/codeception": "codecept"}
                 }
             },
             "test": "codeception --version",

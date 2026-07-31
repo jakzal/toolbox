@@ -97,7 +97,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | twig-cs-fixer | [Automatically corrects twig files following the official coding standard rules](https://github.com/VincentLanglet/Twig-CS-Fixer) | &#x2705; | &#x2705; | &#x2705; |
 | twig-lint | [Standalone cli twig 1.X linter](https://github.com/asm89/twig-lint) | &#x2705; | &#x2705; | &#x2705; |
 | twig-linter | [Standalone cli twig 3.X linter](https://github.com/sserbin/twig-linter) | &#x2705; | &#x2705; | &#x2705; |
-| twigcs | [The missing checkstyle for twig!](https://github.com/friendsoftwig/twigcs) | &#x2705; | &#x2705; | &#x274C; |
+| twigcs | [The missing checkstyle for twig!](https://github.com/friendsoftwig/twigcs) | &#x2705; | &#x2705; | &#x2705; |
 | yaml-lint | [Compact command line utility for checking YAML file syntax](https://github.com/j13k/yaml-lint) | &#x2705; | &#x2705; | &#x2705; |
 
 ### Removed tools

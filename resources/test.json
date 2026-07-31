@@ -19,13 +19,14 @@
             "summary": "Codeception is a BDD-styled PHP testing framework",
             "website": "https://codeception.com/",
             "command": {
-                "phar-download": {
-                    "phar": "https://codeception.com/codecept.phar",
-                    "bin": "%target-dir%/codeception"
+                "composer-bin-plugin": {
+                    "package": "codeception/codeception",
+                    "namespace": "codeception",
+                    "links": {"%target-dir%/codeception": "codecept"}
                 }
             },
             "test": "codeception --version",
-            "tags": ["test", "exclude-php:8.5"]
+            "tags": ["test"]
         },
         {
             "name": "infection",
@@ -93,7 +94,7 @@
                 }
             },
             "test": "phpspec --version",
-            "tags": ["featured", "test", "exclude-php:8.5"]
+            "tags": ["featured", "test"]
         },
         {
             "name": "phpunit",

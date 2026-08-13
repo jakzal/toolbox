@@ -164,12 +164,12 @@ class InstallToolsTest extends TestCase
     public function test_it_includes_file_download_commands()
     {
         $this->givenTools(Collection::create([
-            $this->tool(new FileDownloadCommand('https://github.com/fabpot/local-php-security-checker/releases/download/v1.0.0/local-php-security-checker_1.0.0_linux_amd64', '/tools/security-checker')),
+            $this->tool(new FileDownloadCommand('https://example.com/tool-v1.0.0.phar', '/tools/tool')),
         ]));
 
         $command = $this->useCase->__invoke($this->filter());
 
-        $this->assertMatchesRegularExpression('#curl[^&]*?local-php-security-checker_1.0.0_linux_amd64#', (string)$command);
+        $this->assertMatchesRegularExpression('#curl[^&]*?tool-v1.0.0.phar#', (string)$command);
     }
 
     private function filter(): Filter

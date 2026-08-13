@@ -56,7 +56,8 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | phpcbf | [Automatically corrects coding standard violations](https://github.com/PHPCSStandards/PHP_CodeSniffer) | &#x2705; | &#x2705; | &#x2705; |
 | phpcodesniffer-composer-install | [Easy installation of PHP_CodeSniffer coding standards (rulesets).](https://github.com/PHPCSStandards/composer-installer) | &#x2705; | &#x2705; | &#x2705; |
 | phpcov | [a command-line frontend for the PHP_CodeCoverage library](https://github.com/sebastianbergmann/phpcov) | &#x274C; | &#x2705; | &#x2705; |
-| phpcpd | [Copy/Paste Detector](https://github.com/sebastianbergmann/phpcpd) | &#x2705; | &#x2705; | &#x2705; |
+| phpcpd | [Copy/Paste Detector](https://github.com/systemsdk/phpcpd) | &#x274C; | &#x2705; | &#x2705; |
+| phpcpd-next | [Copy/Paste Detector (next generation)](https://github.com/phpcpd-next/phpcpd) | &#x274C; | &#x274C; | &#x2705; |
 | phpcs | [Detects coding standard violations](https://github.com/PHPCSStandards/PHP_CodeSniffer) | &#x2705; | &#x2705; | &#x2705; |
 | phpcs-security-audit | [Finds vulnerabilities and weaknesses related to security in PHP code](https://github.com/FloeDesignTechnologies/phpcs-security-audit) | &#x2705; | &#x2705; | &#x2705; |
 | phpdd | [Finds usage of deprecated features](http://wapmorgan.github.io/PhpDeprecationDetector) | &#x2705; | &#x2705; | &#x2705; |
@@ -113,6 +114,7 @@ It has been extracted as a separate project to make maintenance easier and enabl
 | php-coupling-detector | [Detects code coupling issues](https://akeneo.github.io/php-coupling-detector/) |
 | php-formatter | [Custom coding standards fixer](https://github.com/mmoreram/php-formatter) |
 | phpcf | [Finds usage of deprecated features](http://wapmorgan.github.io/PhpCodeFixer/) |
+| phpcpd | [Copy/Paste Detector](https://github.com/sebastianbergmann/phpcpd) |
 | phpda | [Generates dependency graphs](https://mamuz.github.io/PhpDependencyAnalysis/) |
 | phpdoc-to-typehint | [Automatically adds type hints and return types based on PHPDocs](https://github.com/dunglas/phpdoc-to-typehint) |
 | phpstan-exception-rules | [PHPStan rules for checked and unchecked exceptions](https://github.com/pepakriz/phpstan-exception-rules) |

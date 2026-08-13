@@ -72,16 +72,30 @@
     {
       "name": "phpcpd",
       "summary": "Copy/Paste Detector",
-      "website": "https://github.com/sebastianbergmann/phpcpd",
+      "website": "https://github.com/systemsdk/phpcpd",
       "command": {
-        "phive-install": {
-          "alias": "phpcpd",
-          "bin": "%target-dir%/phpcpd",
-          "sig": "4AA394086372C20A"
+        "composer-bin-plugin": {
+          "package": "systemsdk/phpcpd",
+          "namespace": "phpcpd",
+          "links": {"%target-dir%/phpcpd": "phpcpd"}
         }
       },
       "test": "phpcpd -v",
-      "tags": ["featured"]
+      "tags": ["featured", "exclude-php:8.3"]
+    },
+    {
+      "name": "phpcpd-next",
+      "summary": "Copy/Paste Detector (next generation)",
+      "website": "https://github.com/phpcpd-next/phpcpd",
+      "command": {
+        "composer-bin-plugin": {
+          "package": "phpcpd-next/phpcpd",
+          "namespace": "phpcpd-next",
+          "links": {"%target-dir%/phpcpd-next": "phpcpd"}
+        }
+      },
+      "test": "phpcpd-next -v",
+      "tags": ["exclude-php:8.3", "exclude-php:8.4"]
     },
     {
       "name": "phpmd",

@@ -54,7 +54,7 @@ class LazyRunnerTest extends TestCase
 
     public function givenRunner(Command $command, int $result): Runner
     {
-        $runner = $this->createStub(Runner::class);
+        $runner = $this->createMock(Runner::class);
         $runner->method('run')->with($command)->willReturn($result);
 
         return $runner;

@@ -2,7 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
-use PHPUnit\Framework\MockObject\Stub;
+use PHPUnit\Framework\MockObject\MockObject;
 use Zalas\PHPUnit\Globals\Attribute\Putenv;
 use Zalas\Toolbox\Cli\Command\InstallCommand;
 use Zalas\Toolbox\Runner\Runner;
@@ -15,14 +15,14 @@ class InstallCommandTest extends ToolboxCommandTestCase
 {
     protected const CLI_COMMAND_NAME = InstallCommand::NAME;
 
-    private Runner|Stub $runner;
+    private Runner|MockObject $runner;
 
-    private InstallTools|Stub $useCase;
+    private InstallTools|MockObject $useCase;
 
     protected function setUp(): void
     {
-        $this->runner = $this->createStub(Runner::class);
-        $this->useCase = $this->createStub(InstallTools::class);
+        $this->runner = $this->createMock(Runner::class);
+        $this->useCase = $this->createMock(InstallTools::class);
 
         parent::setUp();
     }

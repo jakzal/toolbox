@@ -2,7 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\UseCase;
 
-use PHPUnit\Framework\MockObject\Stub;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
@@ -25,11 +25,11 @@ class InstallToolsTest extends TestCase
 {
     private InstallTools $useCase;
 
-    private Tools|Stub $tools;
+    private Tools|MockObject $tools;
 
     protected function setUp(): void
     {
-        $this->tools = $this->createStub(Tools::class);
+        $this->tools = $this->createMock(Tools::class);
         $this->useCase = new InstallTools($this->tools);
     }
 

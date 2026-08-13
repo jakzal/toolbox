@@ -35,6 +35,10 @@
             "dev-master": "1.x-dev"
         }
     },
+    "scripts": {
+        "post-install-cmd": "php bin/generate-metadata.php",
+        "post-update-cmd": "php bin/generate-metadata.php"
+    },
     "config": {
         "allow-plugins": {
             "infection/extension-installer": true

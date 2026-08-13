@@ -13,22 +13,6 @@
             },
             "test": "psecio-parse --version",
             "tags": ["security"]
-        },
-        {
-            "name": "local-php-security-checker",
-            "summary": "Checks composer dependencies for known security vulnerabilities",
-            "website": "https://github.com/fabpot/local-php-security-checker",
-            "command": {
-                "file-download": {
-                    "url": "https://github.com/fabpot/local-php-security-checker/releases/download/v2.0.6/local-php-security-checker_2.0.6_linux_amd64",
-                    "file": "%target-dir%/local-php-security-checker"
-                },
-                "sh": {
-                    "command": "chmod +x %target-dir%/local-php-security-checker"
-                }
-            },
-            "test": "local-php-security-checker --help",
-            "tags": ["featured", "security"]
         }
     ]
 }

@@ -2,7 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Runner;
 
-use PHPUnit\Framework\MockObject\Stub;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Zalas\Toolbox\Runner\ParametrisedRunner;
 use Zalas\Toolbox\Runner\Runner;
@@ -13,11 +13,11 @@ class ParametrisedRunnerTest extends TestCase
 {
     private ParametrisedRunner $runner;
 
-    private Runner|Stub $decoratedRunner;
+    private Runner|MockObject $decoratedRunner;
 
     protected function setUp(): void
     {
-        $this->decoratedRunner = $this->createStub(Runner::class);
+        $this->decoratedRunner = $this->createMock(Runner::class);
         $this->runner = new ParametrisedRunner($this->decoratedRunner, ['%foo%' => 'ABC']);
     }
 

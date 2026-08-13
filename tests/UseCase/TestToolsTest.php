@@ -46,7 +46,7 @@ class TestToolsTest extends TestCase
 
     private function tools(array $testCommands, Filter $filter): Tools
     {
-        $tools = $this->createStub(Tools::class);
+        $tools = $this->createMock(Tools::class);
         $tools->method('all')->with($filter)->willReturn(Collection::create(
             \array_map(fn ($command) => $this->tool($command), $testCommands)
         ));

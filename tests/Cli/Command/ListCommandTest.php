@@ -2,7 +2,7 @@
 
 namespace Zalas\Toolbox\Tests\Cli\Command;
 
-use PHPUnit\Framework\MockObject\Stub;
+use PHPUnit\Framework\MockObject\MockObject;
 use Zalas\PHPUnit\Globals\Attribute\Putenv;
 use Zalas\Toolbox\Cli\Command\ListCommand;
 use Zalas\Toolbox\Tool\Collection;
@@ -16,11 +16,11 @@ class ListCommandTest extends ToolboxCommandTestCase
 {
     protected const CLI_COMMAND_NAME = ListCommand::NAME;
 
-    private ListTools|Stub $useCase;
+    private ListTools|MockObject $useCase;
 
     protected function setUp(): void
     {
-        $this->useCase = $this->createStub(ListTools::class);
+        $this->useCase = $this->createMock(ListTools::class);
 
         parent::setUp();
     }

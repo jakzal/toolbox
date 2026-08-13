@@ -44,7 +44,7 @@ class ListToolsTest extends TestCase
 
     private function givenToolsFor(Filter $filter, Collection $tools): Tools
     {
-        $repository = $this->createStub(Tools::class);
+        $repository = $this->createMock(Tools::class);
         $repository->method('all')->with($filter)->willReturn($tools);
 
         return $repository;

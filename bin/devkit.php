@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Zalas\Toolbox\Runner\PassthruRunner;
 use Zalas\Toolbox\Json\JsonTools;
+use Zalas\Toolbox\Json\Metadata;
 use Zalas\Toolbox\Tool\Collection;
 use Zalas\Toolbox\Tool\Command;
 use Zalas\Toolbox\Tool\Command\ShCommand;
@@ -70,7 +71,7 @@ $application->add(
             $readmePath = $input->getOption('readme');
             $tools = $this->loadTools($jsonPath);
 
-            $versions = ['8.3', '8.4', '8.5'];
+            $versions = Metadata::load(__DIR__ . '/..')->phpVersions;
 
             $toolsList = '| Name | Description | '. implode(' ', array_map(fn($v) => sprintf('PHP %s |', $v), $versions))  . PHP_EOL;
             $toolsList .= '| :--- | :---------- | '. implode(' ', array_fill(0, count($versions), ':------ |')) . PHP_EOL;

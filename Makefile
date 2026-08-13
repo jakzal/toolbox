@@ -136,4 +136,4 @@ tools/deptrac:
 	ln -sf ../vendor/bin/deptrac tools/deptrac
 
 tools/box:
-	curl -Ls https://github.com/humbug/box/releases/download/4.2.0/box.phar -o tools/box && chmod +x tools/box
+	curl -Ls https://github.com/box-project/box/releases/download/4.7.0/box.phar -o tools/box && chmod +x tools/box

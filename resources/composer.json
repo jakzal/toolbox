@@ -23,7 +23,7 @@
                 "phive-install": {
                     "alias": "composer-unused",
                     "bin": "%target-dir%/composer-unused",
-                    "sig": "3135AA4CB4F1AB0B"
+                    "sig": "3135AA4CB4F1AB0B,C460D6928DF1F8DE"
                 }
             },
             "test": "composer-unused -V",

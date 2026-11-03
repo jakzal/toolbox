@@ -6,11 +6,11 @@ TOOLBOX_VERSION?=dev
 build: install test
 .PHONY: build
 
-install:
+install: update-devkit-php-versions
 	composer install
 .PHONY: install
 
-update:
+update: update-devkit-php-versions
 	composer update
 .PHONY: update
 
@@ -21,6 +21,12 @@ update-min:
 update-no-dev:
 	composer update --prefer-stable --no-dev
 .PHONY: update-no-dev
+
+update-devkit-php-versions:
+	@VERSIONS=$$(grep '"php":' composer.json | sed 's/.*"php": "//;s/".*//' | tr '|' ' ' | sed 's/[~^>=]*//g;s/  */ /g;s/^ //;s/ $$//' | grep -oE '[0-9]+\.[0-9]+' | sort -uV | awk '{printf "%s'\''%s'\''", (NR>1?", ":""), $$0}'); \
+	sed -i.bak '/updated with: make update-devkit-php-versions/s|\(.*$$versions\) = .*|\1 = ['"$$VERSIONS"']; // updated with: make update-devkit-php-versions|' bin/devkit.php && rm -f bin/devkit.php.bak
+	@echo "Done. Updated PHP versions in bin/devkit.php"
+.PHONY: update-devkit-php-versions
 
 test: vendor cs deptrac phpunit infection
 .PHONY: test

@@ -55,6 +55,57 @@ jobs:
                     name: devkit.phar
                     path: build/devkit.phar
 
+    diagnose:
+        runs-on: ubuntu-latest
+        name: Diagnose
+        needs: [tests, integration-tests]
+        if: >-
+            failure()
+            && (needs.tests.result == 'failure' || needs.integration-tests.result == 'failure')
+            && (startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/master')
+            && github.repository_owner == 'jakzal'
+        permissions:
+            id-token: write
+        env:
+            OPENCODE_VERSION: "2.2.5"
+            OPENCODE_MODEL: opencode/glm-5.3-flash-free
+        steps:
+            -   uses: actions/checkout@v5
+
+            -   name: Fetch logs of failed steps
+                env:
+                    GH_TOKEN: ${{ github.token }}
+                run: gh run view ${{ github.run_id }} --log-failed > failed-debug.log
+
+            -   name: Install opencode
+                run: curl -fsSL https://opencode.ai/install | bash -s -- --version "$OPENCODE_VERSION"
+
+            -   name: Sign in to OpenCode
+                env:
+                    AUDIENCE: https://opencode.ai/console
+                run: |
+                    oidc=$(curl -sSf --oauth2-bearer "$ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+                        "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$AUDIENCE" | jq -r .value)
+                    token=$(curl -sSf https://opencode.ai/console/auth/oauth/token \
+                        -d grant_type=urn:ietf:params:oauth:grant-type:token-exchange \
+                        -d subject_token_type=urn:ietf:params:oauth:token-type:jwt \
+                        -d client_id=sk_9765447d-5143-4acf-a8bd-def4056263da \
+                        -d subject_token="$oidc" | jq -r .access_token)
+                    echo "::add-mask::$token"
+                    echo "OPENCODE_API_KEY=$token" >> "$GITHUB_ENV"
+
+            -   name: Diagnose with opencode
+                if: env.OPENCODE_API_KEY != ''
+                id: diagnose
+                run: |
+                    opencode run --auto -m "$OPENCODE_MODEL" \
+                        --file failed-debug.log \
+                        "$(cat .github/diagnose-prompt.md)" | tee diagnosis.md
+
+            -   name: Annotate Build
+                if: steps.diagnose.outcome == 'success' && hashFiles('diagnosis.md') != ''
+                run: cat diagnosis.md >> "$GITHUB_STEP_SUMMARY"
+
     integration-tests:
         runs-on: ubuntu-latest
         name: Run integration tests

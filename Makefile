@@ -60,6 +60,7 @@ package: tools/box
 	@rm -rf build/phar && mkdir -p build/phar build/phar/bin
 
 	cp -r resources src LICENSE composer.json scoper.inc.php build/phar
+	cp -r bin/generate-metadata.php build/phar/bin/
 	sed -e 's/Application('"'"'dev/Application('"'"'$(TOOLBOX_VERSION)/g' bin/toolbox.php > build/phar/bin/toolbox.php
 
 	cd build/phar && \
@@ -76,6 +77,7 @@ package-devkit: tools/box
 
 	cp -r resources LICENSE composer.json scoper.inc.php build/devkit-phar
 	cp -r src/Json src/Runner src/Tool build/devkit-phar/src
+	cp -r bin/generate-metadata.php build/devkit-phar/bin/
 	sed -e 's/\(Application(.*\)'"'"'dev/\1'"'"'$(TOOLBOX_VERSION)/g' bin/devkit.php > build/devkit-phar/bin/devkit.php
 
 	cd build/devkit-phar && \

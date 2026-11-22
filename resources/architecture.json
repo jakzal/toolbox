@@ -52,6 +52,20 @@
             },
             "test": "phparkitect --version",
             "tags": ["architecture"]
+        },
+        {
+            "name": "structarmed",
+            "summary": "PHP architecture guards with presets and automatic fixes",
+            "website": "https://github.com/boundwize/structarmed",
+            "command": {
+                "composer-bin-plugin": {
+                    "package": "boundwize/structarmed",
+                    "namespace": "structarmed",
+                    "links": {"%target-dir%/structarmed": "structarmed"}
+                }
+            },
+            "test": "structarmed --version",
+            "tags": ["architecture"]
         }
     ]
 }
